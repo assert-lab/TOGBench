@@ -1,0 +1,4 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,reason
+geom_left_775_1,"public static <T extends Throwable> void assertThrowsWithMessage_1_oe(final Executable executable, final Class<T> exceptionType, final String message) { Assertions.assertEquals(message, Assertions.assertThrows(exceptionType, executable).getMessage());
+}
+",GeometryTestUtils::assertThrowsWithMessage_1_oe,,,,,supported_name_but_args_unparsed

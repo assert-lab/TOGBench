@@ -1,154 +1,270 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ------------------------< org.apache.bcel:bcel >------------------------
-[INFO] Building Apache Commons BCEL 6.5.0
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ bcel ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ bcel ---
-[INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ bcel ---
-[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
-[INFO] 
-[INFO] --- build-helper:3.0.0:parse-version (parse-version) @ bcel ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ bcel ---
-[INFO] Executing tasks
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------< [0;36morg.apache.bcel:bcel[0;1m >------------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Commons BCEL 6.5.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-maven-version)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M2:enforce[m [1m(enforce-maven-3)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat-plugin:0.13:check[m [1m(rat-check)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:3.0.0:parse-version[m [1m(parse-version)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.8:run[m [1m(javadoc.resources)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
 
 main:
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ bcel ---
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ bcel ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/bcel-6.5.0-src' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/bcel-6.5.0-src
-[INFO] Storing buildNumber: b467cf2e4e818b0489514385e833d64c6545dc91 at timestamp: 1768576859600
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ bcel ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/bcel-6.5.0-src/src/main/resources
-[INFO] Copying 1 resource to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ bcel ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ bcel ---
-[INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ bcel ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ bcel ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 2 resources
-[INFO] Copying 1 resource to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ bcel ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ bcel ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/bcel-6.5.0-src/target/jacoco.exec
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ bcel ---
-[WARNING] Parameter 'systemProperties' is deprecated: Use systemPropertyVariables instead.
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.463 s - in org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.ElementValueGenTestCase_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.bcel.ElementValueGenTestCase_OE25Dev
-[INFO] Running org.apache.bcel.verifier.VerifierTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.bcel.verifier.VerifierTestCase_OE25Dev
-[INFO] Running org.apache.bcel.CounterVisitorTestCase_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.bcel.CounterVisitorTestCase_OE25Dev
-[INFO] Running org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
-[INFO] Running org.apache.bcel.PLSETestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 s - in org.apache.bcel.PLSETestCase_OE25Dev
-[INFO] Running org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
-[INFO] Running org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.classfile.UtilityTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.InstructionFinderTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.InstructionFinderTest_OE25Dev
-[INFO] Running org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.ClassPathTestCase_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathTestCase_OE25Dev
-[INFO] Running org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.AnonymousClassTestCase_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnonymousClassTestCase_OE25Dev
-[INFO] Running org.apache.bcel.InstructionFinderTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.InstructionFinderTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.TypeTestCase_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.TypeTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
-[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.JdkGenericDumpTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.JdkGenericDumpTestCase_OE25Dev
-[INFO] Running org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] testsetInstructionnotI_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[INFO] Running org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] testsetInstructionNull_1_oe(org.apache.bcel.generic.BranchHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[ERROR] testsetInstructionnotBI_1_oe(org.apache.bcel.generic.BranchHandleTestCase_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: Expected exception: org.apache.bcel.generic.ClassGenException
-
-[INFO] Running org.apache.bcel.generic.MethodGenTestCase_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.bcel.generic.MethodGenTestCase_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   BranchHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   BranchHandleTestCase_OE25Dev.testsetInstructionnotBI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   InstructionHandleTestCase_OE25Dev.testsetInstructionNull_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[ERROR]   InstructionHandleTestCase_OE25Dev.testsetInstructionnotI_1_oe Expected exception: org.apache.bcel.generic.ClassGenException
-[INFO] 
-[ERROR] Tests run: 185, Failures: 4, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.211 s
-[INFO] Finished at: 2026-01-16T10:21:07-05:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project bcel: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/bcel-6.5.0-src/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+     [copy] Copying 1 file to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/apidocs/META-INF
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.5:process[m [1m(process-resource-bundles)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuildnumber-maven-plugin:1.4:create[m [1m(default)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel' && 'git' 'rev-parse' '--verify' 'HEAD'
+[[1;34mINFO[m] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel
+[[1;34mINFO[m] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1771877421624
+[[1;34mINFO[m] Storing buildScmBranch: final-single-assertion-dataset
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/resources
+[[1;34mINFO[m] Copying 1 resource to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 391 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/classes
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/generic/DCONST.java: Some input files use or override a deprecated API that is marked for removal.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/generic/DCONST.java: Recompile with -Xlint:removal for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:4.2.1:manifest[m [1m(bundle-manifest)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32manimal-sniffer-maven-plugin:1.18:check[m [1m(checkAPIcompatibility)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 2 resources
+[[1;34mINFO[m] Copying 1 resource to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 112 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.5:prepare-agent[m [1m(prepare-agent)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.0:test[m [1m(default-test)[m @ [36mbcel[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mInstructionHandleTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.bcel.generic.[1mInstructionHandleTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mTypeTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.bcel.generic.[1mTypeTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mBranchHandleTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.[1mBranchHandleTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mAnnotationGenTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.bcel.generic.[1mAnnotationGenTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mGeneratingAnnotatedClassesTestCase_OE25Dev[m
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting jdk/nio/zipfs/ZipFileSystemProvider.
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:541)
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClass(BuiltinClassLoader.java:621)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:637)
+	at java.base/java.lang.Class.forName(Class.java:547)
+	at java.base/java.util.ServiceLoader.loadProvider(ServiceLoader.java:859)
+	at java.base/java.util.ServiceLoader$ModuleServicesLookupIterator.hasNext(ServiceLoader.java:1084)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393)
+	at java.base/java.nio.file.spi.FileSystemProvider.loadInstalledProviders(FileSystemProvider.java:156)
+	at java.base/java.nio.file.spi.FileSystemProvider$1.run(FileSystemProvider.java:207)
+	at java.base/java.nio.file.spi.FileSystemProvider$1.run(FileSystemProvider.java:204)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at java.base/java.nio.file.spi.FileSystemProvider.installedProviders(FileSystemProvider.java:204)
+	at java.base/java.nio.file.FileSystems.getFileSystem(FileSystems.java:233)
+	at org.apache.bcel.util.ModularRuntimeImage.<init>(ModularRuntimeImage.java:58)
+	at org.apache.bcel.util.ClassPath$JrtModules.<init>(ClassPath.java:356)
+	at org.apache.bcel.util.ClassPath.<init>(ClassPath.java:569)
+	at org.apache.bcel.util.ClassPath.<clinit>(ClassPath.java:443)
+	at org.apache.bcel.util.SyntheticRepository.getInstance(SyntheticRepository.java:44)
+	at org.apache.bcel.AbstractTestCase.getTestClass(AbstractTestCase.java:63)
+	at org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev.testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe(GeneratingAnnotatedClassesTestCase_OE25Dev.java:995)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+Caused by: java.io.IOException: Error while instrumenting jdk/nio/zipfs/ZipFileSystemProvider.
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+	... 49 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 61
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+	... 50 more
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting jdk/nio/zipfs/ZipFileSystem.
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:94)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:541)
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:665)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method)
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3404)
+	at java.base/java.lang.Class.getDeclaredPublicMethods(Class.java:2693)
+	at java.base/java.lang.System$2.getDeclaredPublicMethods(System.java:2276)
+	at java.base/java.util.ServiceLoader.findStaticProviderMethod(ServiceLoader.java:621)
+	at java.base/java.util.ServiceLoader.loadProvider(ServiceLoader.java:885)
+	at java.base/java.util.ServiceLoader$ModuleServicesLookupIterator.hasNext(ServiceLoader.java:1084)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393)
+	at java.base/java.nio.file.spi.FileSystemProvider.loadInstalledProviders(FileSystemProvider.java:156)
+	at java.base/java.nio.file.spi.FileSystemProvider$1.run(FileSystemProvider.java:207)
+	at java.base/java.nio.file.spi.FileSystemProvider$1.run(FileSystemProvider.java:204)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at java.base/java.nio.file.spi.FileSystemProvider.installedProviders(FileSystemProvider.java:204)
+	at java.base/java.nio.file.FileSystems.getFileSystem(FileSystems.java:233)
+	at org.apache.bcel.util.ModularRuntimeImage.<init>(ModularRuntimeImage.java:58)
+	at org.apache.bcel.util.ClassPath$JrtModules.<init>(ClassPath.java:356)
+	at org.apache.bcel.util.ClassPath.<init>(ClassPath.java:569)
+	at org.apache.bcel.util.ClassPath.<clinit>(ClassPath.java:443)
+	at org.apache.bcel.util.SyntheticRepository.getInstance(SyntheticRepository.java:44)
+	at org.apache.bcel.AbstractTestCase.getTestClass(AbstractTestCase.java:63)
+	at org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev.testTransformClassToClassGen_ArrayAndAnnotationTypes_12_oe(GeneratingAnnotatedClassesTestCase_OE25Dev.java:995)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
+Caused by: java.io.IOException: Error while instrumenting jdk/nio/zipfs/ZipFileSystem.
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrumentError(Instrumenter.java:159)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:109)
+	at org.jacoco.agent.rt.internal_43f5073.CoverageTransformer.transform(CoverageTransformer.java:92)
+	... 54 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 61
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:195)
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:176)
+	at org.jacoco.agent.rt.internal_43f5073.asm.ClassReader.<init>(ClassReader.java:162)
+	at org.jacoco.agent.rt.internal_43f5073.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
+	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
+	... 55 more
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m40[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.apache.bcel.generic.[1mGeneratingAnnotatedClassesTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mMethodGenTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m20[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.bcel.generic.[1mMethodGenTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.generic.[1mFieldAnnotationsTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.bcel.generic.[1mFieldAnnotationsTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mEnclosingMethodAttributeTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.bcel.[1mEnclosingMethodAttributeTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mAnonymousClassTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.[1mAnonymousClassTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mAnnotationAccessFlagTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.[1mAnnotationAccessFlagTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mPLSETestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.[1mPLSETestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mElementValueGenTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.[1mElementValueGenTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mEnumAccessFlagTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.[1mEnumAccessFlagTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.classfile.[1mUtilityTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m13[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.bcel.classfile.[1mUtilityTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.classfile.[1mConstantPoolTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.classfile.[1mConstantPoolTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mClassPathRepositoryTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.bcel.util.[1mClassPathRepositoryTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mBCELifierTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.bcel.util.[1mBCELifierTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mLruCacheClassPathRepositoryTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.bcel.util.[1mLruCacheClassPathRepositoryTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mClass2HTMLTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.[1mClass2HTMLTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mInstructionFinderTest_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.bcel.util.[1mInstructionFinderTest_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mClassPathTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.util.[1mClassPathTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.util.[1mModularRuntimeImageTestCase_OE25Dev[m
+[[1;34mINFO[m] [1mTests run: [0;1m0[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.bcel.util.[1mModularRuntimeImageTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mCounterVisitorTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m37[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.[1mCounterVisitorTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mAnnotationDefaultAttributeTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.[1mAnnotationDefaultAttributeTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.[1mInstructionFinderTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.[1mInstructionFinderTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.verifier.[1mVerifierReturnTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.bcel.verifier.[1mVerifierReturnTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.verifier.[1mVerifierTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.verifier.[1mVerifierTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.verifier.[1mVerifierInvokeTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.bcel.verifier.[1mVerifierInvokeTestCase_OE25Dev[m
+[[1;34mINFO[m] Running org.apache.bcel.verifier.[1mVerifierArrayAccessTestCase_OE25Dev[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.verifier.[1mVerifierArrayAccessTestCase_OE25Dev[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 202, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  4.094 s
+[[1;34mINFO[m] Finished at: 2026-02-23T14:10:25-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

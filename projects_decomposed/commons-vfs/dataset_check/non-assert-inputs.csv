@@ -1,0 +1,58 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+vfs_left_337_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        try (final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"")) {
+            assert fileObject.getContent().getSize() > 0;
+}
+}
+",HttpProviderTestCase::ignoreTestHttp405_1_oe,org.apache.commons.vfs2.FileContent,getSize(),"/**
+     * Gets the size of the file, in bytes.
+     *
+     * @return The size of the file, in bytes.
+     * @throws FileSystemException If the file does not exist, or is being written to, or on error determining the size.
+     */",long getSize() throws FileSystemException;
+vfs_left_337_2,"public void ignoreTestHttp405_2_oe() throws FileSystemException {
+        try (final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"")) {
+            // removed other assertion
+            assert !fileObject.getContent().isEmpty();
+}
+}
+",HttpProviderTestCase::ignoreTestHttp405_2_oe,org.apache.commons.vfs2.FileContent,isEmpty(),"/**
+     * Checks if the receiver is empty.
+     *
+     * @return true if the receiver is empty, false otherwise.
+     * @throws FileSystemException If the file does not exist, or is being written to, or on error determining the size.
+     * @since 2.5.0
+     */","default boolean isEmpty() throws FileSystemException {
+        return getSize() <= 0;
+    }"
+vfs_left_343_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        @SuppressWarnings(""resource"") // getManager() returns a global.
+        final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http4://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"");
+        assert !fileObject.getContent().isEmpty();
+}
+",Http4ProviderTestCase::ignoreTestHttp405_1_oe,org.apache.commons.vfs2.FileContent,isEmpty(),"/**
+     * Checks if the receiver is empty.
+     *
+     * @return true if the receiver is empty, false otherwise.
+     * @throws FileSystemException If the file does not exist, or is being written to, or on error determining the size.
+     * @since 2.5.0
+     */","default boolean isEmpty() throws FileSystemException {
+        return getSize() <= 0;
+    }"
+vfs_left_439_1,"public void ignoreTestHttp405_1_oe() throws FileSystemException {
+        final FileObject fileObject = VFS.getManager()
+                .resolveFile(""http5://www.w3schools.com/webservices/tempconvert.asmx?action=WSDL"");
+        assert !fileObject.getContent().isEmpty();
+}
+",Http5ProviderTestCase::ignoreTestHttp405_1_oe,org.apache.commons.vfs2.FileContent,isEmpty(),"/**
+     * Checks if the receiver is empty.
+     *
+     * @return true if the receiver is empty, false otherwise.
+     * @throws FileSystemException If the file does not exist, or is being written to, or on error determining the size.
+     * @since 2.5.0
+     */","default boolean isEmpty() throws FileSystemException {
+        return getSize() <= 0;
+    }"

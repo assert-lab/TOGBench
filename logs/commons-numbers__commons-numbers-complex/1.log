@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-numbers-complex:jar:1.0
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> duplicate declaration of version (?) @ line 78, column 15
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> duplicate declaration of version (?) @ line 79, column 15
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -36,13 +36,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613849098
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566688270
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-complex ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -76,13 +71,13 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.476 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.546 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
-[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
+[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
+[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -91,6 +86,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.073 s
-[INFO] Finished at: 2026-02-20T12:57:39-06:00
+[INFO] Total time:  13.277 s
+[INFO] Finished at: 2026-03-03T13:38:18-06:00
 [INFO] ------------------------------------------------------------------------

@@ -387,9 +387,9 @@
             <targetClasses>
               <param>org.apache.commons.beanutils*</param>
             </targetClasses>
-            <targetTests>
-              <param>org.apache.commons.beanutils.*</param>
-            </targetTests>
+         <targetTests>
+           <param>*_OE25Dev</param>
+         </targetTests>
   <excludedTestClasses>
     <param>org.apache.commons.beanutils.locale.*</param>
     <!-- <param>org.apache.commons.beanutils.bugs.Jira349TestCase*</param> -->
@@ -404,6 +404,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
             <configuration>
+               <test>*_OE25Dev#*_oe</test>
+                <!-- Only run OE25Dev tests -->
+                <includes>
+                  <include>**/*_OE25Dev.java</include>
+                </includes>
               <useUnlimitedThreads>true</useUnlimitedThreads>
               <!-- limit memory size see BEANUTILS-291 -->
               <argLine>${surefire.argLine}</argLine>

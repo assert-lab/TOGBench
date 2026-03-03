@@ -1,0 +1,62 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+vfs_327_3,"    @Test
+    public void testAddAndRemoveProvider_3_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            try {
+    fileSystemManager.resolveFile(""ram1:///"");
+    fail(""Expected FileSystemException"");
+} catch (FileSystemException e) {
+}
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_3_oe,org.apache.commons.vfs2.FileSystem,resolveFile(FileName name),"/**
+     * Finds a file in this file system.
+     *
+     * @param name The name of the file.
+     * @return The file. Never returns null.
+     * @throws FileSystemException if an error occurs.
+     */",FileObject resolveFile(FileName name) throws FileSystemException;
+vfs_327_5,"    @Test
+    public void testAddAndRemoveProvider_5_oe() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider(""ram1"", provider);
+            fileSystemManager.addProvider(""ram2"", provider);
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram1"");
+            Mockito.verify(provider, Mockito.never()).close();
+            // removed other assertion
+            // removed other assertion
+
+            fileSystemManager.removeProvider(""ram2"");
+            Mockito.verify(provider).close();
+            try {
+    fileSystemManager.resolveFile(""ram2:///"");
+    fail(""Expected FileSystemException"");
+} catch (FileSystemException e) {
+}
+    }
+    }
+",DefaultFileSystemManagerTest::testAddAndRemoveProvider_5_oe,org.apache.commons.vfs2.FileSystem,resolveFile(FileName name),"/**
+     * Finds a file in this file system.
+     *
+     * @param name The name of the file.
+     * @return The file. Never returns null.
+     * @throws FileSystemException if an error occurs.
+     */",FileObject resolveFile(FileName name) throws FileSystemException;

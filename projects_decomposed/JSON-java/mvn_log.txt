@@ -1,0 +1,1323 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------------------< org.json:json >----------------------------
+[INFO] Building JSON in Java 20220924
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ json ---
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ json ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:resources (default-resources) @ json ---
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ json ---
+[INFO] Compiling 22 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:testResources (default-testResources) @ json ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
+[INFO] Compiling 57 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.json.junit.JSONMLTest_OE25Dev
+[ERROR] Tests run: 19, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.json.junit.JSONMLTest_OE25Dev
+[ERROR] testToJSONObject_reversibility_2_oe(org.json.junit.JSONMLTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[tagName":"readResult","childNodes":[{"tagName":"errors","someAttr":"arrtValue","childNodes":[{"tagName":"code","childNodes":["400"]},{"tagName":"code","childNodes":["402"]}]}]]}> but was:<{"[childNodes":[{"childNodes":[{"childNodes":[400],"tagName":"code"}],"tagName":"errors","someAttr":"arrtValue"},{"childNodes":[{"childNodes":[402],"tagName":"code"}],"tagName":"errors"}],"tagName":"readResult"]}>
+	at org.json.junit.JSONMLTest_OE25Dev.testToJSONObject_reversibility_2_oe(JSONMLTest_OE25Dev.java:778)
+
+[INFO] Running org.json.junit.JSONArrayTest_OE25Dev
+[ERROR] Tests run: 196, Failures: 29, Errors: 11, Skipped: 0, Time elapsed: 0.031 s <<< FAILURE! - in org.json.junit.JSONArrayTest_OE25Dev
+[ERROR] toList_1_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[[1, 2, {["key3":true}], {"key1":"val1", "key2":{"key2":null}, "key3":42, "key4":[]}, [["value1"], 2.1], [null]]]> but was:<[[1, 2, {[key3=true}], {key1=val1, key2={key2=null}, key3=42, key4=[]}, [[value1], 2.1], [null]]]>
+	at org.json.junit.JSONArrayTest_OE25Dev.toList_1_oe(JSONArrayTest_OE25Dev.java:5289)
+
+[ERROR] testJSONArrayInt_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[1,[ ]2]> but was:<[1,[]2]>
+	at org.json.junit.JSONArrayTest_OE25Dev.testJSONArrayInt_2_oe(JSONArrayTest_OE25Dev.java:6659)
+
+[ERROR] notSimilar_1_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONArrayTest_OE25Dev.notSimilar_1_oe(JSONArrayTest_OE25Dev.java:4776)
+
+[ERROR] iteratorTest_1_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONArrayTest_OE25Dev.iteratorTest_1_oe(JSONArrayTest_OE25Dev.java:5260)
+
+[ERROR] getArrayValues_10_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a int (class java.lang.Boolean : true).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_10_oe(JSONArrayTest_OE25Dev.java:960)
+Caused by: java.lang.NumberFormatException: For input string: "true"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_10_oe(JSONArrayTest_OE25Dev.java:960)
+
+[ERROR] getArrayValues_13_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a long (class java.lang.String : world).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_13_oe(JSONArrayTest_OE25Dev.java:1032)
+Caused by: java.lang.NumberFormatException: For input string: "world"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_13_oe(JSONArrayTest_OE25Dev.java:1032)
+
+[ERROR] getArrayValues_14_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a long (class java.lang.String : world).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_14_oe(JSONArrayTest_OE25Dev.java:1059)
+Caused by: java.lang.NumberFormatException: For input string: "world"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_14_oe(JSONArrayTest_OE25Dev.java:1059)
+
+[ERROR] opt_3_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<13>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_3_oe(JSONArrayTest_OE25Dev.java:1566)
+
+[ERROR] opt_4_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_4_oe(JSONArrayTest_OE25Dev.java:1577)
+
+[ERROR] opt_5_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_5_oe(JSONArrayTest_OE25Dev.java:1589)
+
+[ERROR] opt_6_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_6_oe(JSONArrayTest_OE25Dev.java:1602)
+
+[ERROR] opt_7_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_7_oe(JSONArrayTest_OE25Dev.java:1617)
+
+[ERROR] opt_8_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_8_oe(JSONArrayTest_OE25Dev.java:1633)
+
+[ERROR] opt_9_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_9_oe(JSONArrayTest_OE25Dev.java:1650)
+
+[ERROR] getArrayValues_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_2_oe(JSONArrayTest_OE25Dev.java:847)
+
+[ERROR] getArrayValues_5_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[c]> but was:<[true]>
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_5_oe(JSONArrayTest_OE25Dev.java:878)
+
+[ERROR] getArrayValues_6_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a double (class java.lang.Boolean : true).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_6_oe(JSONArrayTest_OE25Dev.java:892)
+Caused by: java.lang.NumberFormatException: For input string: "true"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_6_oe(JSONArrayTest_OE25Dev.java:892)
+
+[ERROR] getArrayValues_7_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a double (class java.lang.Boolean : true).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_7_oe(JSONArrayTest_OE25Dev.java:907)
+Caused by: java.lang.NumberFormatException: For input string: "true"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_7_oe(JSONArrayTest_OE25Dev.java:907)
+
+[ERROR] getArrayValues_8_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a float (class java.lang.Boolean : true).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_8_oe(JSONArrayTest_OE25Dev.java:923)
+Caused by: java.lang.NumberFormatException: For input string: "true"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_8_oe(JSONArrayTest_OE25Dev.java:923)
+
+[ERROR] getArrayValues_9_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[0] is not a int (class java.lang.Boolean : true).
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_9_oe(JSONArrayTest_OE25Dev.java:941)
+Caused by: java.lang.NumberFormatException: For input string: "true"
+	at org.json.junit.JSONArrayTest_OE25Dev.getArrayValues_9_oe(JSONArrayTest_OE25Dev.java:941)
+
+[ERROR] nullException_1_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Expected exception: java.lang.NullPointerException
+
+[ERROR] verifyPutAll_3_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<5> but was:<10>
+	at org.json.junit.JSONArrayTest_OE25Dev.verifyPutAll_3_oe(JSONArrayTest_OE25Dev.java:618)
+
+[ERROR] verifyPutAll_4_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONArray[4] is not a String (class java.lang.Integer : 5).
+	at org.json.junit.JSONArrayTest_OE25Dev.verifyPutAll_4_oe(JSONArrayTest_OE25Dev.java:644)
+
+[ERROR] objectArrayVsIsArray_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+	at org.json.junit.JSONArrayTest_OE25Dev.objectArrayVsIsArray_2_oe(JSONArrayTest_OE25Dev.java:5160)
+
+[ERROR] objectArrayVsIsArray_3_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+	at org.json.junit.JSONArrayTest_OE25Dev.objectArrayVsIsArray_3_oe(JSONArrayTest_OE25Dev.java:5173)
+
+[ERROR] objectArrayVsIsArray_4_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [1] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONArrayTest_OE25Dev.objectArrayVsIsArray_4_oe(JSONArrayTest_OE25Dev.java:5187)
+
+[ERROR] objectArrayVsIsArray_5_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [1] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONArrayTest_OE25Dev.objectArrayVsIsArray_5_oe(JSONArrayTest_OE25Dev.java:5202)
+
+[ERROR] objectArrayVsIsArray_6_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+	at org.json.junit.JSONArrayTest_OE25Dev.objectArrayVsIsArray_6_oe(JSONArrayTest_OE25Dev.java:5218)
+
+[ERROR] opt_10_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_10_oe(JSONArrayTest_OE25Dev.java:1669)
+
+[ERROR] opt_11_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_11_oe(JSONArrayTest_OE25Dev.java:1689)
+
+[ERROR] opt_12_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0.0> but was:<NaN>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_12_oe(JSONArrayTest_OE25Dev.java:1710)
+
+[ERROR] opt_13_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_13_oe(JSONArrayTest_OE25Dev.java:1733)
+
+[ERROR] opt_14_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_14_oe(JSONArrayTest_OE25Dev.java:1757)
+
+[ERROR] opt_15_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_15_oe(JSONArrayTest_OE25Dev.java:1782)
+
+[ERROR] opt_19_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<["world"]>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_19_oe(JSONArrayTest_OE25Dev.java:1898)
+
+[ERROR] opt_20_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected null, but was:<["world"]>
+	at org.json.junit.JSONArrayTest_OE25Dev.opt_20_oe(JSONArrayTest_OE25Dev.java:1931)
+
+[ERROR] length_2_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<13>
+	at org.json.junit.JSONArrayTest_OE25Dev.length_2_oe(JSONArrayTest_OE25Dev.java:1535)
+
+[ERROR] length_3_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<10> but was:<1>
+	at org.json.junit.JSONArrayTest_OE25Dev.length_3_oe(JSONArrayTest_OE25Dev.java:1544)
+
+[ERROR] testJSONArrayConstructor_1_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[2,[ "test2", ]true]> but was:<[2,["test2",]true]>
+	at org.json.junit.JSONArrayTest_OE25Dev.testJSONArrayConstructor_1_oe(JSONArrayTest_OE25Dev.java:6696)
+
+[ERROR] put_3_oe(org.json.junit.JSONArrayTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONPointerException: value [true] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONArrayTest_OE25Dev.put_3_oe(JSONArrayTest_OE25Dev.java:2436)
+
+[INFO] Running org.json.junit.CookieListTest_OE25Dev
+[ERROR] Tests run: 28, Failures: 0, Errors: 17, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.CookieListTest_OE25Dev
+[ERROR] convertCookieListToString_2_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_2_oe(CookieListTest_OE25Dev.java:311)
+
+[ERROR] convertCookieListToString_3_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_3_oe(CookieListTest_OE25Dev.java:333)
+
+[ERROR] convertCookieListToString_4_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_4_oe(CookieListTest_OE25Dev.java:356)
+
+[ERROR] convertCookieListToString_5_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_5_oe(CookieListTest_OE25Dev.java:380)
+
+[ERROR] convertCookieListToString_6_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_6_oe(CookieListTest_OE25Dev.java:405)
+
+[ERROR] convertCookieListToString_7_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertCookieListToString_7_oe(CookieListTest_OE25Dev.java:431)
+
+[ERROR] convertEncodedCookieListToString_2_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_2_oe(CookieListTest_OE25Dev.java:462)
+
+[ERROR] convertEncodedCookieListToString_3_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_3_oe(CookieListTest_OE25Dev.java:479)
+
+[ERROR] convertEncodedCookieListToString_4_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_4_oe(CookieListTest_OE25Dev.java:497)
+
+[ERROR] convertEncodedCookieListToString_5_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_5_oe(CookieListTest_OE25Dev.java:516)
+
+[ERROR] convertEncodedCookieListToString_6_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_6_oe(CookieListTest_OE25Dev.java:536)
+
+[ERROR] convertEncodedCookieListToString_7_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.convertEncodedCookieListToString_7_oe(CookieListTest_OE25Dev.java:557)
+
+[ERROR] multiPartCookieList_2_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.multiPartCookieList_2_oe(CookieListTest_OE25Dev.java:167)
+
+[ERROR] multiPartCookieList_3_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.multiPartCookieList_3_oe(CookieListTest_OE25Dev.java:184)
+
+[ERROR] multiPartCookieList_4_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.multiPartCookieList_4_oe(CookieListTest_OE25Dev.java:202)
+
+[ERROR] multiPartCookieList_6_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.multiPartCookieList_6_oe(CookieListTest_OE25Dev.java:241)
+
+[ERROR] multiPartCookieList_7_oe(org.json.junit.CookieListTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.CookieListTest_OE25Dev.multiPartCookieList_7_oe(CookieListTest_OE25Dev.java:262)
+
+[INFO] Running org.json.junit.XMLTest_OE25Dev
+[ERROR] Tests run: 95, Failures: 15, Errors: 3, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.json.junit.XMLTest_OE25Dev
+[ERROR] testJsonToXmlEscape_1_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_1_oe(XMLTest_OE25Dev.java:645)
+
+[ERROR] testJsonToXmlEscape_2_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_2_oe(XMLTest_OE25Dev.java:658)
+
+[ERROR] testJsonToXmlEscape_3_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_3_oe(XMLTest_OE25Dev.java:673)
+
+[ERROR] testJsonToXmlEscape_4_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_4_oe(XMLTest_OE25Dev.java:689)
+
+[ERROR] testJsonToXmlEscape_5_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_5_oe(XMLTest_OE25Dev.java:706)
+
+[ERROR] testJsonToXmlEscape_6_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_6_oe(XMLTest_OE25Dev.java:724)
+
+[ERROR] testJsonToXmlEscape_7_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_7_oe(XMLTest_OE25Dev.java:744)
+
+[ERROR] testJsonToXmlEscape_8_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_8_oe(XMLTest_OE25Dev.java:765)
+
+[ERROR] testJsonToXmlEscape_9_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_9_oe(XMLTest_OE25Dev.java:787)
+
+[ERROR] shouldHandleContentArraytoString_1_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[<addresses/>]> but was:<[]>
+	at org.json.junit.XMLTest_OE25Dev.shouldHandleContentArraytoString_1_oe(XMLTest_OE25Dev.java:855)
+
+[ERROR] contentOperations_12_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.json.junit.XMLTest_OE25Dev.contentOperations_12_oe(XMLTest_OE25Dev.java:1295)
+
+[ERROR] contentOperations_5_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<3>
+	at org.json.junit.XMLTest_OE25Dev.contentOperations_5_oe(XMLTest_OE25Dev.java:1122)
+
+[ERROR] contentOperations_6_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["content"] is not a string (class org.json.JSONArray).
+	at org.json.junit.XMLTest_OE25Dev.contentOperations_6_oe(XMLTest_OE25Dev.java:1142)
+
+[ERROR] contentOperations_7_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONException: JSONObject["content"] is not a string (class org.json.JSONArray).
+	at org.json.junit.XMLTest_OE25Dev.contentOperations_7_oe(XMLTest_OE25Dev.java:1163)
+
+[ERROR] contentOperations_8_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["content"] is not a string (class org.json.JSONArray).
+	at org.json.junit.XMLTest_OE25Dev.contentOperations_8_oe(XMLTest_OE25Dev.java:1185)
+
+[ERROR] testToJsonXML_1_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<5> but was:<1>
+	at org.json.junit.XMLTest_OE25Dev.testToJsonXML_1_oe(XMLTest_OE25Dev.java:3277)
+
+[ERROR] testJsonToXmlEscape_10_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_10_oe(XMLTest_OE25Dev.java:810)
+
+[ERROR] testJsonToXmlEscape_11_oe(org.json.junit.XMLTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+	at org.json.junit.XMLTest_OE25Dev.testJsonToXmlEscape_11_oe(XMLTest_OE25Dev.java:834)
+
+[INFO] Running org.json.junit.HTTPTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
+[INFO] Running org.json.junit.EnumTest_OE25Dev
+[ERROR] Tests run: 82, Failures: 16, Errors: 11, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.json.junit.EnumTest_OE25Dev
+[ERROR] jsonObjectFromEnumWithNames_2_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_2_oe(EnumTest_OE25Dev.java:341)
+
+[ERROR] jsonObjectFromEnumWithNames_3_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_3_oe(EnumTest_OE25Dev.java:358)
+
+[ERROR] jsonObjectFromEnumWithNames_4_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_4_oe(EnumTest_OE25Dev.java:376)
+
+[ERROR] jsonObjectFromEnumWithNames_6_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_6_oe(EnumTest_OE25Dev.java:427)
+
+[ERROR] jsonObjectFromEnumWithNames_7_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_7_oe(EnumTest_OE25Dev.java:454)
+
+[ERROR] jsonObjectFromEnumWithNames_8_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnumWithNames_8_oe(EnumTest_OE25Dev.java:482)
+
+[ERROR] verifyEnumConsistency_4_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+	at org.json.junit.EnumTest_OE25Dev.verifyEnumConsistency_4_oe(EnumTest_OE25Dev.java:554)
+
+[ERROR] verifyEnumConsistency_5_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+	at org.json.junit.EnumTest_OE25Dev.verifyEnumConsistency_5_oe(EnumTest_OE25Dev.java:586)
+
+[ERROR] verifyEnumConsistency_6_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+	at org.json.junit.EnumTest_OE25Dev.verifyEnumConsistency_6_oe(EnumTest_OE25Dev.java:622)
+
+[ERROR] enumToString_3_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["intVal":2,"value":"val 2"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_3_oe(EnumTest_OE25Dev.java:918)
+
+[ERROR] enumToString_4_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["intVal":2,"value":"val 2"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_4_oe(EnumTest_OE25Dev.java:935)
+
+[ERROR] enumToString_9_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_9_oe(EnumTest_OE25Dev.java:1087)
+
+[ERROR] wrap_3_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.wrap_3_oe(EnumTest_OE25Dev.java:1758)
+
+[ERROR] wrap_7_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[enum":"VAL2]"}> but was:<{"[myEnumField":"VAL3","myEnum":"VAL1]"}>
+	at org.json.junit.EnumTest_OE25Dev.wrap_7_oe(EnumTest_OE25Dev.java:1857)
+
+[ERROR] wrap_8_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[enum":"VAL2]"}> but was:<{"[myEnumField":"VAL3","myEnum":"VAL1]"}>
+	at org.json.junit.EnumTest_OE25Dev.wrap_8_oe(EnumTest_OE25Dev.java:1885)
+
+[ERROR] jsonObjectFromEnum_3_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnum_3_oe(EnumTest_OE25Dev.java:119)
+
+[ERROR] jsonObjectFromEnum_4_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnum_4_oe(EnumTest_OE25Dev.java:138)
+
+[ERROR] jsonObjectFromEnum_8_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnum_8_oe(EnumTest_OE25Dev.java:273)
+
+[ERROR] jsonObjectFromEnum_9_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.EnumTest_OE25Dev.jsonObjectFromEnum_9_oe(EnumTest_OE25Dev.java:310)
+
+[ERROR] enumToString_10_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_10_oe(EnumTest_OE25Dev.java:1124)
+
+[ERROR] enumToString_11_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_11_oe(EnumTest_OE25Dev.java:1162)
+
+[ERROR] enumToString_13_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+	at org.json.junit.EnumTest_OE25Dev.enumToString_13_oe(EnumTest_OE25Dev.java:1253)
+
+[ERROR] enumPut_2_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+	at org.json.junit.EnumTest_OE25Dev.enumPut_2_oe(EnumTest_OE25Dev.java:649)
+
+[ERROR] enumPut_3_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+	at org.json.junit.EnumTest_OE25Dev.enumPut_3_oe(EnumTest_OE25Dev.java:664)
+
+[ERROR] enumPut_5_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+	at org.json.junit.EnumTest_OE25Dev.enumPut_5_oe(EnumTest_OE25Dev.java:711)
+
+[ERROR] enumPut_6_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+	at org.json.junit.EnumTest_OE25Dev.enumPut_6_oe(EnumTest_OE25Dev.java:736)
+
+[ERROR] enumPut_7_oe(org.json.junit.EnumTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+	at org.json.junit.EnumTest_OE25Dev.enumPut_7_oe(EnumTest_OE25Dev.java:766)
+
+[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 3, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[ERROR] jsonObjectByLocaleBean_1_oe(org.json.junit.JSONObjectLocaleTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<2>
+	at org.json.junit.JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_1_oe(JSONObjectLocaleTest_OE25Dev.java:46)
+
+[ERROR] jsonObjectByLocaleBean_2_oe(org.json.junit.JSONObjectLocaleTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["language"] not found.
+	at org.json.junit.JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_2_oe(JSONObjectLocaleTest_OE25Dev.java:61)
+
+[ERROR] jsonObjectByLocaleBean_4_oe(org.json.junit.JSONObjectLocaleTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<2>
+	at org.json.junit.JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_4_oe(JSONObjectLocaleTest_OE25Dev.java:102)
+
+[ERROR] jsonObjectByLocaleBean_5_oe(org.json.junit.JSONObjectLocaleTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[]> but was:<[beanId]>
+	at org.json.junit.JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_5_oe(JSONObjectLocaleTest_OE25Dev.java:128)
+
+[ERROR] jsonObjectByLocaleBean_6_oe(org.json.junit.JSONObjectLocaleTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["getId"] not found.
+	at org.json.junit.JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_6_oe(JSONObjectLocaleTest_OE25Dev.java:155)
+
+[INFO] Running org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringTest_OE25Dev
+[ERROR] Tests run: 12, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.JSONStringTest_OE25Dev
+[ERROR] valuesToString_5_oe(org.json.junit.JSONStringTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[null]> but was:<[{"key1":"value1"}]>
+	at org.json.junit.JSONStringTest_OE25Dev.valuesToString_5_oe(JSONStringTest_OE25Dev.java:381)
+
+[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
+[ERROR] Tests run: 51, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.JSONPointerTest_OE25Dev
+[ERROR] queryFromJSONObjectUsingPointer0_2_oe(org.json.junit.JSONPointerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[slash test]> but was:<[hello world!]>
+	at org.json.junit.JSONPointerTest_OE25Dev.queryFromJSONObjectUsingPointer0_2_oe(JSONPointerTest_OE25Dev.java:743)
+
+[INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
+[ERROR] Tests run: 84, Failures: 5, Errors: 3, Skipped: 0, Time elapsed: 0.008 s <<< FAILURE! - in org.json.junit.XMLConfigurationTest_OE25Dev
+[ERROR] testConfig_1_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["name"] not found.
+	at org.json.junit.XMLConfigurationTest_OE25Dev.testConfig_1_oe(XMLConfigurationTest_OE25Dev.java:3847)
+
+[ERROR] contentOperations_1_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<3>
+	at org.json.junit.XMLConfigurationTest_OE25Dev.contentOperations_1_oe(XMLConfigurationTest_OE25Dev.java:947)
+
+[ERROR] contentOperations_5_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<3>
+	at org.json.junit.XMLConfigurationTest_OE25Dev.contentOperations_5_oe(XMLConfigurationTest_OE25Dev.java:1012)
+
+[ERROR] contentOperations_6_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["content"] not found.
+	at org.json.junit.XMLConfigurationTest_OE25Dev.contentOperations_6_oe(XMLConfigurationTest_OE25Dev.java:1036)
+
+[ERROR] contentOperations_7_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[<tag1></tag1><![CDATA[if (a < b && a > 0) then return]]><tag2></tag2><![CDATA[here is another cdata]]>]> but was:<[{"tag1":"","altContent":["if (a < b && a > 0) then return","here is another cdata"],"tag2":""}]>
+	at org.json.junit.XMLConfigurationTest_OE25Dev.contentOperations_7_oe(XMLConfigurationTest_OE25Dev.java:1061)
+
+[ERROR] contentOperations_8_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["content"] not found.
+	at org.json.junit.XMLConfigurationTest_OE25Dev.contentOperations_8_oe(XMLConfigurationTest_OE25Dev.java:1087)
+
+[ERROR] shouldHandleEmptyMultiArray_1_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[<jo><arr>One</arr><arr></arr><arr>Four</arr></jo>]> but was:<[{"arr":["One",[],"Four"]}]>
+	at org.json.junit.XMLConfigurationTest_OE25Dev.shouldHandleEmptyMultiArray_1_oe(XMLConfigurationTest_OE25Dev.java:777)
+
+[ERROR] testToJsonXML_1_oe(org.json.junit.XMLConfigurationTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<5> but was:<1>
+	at org.json.junit.XMLConfigurationTest_OE25Dev.testToJsonXML_1_oe(XMLConfigurationTest_OE25Dev.java:3589)
+
+[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
+[ERROR] Tests run: 48, Failures: 6, Errors: 7, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.json.junit.JSONStringerTest_OE25Dev
+[ERROR] simpleObjectString_2_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_2_oe(JSONStringerTest_OE25Dev.java:272)
+
+[ERROR] simpleObjectString_3_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_3_oe(JSONStringerTest_OE25Dev.java:294)
+
+[ERROR] simpleObjectString_4_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_4_oe(JSONStringerTest_OE25Dev.java:317)
+
+[ERROR] simpleObjectString_5_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_5_oe(JSONStringerTest_OE25Dev.java:341)
+
+[ERROR] simpleObjectString_6_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_6_oe(JSONStringerTest_OE25Dev.java:366)
+
+[ERROR] simpleObjectString_7_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_7_oe(JSONStringerTest_OE25Dev.java:392)
+
+[ERROR] simpleObjectString_8_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleObjectString_8_oe(JSONStringerTest_OE25Dev.java:419)
+
+[ERROR] simpleArrayString_2_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_2_oe(JSONStringerTest_OE25Dev.java:458)
+
+[ERROR] simpleArrayString_3_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_3_oe(JSONStringerTest_OE25Dev.java:479)
+
+[ERROR] simpleArrayString_4_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_4_oe(JSONStringerTest_OE25Dev.java:501)
+
+[ERROR] simpleArrayString_5_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_5_oe(JSONStringerTest_OE25Dev.java:524)
+
+[ERROR] simpleArrayString_6_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_6_oe(JSONStringerTest_OE25Dev.java:548)
+
+[ERROR] simpleArrayString_7_oe(org.json.junit.JSONStringerTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+	at org.json.junit.JSONStringerTest_OE25Dev.simpleArrayString_7_oe(JSONStringerTest_OE25Dev.java:573)
+
+[INFO] Running org.json.junit.CookieTest_OE25Dev
+[ERROR] Tests run: 8, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.CookieTest_OE25Dev
+[ERROR] booleanAttribute_1_oe(org.json.junit.CookieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.CookieTest_OE25Dev.booleanAttribute_1_oe(CookieTest_OE25Dev.java:198)
+
+[ERROR] booleanAttribute_2_oe(org.json.junit.CookieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.CookieTest_OE25Dev.booleanAttribute_2_oe(CookieTest_OE25Dev.java:206)
+
+[ERROR] booleanAttribute_3_oe(org.json.junit.CookieTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.CookieTest_OE25Dev.booleanAttribute_3_oe(CookieTest_OE25Dev.java:215)
+
+[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.json.junit.JSONTokenerTest_OE25Dev
+[ERROR] testNextBackComboWithNewLines_2_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<10> but was:<116>
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_2_oe(JSONTokenerTest_OE25Dev.java:255)
+
+[INFO] Running org.json.junit.CDLTest_OE25Dev
+[ERROR] Tests run: 21, Failures: 10, Errors: 1, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.json.junit.CDLTest_OE25Dev
+[ERROR] nullJSONArraysToString_1_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<[]> but was:<null>
+	at org.json.junit.CDLTest_OE25Dev.nullJSONArraysToString_1_oe(CDLTest_OE25Dev.java:337)
+
+[ERROR] emptyString_1_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.JSONArray.toString()" because "jsonArray" is null
+	at org.json.junit.CDLTest_OE25Dev.emptyString_1_oe(CDLTest_OE25Dev.java:310)
+
+[ERROR] emptyLinesToJSONArray_1_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.CDLTest_OE25Dev.emptyLinesToJSONArray_1_oe(CDLTest_OE25Dev.java:324)
+
+[ERROR] onlyColumnNames_1_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.CDLTest_OE25Dev.onlyColumnNames_1_oe(CDLTest_OE25Dev.java:317)
+
+[ERROR] singleEscapedQuoteMiddleString_2_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+	at org.json.junit.CDLTest_OE25Dev.singleEscapedQuoteMiddleString_2_oe(CDLTest_OE25Dev.java:280)
+
+[ERROR] singleEscapedQuoteMiddleString_3_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+	at org.json.junit.CDLTest_OE25Dev.singleEscapedQuoteMiddleString_3_oe(CDLTest_OE25Dev.java:291)
+
+[ERROR] singleEscapedQuoteMiddleString_4_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: 
+expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+	at org.json.junit.CDLTest_OE25Dev.singleEscapedQuoteMiddleString_4_oe(CDLTest_OE25Dev.java:303)
+
+[ERROR] checkSpecialChars_2_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+	at org.json.junit.CDLTest_OE25Dev.checkSpecialChars_2_oe(CDLTest_OE25Dev.java:364)
+
+[ERROR] checkSpecialChars_3_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+	at org.json.junit.CDLTest_OE25Dev.checkSpecialChars_3_oe(CDLTest_OE25Dev.java:380)
+
+[ERROR] checkSpecialChars_4_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+	at org.json.junit.CDLTest_OE25Dev.checkSpecialChars_4_oe(CDLTest_OE25Dev.java:397)
+
+[ERROR] checkSpecialChars_5_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+	at org.json.junit.CDLTest_OE25Dev.checkSpecialChars_5_oe(CDLTest_OE25Dev.java:415)
+
+[INFO] Running org.json.junit.JSONObjectTest_OE25Dev
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[ERROR] Tests run: 481, Failures: 67, Errors: 27, Skipped: 0, Time elapsed: 0.04 s <<< FAILURE! - in org.json.junit.JSONObjectTest_OE25Dev
+[ERROR] testExceptionalBean_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<1>
+	at org.json.junit.JSONObjectTest_OE25Dev.testExceptionalBean_1_oe(JSONObjectTest_OE25Dev.java:14680)
+
+[ERROR] testExceptionalBean_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[]}> but was:<{["closeable":{"string":"Yup, it's closeable"}]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testExceptionalBean_2_oe(JSONObjectTest_OE25Dev.java:14688)
+
+[ERROR] testExceptionalBean_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.testExceptionalBean_3_oe(JSONObjectTest_OE25Dev.java:14697)
+
+[ERROR] bigNumberOperations_10_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{"bigDec":123456789012345678901234567890.12345678901234567890123456789}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_10_oe(JSONObjectTest_OE25Dev.java:6736)
+
+[ERROR] jsonObjectByMapWithUnsupportedValues_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMapWithUnsupportedValues_3_oe(JSONObjectTest_OE25Dev.java:2101)
+
+[ERROR] jsonObjectOptCoercion_17_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"largeNumber":1[.7976931348623157E308],"largeNumberStr":"1...> but was:<{"largeNumber":1[9007199254740993.35481234487103587486413587843213584],"largeNumberStr":"1...>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectOptCoercion_17_oe(JSONObjectTest_OE25Dev.java:12151)
+
+[ERROR] jsonObjectOptCoercion_18_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"largeNumber":1[.7976931348623157E308],"largeNumberStr":"1...> but was:<{"largeNumber":1[9007199254740993.35481234487103587486413587843213584],"largeNumberStr":"1...>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectOptCoercion_18_oe(JSONObjectTest_OE25Dev.java:12182)
+
+[ERROR] jsonObjectPutOnceNull_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectPutOnceNull_2_oe(JSONObjectTest_OE25Dev.java:11329)
+
+[ERROR] jsonObjectPutOnceNull_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectPutOnceNull_3_oe(JSONObjectTest_OE25Dev.java:11340)
+
+[ERROR] jsonObjectNames_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectNames_4_oe(JSONObjectTest_OE25Dev.java:6968)
+
+[ERROR] testWierdListBean_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<1>
+	at org.json.junit.JSONObjectTest_OE25Dev.testWierdListBean_1_oe(JSONObjectTest_OE25Dev.java:14646)
+
+[ERROR] unquotedText_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+	at org.json.junit.JSONObjectTest_OE25Dev.unquotedText_1_oe(JSONObjectTest_OE25Dev.java:931)
+
+[ERROR] unquotedText_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+	at org.json.junit.JSONObjectTest_OE25Dev.unquotedText_2_oe(JSONObjectTest_OE25Dev.java:940)
+
+[ERROR] unquotedText_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+	at org.json.junit.JSONObjectTest_OE25Dev.unquotedText_3_oe(JSONObjectTest_OE25Dev.java:950)
+
+[ERROR] unquotedText_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+	at org.json.junit.JSONObjectTest_OE25Dev.unquotedText_4_oe(JSONObjectTest_OE25Dev.java:961)
+
+[ERROR] jsonObjectIncrement_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["keyBigInt"] is not a string (class java.math.BigInteger : 123456789123456789123456789123456781).
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectIncrement_2_oe(JSONObjectTest_OE25Dev.java:7720)
+
+[ERROR] jsonObjectIncrement_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["keyBigInt"] is not a string (class java.math.BigInteger : 123456789123456789123456789123456781).
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectIncrement_3_oe(JSONObjectTest_OE25Dev.java:7754)
+
+[ERROR] jsonObjectIncrement_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: JSONObject["keyBigInt"] is not a string (class java.math.BigInteger : 123456789123456789123456789123456781).
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectIncrement_4_oe(JSONObjectTest_OE25Dev.java:7789)
+
+[ERROR] jsonObjectToString_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_2_oe(JSONObjectTest_OE25Dev.java:9399)
+
+[ERROR] jsonObjectToString_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_3_oe(JSONObjectTest_OE25Dev.java:9422)
+
+[ERROR] jsonObjectToString_5_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_5_oe(JSONObjectTest_OE25Dev.java:9471)
+
+[ERROR] jsonObjectToString_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_6_oe(JSONObjectTest_OE25Dev.java:9497)
+
+[ERROR] jsonObjectToString_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_7_oe(JSONObjectTest_OE25Dev.java:9524)
+
+[ERROR] jsonObjectToString_9_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_9_oe(JSONObjectTest_OE25Dev.java:9581)
+
+[ERROR] jsonObjectOptDefault_11_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectOptDefault_11_oe(JSONObjectTest_OE25Dev.java:11494)
+
+[ERROR] jsonObjectByResourceBundle_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_3_oe(JSONObjectTest_OE25Dev.java:2725)
+
+[ERROR] jsonObjectByResourceBundle_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_4_oe(JSONObjectTest_OE25Dev.java:2739)
+
+[ERROR] jsonObjectByResourceBundle_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_6_oe(JSONObjectTest_OE25Dev.java:2770)
+
+[ERROR] jsonObjectByResourceBundle_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_7_oe(JSONObjectTest_OE25Dev.java:2787)
+
+[ERROR] jsonObjectByObjectAndNames_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByObjectAndNames_2_oe(JSONObjectTest_OE25Dev.java:2675)
+
+[ERROR] jsonObjectByObjectAndNames_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByObjectAndNames_3_oe(JSONObjectTest_OE25Dev.java:2689)
+
+[ERROR] jsonObjectByMapWithNullValue_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_4_oe(JSONObjectTest_OE25Dev.java:2175)
+
+[ERROR] jsonObjectByMapWithNullValue_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_6_oe(JSONObjectTest_OE25Dev.java:2218)
+
+[ERROR] jsonObjectByMapWithNullValue_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_7_oe(JSONObjectTest_OE25Dev.java:2241)
+
+[ERROR] jsonObjectQuote_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<"[]"> but was:<"[\"\"]">
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectQuote_2_oe(JSONObjectTest_OE25Dev.java:12460)
+
+[ERROR] jsonObjectByBean2_11_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_11_oe(JSONObjectTest_OE25Dev.java:2377)
+
+[ERROR] toMap_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<{key3=true}>
+	at org.json.junit.JSONObjectTest_OE25Dev.toMap_6_oe(JSONObjectTest_OE25Dev.java:13324)
+
+[ERROR] invalidEscapeSequence_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Expected exception: org.json.JSONException
+
+[ERROR] testGenericBean_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<8>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericBean_1_oe(JSONObjectTest_OE25Dev.java:14572)
+
+[ERROR] testGenericBean_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@176d53b2","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericBean_2_oe(JSONObjectTest_OE25Dev.java:14580)
+
+[ERROR] testGenericBean_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@51931956","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericBean_3_oe(JSONObjectTest_OE25Dev.java:14589)
+
+[ERROR] testGenericBean_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@564718df","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericBean_4_oe(JSONObjectTest_OE25Dev.java:14599)
+
+[ERROR] valueToString_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[null]> but was:<[org.json.junit.data.MyJsonString@51b7e5df]>
+	at org.json.junit.JSONObjectTest_OE25Dev.valueToString_2_oe(JSONObjectTest_OE25Dev.java:10101)
+
+[ERROR] valueToString_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[null]> but was:<[org.json.junit.data.MyJsonString@18a70f16]>
+	at org.json.junit.JSONObjectTest_OE25Dev.valueToString_3_oe(JSONObjectTest_OE25Dev.java:10110)
+
+[ERROR] valueToString_5_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"key1":"val1","key2":"val2","key3":"val3"}]> but was:<[org.json.junit.data.MyJsonString@62e136d3]>
+	at org.json.junit.JSONObjectTest_OE25Dev.valueToString_5_oe(JSONObjectTest_OE25Dev.java:10138)
+
+[ERROR] valueToString_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[{"key1":"val1","key2":"val2","key3":"val3"}]> but was:<[org.json.junit.data.MyJsonString@c8e4bb0]>
+	at org.json.junit.JSONObjectTest_OE25Dev.valueToString_6_oe(JSONObjectTest_OE25Dev.java:10160)
+
+[ERROR] jsonObjectValues_10_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_10_oe(JSONObjectTest_OE25Dev.java:3477)
+
+[ERROR] jsonObjectValues_11_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_11_oe(JSONObjectTest_OE25Dev.java:3512)
+
+[ERROR] jsonObjectValues_12_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_12_oe(JSONObjectTest_OE25Dev.java:3548)
+
+[ERROR] jsonObjectValues_13_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_13_oe(JSONObjectTest_OE25Dev.java:3585)
+
+[ERROR] jsonObjectValues_18_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_18_oe(JSONObjectTest_OE25Dev.java:3785)
+
+[ERROR] jsonObjectValues_19_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_19_oe(JSONObjectTest_OE25Dev.java:3828)
+
+[ERROR] jsonObjectValues_23_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_23_oe(JSONObjectTest_OE25Dev.java:4010)
+
+[ERROR] issue654StackOverflowInputWellFormed_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: Expected exception: org.json.JSONException
+
+[ERROR] jsonObjectByBean3_12_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_12_oe(JSONObjectTest_OE25Dev.java:2538)
+
+[ERROR] jsonObjectByBean3_13_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_13_oe(JSONObjectTest_OE25Dev.java:2563)
+
+[ERROR] jsonObjectByBean3_14_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_14_oe(JSONObjectTest_OE25Dev.java:2590)
+
+[ERROR] jsonObjectByBean3_15_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_15_oe(JSONObjectTest_OE25Dev.java:2619)
+
+[ERROR] jsonObjectByBean3_16_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_16_oe(JSONObjectTest_OE25Dev.java:2650)
+
+[ERROR] jsonObjectByBean2_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<5>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_2_oe(JSONObjectTest_OE25Dev.java:2254)
+
+[ERROR] jsonObjectByBean2_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_3_oe(JSONObjectTest_OE25Dev.java:2262)
+
+[ERROR] jsonObjectByBean2_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_4_oe(JSONObjectTest_OE25Dev.java:2271)
+
+[ERROR] jsonObjectByBean2_5_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_5_oe(JSONObjectTest_OE25Dev.java:2281)
+
+[ERROR] jsonObjectByBean2_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_6_oe(JSONObjectTest_OE25Dev.java:2292)
+
+[ERROR] jsonObjectByBean2_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean2_7_oe(JSONObjectTest_OE25Dev.java:2305)
+
+[ERROR] jsonObjectByBean3_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<4> but was:<7>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_2_oe(JSONObjectTest_OE25Dev.java:2390)
+
+[ERROR] jsonObjectByBean3_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_3_oe(JSONObjectTest_OE25Dev.java:2398)
+
+[ERROR] jsonObjectByBean3_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_4_oe(JSONObjectTest_OE25Dev.java:2407)
+
+[ERROR] jsonObjectByBean3_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_6_oe(JSONObjectTest_OE25Dev.java:2430)
+
+[ERROR] jsonObjectByBean3_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_7_oe(JSONObjectTest_OE25Dev.java:2443)
+
+[ERROR] jsonObjectByBean3_8_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<true> but was:<false>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByBean3_8_oe(JSONObjectTest_OE25Dev.java:2458)
+
+[ERROR] testGenericIntBean_1_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<10>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericIntBean_1_oe(JSONObjectTest_OE25Dev.java:14606)
+
+[ERROR] testGenericIntBean_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[value":42]}> but was:<{"[intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@3bd40a57","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericIntBean_2_oe(JSONObjectTest_OE25Dev.java:14614)
+
+[ERROR] testGenericIntBean_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<{"[value":42]}> but was:<{"[intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@11dc3715","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false]}>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericIntBean_3_oe(JSONObjectTest_OE25Dev.java:14623)
+
+[ERROR] testGenericIntBean_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[42]> but was:<[{"intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@8909f18","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.testGenericIntBean_4_oe(JSONObjectTest_OE25Dev.java:14633)
+
+[ERROR] bigNumberOperations_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_2_oe(JSONObjectTest_OE25Dev.java:6479)
+
+[ERROR] bigNumberOperations_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_3_oe(JSONObjectTest_OE25Dev.java:6494)
+
+[ERROR] bigNumberOperations_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_4_oe(JSONObjectTest_OE25Dev.java:6519)
+
+[ERROR] bigNumberOperations_5_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_5_oe(JSONObjectTest_OE25Dev.java:6552)
+
+[ERROR] bigNumberOperations_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<123456789012345678901234567890> but was:<1>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_6_oe(JSONObjectTest_OE25Dev.java:6586)
+
+[ERROR] bigNumberOperations_7_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_7_oe(JSONObjectTest_OE25Dev.java:6621)
+
+[ERROR] bigNumberOperations_8_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{}]>
+	at org.json.junit.JSONObjectTest_OE25Dev.bigNumberOperations_8_oe(JSONObjectTest_OE25Dev.java:6657)
+
+[ERROR] jsonObjectByMap_2_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMap_2_oe(JSONObjectTest_OE25Dev.java:1176)
+
+[ERROR] jsonObjectByMap_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMap_3_oe(JSONObjectTest_OE25Dev.java:1194)
+
+[ERROR] jsonObjectByMap_4_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMap_4_oe(JSONObjectTest_OE25Dev.java:1213)
+
+[ERROR] jsonObjectByMap_5_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMap_5_oe(JSONObjectTest_OE25Dev.java:1233)
+
+[ERROR] jsonObjectByMap_6_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectByMap_6_oe(JSONObjectTest_OE25Dev.java:1254)
+
+[ERROR] jsonObjectOptCoercion_3_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectOptCoercion_3_oe(JSONObjectTest_OE25Dev.java:11846)
+
+[ERROR] jsonObjectOptCoercion_9_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectOptCoercion_9_oe(JSONObjectTest_OE25Dev.java:11945)
+
+[ERROR] jsonObjectToString_10_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_10_oe(JSONObjectTest_OE25Dev.java:9611)
+
+[ERROR] jsonObjectToString_11_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_11_oe(JSONObjectTest_OE25Dev.java:9642)
+
+[ERROR] jsonObjectToString_12_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONPointerException: value [null] is not an array or object therefore its key b cannot be resolved
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectToString_12_oe(JSONObjectTest_OE25Dev.java:9674)
+
+[ERROR] jsonObjectValues_8_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_8_oe(JSONObjectTest_OE25Dev.java:3410)
+
+[ERROR] jsonObjectValues_9_oe(org.json.junit.JSONObjectTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<-23.45> but was:<-2.345E8>
+	at org.json.junit.JSONObjectTest_OE25Dev.jsonObjectValues_9_oe(JSONObjectTest_OE25Dev.java:3443)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   CDLTest_OE25Dev.checkSpecialChars_2_oe:364 expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+[ERROR]   CDLTest_OE25Dev.checkSpecialChars_3_oe:380 expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+[ERROR]   CDLTest_OE25Dev.checkSpecialChars_4_oe:397 expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+[ERROR]   CDLTest_OE25Dev.checkSpecialChars_5_oe:415 expected:<{"Col [1":"V1","Col 2":"V2]"}> but was:<{"Col [\r1":"V1","Col 2":"V2\r]"}>
+[ERROR]   CDLTest_OE25Dev.emptyLinesToJSONArray_1_oe:324
+[ERROR]   CDLTest_OE25Dev.nullJSONArraysToString_1_oe:337 expected:<[]> but was:<null>
+[ERROR]   CDLTest_OE25Dev.onlyColumnNames_1_oe:317
+[ERROR]   CDLTest_OE25Dev.singleEscapedQuoteMiddleString_2_oe:280 expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+[ERROR]   CDLTest_OE25Dev.singleEscapedQuoteMiddleString_3_oe:291 expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+[ERROR]   CDLTest_OE25Dev.singleEscapedQuoteMiddleString_4_oe:303 expected:<[[{"Col1":"Val1","Col2":"""Val2""},{"Col1":"Val 3","Col2":"Val 4"}]]> but was:<[Col1,Col2
+Val1,"Val2"
+Val 3,Val 4
+]>
+[ERROR]   CookieTest_OE25Dev.booleanAttribute_1_oe:198 expected:<true> but was:<false>
+[ERROR]   CookieTest_OE25Dev.booleanAttribute_2_oe:206 expected:<true> but was:<false>
+[ERROR]   CookieTest_OE25Dev.booleanAttribute_3_oe:215 expected:<true> but was:<false>
+[ERROR]   EnumTest_OE25Dev.enumPut_2_oe:649 expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+[ERROR]   EnumTest_OE25Dev.enumPut_3_oe:664 expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+[ERROR]   EnumTest_OE25Dev.enumPut_5_oe:711 expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+[ERROR]   EnumTest_OE25Dev.enumPut_6_oe:736 expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+[ERROR]   EnumTest_OE25Dev.enumPut_7_oe:766 expected:<{"myEnum[":"VAL2","myEnumField":"VAL1]"}> but was:<{"myEnum[Field":"VAL1","myEnum":"VAL2]"}>
+[ERROR]   EnumTest_OE25Dev.enumToString_10_oe:1124 expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+[ERROR]   EnumTest_OE25Dev.enumToString_11_oe:1162 expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+[ERROR]   EnumTest_OE25Dev.enumToString_13_oe:1253 expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+[ERROR]   EnumTest_OE25Dev.enumToString_3_oe:918 expected:<{[]}> but was:<{["intVal":2,"value":"val 2"]}>
+[ERROR]   EnumTest_OE25Dev.enumToString_4_oe:935 expected:<{[]}> but was:<{["intVal":2,"value":"val 2"]}>
+[ERROR]   EnumTest_OE25Dev.enumToString_9_oe:1087 expected:<{[]}> but was:<{["VAL1":"VAL1","VAL2":"VAL2","VAL3":"VAL3"]}>
+[ERROR]   EnumTest_OE25Dev.verifyEnumConsistency_4_oe:554 expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+[ERROR]   EnumTest_OE25Dev.verifyEnumConsistency_5_oe:586 expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+[ERROR]   EnumTest_OE25Dev.verifyEnumConsistency_6_oe:622 expected:<{"value":["VAL[1]"]}> but was:<{"value":["VAL[2]"]}>
+[ERROR]   EnumTest_OE25Dev.wrap_7_oe:1857 expected:<{"[enum":"VAL2]"}> but was:<{"[myEnumField":"VAL3","myEnum":"VAL1]"}>
+[ERROR]   EnumTest_OE25Dev.wrap_8_oe:1885 expected:<{"[enum":"VAL2]"}> but was:<{"[myEnumField":"VAL3","myEnum":"VAL1]"}>
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_2_oe:847 expected:<false> but was:<true>
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_5_oe:878 expected:<[c]> but was:<[true]>
+[ERROR]   JSONArrayTest_OE25Dev.iteratorTest_1_oe:5260 expected:<false> but was:<true>
+[ERROR]   JSONArrayTest_OE25Dev.length_2_oe:1535 expected:<2> but was:<13>
+[ERROR]   JSONArrayTest_OE25Dev.length_3_oe:1544 expected:<10> but was:<1>
+[ERROR]   JSONArrayTest_OE25Dev.notSimilar_1_oe:4776 expected:<true> but was:<false>
+[ERROR]   JSONArrayTest_OE25Dev.nullException_1_oe Expected exception: java.lang.NullPointerException
+[ERROR]   JSONArrayTest_OE25Dev.objectArrayVsIsArray_2_oe:5160 expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+[ERROR]   JSONArrayTest_OE25Dev.objectArrayVsIsArray_3_oe:5173 expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+[ERROR]   JSONArrayTest_OE25Dev.objectArrayVsIsArray_6_oe:5218 expected:<[1,[ 2, 3, 4, 5, 6, ]7]> but was:<[1,[2,3,4,5,6,]7]>
+[ERROR]   JSONArrayTest_OE25Dev.opt_10_oe:1669 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.opt_11_oe:1689 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.opt_12_oe:1710 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.opt_13_oe:1733
+[ERROR]   JSONArrayTest_OE25Dev.opt_14_oe:1757
+[ERROR]   JSONArrayTest_OE25Dev.opt_15_oe:1782
+[ERROR]   JSONArrayTest_OE25Dev.opt_19_oe:1898 expected null, but was:<["world"]>
+[ERROR]   JSONArrayTest_OE25Dev.opt_20_oe:1931 expected null, but was:<["world"]>
+[ERROR]   JSONArrayTest_OE25Dev.opt_3_oe:1566 expected:<3> but was:<13>
+[ERROR]   JSONArrayTest_OE25Dev.opt_4_oe:1577 expected:<false> but was:<true>
+[ERROR]   JSONArrayTest_OE25Dev.opt_5_oe:1589 expected:<false> but was:<true>
+[ERROR]   JSONArrayTest_OE25Dev.opt_6_oe:1602 expected:<false> but was:<true>
+[ERROR]   JSONArrayTest_OE25Dev.opt_7_oe:1617 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.opt_8_oe:1633 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.opt_9_oe:1650 expected:<0.0> but was:<NaN>
+[ERROR]   JSONArrayTest_OE25Dev.testJSONArrayConstructor_1_oe:6696 expected:<[2,[ "test2", ]true]> but was:<[2,["test2",]true]>
+[ERROR]   JSONArrayTest_OE25Dev.testJSONArrayInt_2_oe:6659 expected:<[1,[ ]2]> but was:<[1,[]2]>
+[ERROR]   JSONArrayTest_OE25Dev.toList_1_oe:5289 expected:<[[1, 2, {["key3":true}], {"key1":"val1", "key2":{"key2":null}, "key3":42, "key4":[]}, [["value1"], 2.1], [null]]]> but was:<[[1, 2, {[key3=true}], {key1=val1, key2={key2=null}, key3=42, key4=[]}, [[value1], 2.1], [null]]]>
+[ERROR]   JSONArrayTest_OE25Dev.verifyPutAll_3_oe:618 expected:<5> but was:<10>
+[ERROR]   JSONMLTest_OE25Dev.testToJSONObject_reversibility_2_oe:778 expected:<{"[tagName":"readResult","childNodes":[{"tagName":"errors","someAttr":"arrtValue","childNodes":[{"tagName":"code","childNodes":["400"]},{"tagName":"code","childNodes":["402"]}]}]]}> but was:<{"[childNodes":[{"childNodes":[{"childNodes":[400],"tagName":"code"}],"tagName":"errors","someAttr":"arrtValue"},{"childNodes":[{"childNodes":[402],"tagName":"code"}],"tagName":"errors"}],"tagName":"readResult"]}>
+[ERROR]   JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_1_oe:46 expected:<0> but was:<2>
+[ERROR]   JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_4_oe:102 expected:<0> but was:<2>
+[ERROR]   JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_5_oe:128 expected:<[]> but was:<[beanId]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_10_oe:6736 expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{"bigDec":123456789012345678901234567890.12345678901234567890123456789}]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_2_oe:6479 expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_3_oe:6494 expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_4_oe:6519 expected:<false> but was:<true>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_5_oe:6552 expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{}]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_6_oe:6586 expected:<123456789012345678901234567890> but was:<1>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_7_oe:6621 expected:<[123456789012345678901234567890]> but was:<[{"lowestSetBit":1}]>
+[ERROR]   JSONObjectTest_OE25Dev.bigNumberOperations_8_oe:6657 expected:<[123456789012345678901234567890.12345678901234567890123456789]> but was:<[{}]>
+[ERROR]   JSONObjectTest_OE25Dev.invalidEscapeSequence_1_oe Expected exception: org.json.JSONException
+[ERROR]   JSONObjectTest_OE25Dev.issue654StackOverflowInputWellFormed_1_oe Expected exception: org.json.JSONException
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_11_oe:2377 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_2_oe:2254 expected:<1> but was:<5>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_3_oe:2262 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_4_oe:2271 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_5_oe:2281 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_6_oe:2292 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean2_7_oe:2305 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_12_oe:2538 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_13_oe:2563 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_14_oe:2590 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_15_oe:2619 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_16_oe:2650 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_2_oe:2390 expected:<4> but was:<7>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_3_oe:2398 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_4_oe:2407 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_6_oe:2430 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_7_oe:2443 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByBean3_8_oe:2458 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectNames_4_oe:6968
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectOptCoercion_17_oe:12151 expected:<{"largeNumber":1[.7976931348623157E308],"largeNumberStr":"1...> but was:<{"largeNumber":1[9007199254740993.35481234487103587486413587843213584],"largeNumberStr":"1...>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectOptCoercion_18_oe:12182 expected:<{"largeNumber":1[.7976931348623157E308],"largeNumberStr":"1...> but was:<{"largeNumber":1[9007199254740993.35481234487103587486413587843213584],"largeNumberStr":"1...>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectOptCoercion_3_oe:11846 Use assertEquals(expected, actual, delta) to compare floating-point numbers
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectOptCoercion_9_oe:11945 Use assertEquals(expected, actual, delta) to compare floating-point numbers
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectOptDefault_11_oe:11494
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectPutOnceNull_2_oe:11329 expected:<false> but was:<true>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectPutOnceNull_3_oe:11340 expected:<false> but was:<true>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectQuote_2_oe:12460 expected:<"[]"> but was:<"[\"\"]">
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_10_oe:3477 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_11_oe:3512 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_12_oe:3548 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_13_oe:3585 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_18_oe:3785 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_19_oe:3828 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_23_oe:4010 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_8_oe:3410 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectValues_9_oe:3443 expected:<-23.45> but was:<-2.345E8>
+[ERROR]   JSONObjectTest_OE25Dev.testExceptionalBean_1_oe:14680 expected:<0> but was:<1>
+[ERROR]   JSONObjectTest_OE25Dev.testExceptionalBean_2_oe:14688 expected:<{[]}> but was:<{["closeable":{"string":"Yup, it's closeable"}]}>
+[ERROR]   JSONObjectTest_OE25Dev.testExceptionalBean_3_oe:14697 expected:<true> but was:<false>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericBean_1_oe:14572 expected:<1> but was:<8>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericBean_2_oe:14580 expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@176d53b2","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericBean_3_oe:14589 expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@51931956","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericBean_4_oe:14599 expected:<{"[value":42]}> but was:<{"[intKey":42,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@564718df","stringKey":"MyString Key","trueKey":true,"genericValue":42,"doubleKey":4.2,"falseKey":false]}>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericIntBean_1_oe:14606 expected:<1> but was:<10>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericIntBean_2_oe:14614 expected:<{"[value":42]}> but was:<{"[intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@3bd40a57","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false]}>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericIntBean_3_oe:14623 expected:<{"[value":42]}> but was:<{"[intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@11dc3715","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false]}>
+[ERROR]   JSONObjectTest_OE25Dev.testGenericIntBean_4_oe:14633 expected:<[42]> but was:<[{"intKey":42,"a":"A","b":false,"escapeStringKey":"\"My String with \"s","stringReaderKey":"java.io.StringReader@8909f18","stringKey":"MyString Key","genericValue":42,"trueKey":true,"doubleKey":4.2,"falseKey":false}]>
+[ERROR]   JSONObjectTest_OE25Dev.testWierdListBean_1_oe:14646 expected:<3> but was:<1>
+[ERROR]   JSONObjectTest_OE25Dev.toMap_6_oe:13324 expected:<true> but was:<{key3=true}>
+[ERROR]   JSONObjectTest_OE25Dev.unquotedText_1_oe:931 expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+[ERROR]   JSONObjectTest_OE25Dev.unquotedText_2_oe:940 expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+[ERROR]   JSONObjectTest_OE25Dev.unquotedText_3_oe:950 expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+[ERROR]   JSONObjectTest_OE25Dev.unquotedText_4_oe:961 expected:<{[key1:value1, key2]:42}> but was:<{["key1":"value1","key2"]:42}>
+[ERROR]   JSONObjectTest_OE25Dev.valueToString_2_oe:10101 expected:<[null]> but was:<[org.json.junit.data.MyJsonString@51b7e5df]>
+[ERROR]   JSONObjectTest_OE25Dev.valueToString_3_oe:10110 expected:<[null]> but was:<[org.json.junit.data.MyJsonString@18a70f16]>
+[ERROR]   JSONObjectTest_OE25Dev.valueToString_5_oe:10138 expected:<[{"key1":"val1","key2":"val2","key3":"val3"}]> but was:<[org.json.junit.data.MyJsonString@62e136d3]>
+[ERROR]   JSONObjectTest_OE25Dev.valueToString_6_oe:10160 expected:<[{"key1":"val1","key2":"val2","key3":"val3"}]> but was:<[org.json.junit.data.MyJsonString@c8e4bb0]>
+[ERROR]   JSONPointerTest_OE25Dev.queryFromJSONObjectUsingPointer0_2_oe:743 expected:<[slash test]> but was:<[hello world!]>
+[ERROR]   JSONStringTest_OE25Dev.valuesToString_5_oe:381 expected:<[null]> but was:<[{"key1":"value1"}]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_2_oe:458 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_3_oe:479 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_4_oe:501 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_5_oe:524 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_6_oe:548 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONStringerTest_OE25Dev.simpleArrayString_7_oe:573 expected:<..."hello world!",42,-2[3.45e67]]> but was:<..."hello world!",42,-2[.345E68]]>
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_2_oe:255 expected:<10> but was:<116>
+[ERROR]   XMLConfigurationTest_OE25Dev.contentOperations_1_oe:947 expected:<2> but was:<3>
+[ERROR]   XMLConfigurationTest_OE25Dev.contentOperations_5_oe:1012 expected:<2> but was:<3>
+[ERROR]   XMLConfigurationTest_OE25Dev.contentOperations_7_oe:1061 expected:<[<tag1></tag1><![CDATA[if (a < b && a > 0) then return]]><tag2></tag2><![CDATA[here is another cdata]]>]> but was:<[{"tag1":"","altContent":["if (a < b && a > 0) then return","here is another cdata"],"tag2":""}]>
+[ERROR]   XMLConfigurationTest_OE25Dev.shouldHandleEmptyMultiArray_1_oe:777 expected:<[<jo><arr>One</arr><arr></arr><arr>Four</arr></jo>]> but was:<[{"arr":["One",[],"Four"]}]>
+[ERROR]   XMLConfigurationTest_OE25Dev.testToJsonXML_1_oe:3589 expected:<5> but was:<1>
+[ERROR]   XMLTest_OE25Dev.contentOperations_12_oe:1295 expected:<0> but was:<1>
+[ERROR]   XMLTest_OE25Dev.contentOperations_5_oe:1122 expected:<2> but was:<3>
+[ERROR]   XMLTest_OE25Dev.shouldHandleContentArraytoString_1_oe:855 expected:<[<addresses/>]> but was:<[]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_10_oe:810 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_11_oe:834 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_1_oe:645 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_2_oe:658 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_3_oe:673 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_4_oe:689 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_5_oe:706 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_6_oe:724 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_7_oe:744 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_8_oe:765 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testJsonToXmlEscape_9_oe:787 expected:<[{"amount":"10,00 ","description":"Ação Válida","xmlEntities":"\"'& < >"}]> but was:<[<amount>10,00 €</amount><description>Ação Válida&#x85;</description><xmlEntities>&quot; &apos; &amp; &lt; &gt;</xmlEntities>]>
+[ERROR]   XMLTest_OE25Dev.testToJsonXML_1_oe:3277 expected:<5> but was:<1>
+[ERROR] Errors: 
+[ERROR]   CDLTest_OE25Dev.emptyString_1_oe:310 NullPointer Cannot invoke "org.json.JSONA...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_2_oe:311 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_3_oe:333 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_4_oe:356 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_5_oe:380 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_6_oe:405 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertCookieListToString_7_oe:431 » JSONPointer value ...
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_2_oe:462 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_3_oe:479 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_4_oe:497 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_5_oe:516 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_6_oe:536 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.convertEncodedCookieListToString_7_oe:557 » JSONPointer
+[ERROR]   CookieListTest_OE25Dev.multiPartCookieList_2_oe:167 » JSONPointer value [null]...
+[ERROR]   CookieListTest_OE25Dev.multiPartCookieList_3_oe:184 » JSONPointer value [null]...
+[ERROR]   CookieListTest_OE25Dev.multiPartCookieList_4_oe:202 » JSONPointer value [null]...
+[ERROR]   CookieListTest_OE25Dev.multiPartCookieList_6_oe:241 » JSONPointer value [null]...
+[ERROR]   CookieListTest_OE25Dev.multiPartCookieList_7_oe:262 » JSONPointer value [null]...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_2_oe:341 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_3_oe:358 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_4_oe:376 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_6_oe:427 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_7_oe:454 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnumWithNames_8_oe:482 » JSONPointer value [nul...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnum_3_oe:119 » JSONPointer value [null] is not...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnum_4_oe:138 » JSONPointer value [null] is not...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnum_8_oe:273 » JSONPointer value [null] is not...
+[ERROR]   EnumTest_OE25Dev.jsonObjectFromEnum_9_oe:310 » JSONPointer value [null] is not...
+[ERROR]   EnumTest_OE25Dev.wrap_3_oe:1758 » JSONPointer value [null] is not an array or ...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_10_oe:960 » JSON JSONArray[0] is not a in...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_13_oe:1032 » JSON JSONArray[0] is not a l...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_14_oe:1059 » JSON JSONArray[0] is not a l...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_6_oe:892 » JSON JSONArray[0] is not a dou...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_7_oe:907 » JSON JSONArray[0] is not a dou...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_8_oe:923 » JSON JSONArray[0] is not a flo...
+[ERROR]   JSONArrayTest_OE25Dev.getArrayValues_9_oe:941 » JSON JSONArray[0] is not a int...
+[ERROR]   JSONArrayTest_OE25Dev.objectArrayVsIsArray_4_oe:5187 » JSONPointer value [1] i...
+[ERROR]   JSONArrayTest_OE25Dev.objectArrayVsIsArray_5_oe:5202 » JSONPointer value [1] i...
+[ERROR]   JSONArrayTest_OE25Dev.put_3_oe:2436 » JSONPointer value [true] is not an array...
+[ERROR]   JSONArrayTest_OE25Dev.verifyPutAll_4_oe:644 » JSON JSONArray[4] is not a Strin...
+[ERROR]   JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_2_oe:61 » JSON JSONObject[...
+[ERROR]   JSONObjectLocaleTest_OE25Dev.jsonObjectByLocaleBean_6_oe:155 » JSON JSONObject...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_4_oe:2175 » JSONPointer va...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_6_oe:2218 » JSONPointer va...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMapWithNullValue_7_oe:2241 » JSONPointer va...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMapWithUnsupportedValues_3_oe:2101 » JSONPointer
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMap_2_oe:1176 » JSONPointer value [null] is...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMap_3_oe:1194 » JSONPointer value [null] is...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMap_4_oe:1213 » JSONPointer value [null] is...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMap_5_oe:1233 » JSONPointer value [null] is...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByMap_6_oe:1254 » JSONPointer value [null] is...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByObjectAndNames_2_oe:2675 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByObjectAndNames_3_oe:2689 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_3_oe:2725 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_4_oe:2739 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_6_oe:2770 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectByResourceBundle_7_oe:2787 » JSONPointer valu...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectIncrement_2_oe:7720 » JSON JSONObject["keyBig...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectIncrement_3_oe:7754 » JSON JSONObject["keyBig...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectIncrement_4_oe:7789 » JSON JSONObject["keyBig...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_10_oe:9611 » JSONPointer value [null...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_11_oe:9642 » JSONPointer value [null...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_12_oe:9674 » JSONPointer value [null...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_2_oe:9399 » JSONPointer value [null]...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_3_oe:9422 » JSONPointer value [null]...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_5_oe:9471 » JSONPointer value [null]...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_6_oe:9497 » JSONPointer value [null]...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_7_oe:9524 » JSONPointer value [null]...
+[ERROR]   JSONObjectTest_OE25Dev.jsonObjectToString_9_oe:9581 » JSONPointer value [null]...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_2_oe:272 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_3_oe:294 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_4_oe:317 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_5_oe:341 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_6_oe:366 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_7_oe:392 » JSONPointer value [null...
+[ERROR]   JSONStringerTest_OE25Dev.simpleObjectString_8_oe:419 » JSONPointer value [null...
+[ERROR]   XMLConfigurationTest_OE25Dev.contentOperations_6_oe:1036 » JSON JSONObject["co...
+[ERROR]   XMLConfigurationTest_OE25Dev.contentOperations_8_oe:1087 » JSON JSONObject["co...
+[ERROR]   XMLConfigurationTest_OE25Dev.testConfig_1_oe:3847 » JSON JSONObject["name"] no...
+[ERROR]   XMLTest_OE25Dev.contentOperations_6_oe:1142 » JSON JSONObject["content"] is no...
+[ERROR]   XMLTest_OE25Dev.contentOperations_7_oe:1163 » JSON JSONObject["content"] is no...
+[ERROR]   XMLTest_OE25Dev.contentOperations_8_oe:1185 » JSON JSONObject["content"] is no...
+[INFO] 
+[ERROR] Tests run: 1146, Failures: 158, Errors: 82, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.223 s
+[INFO] Finished at: 2026-03-02T23:28:57-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

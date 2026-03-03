@@ -1,70 +1,83 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-openjpa:jar:3.1
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 67, column 17
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] 
-[INFO] -----------< org.apache.commons:commons-jcs3-jcache-openjpa >-----------
-[INFO] Building Apache Commons JCS :: JCache OpenJPA 3.1
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- clean:3.1.0:clean (default-clean) @ commons-jcs3-jcache-openjpa ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache-openjpa ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache-openjpa ---
-[INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-jcs3-jcache-openjpa ---
-[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
-[INFO] 
-[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-jcs3-jcache-openjpa ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-jcs3-jcache-openjpa ---
-[INFO] Skipping Antrun execution
-[INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-jcs3-jcache-openjpa ---
-[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
-[INFO] Copying 3 resources from 1 bundle.
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-jcs3-jcache-openjpa ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
-[INFO] Storing buildNumber: f7b56da3b99411c476ec2c6033a5a90c57452a82 at timestamp: 1768505635929
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-jcs3-jcache-openjpa ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] Copying 0 resource to META-INF
-[INFO] Copying 3 resources
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-jcs3-jcache-openjpa ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/${target.dir}/classes
-[INFO] 
-[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache-openjpa ---
-[INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache-openjpa ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/src/test/resources
-[INFO] Copying 0 resource to META-INF
-[INFO] Copying 3 resources
-[INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-openjpa ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache-openjpa ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- surefire:2.22.2:test (default-test) @ commons-jcs3-jcache-openjpa ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.928 s
-[INFO] Finished at: 2026-01-15T14:33:57-05:00
-[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-openjpa:jar:3.1
+[[1;33mWARNING[m] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 67, column 17
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------< [0;36morg.apache.commons:commons-jcs3-jcache-openjpa[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding Apache Commons JCS :: JCache OpenJPA 3.1[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-version)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-3)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat-plugin:0.13:check[m [1m(rat-check)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:3.2.0:parse-version[m [1m(parse-version)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.8:run[m [1m(javadoc.resources)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Skipping Antrun execution
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.7.0:process[m [1m(process-resource-bundles)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[[1;34mINFO[m] Copying 3 resources from 1 bundle.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuildnumber-maven-plugin:1.4:create[m [1m(default)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
+[[1;34mINFO[m] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
+[[1;34mINFO[m] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1771875573494
+[[1;34mINFO[m] Storing buildScmBranch: final-single-assertion-dataset
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] Copying 0 resource to META-INF
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:5.1.1:manifest[m [1m(bundle-manifest)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/resources
+[[1;34mINFO[m] Copying 0 resource to META-INF
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/test-classes
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest_OE25Dev.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32manimal-sniffer-maven-plugin:1.19:check[m [1m(checkAPIcompatibility)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.2:test[m [1m(default-test)[m @ [36mcommons-jcs3-jcache-openjpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.commons.jcs3.jcache.openjpa.[1mOpenJPAJCacheDataCacheTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m2[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.544 s - in org.apache.commons.jcs3.jcache.openjpa.[1mOpenJPAJCacheDataCacheTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 2, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.627 s
+[[1;34mINFO[m] Finished at: 2026-02-23T13:39:35-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

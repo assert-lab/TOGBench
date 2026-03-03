@@ -1,0 +1,110 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+lang_left_556_5,"@Test
+    public void testAbbreviate_StringStringIntInt_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+    StringUtils.abbreviate(""abcdefghij"", ""."", 0, 2)();
+    fail(""Expected IllegalArgumentException with message: "" + ""StringUtils.abbreviate expecting IllegalArgumentException"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_5_oe,org.apache.commons.lang3.StringUtils,"abbreviate(final String str, final int maxWidth)","/**
+     * <p>Abbreviates a String using ellipses. This will turn
+     * ""Now is the time for all good men"" into ""Now is the time for...""</p>
+     *
+     * <p>Specifically:</p>
+     * <ul>
+     *   <li>If the number of characters in {@code str} is less than or equal to
+     *       {@code maxWidth}, return {@code str}.</li>
+     *   <li>Else abbreviate it to {@code (substring(str, 0, max-3) + ""..."")}.</li>
+     *   <li>If {@code maxWidth} is less than {@code 4}, throw an
+     *       {@code IllegalArgumentException}.</li>
+     *   <li>In no case will it return a String of length greater than
+     *       {@code maxWidth}.</li>
+     * </ul>
+     *
+     * <pre>
+     * StringUtils.abbreviate(null, *)      = null
+     * StringUtils.abbreviate("""", 4)        = """"
+     * StringUtils.abbreviate(""abcdefg"", 6) = ""abc...""
+     * StringUtils.abbreviate(""abcdefg"", 7) = ""abcdefg""
+     * StringUtils.abbreviate(""abcdefg"", 8) = ""abcdefg""
+     * StringUtils.abbreviate(""abcdefg"", 4) = ""a...""
+     * StringUtils.abbreviate(""abcdefg"", 3) = IllegalArgumentException
+     * </pre>
+     *
+     * @param str  the String to check, may be null
+     * @param maxWidth  maximum length of result String, must be at least 4
+     * @return abbreviated String, {@code null} if null String input
+     * @throws IllegalArgumentException if the width is too small
+     * @since 2.0
+     */","public static String abbreviate(final String str, final int maxWidth) {
+        return abbreviate(str, ""..."", 0, maxWidth);
+    }"
+lang_left_1674_1,"@Test
+    public void testThrowingInformativeException_1_oe() {
+        try {
+     new CircuitBreakingException(EXCEPTION_MESSAGE, generateCause());
+    fail(""Expected CircuitBreakingException"");
+} catch (CircuitBreakingException e) {
+}
+    }
+",CircuitBreakingExceptionTest::testThrowingInformativeException_1_oe,,,,
+lang_left_1675_1,"@Test
+    public void testThrowingExceptionWithMessage_1_oe() {
+        try {
+     new CircuitBreakingException(EXCEPTION_MESSAGE);
+    fail(""Expected CircuitBreakingException"");
+} catch (CircuitBreakingException e) {
+}
+    }
+",CircuitBreakingExceptionTest::testThrowingExceptionWithMessage_1_oe,,,,
+lang_left_1676_1,"@Test
+    public void testThrowingExceptionWithCause_1_oe() {
+        try {
+     new CircuitBreakingException(generateCause());
+    fail(""Expected CircuitBreakingException"");
+} catch (CircuitBreakingException e) {
+}
+    }
+",CircuitBreakingExceptionTest::testThrowingExceptionWithCause_1_oe,,,,
+lang_left_1677_1,"@Test
+    public void testThrowingEmptyException_1_oe() {
+        try {
+     new CircuitBreakingException();
+    fail(""Expected CircuitBreakingException"");
+} catch (CircuitBreakingException e) {
+}
+    }
+",CircuitBreakingExceptionTest::testThrowingEmptyException_1_oe,,,,
+lang_left_3108_1,"@Test
+    public void testThrowingInformativeException_1_oe() {
+        try {
+     new CloneFailedException(EXCEPTION_MESSAGE, generateCause());
+    fail(""Expected CloneFailedException"");
+} catch (CloneFailedException e) {
+}
+    }
+",CloneFailedExceptionTest::testThrowingInformativeException_1_oe,,,,
+lang_left_3109_1,"@Test
+    public void testThrowingExceptionWithMessage_1_oe() {
+        try {
+     new CloneFailedException(EXCEPTION_MESSAGE);
+    fail(""Expected CloneFailedException"");
+} catch (CloneFailedException e) {
+}
+    }
+",CloneFailedExceptionTest::testThrowingExceptionWithMessage_1_oe,,,,
+lang_left_3110_1,"@Test
+    public void testThrowingExceptionWithCause_1_oe() {
+        try {
+     new CloneFailedException(generateCause());
+    fail(""Expected CloneFailedException"");
+} catch (CloneFailedException e) {
+}
+    }
+",CloneFailedExceptionTest::testThrowingExceptionWithCause_1_oe,,,,

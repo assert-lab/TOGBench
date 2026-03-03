@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-numbers-angle:jar:1.0
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> duplicate declaration of version (?) @ line 66, column 17
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> duplicate declaration of version (?) @ line 67, column 17
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -36,13 +36,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-angle ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613850431
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566688426
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-angle ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -76,11 +71,11 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.angle.ReduceTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.numbers.angle.ReduceTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.numbers.angle.ReduceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.angle.AngleTest_OE25Dev
-[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.numbers.angle.AngleTest_OE25Dev
+[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in org.apache.commons.numbers.angle.AngleTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -89,6 +84,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.388 s
-[INFO] Finished at: 2026-02-20T12:57:36-06:00
+[INFO] Total time:  9.040 s
+[INFO] Finished at: 2026-03-03T13:38:14-06:00
 [INFO] ------------------------------------------------------------------------

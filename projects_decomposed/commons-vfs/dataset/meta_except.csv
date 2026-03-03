@@ -1,0 +1,2 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+vfs_145_1,commons-vfs,CustomRamProviderTest,testSmallFS_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown,standard,fail

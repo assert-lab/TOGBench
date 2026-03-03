@@ -1,0 +1,1382 @@
+id,test_prefix,test_name
+scribejava_1,"@Test
+    public void shouldReleaseLatchOnSuccess_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNotNull(callback.getResponse());
+        assertNull(callback.getThrowable());
+        // verify latch is released
+        assertEquals(""All good"", callback.getResponse());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_oe
+scribejava_2,"@Test
+    public void shouldReportOAuthException_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, ""ok"", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_oe
+scribejava_3,"@Test
+    public void shouldSendGetRequest_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendGetRequest"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""GET"", recordedRequest.getMethod());
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendGetRequest_oe
+scribejava_4,"@Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_oe() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader_oe
+scribejava_5,"@Test
+    public void shouldSendPostRequestWithEmptyBody_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = """";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendPostRequestWithEmptyBody_oe
+scribejava_6,"@Test
+    public void shouldSendPostRequestWithStringBody_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+        final String contentTypeHeader = recordedRequest.getHeader(HttpClient.CONTENT_TYPE);
+        assertNotNull(contentTypeHeader);
+        assertTrue(contentTypeHeader.startsWith(HttpClient.DEFAULT_CONTENT_TYPE));
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendPostRequestWithStringBody_oe
+scribejava_7,"@Test
+    public void shouldSendPostRequestWithByteBodyBody_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBody = ""request body"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.setPayload(expectedRequestBody.getBytes());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendPostRequestWithByteBodyBody_oe
+scribejava_8,"@Test
+    public void shouldSendPostRequestWithBodyParamsBody_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldSendPostRequest"";
+        final String expectedRequestBodyParamName = ""request_body_param_name"";
+        final String expectedRequestBodyParamValue = ""request_body_param_value"";
+        final String expectedRequestBody = expectedRequestBodyParamName + '=' + expectedRequestBodyParamValue;
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        request.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, response.getBody());
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""POST"", recordedRequest.getMethod());
+        assertEquals(expectedRequestBody, recordedRequest.getBody().readUtf8());
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+
+        server.shutdown();
+    }",AbstractClientTest::shouldSendPostRequestWithBodyParamsBody_oe
+scribejava_9,"@Test
+    public void shouldReadResponseStream_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldReadResponseStream"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+        try (Response response = oAuthService.execute(request, null).get(30, TimeUnit.SECONDS)) {
+            assertEquals(expectedResponseBody, StreamUtils.getStreamContents(response.getStream()));
+        }
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals(""GET"", recordedRequest.getMethod());
+
+        server.shutdown();
+    }",AbstractClientTest::shouldReadResponseStream_oe
+scribejava_10,"@Test
+    public void shouldCallCallback_oe() throws Exception {
+        final String expectedResponseBody = ""response body for test shouldCallCallback"";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        oAuthService.execute(request, callback).get();
+
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());
+
+        server.shutdown();
+    }",AbstractClientTest::shouldCallCallback_oe
+scribejava_11,"@Test
+    public void shouldPassErrors_oe() throws Exception {
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setResponseCode(500));
+        server.start();
+
+        final HttpUrl baseUrl = server.url(""/testUrl"");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        try (Response response = oAuthService.execute(request, callback).get()) {
+
+            assertEquals(500, response.getCode());
+            assertEquals(500, callback.getResponse().getCode());
+        }
+
+        server.shutdown();
+    }",AbstractClientTest::shouldPassErrors_oe
+scribejava_12,"@Test
+    public void shouldPercentEncodeString_oe() {
+        final String plain = ""this is a test &^"";
+        final String encoded = ""this%20is%20a%20test%20%26%5E"";
+        assertEquals(encoded, OAuthEncoder.encode(plain));
+    }",OAuthEncoderTest::shouldPercentEncodeString_oe
+scribejava_13,"@Test
+    public void shouldFormURLDecodeString_oe() {
+        final String encoded = ""this+is+a+test+%26%5E"";
+        final String plain = ""this is a test &^"";
+        assertEquals(plain, OAuthEncoder.decode(encoded));
+    }",OAuthEncoderTest::shouldFormURLDecodeString_oe
+scribejava_14,"@Test
+    public void shouldPercentEncodeAllSpecialCharacters_oe() {
+        final String plain = ""!*'();:@&=+$,/?#[]"";
+        final String encoded = ""%21%2A%27%28%29%3B%3A%40%26%3D%2B%24%2C%2F%3F%23%5B%5D"";
+        assertEquals(encoded, OAuthEncoder.encode(plain));
+        assertEquals(plain, OAuthEncoder.decode(encoded));
+    }",OAuthEncoderTest::shouldPercentEncodeAllSpecialCharacters_oe
+scribejava_15,"@Test
+    public void shouldNotPercentEncodeReservedCharacters_oe() {
+        final String plain = ""abcde123456-._~"";
+        final String encoded = plain;
+        assertEquals(encoded, OAuthEncoder.encode(plain));
+    }",OAuthEncoderTest::shouldNotPercentEncodeReservedCharacters_oe
+scribejava_16,"@Test
+    public void shouldPercentEncodeCorrectlyTwitterCodingExamples_oe() {
+        // These tests are part of the Twitter dev examples here
+        // -> https://dev.twitter.com/docs/auth/percent-encoding-parameters
+        final String[] sources = {""Ladies + Gentlemen"", ""An encoded string!"", ""Dogs, Cats & Mice""};
+        final String[] encoded = {""Ladies%20%2B%20Gentlemen"", ""An%20encoded%20string%21"",
+            ""Dogs%2C%20Cats%20%26%20Mice""};
+
+        for (int i = 0; i < sources.length; i++) {
+            assertEquals(encoded[i], OAuthEncoder.encode(sources[i]));
+        }
+    }",OAuthEncoderTest::shouldPercentEncodeCorrectlyTwitterCodingExamples_oe
+scribejava_17,"@Test
+    public void shouldCorrectlyDecodeAStream_oe() throws IOException {
+        final String value = ""expected"";
+        final InputStream is = new ByteArrayInputStream(value.getBytes());
+        final String decoded = StreamUtils.getStreamContents(is);
+        assertEquals(""expected"", decoded);
+    }",StreamUtilsTest::shouldCorrectlyDecodeAStream_oe
+scribejava_18,"@Test
+    public void testGeneratingPKCE_oe() {
+        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+
+        assertEquals(PKCECodeChallengeMethod.S256, pkce.getCodeChallengeMethod());
+        assertEquals(""dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk"", pkce.getCodeVerifier());
+        assertEquals(""E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM"", pkce.getCodeChallenge());
+    }",PKCECodeChallengeMethodTest::testGeneratingPKCE_oe
+scribejava_19,"@Test
+    public void shouldExtractBaseStringFromOAuthRequest_oe() {
+        final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+                + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
+                + ""%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(request);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldExtractBaseStringFromOAuthRequest_oe
+scribejava_20,"@Test
+    public void shouldExcludePort80_oe() {
+        final String expected = ""GET&http%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+                + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
+                + ""%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(requestPort80);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldExcludePort80_oe
+scribejava_21,"@Test
+    public void shouldExcludePort80v2_oe() {
+        final String expected = ""GET&http%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
+                + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
+                + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(requestPort80v2);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldExcludePort80v2_oe
+scribejava_22,"@Test
+    public void shouldIncludePort8080_oe() {
+        final String expected = ""GET&http%3A%2F%2Fexample.com%3A8080&oauth_callback%3Dhttp%253A%252F%252Fexample""
+                + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
+                + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(requestPort8080);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldIncludePort8080_oe
+scribejava_23,"@Test
+    public void shouldExcludePort443_oe() {
+        final String expected = ""GET&https%3A%2F%2Fexample.com&oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback""
+                + ""%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature""
+                + ""%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(requestPort443);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldExcludePort443_oe
+scribejava_24,"@Test
+    public void shouldExcludePort443v2_oe() {
+        final String expected = ""GET&https%3A%2F%2Fexample.com%2Ftest&oauth_callback%3Dhttp%253A%252F%252Fexample""
+                + ""%252Fcallback%26oauth_consumer_key%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature""
+                + ""%3DOAuth-Signature%26oauth_timestamp%3D123456"";
+        final String baseString = extractor.extract(requestPort443v2);
+        assertEquals(expected, baseString);
+    }",BaseStringExtractorTest::shouldExcludePort443v2_oe
+scribejava_25,"@Test
+    public void shouldProperlyEncodeSpaces_oe() {
+        final String expected = ""GET&http%3A%2F%2Fexample.com&body%3Dthis%2520param%2520has%2520whitespace""
+                + ""%26oauth_callback%3Dhttp%253A%252F%252Fexample%252Fcallback%26oauth_consumer_key""
+                + ""%3DAS%2523%2524%255E%252A%2540%2526%26oauth_signature%3DOAuth-Signature%26oauth_timestamp%3D123456"";
+        request.addBodyParameter(""body"", ""this param has whitespace"");
+        assertEquals(expected, extractor.extract(request));
+    }",BaseStringExtractorTest::shouldProperlyEncodeSpaces_oe
+scribejava_26,"@Test
+    public void shouldExtractStandardHeader_oe() {
+        final String header = extractor.extract(request);
+        final String oauth = ""OAuth "";
+        final String callback = ""oauth_callback=\""http%3A%2F%2Fexample%2Fcallback\"""";
+        final String signature = ""oauth_signature=\""OAuth-Signature\"""";
+        final String key = ""oauth_consumer_key=\""AS%23%24%5E%2A%40%26\"""";
+        final String timestamp = ""oauth_timestamp=\""123456\"""";
+
+        assertTrue(header.startsWith(oauth));
+        assertTrue(header.contains(callback));
+        assertTrue(header.contains(signature));
+        assertTrue(header.contains(key));
+        assertTrue(header.contains(timestamp));
+        // Assert that header only contains the checked elements above and nothing else
+        assertEquals("",,,"",header.replaceFirst(oauth,"""").replaceFirst(callback,"""").replaceFirst(signature,"""").replaceFirst(key,"""").replaceFirst(timestamp,""""));
+    }",HeaderExtractorTest::shouldExtractStandardHeader_oe
+scribejava_27,"@Test
+    public void shouldExtractTokenFromOAuthStandardResponse_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+    }",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_oe
+scribejava_28,"@Test
+    public void shouldExtractTokenFromResponseWithExpiresParam_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
+    }",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresParam_oe
+scribejava_29,"@Test
+    public void shouldExtractTokenFromResponseWithExpiresAndRefreshParam_oe() throws IOException {
+        final String responseBody = ""access_token=166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159""
+                + ""|RsXNdKrpxg8L6QNLWcs2TVTmcaE&expires_in=5108&token_type=bearer&refresh_token=166942940015970"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""166942940015970|2.2ltzWXYNDjCtg5ZDVVJJeg__.3600.1295816400-548517159|RsXNdKrpxg8L6QNLWcs2TVTmcaE"",extracted.getAccessToken());
+        assertEquals(Integer.valueOf(5108), extracted.getExpiresIn());
+        assertEquals(""bearer"", extracted.getTokenType());
+        assertEquals(""166942940015970"", extracted.getRefreshToken());
+    }",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithExpiresAndRefreshParam_oe
+scribejava_30,"@Test
+    public void shouldExtractTokenFromResponseWithManyParameters_oe() throws IOException {
+        final String responseBody = ""access_token=foo1234&other_stuff=yeah_we_have_this_too&number=42"";
+        final OAuth2AccessToken extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""foo1234"", extracted.getAccessToken());
+    }",OAuth2AccessTokenExtractorTest::shouldExtractTokenFromResponseWithManyParameters_oe
+scribejava_31,"@Test
+    public void shouldExtractTokenFromOAuthStandardResponse_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());
+    }",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromOAuthStandardResponse_oe
+scribejava_32,"@Test
+    public void shouldExtractTokenFromInvertedOAuthStandardResponse_oe() throws IOException {
+        final String responseBody = ""oauth_token_secret=hh5s93j4hdidpola&oauth_token=hdhd0244k9j7ao03"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getTokenSecret());
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getToken());
+    }",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromInvertedOAuthStandardResponse_oe
+scribejava_33,"@Test
+    public void shouldExtractTokenFromResponseWithCallbackConfirmed_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret=hdhd0244k9j7ao03""
+                + ""&callback_confirmed=true"";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+        assertEquals(""hdhd0244k9j7ao03"", extracted.getTokenSecret());
+    }",OAuth1AccessTokenExtractorTest::shouldExtractTokenFromResponseWithCallbackConfirmed_oe
+scribejava_34,"@Test
+    public void shouldExtractTokenWithEmptySecret_oe() throws IOException {
+        final String responseBody = ""oauth_token=hh5s93j4hdidpola&oauth_token_secret="";
+        final OAuth1Token extracted;
+        try (Response response = ok(responseBody)) {
+            extracted = extractor.extract(response);
+        }
+        assertEquals(""hh5s93j4hdidpola"", extracted.getToken());
+        assertEquals("""", extracted.getTokenSecret());
+    }",OAuth1AccessTokenExtractorTest::shouldExtractTokenWithEmptySecret_oe
+scribejava_35,"@Test
+    public void shouldParseResponse_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X\"", ""
+                + ""\""token_type\"":\""example\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T3X"", token.getAccessToken());
+    }",OAuth2AccessTokenJsonExtractorTest::shouldParseResponse_oe
+scribejava_36,"@Test
+    public void shouldParseScopeFromResponse_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T4X"", token.getAccessToken());
+        assertEquals(""s1"", token.getScope());
+
+        final String responseBody2 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s1 s2\""}"";
+        final OAuth2AccessToken token2;
+        try (Response response = ok(responseBody2)) {
+            token2 = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T5X"", token2.getAccessToken());
+        assertEquals(""s1 s2"", token2.getScope());
+
+        final String responseBody3 = ""{ \""access_token\"":\""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X\"", ""
+                + ""\""token_type\"":\""example\"",""
+                + ""\""scope\"":\""s3 s4\"", ""
+                + ""\""refresh_token\"":\""refresh_token1\""}"";
+        final OAuth2AccessToken token3;
+        try (Response response = ok(responseBody3)) {
+            token3 = extractor.extract(response);
+        }
+        assertEquals(""I0122HHJKLEM21F3WLPYHDKGKZULAUO4SGMV3ABKFTDT3T6X"", token3.getAccessToken());
+        assertEquals(""s3 s4"", token3.getScope());
+        assertEquals(""refresh_token1"", token3.getRefreshToken());
+    }",OAuth2AccessTokenJsonExtractorTest::shouldParseScopeFromResponse_oe
+scribejava_37,"@Test
+    public void shouldThrowExceptionIfResponseIsError_oe() throws IOException {
+        final String responseBody = ""{""
+                + ""\""error_description\"":\""unknown, invalid, or expired refresh token\"",""
+                + ""\""error\"":\""invalid_grant\""""
+                + ""}"";
+        try (Response response = error(responseBody)) {
+            final OAuth2AccessTokenErrorResponse oaer = assertThrows(OAuth2AccessTokenErrorResponse.class,
+                    new ThrowingRunnable() {
+                @Override
+                public void run() throws Throwable {
+                    extractor.extract(response);
+                }
+            });
+            assertEquals(OAuth2Error.INVALID_GRANT, oaer.getError());
+            assertEquals(""unknown, invalid, or expired refresh token"", oaer.getErrorDescription());
+        }
+    }",OAuth2AccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_oe
+scribejava_38,"@Test
+    public void testEscapedJsonInResponse_oe() throws IOException {
+        final String responseBody = ""{ \""access_token\"":\""I0122HKLEM2\\/MV3ABKFTDT3T5X\"",""
+                + ""\""token_type\"":\""example\""}"";
+        final OAuth2AccessToken token;
+        try (Response response = ok(responseBody)) {
+            token = extractor.extract(response);
+        }
+        assertEquals(""I0122HKLEM2/MV3ABKFTDT3T5X"", token.getAccessToken());
+    }",OAuth2AccessTokenJsonExtractorTest::testEscapedJsonInResponse_oe
+scribejava_39,"@Test
+    public void shouldProduceCorrectRequestSync_oe() throws IOException, InterruptedException, ExecutionException {
+        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+                .apiSecret(""your_api_secret"")
+                .build(new OAuth20ApiUnit());
+
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrant(""user1"", ""password1"");
+        assertNotNull(token);
+
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+
+        assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
+        assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());
+
+        final String authorize = Base64.encode(
+                String.format(""%s:%s"", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName(""UTF-8"")));
+
+        assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
+
+        assertEquals(""user1"", response.get(""query-username"").asText());
+        assertEquals(""password1"", response.get(""query-password"").asText());
+        assertEquals(""password"", response.get(""query-grant_type"").asText());
+    }",OAuth20ServiceTest::shouldProduceCorrectRequestSync_oe
+scribejava_40,"@Test
+    public void shouldProduceCorrectRequestAsync_oe() throws ExecutionException, InterruptedException, IOException {
+        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+                .apiSecret(""your_api_secret"")
+                .build(new OAuth20ApiUnit());
+
+        final OAuth2AccessToken token = service.getAccessTokenPasswordGrantAsync(""user1"", ""password1"").get();
+
+        assertNotNull(token);
+
+        final JsonNode response = OBJECT_MAPPER.readTree(token.getRawResponse());
+
+        assertEquals(OAuth20ServiceUnit.TOKEN, response.get(OAuthConstants.ACCESS_TOKEN).asText());
+        assertEquals(OAuth20ServiceUnit.EXPIRES, response.get(""expires_in"").asInt());
+
+        final String authorize = Base64.encode(
+                String.format(""%s:%s"", service.getApiKey(), service.getApiSecret()).getBytes(Charset.forName(""UTF-8"")));
+
+        assertEquals(OAuthConstants.BASIC + ' ' + authorize, response.get(OAuthConstants.HEADER).asText());
+
+        assertEquals(""user1"", response.get(""query-username"").asText());
+        assertEquals(""password1"", response.get(""query-password"").asText());
+        assertEquals(""password"", response.get(""query-grant_type"").asText());
+    }",OAuth20ServiceTest::shouldProduceCorrectRequestAsync_oe
+scribejava_41,"@Test
+    public void testOAuthExtractAuthorization_oe() {
+        final OAuth20Service service = new ServiceBuilder(""your_api_key"")
+                .apiSecret(""your_api_secret"")
+                .build(new OAuth20ApiUnit());
+
+        OAuth2Authorization authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state=xyz"");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(""xyz"", authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(""xyz"", authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?key=value&state=xyz&code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(""xyz"", authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?state=xyz&code=SplxlOB&key=value&"");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(""xyz"", authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB&state="");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(null, authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code=SplxlOB"");
+        assertEquals(""SplxlOB"", authorization.getCode());
+        assertEquals(null, authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code="");
+        assertEquals(null, authorization.getCode());
+        assertEquals(null, authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?code"");
+        assertEquals(null, authorization.getCode());
+        assertEquals(null, authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb?"");
+        assertEquals(null, authorization.getCode());
+        assertEquals(null, authorization.getState());
+
+        authorization = service.extractAuthorization(""https://cl.ex.com/cb"");
+        assertEquals(null, authorization.getCode());
+        assertEquals(null, authorization.getState());
+    }",OAuth20ServiceTest::testOAuthExtractAuthorization_oe
+scribejava_42,"@Test
+    public void shouldGetQueryStringParameters_oe() {
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.addBodyParameter(""param"", ""value"");
+        postRequest.addBodyParameter(""param with spaces"", ""value with spaces"");
+
+        final OAuthRequest getRequest
+                = new OAuthRequest(Verb.GET, ""http://example.com?qsparam=value&other+param=value+with+spaces"");
+
+        assertEquals(2, getRequest.getQueryStringParams().size());
+        assertEquals(0, postRequest.getQueryStringParams().size());
+        assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""qsparam"", ""value"")));
+    }",RequestTest::shouldGetQueryStringParameters_oe
+scribejava_43,"@Test
+    public void shouldSetBodyParamsAndAddContentLength_oe() {
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.addBodyParameter(""param"", ""value"");
+        postRequest.addBodyParameter(""param with spaces"", ""value with spaces"");
+
+        assertEquals(""param=value&param%20with%20spaces=value%20with%20spaces"",new String(postRequest.getByteArrayPayload()));
+    }",RequestTest::shouldSetBodyParamsAndAddContentLength_oe
+scribejava_44,"@Test
+    public void shouldSetPayloadAndHeaders_oe() {
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.addBodyParameter(""param"", ""value"");
+        postRequest.addBodyParameter(""param with spaces"", ""value with spaces"");
+        postRequest.setPayload(""PAYLOAD"");
+
+        assertEquals(""PAYLOAD"", postRequest.getStringPayload());
+    }",RequestTest::shouldSetPayloadAndHeaders_oe
+scribejava_45,"@Test
+    public void shouldAllowAddingQuerystringParametersAfterCreation_oe() {
+        final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
+        request.addQuerystringParameter(""two"", ""other val"");
+        request.addQuerystringParameter(""more"", ""params"");
+        assertEquals(3, request.getQueryStringParams().size());
+    }",RequestTest::shouldAllowAddingQuerystringParametersAfterCreation_oe
+scribejava_46,"@Test
+    public void shouldReturnTheCompleteUrl_oe() {
+        final OAuthRequest request = new OAuthRequest(Verb.GET, ""http://example.com?one=val"");
+        request.addQuerystringParameter(""two"", ""other val"");
+        request.addQuerystringParameter(""more"", ""params"");
+        assertEquals(""http://example.com?one=val&two=other%20val&more=params"", request.getCompleteUrl());
+    }",RequestTest::shouldReturnTheCompleteUrl_oe
+scribejava_47,"@Test
+    public void shouldHandleQueryStringSpaceEncodingProperly_oe() {
+        final OAuthRequest getRequest
+                = new OAuthRequest(Verb.GET, ""http://example.com?qsparam=value&other+param=value+with+spaces"");
+
+        assertTrue(getRequest.getQueryStringParams().contains(new Parameter(""other param"", ""value with spaces"")));
+    }",RequestTest::shouldHandleQueryStringSpaceEncodingProperly_oe
+scribejava_48,"@Test
+    public void shouldNotEncodeInStringPayload_oe() throws Exception {
+        final String requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"";
+
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.setPayload(requestBody);
+
+        assertEquals(requestBody, postRequest.getStringPayload());
+    }",RequestTest::shouldNotEncodeInStringPayload_oe
+scribejava_49,"@Test
+    public void shouldNotEncodeInByteBodyPayload_oe() throws Exception {
+        final byte[] requestBody = ""~/!@#$%^&*( )_+//\r\n%2F&amp;"".getBytes();
+
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.setPayload(requestBody);
+
+        assertArrayEquals(requestBody, postRequest.getByteArrayPayload());
+    }",RequestTest::shouldNotEncodeInByteBodyPayload_oe
+scribejava_50,"@Test
+    public void shouldEncodeInBodyParamsPayload_oe() throws Exception {
+        final String expectedRequestBodyParamName = ""~/!@#$%^&*( )_+//\r\n%2F&amp;name"";
+        final String expectedRequestBodyParamValue = ""~/!@#$%^&*( )_+//\r\n%2F&amp;value"";
+        final String expectedRequestBody = ""~%2F%21%40%23%24%25%5E%26%2A%28%20%29_%2B%2F%2F%0D%0A%252F%26amp%3Bname=""
+                + ""~%2F%21%40%23%24%25%5E%26%2A%28%20%29_%2B%2F%2F%0D%0A%252F%26amp%3Bvalue"";
+
+        final OAuthRequest postRequest = new OAuthRequest(Verb.POST, ""http://example.com"");
+        postRequest.addBodyParameter(expectedRequestBodyParamName, expectedRequestBodyParamValue);
+        assertArrayEquals(expectedRequestBody.getBytes(), postRequest.getByteArrayPayload());
+    }",RequestTest::shouldEncodeInBodyParamsPayload_oe
+scribejava_51,"@Test
+    public void shouldAddOAuthParamters_oe() {
+        request.addOAuthParameter(OAuthConstants.TOKEN, ""token"");
+        request.addOAuthParameter(OAuthConstants.NONCE, ""nonce"");
+        request.addOAuthParameter(OAuthConstants.TIMESTAMP, ""ts"");
+        request.addOAuthParameter(OAuthConstants.SCOPE, ""feeds"");
+        request.addOAuthParameter(OAuthConstants.REALM, ""some-realm"");
+
+        assertEquals(5, request.getOauthParameters().size());
+    }",OAuthRequestTest::shouldAddOAuthParamters_oe
+scribejava_52,"@Test
+    public void shouldNotSentHeaderTwice_oe() {
+        assertTrue(request.getHeaders().isEmpty());
+        request.addHeader(""HEADER-NAME"", ""first"");
+        request.addHeader(""header-name"", ""middle"");
+        request.addHeader(""Header-Name"", ""last"");
+
+        assertEquals(1, request.getHeaders().size());
+
+        assertTrue(request.getHeaders().containsKey(""HEADER-NAME""));
+        assertTrue(request.getHeaders().containsKey(""header-name""));
+        assertTrue(request.getHeaders().containsKey(""Header-Name""));
+
+        assertEquals(""last"", request.getHeaders().get(""HEADER-NAME""));
+        assertEquals(""last"", request.getHeaders().get(""header-name""));
+        assertEquals(""last"", request.getHeaders().get(""Header-Name""));
+    }",OAuthRequestTest::shouldNotSentHeaderTwice_oe
+scribejava_53,"@Test
+    public void shouldAppendNothingToQuerystringIfGivenEmptyMap_oe() {
+        final String url = ""http://www.example.com"";
+        Assert.assertEquals(url, params.appendTo(url));
+    }",ParameterListTest::shouldAppendNothingToQuerystringIfGivenEmptyMap_oe
+scribejava_54,"@Test
+    public void shouldAppendParametersToSimpleUrl_oe() {
+        String url = ""http://www.example.com"";
+        final String expectedUrl = ""http://www.example.com?param1=value1&param2=value%20with%20spaces"";
+
+        params.add(""param1"", ""value1"");
+        params.add(""param2"", ""value with spaces"");
+
+        url = params.appendTo(url);
+        Assert.assertEquals(expectedUrl, url);
+    }",ParameterListTest::shouldAppendParametersToSimpleUrl_oe
+scribejava_55,"@Test
+    public void shouldAppendParametersToUrlWithQuerystring_oe() {
+        String url = ""http://www.example.com?already=present"";
+        final String expectedUrl = ""http://www.example.com?already=present&param1=value1&param2=value%20with%20spaces"";
+
+        params.add(""param1"", ""value1"");
+        params.add(""param2"", ""value with spaces"");
+
+        url = params.appendTo(url);
+        Assert.assertEquals(expectedUrl, url);
+    }",ParameterListTest::shouldAppendParametersToUrlWithQuerystring_oe
+scribejava_56,"@Test
+    public void shouldProperlySortParameters_oe() {
+        params.add(""param1"", ""v1"");
+        params.add(""param6"", ""v2"");
+        params.add(""a_param"", ""v3"");
+        params.add(""param2"", ""v4"");
+        Assert.assertEquals(""a_param=v3&param1=v1&param2=v4&param6=v2"", params.sort().asFormUrlEncodedString());
+    }",ParameterListTest::shouldProperlySortParameters_oe
+scribejava_57,"@Test
+    public void shouldProperlySortParametersWithTheSameName_oe() {
+        params.add(""param1"", ""v1"");
+        params.add(""param6"", ""v2"");
+        params.add(""a_param"", ""v3"");
+        params.add(""param1"", ""v4"");
+        Assert.assertEquals(""a_param=v3&param1=v1&param1=v4&param6=v2"", params.sort().asFormUrlEncodedString());
+    }",ParameterListTest::shouldProperlySortParametersWithTheSameName_oe
+scribejava_58,"@Test
+    public void shouldNotModifyTheOriginalParameterList_oe() {
+        params.add(""param1"", ""v1"");
+        params.add(""param6"", ""v2"");
+
+        assertNotSame(params, params.sort());
+    }",ParameterListTest::shouldNotModifyTheOriginalParameterList_oe
+scribejava_59,"@Test
+    public void shouldTestEqualityBasedOnTokenAndSecret_oe() {
+        final Token expected = new OAuth1AccessToken(""access"", ""secret"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"");
+
+        assertEquals(expected, actual);
+        assertEquals(actual, actual);
+    }",TokenTest::shouldTestEqualityBasedOnTokenAndSecret_oe
+scribejava_60,"@Test
+    public void shouldNotDependOnRawString_oe() {
+        final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""raw_string"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"", ""different_raw_string"");
+
+        assertEquals(expected, actual);
+    }",TokenTest::shouldNotDependOnRawString_oe
+scribejava_61,"@Test
+    public void shouldReturnSameHashCodeForEqualObjects_oe() {
+        final Token expected = new OAuth1AccessToken(""access"", ""secret"");
+        final Token actual = new OAuth1AccessToken(""access"", ""secret"");
+
+        assertEquals(expected.hashCode(), actual.hashCode());
+    }",TokenTest::shouldReturnSameHashCodeForEqualObjects_oe
+scribejava_62,"@Test
+    public void shouldNotBeEqualToNullOrOtherObjects_oe() {
+        final Token expected = new OAuth1AccessToken(""access"", ""secret"", ""response"");
+
+        assertNotSame(expected, null);
+        assertNotSame(expected, new Object());
+    }",TokenTest::shouldNotBeEqualToNullOrOtherObjects_oe
+scribejava_63,"@Test
+    public void shouldReturnUrlParam_oe() {
+        final Token actual = new OAuth1AccessToken(""acccess"", ""secret"",
+                ""user_id=3107154759&screen_name=someuser&empty=&="");
+        assertEquals(""someuser"", actual.getParameter(""screen_name""));
+        assertEquals(""3107154759"", actual.getParameter(""user_id""));
+        assertEquals(null, actual.getParameter(""empty""));
+        assertEquals(null, actual.getParameter(null));
+    }",TokenTest::shouldReturnUrlParam_oe
+scribejava_64,"@Test
+    public void allImplementationsAreAvailable_oe() {
+        assertTrue(Java8Base64.isAvailable());
+        assertTrue(CommonsCodecBase64.isAvailable());
+        assertTrue(JaxbBase64.isAvailable());
+        assertTrue(Jaxb230Base64.isAvailable());
+    }",Base64Test::allImplementationsAreAvailable_oe
+scribejava_65,"@Test
+    public void testEncode_oe() {
+        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ="";
+        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg=="";
+        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo="";
+        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+                + ""bXWFzZGZnaGprbDsnenhjdmJubSwuL1FXRVJUWVVJT1B7fXxBU0RGR0hKS0w6WlhDVkJOTTw+P9C50YTRj9GG0YvRh9GD0LLRgdC""
+                + ""60LDQvNC10L/QuNC90YDRgtCz0L7RjNGI0LvQsdGJ0LTRjtC30LYu0YXRjdGKXNCZ0KTQr9Cm0KvQp9Cj0JLQodCa0JDQnNCV0J/""
+                + ""QmNCd0KDQotCT0J7QrNCo0JvQkdCp0JTQrtCX0JYs0KXQrdCqLw0JDCcICg=="";
+        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+                + ""iRIoEUsz6HGTJhHuasS2nx1Se4Co3lxwxyubVdFj8AuhHNJSmJvjlpbTsGOjLZpr""
+                + ""HyDEDdJmf1Fensh1MhUnBZ4a7uLrZrKzFHHJdamX9pxapB89vLeHlCot9hVXdrZH""
+                + ""nNtg6FdmRKH/8gbs8iDyIayFvzYDAgMBAAECgYA+c9MpTBy9cQsR9BAvkEPjvkx2""
+                + ""XL4ZnfbDgpNA4Nuu7yzsQrPjPomiXMNkkiAFHH67yVxwAlgRjyuuQlgNNTpKvyQt""
+                + ""XcHxffnU0820VmE23M+L7jg2TlB3+rUnEDmDvCoyjlwGDR6lNb7t7Fgg2iR+iaov""
+                + ""0iVzz+l9w0slRlyGsQJBAPWXW2m3NmFgqfDxtw8fsKC2y8o17/cnPjozRGtWb8LQ""
+                + ""g3VCb8kbOFHOYNGazq3M7+wD1qILF2h/HecgK9eQrZ0CQQDMHXoJMfKKbrFrTKgE""
+                + ""zyggO1gtuT5OXYeFewMEb5AbDI2FfSc2YP7SHij8iQ2HdukBrbTmi6qxh3HmIR58""
+                + ""I/AfAkEA0Y9vr0tombsUB8cZv0v5OYoBZvCTbMANtzfb4AOHpiKqqbohDOevLQ7/""
+                + ""SpvgVCmVaDz2PptcRAyEBZ5MCssneQJAB2pmvaDH7Ambfod5bztLfOhLCtY5EkXJ""
+                + ""n6rZcDbRaHorRhdG7m3VtDKOUKZ2DF7glkQGV33phKukErVPUzlHBwJAScD9TqaG""
+                + ""wJ3juUsVtujV23SnH43iMggXT7m82STpPGam1hPfmqu2Z0niePFo927ogQ7H1EMJ""
+                + ""UHgqXmuvk2X/Ww=="";
+
+        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp+goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+                + ""+v8DBwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx8vP09fb3+Pn6+/z9/v8AAQIDBAUGBwg""
+                + ""JCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdISUpLTE1OT1BRUlN""
+                + ""UVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1+fw=="";
+
+        assertEquals(helloWorldEncoded, java8Base64.internalEncode(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncode(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded, java8Base64.internalEncode(helloWorldDifferentCharsBytes));
+        assertEquals(str, java8Base64.internalEncode(bytes));
+        assertEquals(allBytesStr, java8Base64.internalEncode(allBytes));
+
+        assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncode(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, commonsCodecBase64.internalEncode(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded, commonsCodecBase64.internalEncode(helloWorldDifferentCharsBytes));
+        assertEquals(str, commonsCodecBase64.internalEncode(bytes));
+        assertEquals(allBytesStr, commonsCodecBase64.internalEncode(allBytes));
+
+        assertEquals(helloWorldEncoded, jaxbBase64.internalEncode(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded, jaxbBase64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded, jaxbBase64.internalEncode(helloWorldDifferentCharsBytes));
+        assertEquals(str, jaxbBase64.internalEncode(bytes));
+        assertEquals(allBytesStr, jaxbBase64.internalEncode(allBytes));
+
+        assertEquals(helloWorldEncoded, jaxb230Base64.internalEncode(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncode(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncode(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded, jaxb230Base64.internalEncode(helloWorldDifferentCharsBytes));
+        assertEquals(str, jaxb230Base64.internalEncode(bytes));
+        assertEquals(allBytesStr, jaxb230Base64.internalEncode(allBytes));
+    }",Base64Test::testEncode_oe
+scribejava_66,"@Test
+    public void testEncodeUrlWithoutPadding_oe() {
+        final String helloWorldEncoded = ""SGVsbG8gV29ybGQ"";
+        final String helloWorldTwoLinesEncoded = ""SGVsbG8gV29ybGQNCk5ldyBMaW5lMg"";
+        final String helloWorldTwoLinesAndNewLineEncoded = ""SGVsbG8gV29ybGQNClNlY29uZCBMaW5lDQo"";
+        final String helloWorldDifferentCharsEncoded = ""YDEyMzQ1Njc4OTAtPX4hQCMkJV4mKigpXyvRkdCBIuKEljs6P3F3ZXJ0eXVpb3B""
+                + ""bXWFzZGZnaGprbDsnenhjdmJubSwuL1FXRVJUWVVJT1B7fXxBU0RGR0hKS0w6WlhDVkJOTTw-P9C50YTRj9GG0YvRh9GD0LLRgdC""
+                + ""60LDQvNC10L_QuNC90YDRgtCz0L7RjNGI0LvQsdGJ0LTRjtC30LYu0YXRjdGKXNCZ0KTQr9Cm0KvQp9Cj0JLQodCa0JDQnNCV0J_""
+                + ""QmNCd0KDQotCT0J7QrNCo0JvQkdCp0JTQrtCX0JYs0KXQrdCqLw0JDCcICg"";
+        final String str = ""MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAMPQ5BCMxlUq2TYy""
+                + ""iRIoEUsz6HGTJhHuasS2nx1Se4Co3lxwxyubVdFj8AuhHNJSmJvjlpbTsGOjLZpr""
+                + ""HyDEDdJmf1Fensh1MhUnBZ4a7uLrZrKzFHHJdamX9pxapB89vLeHlCot9hVXdrZH""
+                + ""nNtg6FdmRKH_8gbs8iDyIayFvzYDAgMBAAECgYA-c9MpTBy9cQsR9BAvkEPjvkx2""
+                + ""XL4ZnfbDgpNA4Nuu7yzsQrPjPomiXMNkkiAFHH67yVxwAlgRjyuuQlgNNTpKvyQt""
+                + ""XcHxffnU0820VmE23M-L7jg2TlB3-rUnEDmDvCoyjlwGDR6lNb7t7Fgg2iR-iaov""
+                + ""0iVzz-l9w0slRlyGsQJBAPWXW2m3NmFgqfDxtw8fsKC2y8o17_cnPjozRGtWb8LQ""
+                + ""g3VCb8kbOFHOYNGazq3M7-wD1qILF2h_HecgK9eQrZ0CQQDMHXoJMfKKbrFrTKgE""
+                + ""zyggO1gtuT5OXYeFewMEb5AbDI2FfSc2YP7SHij8iQ2HdukBrbTmi6qxh3HmIR58""
+                + ""I_AfAkEA0Y9vr0tombsUB8cZv0v5OYoBZvCTbMANtzfb4AOHpiKqqbohDOevLQ7_""
+                + ""SpvgVCmVaDz2PptcRAyEBZ5MCssneQJAB2pmvaDH7Ambfod5bztLfOhLCtY5EkXJ""
+                + ""n6rZcDbRaHorRhdG7m3VtDKOUKZ2DF7glkQGV33phKukErVPUzlHBwJAScD9TqaG""
+                + ""wJ3juUsVtujV23SnH43iMggXT7m82STpPGam1hPfmqu2Z0niePFo927ogQ7H1EMJ""
+                + ""UHgqXmuvk2X_Ww"";
+
+        final String allBytesStr = ""gIGCg4SFhoeIiYqLjI2Oj5CRkpOUlZaXmJmam5ydnp-goaKjpKWmp6ipqqusra6vsLGys7S1tre4ubq7vL2""
+                + ""-v8DBwsPExcbHyMnKy8zNzs_Q0dLT1NXW19jZ2tvc3d7f4OHi4-Tl5ufo6err7O3u7_Dx8vP09fb3-Pn6-_z9_v8AAQIDBAUGBwg""
+                + ""JCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4_QEFCQ0RFRkdISUpLTE1OT1BRUlN""
+                + ""UVVZXWFlaW1xdXl9gYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXp7fH1-fw"";
+
+        assertEquals(helloWorldEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,java8Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(str, java8Base64.internalEncodeUrlWithoutPadding(bytes));
+        assertEquals(allBytesStr, java8Base64.internalEncodeUrlWithoutPadding(allBytes));
+
+        assertEquals(helloWorldEncoded, commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,commonsCodecBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(str, commonsCodecBase64.internalEncodeUrlWithoutPadding(bytes));
+        assertEquals(allBytesStr, commonsCodecBase64.internalEncodeUrlWithoutPadding(allBytes));
+
+        assertEquals(helloWorldEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,jaxbBase64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(str, jaxbBase64.internalEncodeUrlWithoutPadding(bytes));
+        assertEquals(allBytesStr, jaxbBase64.internalEncodeUrlWithoutPadding(allBytes));
+
+        assertEquals(helloWorldEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldBytes));
+        assertEquals(helloWorldTwoLinesEncoded, jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesBytes));
+        assertEquals(helloWorldTwoLinesAndNewLineEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldTwoLinesAndNewLineBytes));
+        assertEquals(helloWorldDifferentCharsEncoded,jaxb230Base64.internalEncodeUrlWithoutPadding(helloWorldDifferentCharsBytes));
+        assertEquals(str, jaxb230Base64.internalEncodeUrlWithoutPadding(bytes));
+        assertEquals(allBytesStr, jaxb230Base64.internalEncodeUrlWithoutPadding(allBytes));
+    }",Base64Test::testEncodeUrlWithoutPadding_oe
+scribejava_67,"@Test
+    public void shouldReturnTimestampInSeconds_oe() {
+        final String expected = ""1000"";
+        assertEquals(expected, service.getTimestampInSeconds());
+    }",TimestampServiceTest::shouldReturnTimestampInSeconds_oe
+scribejava_68,"@Test
+    public void shouldReturnNonce_oe() {
+        final String expected = ""1042"";
+        assertEquals(expected, service.getNonce());
+    }",TimestampServiceTest::shouldReturnNonce_oe
+scribejava_69,"@Test
+    public void shouldReturnSignatureMethodString_oe() {
+        final String expected = ""HMAC-SHA1"";
+        assertEquals(expected, service.getSignatureMethod());
+    }",HMACSha1SignatureServiceTest::shouldReturnSignatureMethodString_oe
+scribejava_70,"@Test
+    public void shouldReturnSignature_oe() {
+        final String apiSecret = ""api secret"";
+        final String tokenSecret = ""token secret"";
+        final String baseString = ""base string"";
+        final String signature = ""uGymw2KHOTWI699YEaoi5xyLT50="";
+        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
+    }",HMACSha1SignatureServiceTest::shouldReturnSignature_oe
+scribejava_71,"@Test
+    public void shouldReturnSignatureMethodString_oe() {
+        final String expected = ""RSA-SHA1"";
+        assertEquals(expected, service.getSignatureMethod());
+    }",RSASha1SignatureServiceTest::shouldReturnSignatureMethodString_oe
+scribejava_72,"@Test
+    public void shouldReturnSignature_oe() {
+        final String apiSecret = ""api secret"";
+        final String tokenSecret = ""token secret"";
+        final String baseString = ""base string"";
+        final String signature = ""LUNRzQAlpdNyM9mLXm96Va6g/qVNnEAb7p7K1KM0g8IopOFQJPoOO7cvppgt7w3QyhijWJnCmvqXaaIAGrqvd""
+                + ""yr3fIzBULh8D/iZQUNLMi08GCOA34P81XBvsc7A5uJjPDsGhJg2MzoVJ8nWJhU/lMMk4c92S1WGskeoDofRwpo="";
+        assertEquals(signature, service.getSignature(baseString, apiSecret, tokenSecret));
+    }",RSASha1SignatureServiceTest::shouldReturnSignature_oe
+scribejava_73,"@Test
+    public void testEmptyMultipartPayload_oe() throws IOException {
+        final MultipartPayload mP = new MultipartPayload();
+
+        final StringBuilder headersString = new StringBuilder();
+        for (Map.Entry<String, String> header : mP.getHeaders().entrySet()) {
+            headersString.append(header.getKey())
+                    .append("": "")
+                    .append(header.getValue())
+                    .append(""\r\n"");
+        }
+
+        assertEquals(""Content-Type: multipart/form-data;boundary=\"""" + mP.getBoundary()+ ""\""\r\n"",headersString.toString());
+
+        assertEquals("""", MultipartUtils.getPayload(mP).toString());
+    }",MultipartUtilsTest::testEmptyMultipartPayload_oe
+scribejava_74,"@Test
+    public void testSimpleMultipartPayload_oe() throws IOException {
+        final Map<String, String> headers = new LinkedHashMap<>();
+        headers.put(""X-Header"", ""X-Value"");
+        headers.put(""Content-Disposition"", ""Content-Disposition-Value"");
+        final MultipartPayload mP = new MultipartPayload(""mixed"", ""simple boundary"", headers);
+        mP.setPreamble(""This is the preamble.  It is to be ignored, though it\n""
+                + ""is a handy place for composition agents to include an\n""
+                + ""explanatory note to non-MIME conformant readers."");
+
+        mP.addBodyPart(new ByteArrayBodyPartPayload((""This is implicitly typed plain US-ASCII text.\n""
+                + ""It does NOT end with a linebreak."").getBytes()));
+
+        final ByteArrayBodyPartPayload bP = new ByteArrayBodyPartPayload(
+                (""This is explicitly typed plain US-ASCII text.\n""
+                        + ""It DOES end with a linebreak.\n"").getBytes(),
+                Collections.singletonMap(HttpClient.CONTENT_TYPE, ""text/plain; charset=us-ascii""));
+        mP.addBodyPart(bP);
+
+        mP.setEpilogue(""This is the epilogue.  It is also to be ignored."");
+
+        final StringBuilder headersString = new StringBuilder();
+        for (Map.Entry<String, String> header : mP.getHeaders().entrySet()) {
+            headersString.append(header.getKey())
+                    .append("": "")
+                    .append(header.getValue())
+                    .append(""\r\n"");
+        }
+
+        assertEquals(""X-Header: X-Value\r\n"" + ""Content-Disposition: Content-Disposition-Value\r\n"" + ""Content-Type: multipart/mixed;boundary=\""simple boundary\""\r\n"",headersString.toString());
+
+        assertEquals(""This is the preamble. It is to be ignored,though it\n"" + ""is a handy place for composition agents to include an\n"" + ""explanatory note to non-MIME conformant readers."" + ""\r\n--simple boundary\r\n"" + ""\r\n"" + ""This is implicitly typed plain US-ASCII text.\n"" + ""It does NOT end with a linebreak."" + ""\r\n--simple boundary\r\n"" + ""Content-Type: text/plain;charset=us-ascii\r\n"" + ""\r\n"" + ""This is explicitly typed plain US-ASCII text.\n"" + ""It DOES end with a linebreak.\n"" + ""\r\n--simple boundary--"" + ""\r\nThis is the epilogue. It is also to be ignored."",MultipartUtils.getPayload(mP).toString());
+    }",MultipartUtilsTest::testSimpleMultipartPayload_oe
+scribejava_75,"@Test
+    public void testCRLFMultipartPayload_oe() throws IOException {
+        final MultipartPayload mP = new MultipartPayload(""simple-boundary"");
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""It does NOT end with a linebreak."".getBytes()));
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""It does end with a \\r linebreak.\r"".getBytes()));
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""It does end with a \\n linebreak.\n"".getBytes()));
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""It does end with a \\r\\n linebreak.\r\n"".getBytes()));
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""the last one"".getBytes()));
+
+        final StringBuilder headersString = new StringBuilder();
+        for (Map.Entry<String, String> header : mP.getHeaders().entrySet()) {
+            headersString.append(header.getKey())
+                    .append("": "")
+                    .append(header.getValue())
+                    .append(""\r\n"");
+        }
+
+        assertEquals(""Content-Type: multipart/form-data; boundary=\""simple-boundary\""\r\n"", headersString.toString());
+
+        assertEquals(""--simple-boundary\r\n"" + ""\r\n"" + ""It does NOT end with a linebreak."" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r linebreak.\r"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\n linebreak.\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""It does end with a \\r\\n linebreak.\r\n"" + ""\r\n--simple-boundary\r\n"" + ""\r\n"" + ""the last one"" + ""\r\n--simple-boundary--"",MultipartUtils.getPayload(mP).toString());
+    }",MultipartUtilsTest::testCRLFMultipartPayload_oe
+scribejava_76,"@Test
+    public void testFileByteArrayBodyPartPayloadMultipartPayload_oe() throws IOException {
+        final MultipartPayload mP = new MultipartPayload(""testFileByteArrayBodyPartPayloadMultipartPayload boundary"");
+        mP.addBodyPart(new FileByteArrayBodyPartPayload(""fileContent"".getBytes(), ""name"", ""filename.ext""));
+
+        final StringBuilder headersString = new StringBuilder();
+        for (Map.Entry<String, String> header : mP.getHeaders().entrySet()) {
+            headersString.append(header.getKey())
+                    .append("": "")
+                    .append(header.getValue())
+                    .append(""\r\n"");
+        }
+
+        assertEquals(""Content-Type: multipart/form-data;"" + ""boundary=\""testFileByteArrayBodyPartPayloadMultipartPayload boundary\""\r\n"",headersString.toString());
+
+        assertEquals(""--testFileByteArrayBodyPartPayloadMultipartPayload boundary\r\n"" + ""Content-Disposition: form-data;name=\""name\"";filename=\""filename.ext\""\r\n"" + ""\r\n"" + ""fileContent"" + ""\r\n--testFileByteArrayBodyPartPayloadMultipartPayload boundary--"",MultipartUtils.getPayload(mP).toString());
+    }",MultipartUtilsTest::testFileByteArrayBodyPartPayloadMultipartPayload_oe
+scribejava_77,"@Test
+    public void testComplexMultipartPayload_oe() throws IOException {
+        final MultipartPayload mP = new MultipartPayload(""mixed"", ""unique-boundary-1"");
+
+        mP.setPreamble(""This is the preamble area of a multipart message.\n""
+                + ""Mail readers that understand multipart format\n""
+                + ""should ignore this preamble.\n""
+                + ""\n""
+                + ""If you are reading this text, you might want to\n""
+                + ""consider changing to a mail reader that understands\n""
+                + ""how to properly display multipart messages.\n"");
+
+        mP.addBodyPart(new ByteArrayBodyPartPayload(""... Some text appears here ..."".getBytes()));
+
+        mP.addBodyPart(new ByteArrayBodyPartPayload((""This could have been part of the previous part, but\n""
+                + ""illustrates explicit versus implicit typing of body\n""
+                + ""parts.\n"").getBytes(), ""text/plain; charset=US-ASCII""));
+
+        final MultipartPayload innerMP = new MultipartPayload(""parallel"", ""unique-boundary-2"");
+        mP.addBodyPart(innerMP);
+
+        final Map<String, String> audioHeaders = new LinkedHashMap<>();
+        audioHeaders.put(""Content-Type"", ""audio/basic"");
+        audioHeaders.put(""Content-Transfer-Encoding"", ""base64"");
+        innerMP.addBodyPart(new ByteArrayBodyPartPayload((""... base64-encoded 8000 Hz single-channel\n""
+                + ""    mu-law-format audio data goes here ..."").getBytes(), audioHeaders));
+
+        final Map<String, String> imageHeaders = new LinkedHashMap<>();
+        imageHeaders.put(""Content-Type"", ""image/jpeg"");
+        imageHeaders.put(""Content-Transfer-Encoding"", ""base64"");
+        innerMP.addBodyPart(new ByteArrayBodyPartPayload(""... base64-encoded image data goes here ..."".getBytes(),
+                imageHeaders));
+
+        mP.addBodyPart(new ByteArrayBodyPartPayload((""This is <bold><italic>enriched.</italic></bold>\n""
+                + ""<smaller>as defined in RFC 1896</smaller>\n""
+                + ""\n""
+                + ""Isn't it\n""
+                + ""<bigger><bigger>cool?</bigger></bigger>\n"").getBytes(), ""text/enriched""));
+
+        mP.addBodyPart(new ByteArrayBodyPartPayload((""From: (mailbox in US-ASCII)\n""
+                + ""To: (address in US-ASCII)\n""
+                + ""Subject: (subject in US-ASCII)\n""
+                + ""Content-Type: Text/plain; charset=ISO-8859-1\n""
+                + ""Content-Transfer-Encoding: Quoted-printable\n""
+                + ""\n""
+                + ""... Additional text in ISO-8859-1 goes here ...\n"").getBytes(), ""message/rfc822""));
+
+        final StringBuilder headersString = new StringBuilder();
+        for (Map.Entry<String, String> header : mP.getHeaders().entrySet()) {
+            headersString.append(header.getKey())
+                    .append("": "")
+                    .append(header.getValue())
+                    .append(""\r\n"");
+        }
+        assertEquals(""Content-Type: multipart/mixed; boundary=\""unique-boundary-1\""\r\n"", headersString.toString());
+
+        assertEquals(""This is the preamble area of a multipart message.\n"" + ""Mail readers that understand multipart format\n"" + ""should ignore this preamble.\n"" + ""\n"" + ""If you are reading this text,you might want to\n"" + ""consider changing to a mail reader that understands\n"" + ""how to properly display multipart messages.\n"" + ""\r\n--unique-boundary-1\r\n"" + ""\r\n"" + ""... Some text appears here ..."" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: text/plain;charset=US-ASCII\r\n"" + ""\r\n"" + ""This could have been part of the previous part,but\n"" + ""illustrates explicit versus implicit typing of body\n"" + ""parts.\n"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: multipart/parallel;boundary=\""unique-boundary-2\""\r\n"" + ""\r\n--unique-boundary-2\r\n"" + ""Content-Type: audio/basic\r\n"" + ""Content-Transfer-Encoding: base64\r\n"" + ""\r\n"" + ""... base64-encoded 8000 Hz single-channel\n"" + "" mu-law-format audio data goes here ..."" + ""\r\n--unique-boundary-2\r\n"" + ""Content-Type: image/jpeg\r\n"" + ""Content-Transfer-Encoding: base64\r\n"" + ""\r\n"" + ""... base64-encoded image data goes here ..."" + ""\r\n--unique-boundary-2--"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: text/enriched\r\n"" + ""\r\n"" + ""This is <bold><italic>enriched.</italic></bold>\n"" + ""<smaller>as defined in RFC 1896</smaller>\n"" + ""\n"" + ""Isn't it\n"" + ""<bigger><bigger>cool?</bigger></bigger>\n"" + ""\r\n--unique-boundary-1\r\n"" + ""Content-Type: message/rfc822\r\n"" + ""\r\n"" + ""From:(mailbox in US-ASCII)\n"" + ""To:(address in US-ASCII)\n"" + ""Subject:(subject in US-ASCII)\n"" + ""Content-Type: Text/plain;charset=ISO-8859-1\n"" + ""Content-Transfer-Encoding: Quoted-printable\n"" + ""\n"" + ""... Additional text in ISO-8859-1 goes here ...\n"" + ""\r\n--unique-boundary-1--"",MultipartUtils.getPayload(mP).toString());
+    }",MultipartUtilsTest::testComplexMultipartPayload_oe
+scribejava_78,"@Test
+    public void testParseBoundaryFromHeader_oe() {
+        assertNull(MultipartUtils.parseBoundaryFromHeader(null));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?\""""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?\""""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=? \""""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=? ""));
+
+        assertEquals("" 0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary= 0aA'()+_,-./:=?""));
+
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundar=0aA'()+_, -./:=? ""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; ""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));
+
+        assertEquals(""0aA'()+_,"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,;-./:=? ""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=\""0aA'()+_,-./:=?""));
+
+        assertEquals(""0aA'()+_,-./:=?"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;boundary=0aA'()+_,-./:=?\""""));
+
+        assertEquals(""1234567890123456789012345678901234567890123456789012345678901234567890"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;"" + ""boundary=1234567890123456789012345678901234567890123456789012345678901234567890""));
+
+        assertEquals(""1234567890123456789012345678901234567890123456789012345678901234567890"",MultipartUtils.parseBoundaryFromHeader(""multipart/subtype;"" + ""boundary=12345678901234567890123456789012345678901234567890123456789012345678901""));
+
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=;123""));
+        assertNull(MultipartUtils.parseBoundaryFromHeader(""multipart/subtype; boundary=\""\""123""));
+    }",MultipartUtilsTest::testParseBoundaryFromHeader_oe
+scribejava_79,"private static void testNotValidBoundary_oe(final String boundary) {
+        final IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                MultipartUtils.checkBoundarySyntax(boundary);
+            }
+        });
+        assertTrue(thrown.getMessage().startsWith(""{'boundary'='"" + boundary + ""'} has invalid syntax. Should be '""));
+    }",MultipartUtilsTest::testNotValidBoundary_oe
+scribejava_80,"@Test
+    public void shouldReleaseLatchOnSuccess_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNotNull(callback.getResponse());
+        assertNull(callback.getThrowable());
+        // verify latch is released
+        assertEquals(""All good"", future.get());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_oe
+scribejava_81,"@Test
+    public void shouldReleaseLatchOnIOException_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_oe
+scribejava_82,"@Test
+    public void shouldReportOAuthException_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url(""http://localhost/"").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message(""ok"")
+                .body(ResponseBody.create(new byte[0], MediaType.get(""text/plain"")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_oe
+scribejava_83,"@Test
+    public void shouldReleaseLatchOnCancel_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_oe
+scribejava_84,"@Test
+    public void shouldReleaseLatchOnFailure_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_oe
+scribejava_85,"@Test
+    public void shouldReleaseLatchOnSuccess_oe() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNotNull(callback.getResponse());
+        assertNull(callback.getThrowable());
+        // verify latch is released
+        assertEquals(""All good"", handler.getResult());
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnSuccess_oe
+scribejava_86,"@Test
+    public void shouldReleaseLatchOnIOException_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                handler.getResult();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnIOException_oe
+scribejava_87,"@Test
+    public void shouldReportOAuthException_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.completed(response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                handler.getResult();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReportOAuthException_oe
+scribejava_88,"@Test
+    public void shouldReleaseLatchOnCancel_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.cancelled();
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof CancellationException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                handler.getResult();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnCancel_oe
+scribejava_89,"@Test
+    public void shouldReleaseLatchOnFailure_oe() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+        final HttpResponse response
+                = new BasicHttpResponse(new BasicStatusLine(new ProtocolVersion(""4"", 1, 1), 200, ""ok""));
+        final BasicHttpEntity entity = new BasicHttpEntity();
+        entity.setContent(new ByteArrayInputStream(new byte[0]));
+        response.setEntity(entity);
+        handler.failed(new RuntimeException());
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof RuntimeException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                handler.getResult();
+            }
+        });
+    }",OAuthAsyncCompletionHandlerTest::shouldReleaseLatchOnFailure_oe
+scribejava_90,"@Test
+    public void shouldThrowExceptionIfResponseIsError_oe() throws IOException {
+        final String body = ""{\""error\"":""
+                + ""{\""message\"":\""This authorization code has been used.\"",""
+                + ""\""type\"":\""OAuthException\"",""
+                + ""\""code\"":100,""
+                + ""\""fbtrace_id\"":\""DtxvtGRaxbB\""}}"";
+        try (Response response = error(body)) {
+
+            final FacebookAccessTokenErrorResponse fateR = assertThrows(FacebookAccessTokenErrorResponse.class,
+                    new ThrowingRunnable() {
+                @Override
+                public void run() throws Throwable {
+                    extractor.extract(response);
+                }
+            });
+
+            assertEquals(""This authorization code has been used."", fateR.getErrorMessage());
+            assertEquals(""OAuthException"", fateR.getType());
+            assertEquals(100, fateR.getCodeInt());
+            assertEquals(""DtxvtGRaxbB"", fateR.getFbtraceId());
+            assertEquals(body, fateR.getResponse().getBody());
+        }
+    }",FacebookAccessTokenJsonExtractorTest::shouldThrowExceptionIfResponseIsError_oe
+scribejava_91,"@Test
+    public void testSigGeneration_oe() {
+        final OAuth2AccessToken accessToken = new OAuth2AccessToken(""d3iwa.403gvrs194740652m1k4w2a503k3c"");
+        final OAuthRequest request = new OAuthRequest(Verb.GET, URL);
+        service.signRequest(accessToken, request);
+        assertEquals(""96127f5ca29a8351399e94bbd284ab16"", findParam(request.getQueryStringParams(), ""sig""));
+    }",OdnoklassnikiServiceTest::testSigGeneration_oe
+scribejava_92,"@Test
+    public void testErrorExtraction_oe() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class,
+                new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                extractor.generateError(new Response(403, null, null, ERROR_JSON));
+            }
+        });
+        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
+        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
+    }",FitBitJsonTokenExtractorTest::testErrorExtraction_oe

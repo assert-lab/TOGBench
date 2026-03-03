@@ -11,8 +11,7 @@ weav_3_1,"    @Test
             implementors.add(annotated.get());
         }
         assertEquals(1, implementors.size());
-    }
-",FinderTest::testFindAssignableTypes_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",FinderTest::testFindAssignableTypes_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -27,10 +26,8 @@ weav_3_2,"    @Test
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
-        // removed other assertion
         assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
-    }
-",FinderTest::testFindAssignableTypes_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",FinderTest::testFindAssignableTypes_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -45,16 +42,13 @@ weav_3_3,"    @Test
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
-        // removed other assertion
-        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
             subclasses.add(annotated.get());
         }
         assertEquals(2, subclasses.size());
-    }
-",FinderTest::testFindAssignableTypes_3_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",FinderTest::testFindAssignableTypes_3_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -69,17 +63,13 @@ weav_3_4,"    @Test
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
-        // removed other assertion
-        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
             subclasses.add(annotated.get());
         }
-        // removed other assertion
         assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
-    }
-",FinderTest::testFindAssignableTypes_4_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",FinderTest::testFindAssignableTypes_4_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -94,18 +84,13 @@ weav_3_5,"    @Test
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
             implementors.add(annotated.get());
         }
-        // removed other assertion
-        // removed other assertion
 
         final Set<Class<?>> subclasses = new HashSet<Class<?>>();
         for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
             subclasses.add(annotated.get());
         }
-        // removed other assertion
-        // removed other assertion
         assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
-    }
-",FinderTest::testFindAssignableTypes_5_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",FinderTest::testFindAssignableTypes_5_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -118,8 +103,7 @@ weav_4_1,"    @Test
 
         List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
         assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
-    }
-",FinderTest::testFindAllTypes_1_oe,org.apache.commons.weaver.Finder.WithAnnotations,getAllClasses(),"/**
+    }",FinderTest::testFindAllTypes_1_oe,org.apache.commons.weaver.Finder.WithAnnotations,getAllClasses(),"/**
          * Get the list of objects representing all scanned classes.
          * @since 1.3
          * @return {@link List} of {@link Annotated}{@code <Class<?>>}
@@ -129,8 +113,7 @@ weav_4_1,"    @Test
 weav_5_1,"    @Test
     public void testCompare_1_oe() {
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
-    }
-",ArgsTest::testCompare_1_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_1_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -157,10 +140,8 @@ weav_5_1,"    @Test
     }"
 weav_5_2,"    @Test
     public void testCompare_2_oe() {
-        // removed other assertion
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
-    }
-",ArgsTest::testCompare_2_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_2_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -187,11 +168,8 @@ weav_5_2,"    @Test
     }"
 weav_5_3,"    @Test
     public void testCompare_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
-    }
-",ArgsTest::testCompare_3_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_3_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -218,12 +196,8 @@ weav_5_3,"    @Test
     }"
 weav_5_4,"    @Test
     public void testCompare_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
-    }
-",ArgsTest::testCompare_4_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_4_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -250,13 +224,8 @@ weav_5_4,"    @Test
     }"
 weav_5_5,"    @Test
     public void testCompare_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
-    }
-",ArgsTest::testCompare_5_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_5_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -283,14 +252,8 @@ weav_5_5,"    @Test
     }"
 weav_5_6,"    @Test
     public void testCompare_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
-    }
-",ArgsTest::testCompare_6_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_6_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -317,15 +280,8 @@ weav_5_6,"    @Test
     }"
 weav_5_7,"    @Test
     public void testCompare_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
-    }
-",ArgsTest::testCompare_7_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_7_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -352,16 +308,8 @@ weav_5_7,"    @Test
     }"
 weav_5_8,"    @Test
     public void testCompare_8_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
-    }
-",ArgsTest::testCompare_8_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_8_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -388,17 +336,8 @@ weav_5_8,"    @Test
     }"
 weav_5_9,"    @Test
     public void testCompare_9_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
-    }
-",ArgsTest::testCompare_9_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_9_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -425,18 +364,8 @@ weav_5_9,"    @Test
     }"
 weav_5_10,"    @Test
     public void testCompare_10_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
-    }
-",ArgsTest::testCompare_10_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
+    }",ArgsTest::testCompare_10_oe,org.apache.commons.weaver.utils.Args,"compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2)","/**
      * Compare two parameter type arrays.
      *
      * @param paramTypes1
@@ -464,8 +393,7 @@ weav_5_10,"    @Test
 weav_6_1,"    @Test
     public void testSort_1_oe() {
         assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
-    }
-",ProvidersTest::testSort_1_oe,org.apache.commons.weaver.utils.Providers,sort(final Iterable<P> providers),"/**
+    }",ProvidersTest::testSort_1_oe,org.apache.commons.weaver.utils.Providers,sort(final Iterable<P> providers),"/**
      * Sort the specified providers with respect to declared {@link Consumes} and {@link Produces} annotations.
      *
      * @param <P> the {@link WeaveLifecycleProvider} type
@@ -476,10 +404,8 @@ weav_6_1,"    @Test
     }"
 weav_6_2,"    @Test
     public void testSort_2_oe() {
-        // removed other assertion
         assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
-    }
-",ProvidersTest::testSort_2_oe,org.apache.commons.weaver.utils.Providers,sort(final Iterable<P> providers),"/**
+    }",ProvidersTest::testSort_2_oe,org.apache.commons.weaver.utils.Providers,sort(final Iterable<P> providers),"/**
      * Sort the specified providers with respect to declared {@link Consumes} and {@link Produces} annotations.
      *
      * @param <P> the {@link WeaveLifecycleProvider} type
@@ -504,8 +430,7 @@ weav_7_1,"    @Test
         wp.weave();
 
         Assert.assertEquals(1, TestWeaver.wovenClasses.size());
-    }
-",WeaveProcessorTest::testWeaveVisiting_1_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
+    }",WeaveProcessorTest::testWeaveVisiting_1_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
      * Weave classes in target directory.
      */","public void weave() {
         if (!target.exists()) {
@@ -532,10 +457,8 @@ weav_7_2,"    @Test
 
         wp.weave();
 
-        // removed other assertion
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
-    }
-",WeaveProcessorTest::testWeaveVisiting_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",WeaveProcessorTest::testWeaveVisiting_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -554,12 +477,9 @@ weav_7_3,"    @Test
 
         wp.weave();
 
-        // removed other assertion
-        // removed other assertion
 
         Assert.assertEquals(1, TestWeaver.wovenMethods.size());
-    }
-",WeaveProcessorTest::testWeaveVisiting_3_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
+    }",WeaveProcessorTest::testWeaveVisiting_3_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
      * Weave classes in target directory.
      */","public void weave() {
         if (!target.exists()) {
@@ -586,13 +506,9 @@ weav_7_4,"    @Test
 
         wp.weave();
 
-        // removed other assertion
-        // removed other assertion
 
-        // removed other assertion
         Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
-    }
-",WeaveProcessorTest::testWeaveVisiting_4_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",WeaveProcessorTest::testWeaveVisiting_4_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -611,16 +527,10 @@ weav_7_6,"    @Test
 
         wp.weave();
 
-        // removed other assertion
-        // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         
-        // removed other assertion
         Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
-    }
-",WeaveProcessorTest::testWeaveVisiting_6_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",WeaveProcessorTest::testWeaveVisiting_6_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
@@ -639,19 +549,11 @@ weav_7_8,"    @Test
 
         wp.weave();
 
-        // removed other assertion
-        // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         
-        // removed other assertion
-        // removed other assertion
         
-        // removed other assertion
         Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
-    }
-",WeaveProcessorTest::testWeaveVisiting_8_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
+    }",WeaveProcessorTest::testWeaveVisiting_8_oe,org.apache.commons.weaver.WeaveProcessor,void weave(),"/**
      * Weave classes in target directory.
      */","public void weave() {
         if (!target.exists()) {
@@ -675,8 +577,7 @@ weav_8_1,"    @Test
         cp.clean();
 
         Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
-    }
-",CleanProcessorTest::testWeaveVisiting_1_oe,org.apache.commons.weaver.model.WeaveEnvironment.Resource,getName(),"/**
+    }",CleanProcessorTest::testWeaveVisiting_1_oe,org.apache.commons.weaver.model.WeaveEnvironment.Resource,getName(),"/**
          * Get the name of this {@link Resource}.
          * @return {@link String}
          */","public String getName() {
@@ -693,10 +594,8 @@ weav_8_2,"    @Test
         final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
         cp.clean();
 
-        // removed other assertion
         Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
-    }
-",CleanProcessorTest::testWeaveVisiting_2_oe,org.apache.commons.weaver.model.WeaveEnvironment.Resource,getName(),"/**
+    }",CleanProcessorTest::testWeaveVisiting_2_oe,org.apache.commons.weaver.model.WeaveEnvironment.Resource,getName(),"/**
          * Get the name of this {@link Resource}.
          * @return {@link String}
          */","public String getName() {
@@ -705,8 +604,7 @@ weav_8_2,"    @Test
 weav_9_1,"    @Test
     public void testValidatePackageName_1_oe() {
         assertEquals("""", Utils.validatePackageName(""""));
-    }
-",UtilsTest::testValidatePackageName_1_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_1_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -743,10 +641,8 @@ weav_9_1,"    @Test
     }"
 weav_9_2,"    @Test
     public void testValidatePackageName_2_oe() {
-        // removed other assertion
         assertEquals("""", Utils.validatePackageName(""    ""));
-    }
-",UtilsTest::testValidatePackageName_2_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_2_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -783,11 +679,8 @@ weav_9_2,"    @Test
     }"
 weav_9_3,"    @Test
     public void testValidatePackageName_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo"", Utils.validatePackageName(""foo""));
-    }
-",UtilsTest::testValidatePackageName_3_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_3_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -824,12 +717,8 @@ weav_9_3,"    @Test
     }"
 weav_9_4,"    @Test
     public void testValidatePackageName_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar"", Utils.validatePackageName(""foo.bar""));
-    }
-",UtilsTest::testValidatePackageName_4_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_4_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -866,13 +755,8 @@ weav_9_4,"    @Test
     }"
 weav_9_5,"    @Test
     public void testValidatePackageName_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar"", Utils.validatePackageName(""foo/bar""));
-    }
-",UtilsTest::testValidatePackageName_5_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_5_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -909,14 +793,8 @@ weav_9_5,"    @Test
     }"
 weav_9_6,"    @Test
     public void testValidatePackageName_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar.baz""));
-    }
-",UtilsTest::testValidatePackageName_6_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_6_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -953,15 +831,8 @@ weav_9_6,"    @Test
     }"
 weav_9_7,"    @Test
     public void testValidatePackageName_7_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar/baz""));
-    }
-",UtilsTest::testValidatePackageName_7_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_7_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -998,16 +869,8 @@ weav_9_7,"    @Test
     }"
 weav_9_8,"    @Test
     public void testValidatePackageName_8_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar.baz""));
-    }
-",UtilsTest::testValidatePackageName_8_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_8_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -1044,17 +907,8 @@ weav_9_8,"    @Test
     }"
 weav_9_9,"    @Test
     public void testValidatePackageName_9_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar/baz""));
-    }
-",UtilsTest::testValidatePackageName_9_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_9_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -1091,18 +945,8 @@ weav_9_9,"    @Test
     }"
 weav_9_10,"    @Test
     public void testValidatePackageName_10_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""$foo"", Utils.validatePackageName(""$foo""));
-    }
-",UtilsTest::testValidatePackageName_10_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_10_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -1139,19 +983,8 @@ weav_9_10,"    @Test
     }"
 weav_9_11,"    @Test
     public void testValidatePackageName_11_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""_foo"", Utils.validatePackageName(""_foo""));
-    }
-",UtilsTest::testValidatePackageName_11_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_11_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -1188,20 +1021,8 @@ weav_9_11,"    @Test
     }"
 weav_9_12,"    @Test
     public void testValidatePackageName_12_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(""foo2"", Utils.validatePackageName(""foo2""));
-    }
-",UtilsTest::testValidatePackageName_12_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
+    }",UtilsTest::testValidatePackageName_12_oe,org.apache.commons.weaver.normalizer.Utils,validatePackageName(final String pkg),"/**
      * Validate a package name.
      * @param pkg to validate
      * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
@@ -1239,35 +1060,28 @@ weav_9_12,"    @Test
 weav_11_1,"    @Test
     public void testGetProperty_1_oe() {
         assertEquals(""foo-value"", usingArgs.getProperty(""foo""));
-    }
-",UsingArgsTest::testGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",UsingArgsTest::testGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_11_2,"    @Test
     public void testGetProperty_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", usingArgs.getProperty(""bar""));
-    }
-",UsingArgsTest::testGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",UsingArgsTest::testGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_11_3,"    @Test
     public void testGetProperty_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", usingArgs.getProperty(""baz""));
-    }
-",UsingArgsTest::testGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",UsingArgsTest::testGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_12_1,"    @Test
     public void testGetProperties_1_oe() {
         assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" }, usingArgs.getProperties(""foo"", ""bar"", ""baz"")));
-    }
-",UsingArgsTest::testGetProperties_1_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
+    }",UsingArgsTest::testGetProperties_1_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
      * Merge nested {@code propertyset} and {@code properties}; latter takes precedence.
      * @return {@link Properties}
      */","public Properties getProperties() {
@@ -1291,10 +1105,8 @@ weav_12_1,"    @Test
     }"
 weav_12_2,"    @Test
     public void testGetProperties_2_oe() {
-        // removed other assertion
         assertEquals(0, usingArgs.getProperties().length);
-    }
-",UsingArgsTest::testGetProperties_2_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
+    }",UsingArgsTest::testGetProperties_2_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
      * Merge nested {@code propertyset} and {@code properties}; latter takes precedence.
      * @return {@link Properties}
      */","public Properties getProperties() {
@@ -1318,11 +1130,8 @@ weav_12_2,"    @Test
     }"
 weav_12_3,"    @Test
     public void testGetProperties_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertNull(usingArgs.getProperties((String[]) null));
-    }
-",UsingArgsTest::testGetProperties_3_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
+    }",UsingArgsTest::testGetProperties_3_oe,org.apache.commons.weaver.ant.WeaverSettings,getProperties(),"/**
      * Merge nested {@code propertyset} and {@code properties}; latter takes precedence.
      * @return {@link Properties}
      */","public Properties getProperties() {
@@ -1347,35 +1156,28 @@ weav_12_3,"    @Test
 weav_13_1,"    @Test
     public void testAssembleAndGetProperty_1_oe() {
         assertEquals(""foo-value"", usingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
-    }
-",UsingArgsTest::testAssembleAndGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",UsingArgsTest::testAssembleAndGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_13_2,"    @Test
     public void testAssembleAndGetProperty_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
-    }
-",UsingArgsTest::testAssembleAndGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",UsingArgsTest::testAssembleAndGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_13_3,"    @Test
     public void testAssembleAndGetProperty_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", usingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
-    }
-",UsingArgsTest::testAssembleAndGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",UsingArgsTest::testAssembleAndGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_14_1,"    @Test
     public void testThrowingCheckedException_1_oe() throws CheckedException1, CheckedException2 {
         assertEquals(0, usingArgs.throwingCheckedException(0, ""foo""));
-    }
-",UsingArgsTest::testThrowingCheckedException_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"throwingCheckedException(int which, String propertyToGet)",,"@Privileged
+    }",UsingArgsTest::testThrowingCheckedException_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"throwingCheckedException(int which, String propertyToGet)",,"@Privileged
     static int throwingCheckedException(int which, String propertyToGet) throws CheckedException1, CheckedException2 {
         System.getProperty(propertyToGet);
         switch (which) {
@@ -1390,124 +1192,99 @@ weav_14_1,"    @Test
 weav_15_1,"    @Test
     public void testUtilsReadPublicConstant_1_oe() {
         assertEquals(Utils.FOO, methodReferencesUsingBlueprints.utilsReadPublicConstant());
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsReadPublicConstant_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPublicConstant(),,"public String utilsReadPublicConstant() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsReadPublicConstant_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPublicConstant(),,"public String utilsReadPublicConstant() {
         return Utils.readPublicConstant();
     }"
 weav_16_1,"    @Test
     public void testUtilsReadPrivateField_1_oe() {
         assertEquals(999, methodReferencesUsingBlueprints.utilsReadPrivateField());
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsReadPrivateField_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPrivateField(),,"public int utilsReadPrivateField() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsReadPrivateField_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPrivateField(),,"public int utilsReadPrivateField() {
         return Utils.readPrivateField();
     }"
 weav_17_1,"    @Test
     public void testUtilsGetProperty_1_oe() {
         assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty());
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_18_1,"    @Test
     public void testUtilsGetProperty_String_1_oe() {
         assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(""foo""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_18_2,"    @Test
     public void testUtilsGetProperty_String_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(""bar""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_18_3,"    @Test
     public void testUtilsGetProperty_String_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(""baz""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_19_1,"    @Test
     public void testUtilsGetProperty_int_String_1_oe() {
         assertEquals(""foo-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""foo""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_19_2,"    @Test
     public void testUtilsGetProperty_int_String_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""bar""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_19_3,"    @Test
     public void testUtilsGetProperty_int_String_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", methodReferencesUsingBlueprints.utilsGetProperty(2, ""baz""));
-    }
-",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_20_1,"    @Test
     public void testMoreGetProperty_1_oe() {
         assertEquals(""bar-value"", methodReferencesUsingBlueprints.moreGetProperty());
-    }
-",MethodReferencesUsingBlueprintsTest::testMoreGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetProperty(),,"public String moreGetProperty() {
+    }",MethodReferencesUsingBlueprintsTest::testMoreGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetProperty(),,"public String moreGetProperty() {
         return Utils.More.getProperty();
     }"
 weav_21_1,"    @Test
     public void testMoreGetTopStackElementClassName_1_oe() {
         assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
         assertEquals(Utils.More.class.getName(), methodReferencesUsingBlueprints.moreGetTopStackElementClassName());
-    }
-",MethodReferencesUsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetTopStackElementClassName(),,"public String moreGetTopStackElementClassName() {
+    }",MethodReferencesUsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetTopStackElementClassName(),,"public String moreGetTopStackElementClassName() {
         return Utils.More.getTopStackElementClassName();
     }"
 weav_22_1,"    @Test
     public void testGet_1_oe() {
         assertEquals(""foo-value"", StaticPrivateMethods.get(""foo""));
-    }
-",StaticPrivateMethodsTest::testGet_1_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
+    }",StaticPrivateMethodsTest::testGet_1_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
         return getProperty(s);
     }"
 weav_22_2,"    @Test
     public void testGet_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", StaticPrivateMethods.get(""bar""));
-    }
-",StaticPrivateMethodsTest::testGet_2_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
+    }",StaticPrivateMethodsTest::testGet_2_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
         return getProperty(s);
     }"
 weav_22_3,"    @Test
     public void testGet_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", StaticPrivateMethods.get(""baz""));
-    }
-",StaticPrivateMethodsTest::testGet_3_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
+    }",StaticPrivateMethodsTest::testGet_3_oe,org.apache.commons.weaver.privilizer.example.StaticPrivateMethods,get(String s),,"public static String get(String s) {
         return getProperty(s);
     }"
 weav_23_1,"    @Test
     public void testGetFoo_1_oe() {
         assertEquals(""foo-value"", StaticNoArgs.getFoo());
-    }
-",StaticNoArgsTest::testGetFoo_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFoo(),,"@Privileged
+    }",StaticNoArgsTest::testGetFoo_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFoo(),,"@Privileged
     static String getFoo() {
         return System.getProperty(""foo"");
     }"
 weav_24_1,"    @Test
     public void testGetTrue_1_oe() {
         assertSame(Boolean.TRUE, StaticNoArgs.getTrue());
-    }
-",StaticNoArgsTest::testGetTrue_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getTrue(),,"@Privileged
+    }",StaticNoArgsTest::testGetTrue_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getTrue(),,"@Privileged
     static Boolean getTrue() {
         System.getProperty(""foo"");
         return Boolean.TRUE;
@@ -1515,8 +1292,7 @@ weav_24_1,"    @Test
 weav_25_1,"    @Test
     public void testGetFalse_1_oe() {
         assertFalse(StaticNoArgs.getFalse());
-    }
-",StaticNoArgsTest::testGetFalse_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFalse(),,"@Privileged
+    }",StaticNoArgsTest::testGetFalse_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFalse(),,"@Privileged
     static boolean getFalse() {
         System.getProperty(""foo"");
         return false;
@@ -1530,8 +1306,7 @@ weav_27_1,"    @Test
             return;
         }
         fail();
-    }
-",StaticNoArgsTest::testThrowingCheckedException2_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,throwingCheckedException2(),,"@Privileged
+    }",StaticNoArgsTest::testThrowingCheckedException2_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,throwingCheckedException2(),,"@Privileged
     static Integer throwingCheckedException2() throws CheckedException1, CheckedException2 {
         System.getProperty(""foo"");
         throw new CheckedException2();
@@ -1539,62 +1314,49 @@ weav_27_1,"    @Test
 weav_28_1,"    @Test
     public void testGet_1_oe() {
         assertEquals(""foo-value"", privateMethods.get(""foo""));
-    }
-",PrivateMethodsTest::testGet_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",PrivateMethodsTest::testGet_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_28_2,"    @Test
     public void testGet_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", privateMethods.get(""bar""));
-    }
-",PrivateMethodsTest::testGet_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",PrivateMethodsTest::testGet_2_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_28_3,"    @Test
     public void testGet_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", privateMethods.get(""baz""));
-    }
-",PrivateMethodsTest::testGet_3_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",PrivateMethodsTest::testGet_3_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_29_1,"    @Test
     public void testGetProperty_1_oe() {
         assertEquals(""foo-value"", StaticUsingArgs.getProperty(""foo""));
-    }
-",StaticUsingArgsTest::testGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_29_2,"    @Test
     public void testGetProperty_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", StaticUsingArgs.getProperty(""bar""));
-    }
-",StaticUsingArgsTest::testGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_29_3,"    @Test
     public void testGetProperty_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", StaticUsingArgs.getProperty(""baz""));
-    }
-",StaticUsingArgsTest::testGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperty(String name),,"@Privileged
     static String getProperty(String name) {
         return System.getProperty(name);
     }"
 weav_30_1,"    @Test
     public void testGetProperties_1_oe() {
         assertTrue(Arrays.equals(new String[] { ""foo-value"", ""bar-value"", ""baz-value"" }, StaticUsingArgs.getProperties(""foo"", ""bar"", ""baz"")));
-    }
-",StaticUsingArgsTest::testGetProperties_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperties_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
     static String[] getProperties(String... names) {
         if (names == null) {
             return null;
@@ -1609,10 +1371,8 @@ weav_30_1,"    @Test
     }"
 weav_30_2,"    @Test
     public void testGetProperties_2_oe() {
-        // removed other assertion
         assertEquals(0, StaticUsingArgs.getProperties().length);
-    }
-",StaticUsingArgsTest::testGetProperties_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperties_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
     static String[] getProperties(String... names) {
         if (names == null) {
             return null;
@@ -1627,11 +1387,8 @@ weav_30_2,"    @Test
     }"
 weav_30_3,"    @Test
     public void testGetProperties_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertNull(StaticUsingArgs.getProperties((String[]) null));
-    }
-",StaticUsingArgsTest::testGetProperties_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
+    }",StaticUsingArgsTest::testGetProperties_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,getProperties(String... names),,"@Privileged
     static String[] getProperties(String... names) {
         if (names == null) {
             return null;
@@ -1647,35 +1404,28 @@ weav_30_3,"    @Test
 weav_31_1,"    @Test
     public void testAssembleAndGetProperty_1_oe() {
         assertEquals(""foo-value"", StaticUsingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
-    }
-",StaticUsingArgsTest::testAssembleAndGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",StaticUsingArgsTest::testAssembleAndGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_31_2,"    @Test
     public void testAssembleAndGetProperty_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
-    }
-",StaticUsingArgsTest::testAssembleAndGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",StaticUsingArgsTest::testAssembleAndGetProperty_2_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_31_3,"    @Test
     public void testAssembleAndGetProperty_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
-    }
-",StaticUsingArgsTest::testAssembleAndGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
+    }",StaticUsingArgsTest::testAssembleAndGetProperty_3_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"assembleAndGetProperty(char first, CharSequence middle, int last)",,"@Privileged
     static Object assembleAndGetProperty(char first, CharSequence middle, int last) {
         return System.getProperty(new StringBuilder().append(first).append(middle).append((char) last).toString());
     }"
 weav_32_1,"    @Test
     public void testThrowingCheckedException_1_oe() throws CheckedException1, CheckedException2 {
         assertEquals(0, StaticUsingArgs.throwingCheckedException(0, ""foo""));
-    }
-",StaticUsingArgsTest::testThrowingCheckedException_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"throwingCheckedException(int which, String propertyToGet)",,"@Privileged
+    }",StaticUsingArgsTest::testThrowingCheckedException_1_oe,org.apache.commons.weaver.privilizer.example.StaticUsingArgs,"throwingCheckedException(int which, String propertyToGet)",,"@Privileged
     static int throwingCheckedException(int which, String propertyToGet) throws CheckedException1, CheckedException2 {
         System.getProperty(propertyToGet);
         switch (which) {
@@ -1690,16 +1440,14 @@ weav_32_1,"    @Test
 weav_33_1,"    @Test
     public void testGetFoo_1_oe() {
         assertEquals(""foo-value"", noArgs.getFoo());
-    }
-",NoArgsTest::testGetFoo_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFoo(),,"@Privileged
+    }",NoArgsTest::testGetFoo_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFoo(),,"@Privileged
     static String getFoo() {
         return System.getProperty(""foo"");
     }"
 weav_34_1,"    @Test
     public void testGetTrue_1_oe() {
         assertSame(Boolean.TRUE, noArgs.getTrue());
-    }
-",NoArgsTest::testGetTrue_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getTrue(),,"@Privileged
+    }",NoArgsTest::testGetTrue_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getTrue(),,"@Privileged
     static Boolean getTrue() {
         System.getProperty(""foo"");
         return Boolean.TRUE;
@@ -1707,8 +1455,7 @@ weav_34_1,"    @Test
 weav_35_1,"    @Test
     public void testGetFalse_1_oe() {
         assertFalse(noArgs.getFalse());
-    }
-",NoArgsTest::testGetFalse_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFalse(),,"@Privileged
+    }",NoArgsTest::testGetFalse_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,getFalse(),,"@Privileged
     static boolean getFalse() {
         System.getProperty(""foo"");
         return false;
@@ -1722,8 +1469,7 @@ weav_37_1,"    @Test
             return;
         }
         fail();
-    }
-",NoArgsTest::testThrowingCheckedException2_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,throwingCheckedException2(),,"@Privileged
+    }",NoArgsTest::testThrowingCheckedException2_1_oe,org.apache.commons.weaver.privilizer.example.StaticNoArgs,throwingCheckedException2(),,"@Privileged
     static Integer throwingCheckedException2() throws CheckedException1, CheckedException2 {
         System.getProperty(""foo"");
         throw new CheckedException2();
@@ -1731,182 +1477,144 @@ weav_37_1,"    @Test
 weav_38_1,"    @Test
     public void testUtilsReadPublicConstant_1_oe() {
         assertEquals(Utils.FOO, usingBlueprints.utilsReadPublicConstant());
-    }
-",UsingBlueprintsTest::testUtilsReadPublicConstant_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPublicConstant(),,"public String utilsReadPublicConstant() {
+    }",UsingBlueprintsTest::testUtilsReadPublicConstant_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPublicConstant(),,"public String utilsReadPublicConstant() {
         return Utils.readPublicConstant();
     }"
 weav_39_1,"    @Test
     public void testUtilsReadPrivateField_1_oe() {
         assertEquals(999, usingBlueprints.utilsReadPrivateField());
-    }
-",UsingBlueprintsTest::testUtilsReadPrivateField_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPrivateField(),,"public int utilsReadPrivateField() {
+    }",UsingBlueprintsTest::testUtilsReadPrivateField_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsReadPrivateField(),,"public int utilsReadPrivateField() {
         return Utils.readPrivateField();
     }"
 weav_40_1,"    @Test
     public void testUtilsGetProperty_1_oe() {
         assertEquals(""foo-value"", usingBlueprints.utilsGetProperty());
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_41_1,"    @Test
     public void testUtilsGetProperty_String_1_oe() {
         assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(""foo""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_41_2,"    @Test
     public void testUtilsGetProperty_String_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(""bar""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_41_3,"    @Test
     public void testUtilsGetProperty_String_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(""baz""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_42_1,"    @Test
     public void testUtilsGetProperty_int_String_1_oe() {
         assertEquals(""foo-value"", usingBlueprints.utilsGetProperty(2, ""foo""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_int_String_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_42_2,"    @Test
     public void testUtilsGetProperty_int_String_2_oe() {
-        // removed other assertion
         assertEquals(""bar-value"", usingBlueprints.utilsGetProperty(2, ""bar""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_int_String_2_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_42_3,"    @Test
     public void testUtilsGetProperty_int_String_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertEquals(""baz-value"", usingBlueprints.utilsGetProperty(2, ""baz""));
-    }
-",UsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
+    }",UsingBlueprintsTest::testUtilsGetProperty_int_String_3_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,utilsGetProperty(),,"public String utilsGetProperty() {
         return Utils.getProperty();
     }"
 weav_43_1,"    @Test
     public void testMoreGetProperty_1_oe() {
         assertEquals(""bar-value"", usingBlueprints.moreGetProperty());
-    }
-",UsingBlueprintsTest::testMoreGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetProperty(),,"public String moreGetProperty() {
+    }",UsingBlueprintsTest::testMoreGetProperty_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetProperty(),,"public String moreGetProperty() {
         return Utils.More.getProperty();
     }"
 weav_44_1,"    @Test
     public void testMoreGetTopStackElementClassName_1_oe() {
         assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, ""oracle""));
         assertEquals(Utils.More.class.getName(), usingBlueprints.moreGetTopStackElementClassName());
-    }
-",UsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetTopStackElementClassName(),,"public String moreGetTopStackElementClassName() {
+    }",UsingBlueprintsTest::testMoreGetTopStackElementClassName_1_oe,org.apache.commons.weaver.privilizer.example.UsingBlueprints,moreGetTopStackElementClassName(),,"public String moreGetTopStackElementClassName() {
         return Utils.More.getTopStackElementClassName();
     }"
 weav_45_1,"    @Test
     public void testNoArgs_1_oe() {
         assertEquals(""foo-value"", overloading.get());
-    }
-",OverloadingTest::testNoArgs_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",OverloadingTest::testNoArgs_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_46_1,"    @Test
     public void testStringArg_1_oe() {
         assertEquals(""bar-value"", overloading.get(""bar""));
-    }
-",OverloadingTest::testStringArg_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",OverloadingTest::testStringArg_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_47_1,"    @Test
     public void testCharishArgs_1_oe() {
         assertEquals(""baz-value"", overloading.get('b', 'a', (short) 'z'));
-    }
-",OverloadingTest::testCharishArgs_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
+    }",OverloadingTest::testCharishArgs_1_oe,org.apache.commons.weaver.Finder.IncludesClassfile,get(),,"@Override
         public T get() {
             return annotatedElement;
         }"
 weav_48_1,"    @Test
     public void testNoArgs_1_oe() {
         assertEquals(""foo-value"", StaticOverloading.get());
-    }
-",StaticOverloadingTest::testNoArgs_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
+    }",StaticOverloadingTest::testNoArgs_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
     static String get() {
         return System.getProperty(""foo"");
     }"
 weav_49_1,"    @Test
     public void testStringArg_1_oe() {
         assertEquals(""bar-value"", StaticOverloading.get(""bar""));
-    }
-",StaticOverloadingTest::testStringArg_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
+    }",StaticOverloadingTest::testStringArg_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
     static String get() {
         return System.getProperty(""foo"");
     }"
 weav_50_1,"    @Test
     public void testCharishArgs_1_oe() {
         assertEquals(""baz-value"", StaticOverloading.get('b', 'a', (short) 'z'));
-    }
-",StaticOverloadingTest::testCharishArgs_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
+    }",StaticOverloadingTest::testCharishArgs_1_oe,org.apache.commons.weaver.privilizer.example.StaticOverloading,get(),,"@Privileged
     static String get() {
         return System.getProperty(""foo"");
     }"
 weav_left_11_1,"@Test
     public void testParseTypes_1_oe() {
         assertContainsInOrder(Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader()), Number.class);
-    }
-",UtilsTest::testParseTypes_1_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
+    }",UtilsTest::testParseTypes_1_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
         protected ClassLoader getClassLoader() {
             return env.classLoader;
         }"
 weav_left_11_2,"@Test
     public void testParseTypes_2_oe() {
-        // removed other assertion
         assertContainsInOrder( Utils.parseTypes(""java.lang.Number,java.lang.String,java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
-    }
-",UtilsTest::testParseTypes_2_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
+    }",UtilsTest::testParseTypes_2_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
         protected ClassLoader getClassLoader() {
             return env.classLoader;
         }"
 weav_left_11_3,"@Test
     public void testParseTypes_3_oe() {
-        // removed other assertion
-        // removed other assertion
         assertContainsInOrder( Utils.parseTypes(""java.lang.Number, java.lang.String, java.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
-    }
-",UtilsTest::testParseTypes_3_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
+    }",UtilsTest::testParseTypes_3_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
         protected ClassLoader getClassLoader() {
             return env.classLoader;
         }"
 weav_left_11_4,"@Test
     public void testParseTypes_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertContainsInOrder( Utils.parseTypes(""java/lang/Number, java/lang/String, java/util/Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
-    }
-",UtilsTest::testParseTypes_4_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
+    }",UtilsTest::testParseTypes_4_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
         protected ClassLoader getClassLoader() {
             return env.classLoader;
         }"
 weav_left_11_5,"@Test
     public void testParseTypes_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertContainsInOrder( Utils.parseTypes(""java.lang.Number,\njava.lang.String,\njava.util.Map"", getClass().getClassLoader()), Number.class, String.class, Map.class);
-    }
-",UtilsTest::testParseTypes_5_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
+    }",UtilsTest::testParseTypes_5_oe,org.apache.commons.weaver.normalizer.Normalizer.CustomClassWriter,getClassLoader(),,"@Override
         protected ClassLoader getClassLoader() {
             return env.classLoader;
         }"

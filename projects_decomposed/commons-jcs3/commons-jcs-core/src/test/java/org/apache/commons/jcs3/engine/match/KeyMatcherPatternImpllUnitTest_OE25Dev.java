@@ -1,0 +1,135 @@
+package org.apache.commons.jcs3.engine.match;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import junit.framework.TestCase;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/** Unit tests for the key matcher. */
+public class KeyMatcherPatternImpllUnitTest_OE25Dev
+    extends TestCase
+{
+    /**
+     * Verify that the matching method works.
+     */
+
+    /**
+     * Verify that the matching method works.
+     */
+
+    /**
+     * Verify that the matching method works.
+     */
+
+    public void testGetMatchingKeysFromArray_AllMatch_1_oe()
+    {
+        final int numToInsertPrefix1 = 10;
+        final Set<String> keyArray = new HashSet<>();
+
+        final String keyprefix1 = "MyPrefixC";
+
+        for ( int i = 0; i < numToInsertPrefix1; i++ )
+        {
+            keyArray.add(keyprefix1 + String.valueOf( i ));
+        }
+
+        final KeyMatcherPatternImpl<String> keyMatcher = new KeyMatcherPatternImpl<>();
+
+        final Set<String> result1 = keyMatcher.getMatchingKeysFromArray( keyprefix1 + ".", keyArray );
+
+        assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
+    }
+
+    public void testGetMatchingKeysFromArray_AllMatchFirstNull_1_oe()
+    {
+        final int numToInsertPrefix1 = 10;
+        final Set<String> keyArray = new HashSet<>();
+
+        final String keyprefix1 = "MyPrefixC";
+
+        for ( int i = 1; i < numToInsertPrefix1 + 1; i++ )
+        {
+            keyArray.add(keyprefix1 + String.valueOf( i ));
+        }
+
+        final KeyMatcherPatternImpl<String> keyMatcher = new KeyMatcherPatternImpl<>();
+
+        final Set<String> result1 = keyMatcher.getMatchingKeysFromArray( keyprefix1 + "\\S+", keyArray );
+
+        assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
+    }
+
+    public void testGetMatchingKeysFromArray_TwoTypes_1_oe()
+    {
+        final int numToInsertPrefix1 = 10;
+        final int numToInsertPrefix2 = 50;
+        final Set<String> keyArray = new HashSet<>();
+
+        final String keyprefix1 = "MyPrefixA";
+        final String keyprefix2 = "MyPrefixB";
+
+        for ( int i = 0; i < numToInsertPrefix1; i++ )
+        {
+            keyArray.add(keyprefix1 + String.valueOf( i ));
+        }
+
+        for ( int i = numToInsertPrefix1; i < numToInsertPrefix2 + numToInsertPrefix1; i++ )
+        {
+            keyArray.add(keyprefix2 + String.valueOf( i ));
+        }
+
+        final KeyMatcherPatternImpl<String> keyMatcher = new KeyMatcherPatternImpl<>();
+
+        final Set<String> result1 = keyMatcher.getMatchingKeysFromArray( keyprefix1 + ".+", keyArray );
+        final Set<String> result2 = keyMatcher.getMatchingKeysFromArray( keyprefix2 + ".+", keyArray );
+
+        assertEquals( "Wrong number returned 1: " + result1, numToInsertPrefix1, result1.size() );
+    }
+
+    public void testGetMatchingKeysFromArray_TwoTypes_2_oe()
+    {
+        final int numToInsertPrefix1 = 10;
+        final int numToInsertPrefix2 = 50;
+        final Set<String> keyArray = new HashSet<>();
+
+        final String keyprefix1 = "MyPrefixA";
+        final String keyprefix2 = "MyPrefixB";
+
+        for ( int i = 0; i < numToInsertPrefix1; i++ )
+        {
+            keyArray.add(keyprefix1 + String.valueOf( i ));
+        }
+
+        for ( int i = numToInsertPrefix1; i < numToInsertPrefix2 + numToInsertPrefix1; i++ )
+        {
+            keyArray.add(keyprefix2 + String.valueOf( i ));
+        }
+
+        final KeyMatcherPatternImpl<String> keyMatcher = new KeyMatcherPatternImpl<>();
+
+        final Set<String> result1 = keyMatcher.getMatchingKeysFromArray( keyprefix1 + ".+", keyArray );
+        final Set<String> result2 = keyMatcher.getMatchingKeysFromArray( keyprefix2 + ".+", keyArray );
+
+        assertEquals( "Wrong number returned 2: " + result2, numToInsertPrefix2, result2.size() );
+    }
+
+}

@@ -1,0 +1,1173 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+conf_87_2,"    @Test
+    public void testObjectCreationFromReader_2_oe() {
+        final File createdFile = new File(temporaryFolder.getRoot(), ""data.txt"");
+        final String yaml = ""!!java.io.FileOutputStream ["" + createdFile.getAbsolutePath() + ""]"";
+
+        try {
+            yamlConfiguration.read(new StringReader(yaml));
+        } catch (final ConfigurationException e) {
+        }
+        assertFalse(""Java object was created"", createdFile.exists());
+    }",TestYAMLConfiguration::testObjectCreationFromReader_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,void read(final Reader reader),,"@Override
+    public void read(final Reader reader) throws ConfigurationException, IOException {
+        fetchFileBased().read(reader);
+    }"
+conf_88_2,"    @Test
+    public void testObjectCreationFromStream_2_oe() {
+        final File createdFile = new File(temporaryFolder.getRoot(), ""data.txt"");
+        final String yaml = ""!!java.io.FileOutputStream ["" + createdFile.getAbsolutePath() + ""]"";
+
+        try {
+            yamlConfiguration.read(new ByteArrayInputStream(yaml.getBytes(StandardCharsets.UTF_8)));
+        } catch (final ConfigurationException e) {
+        }
+        assertFalse(""Java object was created"", createdFile.exists());
+    }",TestYAMLConfiguration::testObjectCreationFromStream_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,void read(final Reader reader),,"@Override
+    public void read(final Reader reader) throws ConfigurationException, IOException {
+        fetchFileBased().read(reader);
+    }"
+conf_94_2,"    @Test
+    public void testConversionExceptionCause_2_oe() {
+        try {
+            conf.get(Integer.TYPE, ""uri.string"");
+        } catch (final ConversionException cex) {
+            assertTrue(""Wrong cause"", cex.getCause() instanceof NumberFormatException);
+    }
+    }",TestDataConfiguration::testConversionExceptionCause_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_103_4,"    @Test
+    public void testGetCalendar_4_oe() throws Exception {
+        final DateFormat format = new SimpleDateFormat(DATE_PATTERN);
+
+        final Calendar defaultValue = Calendar.getInstance();
+        defaultValue.setTime(new Date());
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getCalendar(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        final Calendar expected = Calendar.getInstance();
+        expected.setTime(format.parse(""2004-01-01""));
+
+        assertEquals(expected, conf.getCalendar(""calendar.string""));
+    }",TestDataConfiguration::testGetCalendar_4_oe,org.apache.commons.configuration2.DataConfiguration,getCalendar(final String key),"/**
+     * Get a Calendar associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Calendar.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Calendar.
+     */","public Calendar getCalendar(final String key) {
+        return get(Calendar.class, key);
+    }"
+conf_103_5,"    @Test
+    public void testGetCalendar_5_oe() throws Exception {
+        final DateFormat format = new SimpleDateFormat(DATE_PATTERN);
+
+        final Calendar defaultValue = Calendar.getInstance();
+        defaultValue.setTime(new Date());
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getCalendar(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        final Calendar expected = Calendar.getInstance();
+        expected.setTime(format.parse(""2004-01-01""));
+
+        assertEquals(expected, conf.getCalendar(""calendar.string"", DATE_PATTERN));
+    }",TestDataConfiguration::testGetCalendar_5_oe,org.apache.commons.configuration2.DataConfiguration,getCalendar(final String key),"/**
+     * Get a Calendar associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Calendar.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Calendar.
+     */","public Calendar getCalendar(final String key) {
+        return get(Calendar.class, key);
+    }"
+conf_103_6,"    @Test
+    public void testGetCalendar_6_oe() throws Exception {
+        final DateFormat format = new SimpleDateFormat(DATE_PATTERN);
+
+        final Calendar defaultValue = Calendar.getInstance();
+        defaultValue.setTime(new Date());
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getCalendar(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        final Calendar expected = Calendar.getInstance();
+        expected.setTime(format.parse(""2004-01-01""));
+
+
+        assertEquals(expected, conf.getCalendar(""calendar.object""));
+    }",TestDataConfiguration::testGetCalendar_6_oe,org.apache.commons.configuration2.DataConfiguration,getCalendar(final String key),"/**
+     * Get a Calendar associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Calendar.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Calendar.
+     */","public Calendar getCalendar(final String key) {
+        return get(Calendar.class, key);
+    }"
+conf_103_7,"    @Test
+    public void testGetCalendar_7_oe() throws Exception {
+        final DateFormat format = new SimpleDateFormat(DATE_PATTERN);
+
+        final Calendar defaultValue = Calendar.getInstance();
+        defaultValue.setTime(new Date());
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getCalendar(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        final Calendar expected = Calendar.getInstance();
+        expected.setTime(format.parse(""2004-01-01""));
+
+
+
+        assertEquals(expected, conf.getCalendar(""date.object""));
+    }",TestDataConfiguration::testGetCalendar_7_oe,org.apache.commons.configuration2.DataConfiguration,getCalendar(final String key),"/**
+     * Get a Calendar associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Calendar.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Calendar.
+     */","public Calendar getCalendar(final String key) {
+        return get(Calendar.class, key);
+    }"
+conf_103_8,"    @Test
+    public void testGetCalendar_8_oe() throws Exception {
+        final DateFormat format = new SimpleDateFormat(DATE_PATTERN);
+
+        final Calendar defaultValue = Calendar.getInstance();
+        defaultValue.setTime(new Date());
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getCalendar(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        final Calendar expected = Calendar.getInstance();
+        expected.setTime(format.parse(""2004-01-01""));
+
+
+
+
+        assertEquals(expected, conf.getCalendar(""calendar.string.interpolated""));
+    }",TestDataConfiguration::testGetCalendar_8_oe,org.apache.commons.configuration2.DataConfiguration,getCalendar(final String key),"/**
+     * Get a Calendar associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Calendar.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Calendar.
+     */","public Calendar getCalendar(final String key) {
+        return get(Calendar.class, key);
+    }"
+conf_111_4,"    @Test
+    public void testGetDate_4_oe() throws Exception {
+        final Date expected = expectedDate();
+
+        final Date defaultValue = new Date();
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getDate(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        assertEquals(expected, conf.getDate(""date.string""));
+    }",TestDataConfiguration::testGetDate_4_oe,org.apache.commons.configuration2.DataConfiguration,getDate(final String key),"/**
+     * Get a Date associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Date.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Date.
+     */","public Date getDate(final String key) {
+        return get(Date.class, key);
+    }"
+conf_111_5,"    @Test
+    public void testGetDate_5_oe() throws Exception {
+        final Date expected = expectedDate();
+
+        final Date defaultValue = new Date();
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getDate(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+        assertEquals(expected, conf.getDate(""date.string"", DATE_PATTERN));
+    }",TestDataConfiguration::testGetDate_5_oe,org.apache.commons.configuration2.DataConfiguration,getDate(final String key),"/**
+     * Get a Date associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Date.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Date.
+     */","public Date getDate(final String key) {
+        return get(Date.class, key);
+    }"
+conf_111_6,"    @Test
+    public void testGetDate_6_oe() throws Exception {
+        final Date expected = expectedDate();
+
+        final Date defaultValue = new Date();
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getDate(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+
+        assertEquals(expected, conf.getDate(""date.object""));
+    }",TestDataConfiguration::testGetDate_6_oe,org.apache.commons.configuration2.DataConfiguration,getDate(final String key),"/**
+     * Get a Date associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Date.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Date.
+     */","public Date getDate(final String key) {
+        return get(Date.class, key);
+    }"
+conf_111_7,"    @Test
+    public void testGetDate_7_oe() throws Exception {
+        final Date expected = expectedDate();
+
+        final Date defaultValue = new Date();
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getDate(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+
+
+        assertEquals(expected, conf.getDate(""calendar.object""));
+    }",TestDataConfiguration::testGetDate_7_oe,org.apache.commons.configuration2.DataConfiguration,getDate(final String key),"/**
+     * Get a Date associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Date.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Date.
+     */","public Date getDate(final String key) {
+        return get(Date.class, key);
+    }"
+conf_111_8,"    @Test
+    public void testGetDate_8_oe() throws Exception {
+        final Date expected = expectedDate();
+
+        final Date defaultValue = new Date();
+
+        conf.setThrowExceptionOnMissing(true);
+
+        try {
+            conf.getDate(""unknownkey"", DATE_PATTERN);
+        } catch (final NoSuchElementException e) {
+        }
+
+
+
+
+        assertEquals(expected, conf.getDate(""date.string.interpolated""));
+    }",TestDataConfiguration::testGetDate_8_oe,org.apache.commons.configuration2.DataConfiguration,getDate(final String key),"/**
+     * Get a Date associated with the given configuration key. If the property is a String, it will be parsed with the
+     * format defined by the user in the {@link #DATE_FORMAT_KEY} property, or if it's not defined with the
+     * {@link #DEFAULT_DATE_FORMAT} pattern.
+     *
+     * @param key The configuration key.
+     * @return The associated Date.
+     *
+     * @throws ConversionException is thrown if the key maps to an object that is not a Date.
+     */","public Date getDate(final String key) {
+        return get(Date.class, key);
+    }"
+conf_177_2,"    @Test
+    public void testLockHandlingWithExceptionWhenConstructingRootNode_2_oe() {
+        final SynchronizerTestImpl sync = setUpSynchronizerTest();
+        final RuntimeException testEx = new ConfigurationRuntimeException(""Test exception"");
+        final BaseHierarchicalConfiguration childEx = new BaseHierarchicalConfiguration() {
+            @Override
+            public NodeModel<ImmutableNode> getModel() {
+                throw testEx;
+            }
+        };
+        config.addConfiguration(childEx);
+        try {
+            config.lock(LockMode.READ);
+        } catch (final Exception ex) {
+            assertEquals(""Unexpected exception"", testEx, ex);
+    }
+    }",TestCombinedConfiguration::testLockHandlingWithExceptionWhenConstructingRootNode_2_oe,org.apache.commons.configuration2.AbstractConfiguration,void lock(final LockMode mode),"/**
+     * {@inheritDoc} This implementation delegates to {@code beginRead()} or {@code beginWrite()}, depending on the
+     * {@code LockMode} argument. Subclasses can override these protected methods to perform additional steps when a
+     * configuration is locked.
+     *
+     * @since 2.0
+     * @throws NullPointerException if the argument is <b>null</b>
+     */","@Override
+    public final void lock(final LockMode mode) {
+        switch (mode) {
+        case READ:
+            beginRead(false);
+            break;
+        case WRITE:
+            beginWrite(false);
+            break;
+        default:
+            throw new IllegalArgumentException(""Unsupported LockMode: "" + mode);
+        }
+    }"
+conf_206_2,"    @Test
+    public void testIncludeIncludeLoadCyclicalReferenceFail_2_oe() throws Exception {
+        final PropertiesConfiguration pc = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(pc);
+        handler.setBasePath(testBasePath);
+        handler.setFileName(""include-include-cyclical-reference.properties"");
+        try {
+            handler.load();
+        } catch (final ConfigurationException e) {
+        }
+        assertNull(pc.getString(""keyA""));
+    }",TestPropertiesConfiguration::testIncludeIncludeLoadCyclicalReferenceFail_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_211_2,"    @Test
+    public void testIncludeLoadCyclicalMultiStepReferenceFail_2_oe() throws Exception {
+        final PropertiesConfiguration pc = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(pc);
+        handler.setBasePath(testBasePath);
+        handler.setFileName(""include-cyclical-root.properties"");
+        try {
+            handler.load();
+        } catch (final ConfigurationException e) {
+        }
+        assertNull(pc.getString(""keyA""));
+    }",TestPropertiesConfiguration::testIncludeLoadCyclicalMultiStepReferenceFail_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_213_2,"    @Test
+    public void testIncludeLoadCyclicalReferenceFail_2_oe() throws Exception {
+        final PropertiesConfiguration pc = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(pc);
+        handler.setBasePath(testBasePath);
+        handler.setFileName(""include-cyclical-reference.properties"");
+        try {
+            handler.load();
+        } catch (final ConfigurationException e) {
+        }
+        assertNull(pc.getString(""keyA""));
+    }",TestPropertiesConfiguration::testIncludeLoadCyclicalReferenceFail_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_227_1,"    @Test
+    public void testLoadIncludeFileViaFileSystem_1_oe() throws ConfigurationException {
+        conf.clear();
+        conf.addProperty(""include"", ""include.properties"");
+        saveTestConfig();
+
+        final FileSystem fs = new DefaultFileSystem() {
+            @Override
+            public InputStream getInputStream(final URL url) throws ConfigurationException {
+                if (url.toString().endsWith(""include.properties"")) {
+                    try {
+                        return new ByteArrayInputStream(""test.outcome = success"".getBytes(""UTF-8""));
+                    } catch (final UnsupportedEncodingException e) {
+                        throw new ConfigurationException(""Unsupported encoding"", e);
+                    }
+                }
+                return super.getInputStream(url);
+            }
+        };
+        final Parameters params = new Parameters();
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class);
+        builder.configure(params.fileBased().setFile(testSavePropertiesFile).setBasePath(ConfigurationAssert.OUT_DIR.toURI().toString()).setFileSystem(fs));
+        final PropertiesConfiguration configuration = builder.getConfiguration();
+        assertEquals(""success"", configuration.getString(""test.outcome""));
+    }",TestPropertiesConfiguration::testLoadIncludeFileViaFileSystem_1_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_241_2,"    @Test
+    public void testReadCalledDirectly_2_oe() throws IOException {
+        conf = new PropertiesConfiguration();
+        try (Reader in = new FileReader(ConfigurationAssert.getTestFile(""test.properties""))) {
+            conf.read(in);
+        } catch (final ConfigurationException e) {
+            assertThat(e.getMessage(), containsString(""FileHandler""));
+    }
+    }",TestPropertiesConfiguration::testReadCalledDirectly_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,void read(final Reader reader),,"@Override
+    public void read(final Reader reader) throws ConfigurationException, IOException {
+        fetchFileBased().read(reader);
+    }"
+conf_247_2,"    @Test
+    public void testSaveToHTTPServerFail_2_oe() throws Exception {
+        final MockHttpURLStreamHandler handler = new MockHttpURLStreamHandler(HttpURLConnection.HTTP_BAD_REQUEST, testSavePropertiesFile);
+        final URL url = new URL(null, ""http://jakarta.apache.org"", handler);
+        try {
+            new FileHandler(conf).save(url);
+        } catch (final ConfigurationException cex) {
+            assertTrue(""Wrong root cause: "" + cex, cex.getCause() instanceof IOException);
+    }
+    }",TestPropertiesConfiguration::testSaveToHTTPServerFail_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_359_2,"    @Test
+    public void testGetBigIntegerConversion_2_oe() {
+        final Configuration config = getConfiguration();
+        try {
+            config.getBigInteger(""key1"");
+        } catch (final ConversionException cex) {
+            assertTrue(""Key not found in exception message: "" + cex, cex.getMessage().contains(""'key1'""));
+    }
+    }",TestAbstractConfiguration::testGetBigIntegerConversion_2_oe,org.apache.commons.configuration2.beanutils.ConfigurationDynaBean,"contains(final String name, final String key)",,"@Override
+    public boolean contains(final String name, final String key) {
+        final Configuration subset = getConfiguration().subset(name);
+        if (subset == null) {
+            throw new IllegalArgumentException(""Mapped property '"" + name + ""' does not exist."");
+        }
+
+        return subset.containsKey(key);
+    }"
+conf_359_3,"    @Test
+    public void testGetBigIntegerConversion_3_oe() {
+        final Configuration config = getConfiguration();
+        try {
+            config.getBigInteger(""key1"");
+        } catch (final ConversionException cex) {
+            assertTrue(""Target class not found in exception message: "" + cex, cex.getMessage().contains(BigInteger.class.getName()));
+    }
+    }",TestAbstractConfiguration::testGetBigIntegerConversion_3_oe,org.apache.commons.configuration2.CombinedConfiguration.ConfigData,getName(),"/**
+         * Returns the configuration's name.
+         *
+         * @return the name
+         */","public String getName() {
+            return name;
+        }"
+conf_359_4,"    @Test
+    public void testGetBigIntegerConversion_4_oe() {
+        final Configuration config = getConfiguration();
+        try {
+            config.getBigInteger(""key1"");
+        } catch (final ConversionException cex) {
+            assertTrue(""Value not found in exception message: "" + cex, cex.getMessage().contains(config.getString(""key1"")));
+    }
+    }",TestAbstractConfiguration::testGetBigIntegerConversion_4_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_386_3,"    @Test
+    public void testGetPropertyMissing_3_oe() throws Exception {
+        cc.addConfiguration(conf1);
+        cc.addConfiguration(conf2);
+        try {
+        } catch (final NoSuchElementException nsee) {
+            assertTrue(nsee.getMessage().contains(""bogus.property""));
+    }
+    }",TestCompositeConfiguration::testGetPropertyMissing_3_oe,org.apache.commons.configuration2.beanutils.ConfigurationDynaBean,"contains(final String name, final String key)",,"@Override
+    public boolean contains(final String name, final String key) {
+        final Configuration subset = getConfiguration().subset(name);
+        if (subset == null) {
+            throw new IllegalArgumentException(""Mapped property '"" + name + ""' does not exist."");
+        }
+
+        return subset.containsKey(key);
+    }"
+conf_386_4,"    @Test
+    public void testGetPropertyMissing_4_oe() throws Exception {
+        cc.addConfiguration(conf1);
+        cc.addConfiguration(conf2);
+        try {
+        } catch (final NoSuchElementException nsee) {
+        }
+
+        assertFalse(""Should be false"", cc.getBoolean(""test.missing.boolean"", false));
+    }",TestCompositeConfiguration::testGetPropertyMissing_4_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getBoolean(final String key, final boolean defaultValue)",,"@Override
+    public boolean getBoolean(final String key, final boolean defaultValue) {
+        return config.getBoolean(makePath(key), defaultValue);
+    }"
+conf_386_5,"    @Test
+    public void testGetPropertyMissing_5_oe() throws Exception {
+        cc.addConfiguration(conf1);
+        cc.addConfiguration(conf2);
+        try {
+        } catch (final NoSuchElementException nsee) {
+        }
+
+        assertTrue(""Should be true"", cc.getBoolean(""test.missing.boolean.true"", true));
+    }",TestCompositeConfiguration::testGetPropertyMissing_5_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getBoolean(final String key, final boolean defaultValue)",,"@Override
+    public boolean getBoolean(final String key, final boolean defaultValue) {
+        return config.getBoolean(makePath(key), defaultValue);
+    }"
+conf_392_3,"    @Test
+    public void testGetStringWithDefaults_3_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+            fail(""Should throw NoSuchElementException exception, not "" + e);
+    }
+    }",TestCompositeConfiguration::testGetStringWithDefaults_3_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_392_4,"    @Test
+    public void testGetStringWithDefaults_4_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+        }
+
+        assertEquals(""test string"", c.getString(""string"", ""some default value""));
+    }",TestCompositeConfiguration::testGetStringWithDefaults_4_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_392_5,"    @Test
+    public void testGetStringWithDefaults_5_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+        }
+
+        assertEquals(""default string"", c.getString(""default""));
+    }",TestCompositeConfiguration::testGetStringWithDefaults_5_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_392_6,"    @Test
+    public void testGetStringWithDefaults_6_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+        }
+
+        assertEquals(""default string"", c.getString(""default"", ""some default value""));
+    }",TestCompositeConfiguration::testGetStringWithDefaults_6_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_392_7,"    @Test
+    public void testGetStringWithDefaults_7_oe() {
+        final BaseConfiguration defaults = new BaseConfiguration();
+        defaults.addProperty(""default"", ""default string"");
+
+        final CompositeConfiguration c = new CompositeConfiguration(defaults);
+        c.setThrowExceptionOnMissing(cc.isThrowExceptionOnMissing());
+        c.addProperty(""string"", ""test string"");
+
+        try {
+            c.getString(""XXX"");
+        } catch (final NoSuchElementException e) {
+        } catch (final Exception e) {
+        }
+
+        assertEquals(""some default value"", c.getString(""XXX"", ""some default value""));
+    }",TestCompositeConfiguration::testGetStringWithDefaults_7_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_527_2,"    @Test
+    public void testReadCalledDirectly_2_oe() throws IOException {
+        conf = new XMLConfiguration();
+        final String content = ""<configuration><test>1</test></configuration>"";
+        final ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
+        try {
+            conf.read(bis);
+        } catch (final ConfigurationException e) {
+            assertThat(e.getMessage(), containsString(""FileHandler""));
+    }
+    }",TestXMLConfiguration::testReadCalledDirectly_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,void read(final Reader reader),,"@Override
+    public void read(final Reader reader) throws ConfigurationException, IOException {
+        fetchFileBased().read(reader);
+    }"
+conf_540_2,"    @Test
+    public void testSaveWithValidationFailure_2_oe() throws Exception {
+        final CatalogResolver resolver = new CatalogResolver();
+        resolver.setCatalogFiles(CATALOG_FILES);
+        conf = new XMLConfiguration();
+        conf.setEntityResolver(resolver);
+        conf.setSchemaValidation(true);
+        load(conf, testFile2);
+        conf.setProperty(""Employee.Email"", ""JohnDoe@test.org"");
+        try {
+            conf.validate();
+        } catch (final Exception e) {
+            final Throwable cause = e.getCause();
+            assertNotNull(""No cause for exception on save"", cause);
+    }
+    }",TestXMLConfiguration::testSaveWithValidationFailure_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_540_3,"    @Test
+    public void testSaveWithValidationFailure_3_oe() throws Exception {
+        final CatalogResolver resolver = new CatalogResolver();
+        resolver.setCatalogFiles(CATALOG_FILES);
+        conf = new XMLConfiguration();
+        conf.setEntityResolver(resolver);
+        conf.setSchemaValidation(true);
+        load(conf, testFile2);
+        conf.setProperty(""Employee.Email"", ""JohnDoe@test.org"");
+        try {
+            conf.validate();
+        } catch (final Exception e) {
+            final Throwable cause = e.getCause();
+            assertTrue(""Incorrect exception on save"", cause instanceof SAXParseException);
+    }
+    }",TestXMLConfiguration::testSaveWithValidationFailure_3_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_555_2,"    @Test
+    public void testCreateDocumentBuilderFromFactoryException_2_oe() throws ParserConfigurationException {
+        final DocumentBuilderFactory factory = EasyMock.createMock(DocumentBuilderFactory.class);
+        final ParserConfigurationException pcex = new ParserConfigurationException();
+        EasyMock.expect(factory.newDocumentBuilder()).andThrow(pcex);
+        EasyMock.replay(factory);
+
+        try {
+            XMLDocumentHelper.createDocumentBuilder(factory);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", pcex, cex.getCause());
+    }
+    }",TestXMLDocumentHelper::testCreateDocumentBuilderFromFactoryException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_557_2,"    @Test
+    public void testCreateTransformerFactoryException_2_oe() throws TransformerConfigurationException {
+        final TransformerFactory factory = EasyMock.createMock(TransformerFactory.class);
+        final TransformerConfigurationException cause = new TransformerConfigurationException();
+        EasyMock.expect(factory.newTransformer()).andThrow(cause);
+        EasyMock.replay(factory);
+        try {
+            XMLDocumentHelper.createTransformer(factory);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", cause, cex.getCause());
+    }
+    }",TestXMLDocumentHelper::testCreateTransformerFactoryException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_562_2,"    @Test
+    public void testTransformException_2_oe() throws TransformerException {
+        final Transformer transformer = EasyMock.createMock(Transformer.class);
+        final Source src = EasyMock.createMock(Source.class);
+        final Result res = EasyMock.createMock(Result.class);
+        final TransformerException tex = new TransformerException(""Test Exception"");
+        transformer.transform(src, res);
+        EasyMock.expectLastCall().andThrow(tex);
+        EasyMock.replay(transformer, src, res);
+
+        try {
+            XMLDocumentHelper.transform(transformer, src, res);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", tex, cex.getCause());
+    }
+    }",TestXMLDocumentHelper::testTransformException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_759_2,"    @Test
+    public void testThrowExceptionOnMissing_2_oe() {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.setThrowExceptionOnMissing(true);
+
+        final SubsetConfiguration subset = new SubsetConfiguration(config, ""prefix"");
+
+        try {
+            subset.getString(""foo"");
+        } catch (final NoSuchElementException e) {
+        }
+
+        config.setThrowExceptionOnMissing(false);
+        assertNull(subset.getString(""foo""));
+    }",TestSubsetConfiguration::testThrowExceptionOnMissing_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_761_2,"    @Test
+    public void testExceptionHandling_2_oe() {
+        final PropertiesConfiguration config = new PropertiesConfiguration();
+        final String property = ""nonExistingProperty"";
+        config.setThrowExceptionOnMissing(true);
+        final ImmutableConfiguration ic = ConfigurationUtils.unmodifiableConfiguration(config);
+        try {
+            ic.getString(property);
+        } catch (final NoSuchElementException e) {
+            assertThat(""Wrong message"", e.getMessage(), containsString(property));
+    }
+    }",TestImmutableConfiguration::testExceptionHandling_2_oe,org.apache.commons.configuration2.ImmutableConfiguration,getString(String key),"/**
+     * Gets a string associated with the given configuration key.
+     *
+     * @param key The configuration key.
+     * @return The associated string.
+     *
+     * @throws org.apache.commons.configuration2.ex.ConversionException is thrown if the key maps to an object that is not a
+     *         String.
+     */",String getString(String key);
+conf_965_2,"    @Test
+    public void testLoadFromFileNoContent_2_oe() {
+        final FileHandler handler = new FileHandler();
+        final File file = createTestFile();
+        try {
+            handler.load(file);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong message"", ""No content available!"", cex.getMessage());
+    }
+    }",TestFileHandler::testLoadFromFileNoContent_2_oe,org.apache.commons.configuration2.io.FileHandler,void load(),"/**
+     * Loads the associated file from the underlying location. If no location has been set, an exception is thrown.
+     *
+     * @throws ConfigurationException if loading of the configuration fails
+     */","public void load() throws ConfigurationException {
+        load(checkContentAndGetLocator());
+    }"
+conf_969_2,"    @Test
+    public void testLoadFromReaderIOException_2_oe() throws IOException, ConfigurationException {
+        final FileBased content = EasyMock.createMock(FileBased.class);
+        final Reader in = new StringReader(CONTENT);
+        final IOException ioex = new IOException(""Test exception"");
+        content.read(in);
+        EasyMock.expectLastCall().andThrow(ioex);
+        EasyMock.replay(content);
+        final FileHandler handler = new FileHandler(content);
+        try {
+            handler.load(in);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong root cause"", ioex, cex.getCause());
+    }
+    }",TestFileHandler::testLoadFromReaderIOException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_974_2,"    @Test
+    public void testLoadInputStreamSupportIOException_2_oe() throws ConfigurationException, IOException {
+        final FileBasedInputStreamSupportTestImpl content = EasyMock.createMock(FileBasedInputStreamSupportTestImpl.class);
+        final ByteArrayInputStream bin = new ByteArrayInputStream(CONTENT.getBytes());
+        final IOException ioex = new IOException();
+        content.read(bin);
+        EasyMock.expectLastCall().andThrow(ioex);
+        EasyMock.replay(content);
+        final FileHandler handler = new FileHandler(content);
+        try {
+            handler.load(bin);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", ioex, cex.getCause());
+    }
+    }",TestFileHandler::testLoadInputStreamSupportIOException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_986_2,"    @Test
+    public void testSaveToFileNameURLException_2_oe() throws IOException {
+        final FileSystem fs = EasyMock.createMock(FileSystem.class);
+        final File file = folder.newFile();
+        final String basePath = ""some base path"";
+        final MalformedURLException urlex = new MalformedURLException(""Test exception"");
+        EasyMock.expect(fs.getURL(basePath, file.getName())).andThrow(urlex);
+        EasyMock.replay(fs);
+        final FileHandler handler = new FileHandler(new FileBasedTestImpl());
+        handler.setBasePath(basePath);
+        handler.setFileSystem(fs);
+        try {
+            handler.save(file.getName());
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", urlex, cex.getCause());
+    }
+    }",TestFileHandler::testSaveToFileNameURLException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_992_2,"    @Test
+    public void testSaveToWriterIOException_2_oe() throws ConfigurationException, IOException {
+        final FileBased content = EasyMock.createMock(FileBased.class);
+        final StringWriter out = new StringWriter();
+        final IOException ioex = new IOException(""Test exception!"");
+        content.write(out);
+        EasyMock.expectLastCall().andThrow(ioex);
+        EasyMock.replay(content);
+        final FileHandler handler = new FileHandler(content);
+        try {
+            handler.save(out);
+        } catch (final ConfigurationException cex) {
+            assertEquals(""Wrong cause"", ioex, cex.getCause());
+    }
+    }",TestFileHandler::testSaveToWriterIOException_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_1367_2,"    @Test
+    public void testSchemaValidationError_2_oe() {
+        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(
+            new XMLBuilderParametersImpl().setValidating(true).setSchemaValidation(true));
+        switchToConfig(""2001"");
+        try {
+            builder.getConfiguration();
+        } catch (final ConfigurationException ex) {
+            Throwable cause = ex.getCause();
+            while (cause != null && !(cause instanceof SAXParseException)) {
+                cause = cause.getCause();
+            }
+            assertNotNull(""SAXParseException was not thrown"", cause);
+    }
+    }",TestMultiFileConfigurationBuilder::testSchemaValidationError_2_oe,org.apache.commons.configuration2.event.ConfigurationErrorEvent,getCause(),"/**
+     * Returns the cause of this error event. This is the {@code Throwable} object that caused this event to be fired.
+     *
+     * @return the cause of this error event
+     */","public Throwable getCause() {
+        return cause;
+    }"
+conf_1403_2,"    @Test
+    public void testPropertiesBuilderFromPathIncludeNotFoundPass_2_oe() throws ConfigurationException {
+        final Configurations configs = new Configurations();
+        final String absPath = absolutePath(""include-not-found.properties"");
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
+        try {
+            builderFail.getConfiguration();
+        } catch (final ConfigurationException e) {
+        }
+        try {
+            configs.properties(absPath);
+        } catch (final ConfigurationException e) {
+        }
+        {
+            final Map<String, Object> map =
+                    new Parameters().properties()
+                            .setPath(absPath)
+                            .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
+                            .getParameters();
+            final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
+            final PropertiesConfiguration configuration = builderOk.getConfiguration();
+            assertEquals(""valueA"", configuration.getString(""keyA""));
+    }
+    }",TestConfigurations::testPropertiesBuilderFromPathIncludeNotFoundPass_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_1403_3,"    @Test
+    public void testPropertiesBuilderFromPathIncludeNotFoundPass_3_oe() throws ConfigurationException {
+        final Configurations configs = new Configurations();
+        final String absPath = absolutePath(""include-not-found.properties"");
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
+        try {
+            builderFail.getConfiguration();
+        } catch (final ConfigurationException e) {
+        }
+        try {
+            configs.properties(absPath);
+        } catch (final ConfigurationException e) {
+        }
+        {
+            final Map<String, Object> map =
+                    new Parameters().properties()
+                            .setPath(absPath)
+                            .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
+                            .getParameters();
+            final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
+            final PropertiesConfiguration configuration = builderOk.getConfiguration();
+        }
+        {
+            final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(
+                    new Parameters().properties()
+                        .setPath(absPath)
+                        .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER));
+            final PropertiesConfiguration configuration = builderOk.getConfiguration();
+            assertEquals(""valueA"", configuration.getString(""keyA""));
+    }
+    }",TestConfigurations::testPropertiesBuilderFromPathIncludeNotFoundPass_3_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,"getString(final String key, final String defaultValue)",,"@Override
+    public String getString(final String key, final String defaultValue) {
+        return config.getString(makePath(key), defaultValue);
+    }"
+conf_1535_1,"    @Test
+    public void testConcurrentUpdate_1_oe() throws InterruptedException {
+        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
+        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
+        EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class))).andAnswer(() -> {
+            final ImmutableNode addParent = (ImmutableNode) EasyMock.getCurrentArguments()[0];
+            return new NodeAddData<>(addParent, ""name"", false, Collections.singleton(""author""));
+        }).anyTimes();
+        EasyMock.replay(resolver);
+
+        final CountDownLatch latch = new CountDownLatch(1);
+        final String authorPrefix = ""newAuthor"";
+        final int threadCount = 32;
+        final Thread[] threads = new Thread[threadCount];
+        for (int i = 0; i < threadCount; i++) {
+            final String authorName = authorPrefix + i;
+            threads[i] = new Thread(() -> {
+                try {
+                    latch.await();
+                    model.addProperty(KEY, Collections.singleton(authorName), resolver);
+                } catch (final InterruptedException iex) {
+                }
+            });
+            threads[i].start();
+        }
+        latch.countDown();
+        for (final Thread t : threads) {
+            t.join();
+        }
+
+        final Pattern patternAuthorName = Pattern.compile(Pattern.quote(authorPrefix) + ""(\\d+)"");
+        final Set<Integer> indices = new HashSet<>();
+        for (int i = 0; i < threadCount; i++) {
+            final ImmutableNode node = nodeForKey(model, ""author("" + i + "")/name"");
+            final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
+            assertTrue(""Wrong value: "" + node.getValue(), m.matches());
+    }
+    }",TestInMemoryNodeModel::testConcurrentUpdate_1_oe,org.apache.commons.configuration2.tree.NodeNameMatchers,"matches(final T node, final NodeHandler<T> handler, final String criterion)",,"@Override
+        public <T> boolean matches(final T node, final NodeHandler<T> handler, final String criterion) {
+            return StringUtils.equals(criterion, handler.nodeName(node));
+        }"
+conf_1695_2,"    @Test
+    public void testLoadWithError_2_oe() {
+        config = new PropertyListConfiguration();
+        try {
+            new FileHandler(config).load(new StringReader(""""));
+        } catch (final ConfigurationException e) {
+            assertNotNull(e.getMessage());
+    }
+    }",TestPropertyListConfiguration::testLoadWithError_2_oe,org.apache.commons.configuration2.AbstractYAMLBasedConfiguration,"void load(final Map<String, Object> map)","/**
+     * Loads this configuration from the content of the specified map. The data in the map is transformed into a hierarchy
+     * of {@link ImmutableNode} objects.
+     *
+     * @param map the map to be processed
+     */","protected void load(final Map<String, Object> map) {
+        final List<ImmutableNode> roots = constructHierarchy("""", map);
+        getNodeModel().setRootNode(roots.get(0));
+    }"
+conf_1729_2,"    @Test
+    public void testWriteCalledDirectly_2_oe() throws IOException {
+        config = new XMLPropertyListConfiguration();
+        config.addProperty(""foo"", ""bar"");
+
+        try (Writer out = new FileWriter(folder.newFile())) {
+            config.write(out);
+        } catch (final ConfigurationException e) {
+            assertThat(e.getMessage(), containsString(""FileHandler""));
+    }
+    }",TestXMLPropertyListConfiguration::testWriteCalledDirectly_2_oe,org.apache.commons.configuration2.PatternSubtreeConfigurationWrapper,void write(final Writer writer),,"@Override
+    public void write(final Writer writer) throws ConfigurationException, IOException {
+        fetchFileBased().write(writer);
+    }"
+conf_1770_2,"    @Test
+    public void testFindMatchingConstructorNoMatch_2_oe() {
+        final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
+        final Collection<ConstructorArg> args = new ArrayList<>();
+        args.add(ConstructorArg.forValue(TEST_STRING, getClass().getName()));
+        decl.setConstructorArgs(args);
+        try {
+            DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+        } catch (final ConfigurationRuntimeException crex) {
+            final String msg = crex.getMessage();
+            assertTrue(""Bean class not found:"" + msg, msg.indexOf(BeanCreationTestCtorBean.class.getName()) > 0);
+    }
+    }",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_2_oe,org.apache.commons.configuration2.CombinedConfiguration.ConfigData,getName(),"/**
+         * Returns the configuration's name.
+         *
+         * @return the name
+         */","public String getName() {
+            return name;
+        }"
+conf_1770_3,"    @Test
+    public void testFindMatchingConstructorNoMatch_3_oe() {
+        final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
+        final Collection<ConstructorArg> args = new ArrayList<>();
+        args.add(ConstructorArg.forValue(TEST_STRING, getClass().getName()));
+        decl.setConstructorArgs(args);
+        try {
+            DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+        } catch (final ConfigurationRuntimeException crex) {
+            final String msg = crex.getMessage();
+            assertTrue(""Parameter value not found: "" + msg, msg.indexOf(TEST_STRING) > 0);
+    }
+    }",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_3_oe,org.apache.commons.configuration2.beanutils.DefaultBeanFactory,"findMatchingConstructor(final Class<T> beanClass, final BeanDeclaration data)","/**
+     * Evaluates constructor arguments in the specified {@code BeanDeclaration} and tries to find a unique matching
+     * constructor. If this is not possible, an exception is thrown. Note: This method is intended to be used by concrete
+     * {@link BeanFactory} implementations and not by client code.
+     *
+     * @param beanClass the class of the bean to be created
+     * @param data the current {@code BeanDeclaration}
+     * @param <T> the type of the bean to be created
+     * @return the single matching constructor
+     * @throws ConfigurationRuntimeException if no single matching constructor can be found
+     * @throws NullPointerException if the bean class or bean declaration are <b>null</b>
+     */","protected static <T> Constructor<T> findMatchingConstructor(final Class<T> beanClass, final BeanDeclaration data) {
+        final List<Constructor<T>> matchingConstructors = findMatchingConstructors(beanClass, data);
+        checkSingleMatchingConstructor(beanClass, data, matchingConstructors);
+        return matchingConstructors.get(0);
+    }"
+conf_1770_4,"    @Test
+    public void testFindMatchingConstructorNoMatch_4_oe() {
+        final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
+        final Collection<ConstructorArg> args = new ArrayList<>();
+        args.add(ConstructorArg.forValue(TEST_STRING, getClass().getName()));
+        decl.setConstructorArgs(args);
+        try {
+            DefaultBeanFactory.findMatchingConstructor(BeanCreationTestCtorBean.class, decl);
+        } catch (final ConfigurationRuntimeException crex) {
+            final String msg = crex.getMessage();
+            assertTrue(""Parameter type not found: "" + msg, msg.indexOf(""("" + getClass().getName() + ')') > 0);
+    }
+    }",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_4_oe,org.apache.commons.configuration2.CombinedConfiguration.ConfigData,getName(),"/**
+         * Returns the configuration's name.
+         *
+         * @return the name
+         */","public String getName() {
+            return name;
+        }"
+conf_1776_2,"    @Test
+    public void testGetMappedArguments_2_oe() {
+        try {
+            final Object value = bean.get(""mappedProperty"", ""unknown"");
+        } catch (final Throwable t) {
+            fail(""Threw "" + t + "" instead of returning null"");
+    }
+    }",TestConfigurationDynaBean::testGetMappedArguments_2_oe,org.apache.commons.configuration2.ConfigurationMap,get(final Object key),"/**
+     * Returns the value of the specified key. The key is converted to a string and then passed to the underlying
+     * configuration.
+     *
+     * @param key the key
+     * @return the value of this key
+     * @see java.util.Map#get(java.lang.Object)
+     */","@Override
+    public Object get(final Object key) {
+        return configuration.getProperty(String.valueOf(key));
+    }"
+conf_1881_2,"    @Test
+    public void testDefaultStringLookupsHolder_invalidLookupsDefinition_2_oe() {
+        final Properties props = new Properties();
+        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
+
+        try {
+            new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
+
+        } catch (Exception exc) {
+            assertEquals(""Invalid default lookups definition: base64_encoder nope"", exc.getMessage());
+    }
+    }",TestConfigurationInterpolator::testDefaultStringLookupsHolder_invalidLookupsDefinition_2_oe,org.apache.commons.configuration2.ConfigurationXMLReader,"void setProperty(final String name, final Object value)","/**
+     * Dummy implementation of the interface method. No properties are supported, so a call of this method just has no
+     * effect.
+     *
+     * @param name the property name
+     * @param value the property value
+     */","@Override
+    public void setProperty(final String name, final Object value) {
+    }"

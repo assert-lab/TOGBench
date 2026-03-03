@@ -1,0 +1,24 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+conf_117_11,"    @Test
+    public void testGetDoubleArray_11_oe() {
+        // missing list
+        final double[] defaultValue = {2, 1};
+        // removed other assertion
+
+        final double[] expected = {1, 2};
+
+        // list of strings
+        // removed other assertion
+
+        // list of strings, comma separated
+        // removed other assertion
+
+        // list of Double objects
+        // removed other assertion
+
+        // array of Double objects
+        // removed other assertion
+
+        // array of , conf.getDoubleArray(""empty""), 0);
+    }
+",TestDataConfiguration::testGetDoubleArray_11_oe,,,,

@@ -1,0 +1,112 @@
+package org.apache.commons.jcs3.auxiliary.disk;
+
+import org.apache.commons.jcs3.engine.CacheElement;
+import org.apache.commons.jcs3.engine.ElementAttributes;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+import org.apache.commons.jcs3.engine.behavior.IElementAttributes;
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+import junit.framework.TestCase;
+
+/** Simple unit tests for the Purgatory Element. */
+public class PurgatoryElementUnitTest_OE25Dev
+    extends TestCase
+{
+    /** Verify basic data */
+
+    /** Verify basic data */
+
+    /** Verify basic data */
+
+    public void testSpoolable_normal_1_oe()
+    {
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        purgatoryElement.setSpoolable( false );
+
+        final boolean result = purgatoryElement.isSpoolable();
+
+        assertFalse( "Should not be spoolable.", result );
+    }
+
+    public void testElementAttributes_normal_1_oe()
+    {
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        purgatoryElement.setElementAttributes( elementAttributes );
+
+        final IElementAttributes result = cacheElement.getElementAttributes();
+
+        assertEquals( "Should have set the attributes on the element", elementAttributes, result );
+    }
+
+    public void testToString_normal_1_oe()
+    {
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+
+        final String result = purgatoryElement.toString();
+
+        assertTrue( "Should have the cacheName.", result.indexOf( cacheName ) != -1 );
+    }
+
+    public void testToString_normal_2_oe()
+    {
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+
+        final String result = purgatoryElement.toString();
+
+        assertTrue( "Should have the key.", result.indexOf( key ) != -1 );
+    }
+
+    public void testToString_normal_3_oe()
+    {
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+
+        final String result = purgatoryElement.toString();
+
+        assertTrue( "Should have the value.", result.indexOf( value ) != -1 );
+    }
+
+}

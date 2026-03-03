@@ -139,3 +139,44 @@ merge_dedup_by_id(inputs_failed_path, in_fields, failed_inputs_rows)
 
 
 PY
+
+
+file=src/test/java/org/apache/commons/beanutils/BeanUtils2TestCase_OE25Dev.java
+
+awk '
+/class BeanUtils2TestCase_OE25Dev/ {
+    print
+    print ""
+    print "    // --- Disable inherited original tests ---"
+    print "    @Override public void testCopyPropertyConvertToString() { }"
+    print "    @Override public void testCopyPropertyConvertToStringArray() { }"
+    print "    @Override public void testCopyPropertyConvertToStringIndexed() { }"
+    print "    @Override public void testGetArrayPropertyDate() { }"
+    print "    @Override public void testGetIndexedPropertyDate() { }"
+    print "    @Override public void testGetSimplePropertyDate() { }"
+    print "    @Override public void testSetPropertyConvertToString() { }"
+    print "    @Override public void testSetPropertyConvertToStringArray() { }"
+    print "    @Override public void testSetPropertyConvertToStringIndexed() { }"
+    next
+}
+1
+' "$file" > tmp && mv tmp "$file"
+
+
+
+
+
+file=src/test/java/org/apache/commons/beanutils/WrapDynaBeanTestCase_OE25Dev.java
+
+awk '
+/class WrapDynaBeanTestCase_OE25Dev/ {
+    print
+    print ""
+    print "    // --- Disable inherited original tests ---"
+    print "    @Override public void testSerialization() { }"
+    print "    @Override public void testMappedRemove() { }"
+    print "    @Override public void testMappedContains() { }"
+    next
+}
+1
+' "$file" > tmp && mv tmp "$file"

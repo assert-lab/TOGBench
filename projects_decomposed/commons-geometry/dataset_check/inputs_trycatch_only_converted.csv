@@ -1,0 +1,664 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+geom_left_1103_1,"@Test
+    void testFrom_iterable_noPoints_1_oe() {
+        // act/assert
+        try {
+     Bounds2D.from(new ArrayList<>());
+    fail(""Expected IllegalStateException with message: "" + NO_POINTS_MESSAGE);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_iterable_noPoints_1_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_1,"@Test
+    void testFrom_invalidBounds_1_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        try {
+     Bounds2D.from(Vector2D.NaN);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_1_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_2,"@Test
+    void testFrom_invalidBounds_2_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        try {
+     Bounds2D.from(Vector2D.POSITIVE_INFINITY);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_2_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_3,"@Test
+    void testFrom_invalidBounds_3_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Bounds2D.from(Vector2D.NEGATIVE_INFINITY);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_3_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_4,"@Test
+    void testFrom_invalidBounds_4_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Bounds2D.from(good, nan);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_4_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_5,"@Test
+    void testFrom_invalidBounds_5_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Bounds2D.from(posInf, good);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_5_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1104_6,"@Test
+    void testFrom_invalidBounds_6_oe() {
+        // arrange
+        final Vector2D good = Vector2D.of(1, 1);
+
+        final Vector2D nan = Vector2D.of(Double.NaN, 1);
+        final Vector2D posInf = Vector2D.of(1, Double.POSITIVE_INFINITY);
+        final Vector2D negInf = Vector2D.of(1, Double.NEGATIVE_INFINITY);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Bounds2D.from(good, negInf, good);
+    fail(""Expected IllegalStateException with message: "" + INVALID_BOUNDS_PATTERN);
+} catch (IllegalStateException e) {
+}
+    }
+",Bounds2DTest::testFrom_invalidBounds_6_oe,org.apache.commons.geometry.euclidean.twod.Bounds2D,"from(final Vector2D first, final Vector2D... more)","/** Construct a new instance from the given points.
+     * @param first first point
+     * @param more additional points
+     * @return a new instance containing the min and max coordinates values from the input points
+     */","public static Bounds2D from(final Vector2D first, final Vector2D... more) {
+        final Builder builder = builder();
+
+        builder.add(first);
+        builder.addAll(Arrays.asList(more));
+
+        return builder.build();
+    }"
+geom_left_1129_1,"@Test
+    void testFromInterval_doubleArgs_invalid_1_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        try {
+     Lines.subsetFromInterval(line, 0, Double.NaN);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: 0.0, NaN"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_1_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1129_2,"@Test
+    void testFromInterval_doubleArgs_invalid_2_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        try {
+     Lines.subsetFromInterval(line, Double.NaN, 0.0);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: NaN, 0.0"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_2_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1129_3,"@Test
+    void testFromInterval_doubleArgs_invalid_3_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: Infinity, Infinity"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_3_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1129_4,"@Test
+    void testFromInterval_doubleArgs_invalid_4_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Lines.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: -Infinity, -Infinity"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_4_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1129_5,"@Test
+    void testFromInterval_doubleArgs_invalid_5_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Lines.subsetFromInterval(line, Double.POSITIVE_INFINITY, Double.NaN);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: Infinity, NaN"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_5_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1129_6,"@Test
+    void testFromInterval_doubleArgs_invalid_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+     Lines.subsetFromInterval(line, Double.NaN, Double.NEGATIVE_INFINITY);
+    fail(""Expected IllegalArgumentException with message: "" + ""Invalid line subset interval: NaN, -Infinity"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineConvexSubsetTest::testFromInterval_doubleArgs_invalid_6_oe,org.apache.commons.geometry.euclidean.twod.Lines,"subsetFromInterval(final Line line, final Interval interval)","/** Create a line subset from a line and a 1D interval on the line. The returned subset
+     * uses the precision context from the line and not any precision contexts referenced by the interval.
+     * @param line the line containing the subset
+     * @param interval 1D interval on the line
+     * @return a convex subset defined by the given line and interval
+     */","public static LineConvexSubset subsetFromInterval(final Line line, final Interval interval) {
+        return subsetFromInterval(line, interval.getMin(), interval.getMax());
+    }"
+geom_left_1170_1,"@Test
+    void testOf_invalidDimensions_1_oe() {
+        // act/assert
+        try {
+    AffineTransformMatrix2D.of(1, 2);
+    fail(""Expected IllegalArgumentException with message: "" + ""Dimension mismatch: 2 != 6"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testOf_invalidDimensions_1_oe,org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2D,of(final double... arr),"/** Get a new transform with the given matrix elements. The array must contain 6 elements.
+     * @param arr 6-element array containing values for the variable entries in the
+     *      transform matrix
+     * @return a new transform initialized with the given matrix values
+     * @throws IllegalArgumentException if the array does not have 6 elements
+     */","public static AffineTransformMatrix2D of(final double... arr) {
+        if (arr.length != NUM_ELEMENTS) {
+            throw new IllegalArgumentException(""Dimension mismatch: "" + arr.length + "" != "" + NUM_ELEMENTS);
+        }
+
+        return new AffineTransformMatrix2D(
+                    arr[0], arr[1], arr[2],
+                    arr[3], arr[4], arr[5]
+                );
+    }"
+geom_left_1232_1,"@Test
+    void testInverse_nonInvertible_1_oe() {
+        // act/assert
+        try {
+    AffineTransformMatrix2D.of( 0, 0, 0, 0, 0, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; matrix determinant is 0.0"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_1_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_2,"@Test
+    void testInverse_nonInvertible_2_oe() {
+        // act/assert
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( 1, 0, 0, 0, Double.NaN, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; matrix determinant is NaN"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_2_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_3,"@Test
+    void testInverse_nonInvertible_3_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( 1, 0, 0, 0, Double.NEGATIVE_INFINITY, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; matrix determinant is -Infinity"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_3_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_4,"@Test
+    void testInverse_nonInvertible_4_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( Double.POSITIVE_INFINITY, 0, 0, 0, 1, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; matrix determinant is Infinity"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_4_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_5,"@Test
+    void testInverse_nonInvertible_5_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( 1, 0, Double.NaN, 0, 1, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; invalid matrix element: NaN"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_5_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_6,"@Test
+    void testInverse_nonInvertible_6_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( 1, 0, Double.POSITIVE_INFINITY, 0, 1, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; invalid matrix element: Infinity"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_6_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1232_7,"@Test
+    void testInverse_nonInvertible_7_oe() {
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        try {
+    AffineTransformMatrix2D.of( 1, 0, Double.NEGATIVE_INFINITY, 0, 1, 0).inverse();
+    fail(""Expected IllegalStateException with message: "" + ""Matrix is not invertible; invalid matrix element: -Infinity"");
+} catch (IllegalStateException e) {
+}
+    }
+",AffineTransformMatrix2DTest::testInverse_nonInvertible_7_oe,org.apache.commons.geometry.spherical.twod.Transform2S,inverse(),/** {@inheritDoc} */,"@Override
+    public Transform2S inverse() {
+        return new Transform2S(euclideanTransform.inverse());
+    }"
+geom_left_1255_1,"@Test
+    void testNormalize_illegalNorm_1_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile(""^Illegal norm: (0\\.0|-?Infinity|NaN)"");
+
+        // act/assert
+        try {
+    Vector2D.ZERO.normalize();
+    fail(""Expected IllegalArgumentException with message: "" + illegalNorm);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testNormalize_illegalNorm_1_oe,,,,
+geom_left_1255_2,"@Test
+    void testNormalize_illegalNorm_2_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile(""^Illegal norm: (0\\.0|-?Infinity|NaN)"");
+
+        // act/assert
+        // removed other assertion
+        try {
+    Vector2D.NaN.normalize();
+    fail(""Expected IllegalArgumentException with message: "" + illegalNorm);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testNormalize_illegalNorm_2_oe,,,,
+geom_left_1255_3,"@Test
+    void testNormalize_illegalNorm_3_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile(""^Illegal norm: (0\\.0|-?Infinity|NaN)"");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        try {
+    Vector2D.POSITIVE_INFINITY.normalize();
+    fail(""Expected IllegalArgumentException with message: "" + illegalNorm);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testNormalize_illegalNorm_3_oe,,,,
+geom_left_1255_4,"@Test
+    void testNormalize_illegalNorm_4_oe() {
+        // arrange
+        final Pattern illegalNorm = Pattern.compile(""^Illegal norm: (0\\.0|-?Infinity|NaN)"");
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+    Vector2D.NEGATIVE_INFINITY.normalize();
+    fail(""Expected IllegalArgumentException with message: "" + illegalNorm);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testNormalize_illegalNorm_4_oe,,,,
+geom_left_1285_1,"@Test
+    void testMax_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = ""Cannot compute vector max: no vectors given"";
+
+        // act/assert
+        try {
+     Vector2D.max(new ArrayList<>());
+    fail(""Expected IllegalArgumentException with message: "" + msg);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testMax_noPointsGiven_1_oe,org.apache.commons.geometry.euclidean.twod.Vector2D,"max(final Vector2D first, final Vector2D... more)","/** Return a vector containing the maximum component values from all input vectors.
+     * @param first first vector
+     * @param more additional vectors
+     * @return a vector containing the maximum component values from all input vectors
+     */","public static Vector2D max(final Vector2D first, final Vector2D... more) {
+        return computeMax(first, Arrays.asList(more).iterator());
+    }"
+geom_left_1287_1,"@Test
+    void testMin_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = ""Cannot compute vector min: no vectors given"";
+
+        // act/assert
+        try {
+     Vector2D.min(new ArrayList<>());
+    fail(""Expected IllegalArgumentException with message: "" + msg);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testMin_noPointsGiven_1_oe,org.apache.commons.geometry.euclidean.twod.Vector2D,"min(final Vector2D first, final Vector2D... more)","/** Return a vector containing the minimum component values from all input vectors.
+     * @param first first vector
+     * @param more more vectors
+     * @return a vector containing the minimum component values from all input vectors
+     */","public static Vector2D min(final Vector2D first, final Vector2D... more) {
+        return computeMin(first, Arrays.asList(more).iterator());
+    }"
+geom_left_1289_1,"@Test
+    void testCentroid_noPointsGiven_1_oe() {
+        // arrange
+        final String msg = ""Cannot compute centroid: no points given"";
+
+        // act/assert
+        try {
+     Vector2D.centroid(new ArrayList<>());
+    fail(""Expected IllegalArgumentException with message: "" + msg);
+} catch (IllegalArgumentException e) {
+}
+    }
+",Vector2DTest::testCentroid_noPointsGiven_1_oe,org.apache.commons.geometry.euclidean.twod.Vector2D,"centroid(final Vector2D first, final Vector2D... more)","/** Compute the centroid of the given points. The centroid is the arithmetic mean position of a set
+     * of points.
+     * @param first first point
+     * @param more additional points
+     * @return the centroid of the given points
+     */","public static Vector2D centroid(final Vector2D first, final Vector2D... more) {
+        return computeCentroid(first, Arrays.asList(more).iterator());
+    }"
+geom_left_1292_1,"@Test
+    void testFromPoints_pointsTooClose_1_oe() {
+        // act/assert
+        try {
+    Lines.fromPoints(Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+    fail(""Expected IllegalArgumentException with message: "" + ""Line direction cannot be zero"");
+} catch (IllegalArgumentException e) {
+}
+    }
+",LineTest::testFromPoints_pointsTooClose_1_oe,org.apache.commons.geometry.euclidean.twod.Lines,"fromPoints(final Vector2D p1, final Vector2D p2, final Precision.DoubleEquivalence precision)","/** Create a line from two points lying on the line. The line points in the direction
+     * from {@code p1} to {@code p2}.
+     * @param p1 first point
+     * @param p2 second point
+     * @param precision precision context used to compare floating point values
+     * @return new line containing {@code p1} and {@code p2} and pointing in the direction
+     *      from {@code p1} to {@code p2}
+     * @throws IllegalArgumentException If the vector between {@code p1} and {@code p2} has zero length,
+     *      as evaluated by the given precision context
+     */","public static Line fromPoints(final Vector2D p1, final Vector2D p2, final Precision.DoubleEquivalence precision) {
+        return fromPointAndDirection(p1, p1.vectorTo(p2), precision);
+    }"

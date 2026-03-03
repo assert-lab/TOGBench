@@ -2,6 +2,8 @@
 
 find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
+# find . -type f -name "*_OE25Dev*.java" -delete
+
 # find projects_decomposed -type d -name "dataset" -exec rm -rf {} +
 
 # ./scripts/build_treesitter.sh

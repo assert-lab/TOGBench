@@ -1,47 +1,106 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ------------------< io.springside:springside-metrics >------------------
-[INFO] Building Springside :: Module :: Metrics 5.0.0-SNAPSHOT
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- resources:3.3.0:resources (default-resources) @ springside-metrics ---
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/resources
-[INFO] 
-[INFO] --- compiler:3.10.1:compile (default-compile) @ springside-metrics ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
-[INFO] 
-[INFO] --- resources:3.3.0:testResources (default-testResources) @ springside-metrics ---
-[INFO] Copying 1 resource
-[INFO] 
-[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ springside-metrics ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 10 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/test-classes
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ springside-metrics ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.641 s
-[INFO] Finished at: 2026-01-16T10:24:37-05:00
-[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36mio.springside:springside-metrics[0;1m >------------------[m
+[[1;34mINFO[m] [1mBuilding Springside :: Module :: Metrics 5.0.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 18 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/classes
+[[1;33mWARNING[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
+[[1;33mWARNING[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 10 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.0:test[m [1m(default-test)[m @ [36mspringside-metrics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.springside.modules.metrics.[1mHistogramTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.springside.modules.metrics.[1mHistogramTest[m
+[[1;34mINFO[m] Running org.springside.modules.metrics.[1mMetricRegistryTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.[1mMetricRegistryTest[m
+[[1;34mINFO[m] Running org.springside.modules.metrics.[1mReporterTest[m
+13:49:59.666 [main] INFO  o.s.modules.metrics.ReportScheduler - metric reporters started.
+Mon Feb 23 13:50:00 CST 2026 ===================================================
+
+Mon Feb 23 13:50:01 CST 2026 ===================================================
+
+13:50:01.668 [main] INFO  o.s.modules.metrics.ReportScheduler - metric reporters stopped.
+13:50:01.668 [main] INFO  metrics - type=COUNTER, name=UserService.getUser.counter, totalCount=4, avgRate=2, latestRate=2
+13:50:01.669 [main] INFO  metrics - type=COUNTER, name=UserService.setUser.counter, totalCount=6, avgRate=3, latestRate=3
+13:50:01.669 [main] INFO  metrics - type=HISTOGRAM, name=UserService.getUser.latency, min=1, max=100, avg=50.5
+13:50:01.669 [main] INFO  metrics - type=HISTOGRAM, name=UserService.setUser.latency, min=2, max=200, avg=101.0
+13:50:01.669 [main] INFO  metrics - type=TIMER, name=UserService.getUser.timer, totalCount=10, avgRate=10, latestRate=10, minLatency=25ms, maxLatency=25ms, avgLatency=25.0ms
+13:50:01.669 [main] INFO  metrics - type=TIMER, name=UserService.setUser.timer, totalCount=10, avgRate=13, latestRate=13, minLatency=75ms, maxLatency=75ms, avgLatency=75.0ms
+Mon Feb 23 13:50:01 CST 2026 ===================================================
+
+-- Counters --------------------------------------------------------------------
+UserService.getUser.counter
+      latest count = 4
+       total count = 4
+       latest rate = 2
+          avg rate = 2
+UserService.setUser.counter
+      latest count = 6
+       total count = 6
+       latest rate = 3
+          avg rate = 3
+
+-- Histograms ------------------------------------------------------------------
+UserService.getUser.latency
+               min = 1
+               max = 100
+               avg = 50.50
+UserService.setUser.latency
+               min = 2
+               max = 200
+               avg = 101.00
+
+-- Timers ----------------------------------------------------------------------
+UserService.getUser.timer
+      latest count = 10
+       total count = 10
+       latest rate = 10
+          avg rate = 10
+       min latency = 25 ms
+       max latency = 25 ms
+       avg latency = 25.00 ms
+UserService.setUser.timer
+      latest count = 10
+       total count = 10
+       latest rate = 13
+          avg rate = 13
+       min latency = 75 ms
+       max latency = 75 ms
+       avg latency = 75.00 ms
+
+[[1;33mWARNING[m] [1;33mTests [0;1mrun: [0;1m4[m, Failures: 0, Errors: 0, [1;33mSkipped: [0;1;33m1[m, Time elapsed: 2.052 s - in org.springside.modules.metrics.[1mReporterTest[m
+[[1;34mINFO[m] Running org.springside.modules.metrics.[1mTimerTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.[1mTimerTest[m
+[[1;34mINFO[m] Running org.springside.modules.metrics.[1mCounterTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m3[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.[1mCounterTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;33mWARNING[m] [1;33mTests run: 16, Failures: 0, Errors: 0, Skipped: 1[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.290 s
+[[1;34mINFO[m] Finished at: 2026-02-23T13:50:02-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

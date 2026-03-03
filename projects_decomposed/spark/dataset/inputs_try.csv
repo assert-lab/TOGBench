@@ -1,0 +1,278 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+spark_180_2,"    @Test
+    public void testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe() {
+
+        try {
+            SocketConnectorFactory.createSocketConnector(null, ""host"", 80);
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+    }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe,spark.embeddedserver.jetty.SocketConnectorFactory,"createSocketConnector(Server server, String host, int port)","/**
+     * Creates an ordinary, non-secured Jetty server jetty.
+     *
+     * @param server Jetty server
+     * @param host   host
+     * @param port   port
+     * @return - a server jetty
+     */","public static ServerConnector createSocketConnector(Server server, String host, int port) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+        ServerConnector connector = new ServerConnector(server, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }"
+spark_181_2,"    @Test
+    public void testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSocketConnector(server, null, 80);
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+    }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe,spark.embeddedserver.jetty.SocketConnectorFactory,"createSocketConnector(Server server, String host, int port)","/**
+     * Creates an ordinary, non-secured Jetty server jetty.
+     *
+     * @param server Jetty server
+     * @param host   host
+     * @param port   port
+     * @return - a server jetty
+     */","public static ServerConnector createSocketConnector(Server server, String host, int port) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+        ServerConnector connector = new ServerConnector(server, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }"
+spark_183_2,"    @Test
+    public void testCreateSecureSocketConnector_whenServerIsNull_2_oe() {
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(null, ""localhost"", 80, null);
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+    }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_2_oe,spark.embeddedserver.jetty.SocketConnectorFactory,"createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores)","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */","public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }"
+spark_184_2,"    @Test
+    public void testCreateSecureSocketConnector_whenHostIsNull_2_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, null, 80, null);
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+    }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_2_oe,spark.embeddedserver.jetty.SocketConnectorFactory,"createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores)","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */","public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }"
+spark_185_2,"    @Test
+    public void testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, ""localhost"", 80, null);
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'sslStores' must not be null"", ex.getMessage());
+    }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe,spark.embeddedserver.jetty.SocketConnectorFactory,"createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores)","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */","public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }"
+spark_191_2,"    @Test
+    public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe() {
+        try {
+            new JettyServer().create(2, 0, 0);
+        }
+        catch (IllegalArgumentException expected) {
+            assertEquals(""max threads (2) less than min threads (8)"", expected.getMessage());
+    }
+    }",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe,spark.FilterImpl,"create(final String path, final Filter filter)","/**
+     * Wraps the filter in FilterImpl
+     *
+     * @param path   the path
+     * @param filter the filter
+     * @return the wrapped route
+     */","static FilterImpl create(final String path, final Filter filter) {
+        return create(path, DEFAULT_ACCEPT_TYPE, filter);
+    }"
+spark_193_2,"    @Test
+    public void testCannotCreateInvalidHandlers_2_oe() {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
+        } catch (IllegalArgumentException ex) {
+            assertEquals(""WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'"",ex.getMessage());
+    }
+    }",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_2_oe,spark.embeddedserver.jetty.websocket.WebSocketCreatorFactory,create(WebSocketHandlerWrapper handlerWrapper),"/**
+     * Creates a {@link WebSocketCreator} that uses the given handler class/instance for
+     * the WebSocket connections.
+     *
+     * @param handlerWrapper The wrapped handler to use to manage WebSocket connections.
+     * @return The WebSocketCreator.
+     */","public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+        return new SparkWebSocketCreator(handlerWrapper.getHandler());
+    }"
+spark_194_2,"    @Test
+    public void testCreate_whenInstantiationException_2_oe() throws Exception {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
+        } catch(RuntimeException ex) {
+            assertEquals(""Could not instantiate websocket handler"", ex.getMessage());
+    }
+    }",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_2_oe,spark.embeddedserver.jetty.websocket.WebSocketCreatorFactory,create(WebSocketHandlerWrapper handlerWrapper),"/**
+     * Creates a {@link WebSocketCreator} that uses the given handler class/instance for
+     * the WebSocket connections.
+     *
+     * @param handlerWrapper The wrapped handler to use to manage WebSocket connections.
+     * @return The WebSocketCreator.
+     */","public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+        return new SparkWebSocketCreator(handlerWrapper.getHandler());
+    }"

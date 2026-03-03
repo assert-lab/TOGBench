@@ -1,0 +1,132 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.geometry.io.core.output;
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+
+class FileGeometryOutputTest_OE25Dev {
+
+    @TempDir
+    Path tempDir;
+
+    @Test
+    void testCtor_fileOnly_1_oe() {
+        final Path file = Paths.get("some/path/test.txt");
+
+        final FileGeometryOutput out = new FileGeometryOutput(file);
+
+        Assertions.assertEquals(file, out.getFile());
+    }
+
+    @Test
+    void testCtor_fileOnly_2_oe() {
+        final Path file = Paths.get("some/path/test.txt");
+
+        final FileGeometryOutput out = new FileGeometryOutput(file);
+
+        Assertions.assertEquals("test.txt", out.getFileName());
+    }
+
+    @Test
+    void testCtor_fileOnly_3_oe() {
+        final Path file = Paths.get("some/path/test.txt");
+
+        final FileGeometryOutput out = new FileGeometryOutput(file);
+
+        Assertions.assertNull(out.getCharset());
+    }
+
+    @Test
+    void testCtor_fileAndCharset_1_oe() {
+        final Path file = Paths.get("TEST");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        final FileGeometryOutput out = new FileGeometryOutput(file, charset);
+
+        Assertions.assertEquals(file, out.getFile());
+    }
+
+    @Test
+    void testCtor_fileAndCharset_2_oe() {
+        final Path file = Paths.get("TEST");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        final FileGeometryOutput out = new FileGeometryOutput(file, charset);
+
+        Assertions.assertEquals("TEST", out.getFileName());
+    }
+
+    @Test
+    void testCtor_fileAndCharset_3_oe() {
+        final Path file = Paths.get("TEST");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        final FileGeometryOutput out = new FileGeometryOutput(file, charset);
+
+        Assertions.assertEquals(charset, out.getCharset());
+    }
+
+    @Test
+    void testToString_1_oe() {
+        final FileGeometryOutput out = new FileGeometryOutput(Paths.get("some/path/test.txt"));
+
+        final String result = out.toString();
+
+        Assertions.assertEquals("FileGeometryOutput[file= some/path/test.txt]",result.replaceAll("\\\\","/"));
+    }
+
+    @Test
+    void testGetOutputStream_1_oe() throws IOException {
+        final Path file = tempDir.resolve("test");
+        final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
+
+        final FileGeometryOutput output = new FileGeometryOutput(file);
+
+        try (OutputStream out = output.getOutputStream()) {
+            out.write(bytes);
+
+            Assertions.assertEquals(BufferedOutputStream.class, out.getClass());
+    }
+    }
+
+    @Test
+    void testGetOutputStream_2_oe() throws IOException {
+        final Path file = tempDir.resolve("test");
+        final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
+
+        final FileGeometryOutput output = new FileGeometryOutput(file);
+
+        try (OutputStream out = output.getOutputStream()) {
+            out.write(bytes);
+
+        }
+
+        Assertions.assertArrayEquals(bytes, Files.readAllBytes(file));
+    }
+
+}

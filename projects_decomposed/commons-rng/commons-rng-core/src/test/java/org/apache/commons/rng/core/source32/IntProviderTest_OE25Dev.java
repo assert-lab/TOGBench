@@ -1,0 +1,72 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.rng.core.source32;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+/**
+ * The tests the caching of calls to {@link IntProvider#nextInt()} are used as
+ * the source for {@link IntProvider#nextInt()} and
+ * {@link IntProvider#nextBoolean()}.
+ */
+class IntProviderTest_OE25Dev {
+    /**
+     * A simple class to flip the bits in a number as the source for
+     * {@link IntProvider#next()}.
+     */
+    static final class FlipIntProvider extends IntProvider {
+        /** The value. */
+        private int value;
+
+        /**
+         * @param value the value
+         */
+        FlipIntProvider(int value) {
+            // Flip the bits so the first call to next() returns to the same state
+            this.value = ~value;
+        }
+
+        @Override
+        public int next() {
+            // Flip the bits
+            value = ~value;
+            return value;
+        }
+    }
+
+    /**
+     * This test ensures that the call to {@link IntProvider#nextBoolean()} returns
+     * each of the bits from a call to {@link IntProvider#nextInt()}.
+     *
+     * <p>The order should be from the least-significant bit.
+     */
+
+    @Test
+    void testNextBoolean_1_oe() {
+        for (int i = 0; i < Integer.SIZE; i++) {
+             int value = 1 << i;
+             IntProvider provider = new FlipIntProvider(value);
+            for (int j = 0; j < Integer.SIZE; j++) {
+                 boolean expected = i == j;
+                 int index = j;
+                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 1, bit " + index);
+    }
+    }
+    }
+
+}

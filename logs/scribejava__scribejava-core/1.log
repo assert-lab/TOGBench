@@ -42,41 +42,41 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
 [INFO] Running com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
 [INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
 [INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
 [INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
-[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.TokenTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.ParameterListTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
 [INFO] Running com.github.scribejava.core.model.RequestTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
 [INFO] Running com.github.scribejava.core.base64.Base64Test_OE25Dev
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
 [INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
 [INFO] Running com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -85,6 +85,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.882 s
-[INFO] Finished at: 2026-02-20T12:57:51-06:00
+[INFO] Total time:  9.042 s
+[INFO] Finished at: 2026-03-03T13:38:29-06:00
 [INFO] ------------------------------------------------------------------------

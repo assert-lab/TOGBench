@@ -1,0 +1,14 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+jsoup_left_852_1,"@Test
+    public void proxyGetAndSet_1_oe() throws IOException {
+        String url = ""https://jsoup.org"";
+        Proxy proxy = new Proxy(Proxy.Type.HTTP, InetSocketAddress.createUnresolved(""localhost"", 8889)); // invalid
+        final Connection con = Jsoup.connect(url).proxy(proxy);
+
+        assert con.request().proxy() == proxy;
+    }
+",UrlConnectTest::proxyGetAndSet_1_oe,org.jsoup.Connection,proxy(@Nullable Proxy proxy),"/**
+     * Set the proxy to use for this request. Set to <code>null</code> to disable a previously set proxy.
+     * @param proxy proxy to use
+     * @return this Connection, for chaining
+     */",Connection proxy(@Nullable Proxy proxy);

@@ -1,0 +1,458 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+http_161_2,"  @Test
+  public void malformedStringUrlCause_2_oe() {
+    try {
+      delete(""\\m/"");
+    } catch (HttpRequestException e) {
+      assertNotNull(e.getCause());
+  }
+  }",HttpRequestTest::malformedStringUrlCause_2_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */","@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }"
+http_193_1,"  @Test
+  public void basicAuthentication_1_oe() throws Exception {
+    final AtomicReference<String> user = new AtomicReference<String>();
+    final AtomicReference<String> password = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        String auth = request.getHeader(""Authorization"");
+        auth = auth.substring(auth.indexOf(' ') + 1);
+        try {
+          auth = B64Code.decode(auth, CHARSET_UTF8);
+        } catch (UnsupportedEncodingException e) {
+          throw new RuntimeException(e);
+        }
+        int colon = auth.indexOf(':');
+        user.set(auth.substring(0, colon));
+        password.set(auth.substring(colon + 1));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).basic(""user"", ""p4ssw0rd"").ok());
+  }",HttpRequestTest::basicAuthentication_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_226_2,"  @Test
+  public void postMultipart_2_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        char[] buffer = new char[8192];
+        int read;
+        try {
+          while ((read = request.getReader().read(buffer)) != -1)
+            body.append(buffer, 0, read);
+        } catch (IOException e) {
+        }
+      }
+    };
+    File file = File.createTempFile(""body"", "".txt"");
+    File file2 = File.createTempFile(""body"", "".txt"");
+    new FileWriter(file).append(""content1"").close();
+    new FileWriter(file2).append(""content4"").close();
+    HttpRequest request = post(url);
+    request.part(""description"", ""content2"");
+    request.part(""size"", file.length());
+    request.part(""body"", file.getName(), file);
+    request.part(""file"", file2);
+    request.part(""stream"", new ByteArrayInputStream(""content3"".getBytes()));
+    assertTrue(request.ok());
+  }",HttpRequestTest::postMultipart_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_228_2,"  @Test
+  public void receiveAppendable_2_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    assertTrue(post(url).receive(body).ok());
+  }",HttpRequestTest::receiveAppendable_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_229_2,"  @Test
+  public void receiveWriter_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    StringWriter writer = new StringWriter();
+    assertTrue(post(url).receive(writer).ok());
+  }",HttpRequestTest::receiveWriter_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_230_2,"  @Test
+  public void receivePrintStream_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
+    assertTrue(post(url).receive(stream).ok());
+  }",HttpRequestTest::receivePrintStream_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_231_2,"  @Test
+  public void receiveFile_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    File output = File.createTempFile(""output"", "".txt"");
+    assertTrue(post(url).receive(output).ok());
+  }",HttpRequestTest::receiveFile_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_237_3,"  @Test
+  public void sendErrorCloseStream_3_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        return -1;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).ignoreCloseExceptions(false).send(stream);
+    } catch (HttpRequestException e) {
+      assertEquals(closeCause, e.getCause());
+  }
+  }",HttpRequestTest::sendErrorCloseStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */","@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }"
+http_239_2,"  @Test
+  public void getToOutputBody_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body);
+    assertEquals(""hello world"", body.get());
+  }",HttpRequestTest::getToOutputBody_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */","public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }"
+http_240_2,"  @Test
+  public void getToOutputBodyWithCharset_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body, CHARSET_UTF8);
+    assertEquals(""hello world"", body.get());
+  }",HttpRequestTest::getToOutputBodyWithCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */","public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }"
+http_241_1,"  @Test
+  public void getGzipped_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!""gzip"".equals(request.getHeader(""Accept-Encoding"")))
+          return;
+
+        response.setHeader(""Content-Encoding"", ""gzip"");
+        GZIPOutputStream output;
+        try {
+          output = new GZIPOutputStream(response.getOutputStream());
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+        try {
+          output.write(""hello compressed"".getBytes(CHARSET_UTF8));
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        } finally {
+          try {
+            output.close();
+          } catch (IOException ignored) {
+          }
+        }
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertTrue(request.ok());
+  }",HttpRequestTest::getGzipped_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */","public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }"
+http_241_2,"  @Test
+  public void getGzipped_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!""gzip"".equals(request.getHeader(""Accept-Encoding"")))
+          return;
+
+        response.setHeader(""Content-Encoding"", ""gzip"");
+        GZIPOutputStream output;
+        try {
+          output = new GZIPOutputStream(response.getOutputStream());
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+        try {
+          output.write(""hello compressed"".getBytes(CHARSET_UTF8));
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        } finally {
+          try {
+            output.close();
+          } catch (IOException ignored) {
+          }
+        }
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertEquals(""hello compressed"", request.body(CHARSET_UTF8));
+  }",HttpRequestTest::getGzipped_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */","public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }"
+http_300_1,"  @Test
+  public void sendReceiveWithoutCode_1_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        try {
+          response.getWriter().write(""world"");
+        } catch (IOException ignored) {
+        }
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(""world"", request.send(""hello"").body());
+  }",HttpRequestTest::sendReceiveWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */","public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }"
+http_308_1,"  @Test
+  public void bodyOfNonEmptyErrorResponse_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+        try {
+          response.getWriter().write(""error"");
+        } catch (IOException ignored) {
+        }
+      }
+    };
+    assertEquals(""error"", get(url).body());
+  }",HttpRequestTest::bodyOfNonEmptyErrorResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */","public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }"
+http_236_3,"  @Test
+  public void sendErrorReadStream_3_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+        }
+      }
+    };
+    final IOException readCause = new IOException();
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        throw readCause;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).send(stream);
+    } catch (HttpRequestException e) {
+      assertEquals(readCause, e.getCause());
+  }
+  }",HttpRequestTest::sendErrorReadStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */","@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }"

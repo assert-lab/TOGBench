@@ -1,0 +1,91 @@
+package org.springside.modules.utils.misc;
+
+import static org.assertj.core.api.Assertions.*;
+
+import org.junit.Test;
+import org.springside.modules.utils.concurrent.throttle.Sampler;
+import org.springside.modules.utils.concurrent.throttle.Sampler.AlwaysSampler;
+import org.springside.modules.utils.concurrent.throttle.Sampler.NeverSampler;
+
+public class SamplerTest_OE25Dev {
+
+	@Test
+	public void test_1_oe() {
+		Sampler sampler = Sampler.create(10.5);
+		int hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler.select()) {
+				hits++;
+			}
+		}
+		System.out.println("sample 10.5% in 10000 hits should close to 1050, actual is " + hits);
+
+		assertThat(hits).isBetween(900, 1200);
+	}
+
+	@Test
+	public void test_2_oe() {
+		Sampler sampler = Sampler.create(10.5);
+		int hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler.select()) {
+				hits++;
+			}
+		}
+		System.out.println("sample 10.5% in 10000 hits should close to 1050, actual is " + hits);
+
+		Sampler sampler2 = Sampler.create(0.5);
+
+		hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler2.select()) {
+				hits++;
+			}
+		}
+		System.out.println("sample 0.5% in 10000 hits should close to 50, actual is " + hits);
+		assertThat(hits).isBetween(20, 100);
+	}
+
+	@Test
+	public void always_1_oe() {
+		Sampler sampler = Sampler.create(0d);
+		assertThat(sampler).isInstanceOf(NeverSampler.class);
+	}
+
+	@Test
+	public void always_2_oe() {
+		Sampler sampler = Sampler.create(0d);
+		sampler = Sampler.create(100d);
+		assertThat(sampler).isInstanceOf(AlwaysSampler.class);
+	}
+
+	@Test
+	public void always_4_oe() {
+		Sampler sampler = Sampler.create(0d);
+		sampler = Sampler.create(100d);
+
+		try {
+			sampler = Sampler.create(101d);
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+	}
+	}
+
+	@Test
+	public void always_6_oe() {
+		Sampler sampler = Sampler.create(0d);
+		sampler = Sampler.create(100d);
+
+		try {
+			sampler = Sampler.create(101d);
+		} catch (Exception e) {
+		}
+
+		try {
+			sampler = Sampler.create(-2.2);
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+	}
+	}
+
+}

@@ -47,13 +47,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-normalizer ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613827359
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566667776
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-weaver-normalizer ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -90,7 +85,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -99,6 +94,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.183 s
-[INFO] Finished at: 2026-02-20T12:57:12-06:00
+[INFO] Total time:  7.670 s
+[INFO] Finished at: 2026-03-03T13:37:52-06:00
 [INFO] ------------------------------------------------------------------------

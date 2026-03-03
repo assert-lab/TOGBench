@@ -157,6 +157,7 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <version>2.22.2</version>
       <configuration>
+      <test>*_OE25Dev#*_oe</test>
         <useUnlimitedThreads>true</useUnlimitedThreads>
         <redirectTestOutputToFile>true</redirectTestOutputToFile>
         <!-- Standard test naming patterns -->

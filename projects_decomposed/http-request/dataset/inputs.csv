@@ -2,8 +2,7 @@ id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_de
 http_160_1,"  @Test
   public void encode_1_oe() {
     assertEquals(""http://google.com"", HttpRequest.encode(""http://google.com""));
-  }
-",EncodeTest::encode_1_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_1_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -45,11 +44,9 @@ http_160_1,"  @Test
   }"
 http_160_2,"  @Test
   public void encode_2_oe() {
-    // removed other assertion
 
     assertEquals(""https://google.com"", HttpRequest.encode(""https://google.com""));
-  }
-",EncodeTest::encode_2_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_2_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -91,13 +88,10 @@ http_160_2,"  @Test
   }"
 http_160_3,"  @Test
   public void encode_3_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a"",HttpRequest.encode(""http://google.com/a""));
-  }
-",EncodeTest::encode_3_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_3_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -139,15 +133,11 @@ http_160_3,"  @Test
   }"
 http_160_4,"  @Test
   public void encode_4_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a/"",HttpRequest.encode(""http://google.com/a/""));
-  }
-",EncodeTest::encode_4_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_4_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -189,17 +179,12 @@ http_160_4,"  @Test
   }"
 http_160_5,"  @Test
   public void encode_5_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a/b"",HttpRequest.encode(""http://google.com/a/b""));
-  }
-",EncodeTest::encode_5_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_5_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -241,19 +226,13 @@ http_160_5,"  @Test
   }"
 http_160_6,"  @Test
   public void encode_6_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?"",HttpRequest.encode(""http://google.com/a?""));
-  }
-",EncodeTest::encode_6_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_6_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -295,21 +274,14 @@ http_160_6,"  @Test
   }"
 http_160_7,"  @Test
   public void encode_7_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?b=c"",HttpRequest.encode(""http://google.com/a?b=c""));
-  }
-",EncodeTest::encode_7_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_7_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -351,23 +323,15 @@ http_160_7,"  @Test
   }"
 http_160_8,"  @Test
   public void encode_8_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?b=c%20d"",HttpRequest.encode(""http://google.com/a?b=c d""));
-  }
-",EncodeTest::encode_8_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_8_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -409,25 +373,16 @@ http_160_8,"  @Test
   }"
 http_160_9,"  @Test
   public void encode_9_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a%20b"",HttpRequest.encode(""http://google.com/a b""));
-  }
-",EncodeTest::encode_9_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_9_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -469,27 +424,17 @@ http_160_9,"  @Test
   }"
 http_160_10,"  @Test
   public void encode_10_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a.b"",HttpRequest.encode(""http://google.com/a.b""));
-  }
-",EncodeTest::encode_10_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_10_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -531,29 +476,18 @@ http_160_10,"  @Test
   }"
 http_160_11,"  @Test
   public void encode_11_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/%E2%9C%93?a=b"",HttpRequest.encode(""http://google.com/\u2713?a=b""));
-  }
-",EncodeTest::encode_11_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_11_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -595,31 +529,19 @@ http_160_11,"  @Test
   }"
 http_160_12,"  @Test
   public void encode_12_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a%5Eb"",HttpRequest.encode(""http://google.com/a^b""));
-  }
-",EncodeTest::encode_12_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_12_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -661,33 +583,20 @@ http_160_12,"  @Test
   }"
 http_160_13,"  @Test
   public void encode_13_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/%25"",HttpRequest.encode(""http://google.com/%""));
-  }
-",EncodeTest::encode_13_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_13_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -729,35 +638,21 @@ http_160_13,"  @Test
   }"
 http_160_14,"  @Test
   public void encode_14_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a.b?c=d.e"",HttpRequest.encode(""http://google.com/a.b?c=d.e""));
-  }
-",EncodeTest::encode_14_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_14_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -799,37 +694,22 @@ http_160_14,"  @Test
   }"
 http_160_15,"  @Test
   public void encode_15_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a.b?c=d/e"",HttpRequest.encode(""http://google.com/a.b?c=d/e""));
-  }
-",EncodeTest::encode_15_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_15_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -871,39 +751,23 @@ http_160_15,"  @Test
   }"
 http_160_16,"  @Test
   public void encode_16_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?%E2%98%91"",HttpRequest.encode(""http://google.com/a?\u2611""));
-  }
-",EncodeTest::encode_16_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_16_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -945,41 +809,24 @@ http_160_16,"  @Test
   }"
 http_160_17,"  @Test
   public void encode_17_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?b=%E2%98%90"",HttpRequest.encode(""http://google.com/a?b=\u2610""));
-  }
-",EncodeTest::encode_17_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_17_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -1021,43 +868,25 @@ http_160_17,"  @Test
   }"
 http_160_18,"  @Test
   public void encode_18_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/a?b=c%2Bd&e=f%2Bg"",HttpRequest.encode(""http://google.com/a?b=c+d&e=f+g""));
-  }
-",EncodeTest::encode_18_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_18_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -1099,45 +928,26 @@ http_160_18,"  @Test
   }"
 http_160_19,"  @Test
   public void encode_19_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/+"",HttpRequest.encode(""http://google.com/+""));
-  }
-",EncodeTest::encode_19_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_19_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -1179,47 +989,27 @@ http_160_19,"  @Test
   }"
 http_160_20,"  @Test
   public void encode_20_oe() {
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
-    // removed other assertion
 
     assertEquals(""http://google.com/+?a=b%2Bc"",HttpRequest.encode(""http://google.com/+?a=b+c""));
-  }
-",EncodeTest::encode_20_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
+  }",EncodeTest::encode_20_oe,com.github.kevinsawicki.http.HttpRequest,encode(final CharSequence url),"/**
    * Encode the given URL as an ASCII {@link String}
    * <p>
    * This method ensures the path and query segments of the URL are properly
@@ -1263,12 +1053,10 @@ http_161_2,"  @Test
   public void malformedStringUrlCause_2_oe() {
     try {
       delete(""\\m/"");
-      // removed other assertion
     } catch (HttpRequestException e) {
       assertNotNull(e.getCause());
   }
-  }
-",HttpRequestTest::malformedStringUrlCause_2_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+  }",HttpRequestTest::malformedStringUrlCause_2_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
      * Get {@link IOException} that triggered this request exception
      *
      * @return {@link IOException} cause
@@ -1289,8 +1077,7 @@ http_162_1,"  @Test
     };
     HttpRequest request = get(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::getEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -1311,10 +1098,8 @@ http_162_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
-  }
-",HttpRequestTest::getEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -1335,11 +1120,8 @@ http_162_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
-  }
-",HttpRequestTest::getEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -1360,12 +1142,8 @@ http_162_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(2500, request.bufferSize(2500).bufferSize());
-  }
-",HttpRequestTest::getEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,bufferSize(final int size),"/**
+  }",HttpRequestTest::getEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,bufferSize(final int size),"/**
    * Set the size used when buffering and copying between streams
    * <p>
    * This size is also used for send and receive buffers created for both char
@@ -1393,13 +1171,8 @@ http_162_5,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
-  }
-",HttpRequestTest::getEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(final boolean ignore),"/**
+  }",HttpRequestTest::getEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,ignoreCloseExceptions(final boolean ignore),"/**
    * Set whether or not to ignore exceptions that occur from calling
    * {@link Closeable#close()}
    * <p>
@@ -1423,14 +1196,8 @@ http_162_6,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.useCaches(false).getConnection().getUseCaches());
-  }
-",HttpRequestTest::getEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -1451,16 +1218,9 @@ http_162_7,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getEmpty_7_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getEmpty_7_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -1480,17 +1240,9 @@ http_162_8,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
     assertFalse(request.created());
-  }
-",HttpRequestTest::getEmpty_8_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
+  }",HttpRequestTest::getEmpty_8_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -1510,18 +1262,9 @@ http_162_9,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.badRequest());
-  }
-",HttpRequestTest::getEmpty_9_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
+  }",HttpRequestTest::getEmpty_9_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    * Is the response code a 400 Bad Request?
    *
    * @return true if 400, false otherwise
@@ -1541,19 +1284,9 @@ http_162_10,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.serverError());
-  }
-",HttpRequestTest::getEmpty_10_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
+  }",HttpRequestTest::getEmpty_10_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    * Is the response code a 500 Internal Server Error?
    *
    * @return true if 500, false otherwise
@@ -1573,20 +1306,9 @@ http_162_11,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::getEmpty_11_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::getEmpty_11_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -1606,21 +1328,9 @@ http_162_12,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notModified());
-  }
-",HttpRequestTest::getEmpty_12_oe,com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
+  }",HttpRequestTest::getEmpty_12_oe,com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
    * Is the response code a 304 Not Modified?
    *
    * @return true if 304, false otherwise
@@ -1640,22 +1350,9 @@ http_162_13,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""GET"", method.get());
-  }
-",HttpRequestTest::getEmpty_13_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getEmpty_13_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -1677,23 +1374,9 @@ http_162_14,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""OK"", request.message());
-  }
-",HttpRequestTest::getEmpty_14_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
+  }",HttpRequestTest::getEmpty_14_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
    * Get status message of the response
    *
    * @return message
@@ -1718,24 +1401,9 @@ http_162_15,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::getEmpty_15_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getEmpty_15_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -1760,25 +1428,9 @@ http_162_16,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::getEmpty_16_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getEmpty_16_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -1808,26 +1460,9 @@ http_162_17,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertNotNull(request.toString());
-  }
-",HttpRequestTest::getEmpty_17_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getEmpty_17_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -1852,27 +1487,9 @@ http_162_18,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.toString().length() == 0);
-  }
-",HttpRequestTest::getEmpty_18_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getEmpty_18_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -1897,28 +1514,9 @@ http_162_19,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(request, request.disconnect());
-  }
-",HttpRequestTest::getEmpty_19_oe,com.github.kevinsawicki.http.HttpRequest,disconnect(),"/**
+  }",HttpRequestTest::getEmpty_19_oe,com.github.kevinsawicki.http.HttpRequest,disconnect(),"/**
    * Disconnect the connection
    *
    * @return this request
@@ -1938,29 +1536,9 @@ http_162_20,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.isBodyEmpty());
-  }
-",HttpRequestTest::getEmpty_20_oe,com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
+  }",HttpRequestTest::getEmpty_20_oe,com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
    * Is the response body empty?
    *
    * @return true if the Content-Length response header is 0, false otherwise
@@ -1980,30 +1558,9 @@ http_162_21,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(request.url().toString(), url);
-  }
-",HttpRequestTest::getEmpty_21_oe,com.github.kevinsawicki.http.HttpRequest,url(),"/**
+  }",HttpRequestTest::getEmpty_21_oe,com.github.kevinsawicki.http.HttpRequest,url(),"/**
    * Get the {@link URL} of this request's connection
    *
    * @return request URL
@@ -2022,31 +1579,9 @@ http_162_22,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""GET"", request.method());
-  }
-",HttpRequestTest::getEmpty_22_oe,com.github.kevinsawicki.http.HttpRequest,method(),"/**
+  }",HttpRequestTest::getEmpty_22_oe,com.github.kevinsawicki.http.HttpRequest,method(),"/**
    * Get the HTTP method of this request
    *
    * @return method
@@ -2066,8 +1601,7 @@ http_163_1,"  @Test
     };
     HttpRequest request = get(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::getUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -2088,11 +1622,9 @@ http_163_2,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2112,12 +1644,9 @@ http_163_3,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
     assertFalse(request.created());
-  }
-",HttpRequestTest::getUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
+  }",HttpRequestTest::getUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -2137,13 +1666,9 @@ http_163_4,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.noContent());
-  }
-",HttpRequestTest::getUrlEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
+  }",HttpRequestTest::getUrlEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
    * Is the response code a 204 No Content?
    *
    * @return true if 204, false otherwise
@@ -2163,14 +1688,9 @@ http_163_5,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.badRequest());
-  }
-",HttpRequestTest::getUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
+  }",HttpRequestTest::getUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    * Is the response code a 400 Bad Request?
    *
    * @return true if 400, false otherwise
@@ -2190,15 +1710,9 @@ http_163_6,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.serverError());
-  }
-",HttpRequestTest::getUrlEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
+  }",HttpRequestTest::getUrlEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    * Is the response code a 500 Internal Server Error?
    *
    * @return true if 500, false otherwise
@@ -2218,16 +1732,9 @@ http_163_7,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::getUrlEmpty_7_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::getUrlEmpty_7_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -2247,17 +1754,9 @@ http_163_8,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""GET"", method.get());
-  }
-",HttpRequestTest::getUrlEmpty_8_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getUrlEmpty_8_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -2279,18 +1778,9 @@ http_163_9,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""OK"", request.message());
-  }
-",HttpRequestTest::getUrlEmpty_9_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
+  }",HttpRequestTest::getUrlEmpty_9_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
    * Get status message of the response
    *
    * @return message
@@ -2315,19 +1805,9 @@ http_163_10,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::getUrlEmpty_10_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getUrlEmpty_10_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -2352,20 +1832,9 @@ http_163_11,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::getUrlEmpty_11_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getUrlEmpty_11_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -2396,8 +1865,7 @@ http_164_1,"  @Test
     };
     HttpRequest request = get(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::getNoContent_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::getNoContent_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -2418,11 +1886,9 @@ http_164_2,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
     assertFalse(request.ok());
-  }
-",HttpRequestTest::getNoContent_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getNoContent_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2442,12 +1908,9 @@ http_164_3,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
     assertFalse(request.created());
-  }
-",HttpRequestTest::getNoContent_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
+  }",HttpRequestTest::getNoContent_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -2467,13 +1930,9 @@ http_164_4,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.noContent());
-  }
-",HttpRequestTest::getNoContent_4_oe,com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
+  }",HttpRequestTest::getNoContent_4_oe,com.github.kevinsawicki.http.HttpRequest,noContent(),"/**
    * Is the response code a 204 No Content?
    *
    * @return true if 204, false otherwise
@@ -2493,14 +1952,9 @@ http_164_5,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.badRequest());
-  }
-",HttpRequestTest::getNoContent_5_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
+  }",HttpRequestTest::getNoContent_5_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    * Is the response code a 400 Bad Request?
    *
    * @return true if 400, false otherwise
@@ -2520,15 +1974,9 @@ http_164_6,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.serverError());
-  }
-",HttpRequestTest::getNoContent_6_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
+  }",HttpRequestTest::getNoContent_6_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    * Is the response code a 500 Internal Server Error?
    *
    * @return true if 500, false otherwise
@@ -2548,16 +1996,9 @@ http_164_7,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::getNoContent_7_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::getNoContent_7_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -2577,17 +2018,9 @@ http_164_8,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""GET"", method.get());
-  }
-",HttpRequestTest::getNoContent_8_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getNoContent_8_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -2609,18 +2042,9 @@ http_164_9,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""No Content"", request.message());
-  }
-",HttpRequestTest::getNoContent_9_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
+  }",HttpRequestTest::getNoContent_9_oe,com.github.kevinsawicki.http.HttpRequest,message(),"/**
    * Get status message of the response
    *
    * @return message
@@ -2645,19 +2069,9 @@ http_164_10,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(HTTP_NO_CONTENT, code);
-  }
-",HttpRequestTest::getNoContent_10_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getNoContent_10_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -2682,20 +2096,9 @@ http_164_11,"  @Test
       }
     };
     HttpRequest request = get(new URL(url));
-    // removed other assertion
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::getNoContent_11_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getNoContent_11_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -2727,8 +2130,7 @@ http_165_1,"  @Test
     };
     HttpRequest request = get(encode(url + unencoded));
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getUrlEncodedWithSpace_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getUrlEncodedWithSpace_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2750,8 +2152,7 @@ http_166_1,"  @Test
     };
     HttpRequest request = get(encode(url + unencoded));
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getUrlEncodedWithUnicode_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getUrlEncodedWithUnicode_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2773,8 +2174,7 @@ http_167_1,"  @Test
     };
     HttpRequest request = get(encode(url + unencoded));
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getUrlEncodedWithPercent_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getUrlEncodedWithPercent_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2795,8 +2195,7 @@ http_168_1,"  @Test
     };
     HttpRequest request = delete(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::deleteEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::deleteEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -2817,10 +2216,8 @@ http_168_2,"  @Test
       }
     };
     HttpRequest request = delete(url);
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2840,11 +2237,8 @@ http_168_3,"  @Test
       }
     };
     HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::deleteEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::deleteEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -2864,13 +2258,8 @@ http_168_5,"  @Test
       }
     };
     HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::deleteEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::deleteEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -2900,14 +2289,8 @@ http_168_6,"  @Test
       }
     };
     HttpRequest request = delete(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""DELETE"", request.method());
-  }
-",HttpRequestTest::deleteEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,method(),"/**
+  }",HttpRequestTest::deleteEmpty_6_oe,com.github.kevinsawicki.http.HttpRequest,method(),"/**
    * Get the HTTP method of this request
    *
    * @return method
@@ -2927,8 +2310,7 @@ http_169_1,"  @Test
     };
     HttpRequest request = delete(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::deleteUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::deleteUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -2949,10 +2331,8 @@ http_169_2,"  @Test
       }
     };
     HttpRequest request = delete(new URL(url));
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -2972,11 +2352,8 @@ http_169_3,"  @Test
       }
     };
     HttpRequest request = delete(new URL(url));
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::deleteUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::deleteUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -2996,13 +2373,8 @@ http_169_5,"  @Test
       }
     };
     HttpRequest request = delete(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::deleteUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::deleteUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3033,8 +2405,7 @@ http_170_1,"  @Test
     };
     HttpRequest request = options(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::optionsEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::optionsEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3055,10 +2426,8 @@ http_170_2,"  @Test
       }
     };
     HttpRequest request = options(url);
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::optionsEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::optionsEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3078,11 +2447,8 @@ http_170_3,"  @Test
       }
     };
     HttpRequest request = options(url);
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::optionsEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::optionsEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3102,13 +2468,8 @@ http_170_5,"  @Test
       }
     };
     HttpRequest request = options(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::optionsEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::optionsEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3139,8 +2500,7 @@ http_171_1,"  @Test
     };
     HttpRequest request = options(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::optionsUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::optionsUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3161,10 +2521,8 @@ http_171_2,"  @Test
       }
     };
     HttpRequest request = options(new URL(url));
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::optionsUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::optionsUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3184,11 +2542,8 @@ http_171_3,"  @Test
       }
     };
     HttpRequest request = options(new URL(url));
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::optionsUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::optionsUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3208,13 +2563,8 @@ http_171_5,"  @Test
       }
     };
     HttpRequest request = options(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::optionsUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::optionsUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3245,8 +2595,7 @@ http_172_1,"  @Test
     };
     HttpRequest request = head(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::headEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::headEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3267,10 +2616,8 @@ http_172_2,"  @Test
       }
     };
     HttpRequest request = head(url);
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::headEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3290,11 +2637,8 @@ http_172_3,"  @Test
       }
     };
     HttpRequest request = head(url);
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::headEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::headEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3314,13 +2658,8 @@ http_172_5,"  @Test
       }
     };
     HttpRequest request = head(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::headEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::headEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3351,8 +2690,7 @@ http_173_1,"  @Test
     };
     HttpRequest request = head(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::headUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::headUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3373,10 +2711,8 @@ http_173_2,"  @Test
       }
     };
     HttpRequest request = head(new URL(url));
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::headUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3396,11 +2732,8 @@ http_173_3,"  @Test
       }
     };
     HttpRequest request = head(new URL(url));
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::headUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::headUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3420,13 +2753,8 @@ http_173_5,"  @Test
       }
     };
     HttpRequest request = head(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::headUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::headUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3457,8 +2785,7 @@ http_174_1,"  @Test
     };
     HttpRequest request = put(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::putEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::putEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3479,10 +2806,8 @@ http_174_2,"  @Test
       }
     };
     HttpRequest request = put(url);
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::putEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::putEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3502,11 +2827,8 @@ http_174_3,"  @Test
       }
     };
     HttpRequest request = put(url);
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::putEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::putEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3526,13 +2848,8 @@ http_174_5,"  @Test
       }
     };
     HttpRequest request = put(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::putEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::putEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3563,8 +2880,7 @@ http_175_1,"  @Test
     };
     HttpRequest request = put(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::putUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::putUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3585,10 +2901,8 @@ http_175_2,"  @Test
       }
     };
     HttpRequest request = put(new URL(url));
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::putUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::putUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3608,11 +2922,8 @@ http_175_3,"  @Test
       }
     };
     HttpRequest request = put(new URL(url));
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::putUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::putUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3632,13 +2943,8 @@ http_175_5,"  @Test
       }
     };
     HttpRequest request = put(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::putUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::putUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3669,8 +2975,7 @@ http_176_1,"  @Test
     };
     HttpRequest request = trace(url);
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::traceEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::traceEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3691,10 +2996,8 @@ http_176_2,"  @Test
       }
     };
     HttpRequest request = trace(url);
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::traceEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::traceEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3714,11 +3017,8 @@ http_176_3,"  @Test
       }
     };
     HttpRequest request = trace(url);
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::traceEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::traceEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3738,13 +3038,8 @@ http_176_5,"  @Test
       }
     };
     HttpRequest request = trace(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::traceEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::traceEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3775,8 +3070,7 @@ http_177_1,"  @Test
     };
     HttpRequest request = trace(new URL(url));
     assertNotNull(request.getConnection());
-  }
-",HttpRequestTest::traceUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::traceUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -3797,10 +3091,8 @@ http_177_2,"  @Test
       }
     };
     HttpRequest request = trace(new URL(url));
-    // removed other assertion
     assertTrue(request.ok());
-  }
-",HttpRequestTest::traceUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::traceUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3820,11 +3112,8 @@ http_177_3,"  @Test
       }
     };
     HttpRequest request = trace(new URL(url));
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.notFound());
-  }
-",HttpRequestTest::traceUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::traceUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -3844,13 +3133,8 @@ http_177_5,"  @Test
       }
     };
     HttpRequest request = trace(new URL(url));
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::traceUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::traceUrlEmpty_5_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -3882,8 +3166,7 @@ http_178_1,"  @Test
     HttpRequest request = post(url);
     int code = request.code();
     assertEquals(""POST"", method.get());
-  }
-",HttpRequestTest::postEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -3906,10 +3189,8 @@ http_178_2,"  @Test
     };
     HttpRequest request = post(url);
     int code = request.code();
-    // removed other assertion
     assertFalse(request.ok());
-  }
-",HttpRequestTest::postEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -3930,11 +3211,8 @@ http_178_3,"  @Test
     };
     HttpRequest request = post(url);
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.created());
-  }
-",HttpRequestTest::postEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
+  }",HttpRequestTest::postEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -3955,12 +3233,8 @@ http_178_4,"  @Test
     };
     HttpRequest request = post(url);
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(HTTP_CREATED, code);
-  }
-",HttpRequestTest::postEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -3987,8 +3261,7 @@ http_179_1,"  @Test
     HttpRequest request = post(new URL(url));
     int code = request.code();
     assertEquals(""POST"", method.get());
-  }
-",HttpRequestTest::postUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postUrlEmpty_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4011,10 +3284,8 @@ http_179_2,"  @Test
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
-    // removed other assertion
     assertFalse(request.ok());
-  }
-",HttpRequestTest::postUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postUrlEmpty_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -4035,11 +3306,8 @@ http_179_3,"  @Test
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.created());
-  }
-",HttpRequestTest::postUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
+  }",HttpRequestTest::postUrlEmpty_3_oe,com.github.kevinsawicki.http.HttpRequest,created(),"/**
    * Is the response code a 201 Created?
    *
    * @return true if 201, false otherwise
@@ -4060,12 +3328,8 @@ http_179_4,"  @Test
     };
     HttpRequest request = post(new URL(url));
     int code = request.code();
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(HTTP_CREATED, code);
-  }
-",HttpRequestTest::postUrlEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postUrlEmpty_4_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4091,8 +3355,7 @@ http_180_1,"  @Test
     };
     int code = post(url).send(""hello"").code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postNonEmptyString_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postNonEmptyString_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4117,10 +3380,8 @@ http_180_2,"  @Test
       }
     };
     int code = post(url).send(""hello"").code();
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::postNonEmptyString_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postNonEmptyString_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4145,8 +3406,7 @@ http_181_1,"  @Test
     new FileWriter(file).append(""hello"").close();
     int code = post(url).send(file).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postNonEmptyFile_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postNonEmptyFile_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4173,10 +3433,8 @@ http_181_2,"  @Test
     File file = File.createTempFile(""post"", "".txt"");
     new FileWriter(file).append(""hello"").close();
     int code = post(url).send(file).code();
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::postNonEmptyFile_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postNonEmptyFile_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4206,8 +3464,7 @@ http_182_1,"  @Test
 
     int code = post(url).send(file1).send(file2).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postMultipleFiles_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postMultipleFiles_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4239,10 +3496,8 @@ http_182_2,"  @Test
     new FileWriter(file2).append("" world"").close();
 
     int code = post(url).send(file1).send(file2).code();
-    // removed other assertion
     assertEquals(""hello world"", body.get());
-  }
-",HttpRequestTest::postMultipleFiles_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postMultipleFiles_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4267,8 +3522,7 @@ http_183_1,"  @Test
     new FileWriter(file).append(""hello"").close();
     int code = post(url).send(new FileReader(file)).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postNonEmptyReader_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postNonEmptyReader_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4295,10 +3549,8 @@ http_183_2,"  @Test
     File file = File.createTempFile(""post"", "".txt"");
     new FileWriter(file).append(""hello"").close();
     int code = post(url).send(new FileReader(file)).code();
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::postNonEmptyReader_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postNonEmptyReader_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4323,8 +3575,7 @@ http_184_1,"  @Test
     int code = post(url).contentLength(Integer.toString(bytes.length))
         .send(bytes).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postNonEmptyByteArray_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postNonEmptyByteArray_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4351,10 +3602,8 @@ http_184_2,"  @Test
     byte[] bytes = ""hello"".getBytes(CHARSET_UTF8);
     int code = post(url).contentLength(Integer.toString(bytes.length))
         .send(bytes).code();
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::postNonEmptyByteArray_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postNonEmptyByteArray_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4381,8 +3630,7 @@ http_185_1,"  @Test
     int sent = data.getBytes().length;
     int code = post(url).contentLength(sent).send(data).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postWithLength_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postWithLength_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4411,10 +3659,8 @@ http_185_2,"  @Test
     String data = ""hello"";
     int sent = data.getBytes().length;
     int code = post(url).contentLength(sent).send(data).code();
-    // removed other assertion
     assertEquals(sent, length.get().intValue());
-  }
-",HttpRequestTest::postWithLength_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postWithLength_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4440,11 +3686,8 @@ http_185_3,"  @Test
     String data = ""hello"";
     int sent = data.getBytes().length;
     int code = post(url).contentLength(sent).send(data).code();
-    // removed other assertion
-    // removed other assertion
     assertEquals(data, body.get());
-  }
-",HttpRequestTest::postWithLength_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postWithLength_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4472,8 +3715,7 @@ http_186_1,"  @Test
     data.put(""number"", ""100"");
     int code = post(url).form(data).form(""zip"", ""12345"").code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postForm_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postForm_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4503,10 +3745,8 @@ http_186_2,"  @Test
     data.put(""name"", ""user"");
     data.put(""number"", ""100"");
     int code = post(url).form(data).form(""zip"", ""12345"").code();
-    // removed other assertion
     assertEquals(""name=user&number=100&zip=12345"", body.get());
-  }
-",HttpRequestTest::postForm_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postForm_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4534,8 +3774,7 @@ http_187_1,"  @Test
     data.put(""number"", ""100"");
     int code = post(url).form(data, null).form(""zip"", ""12345"").code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postFormWithNoCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postFormWithNoCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4565,10 +3804,8 @@ http_187_2,"  @Test
     data.put(""name"", ""user"");
     data.put(""number"", ""100"");
     int code = post(url).form(data, null).form(""zip"", ""12345"").code();
-    // removed other assertion
     assertEquals(""name=user&number=100&zip=12345"", body.get());
-  }
-",HttpRequestTest::postFormWithNoCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postFormWithNoCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4595,11 +3832,8 @@ http_187_3,"  @Test
     data.put(""name"", ""user"");
     data.put(""number"", ""100"");
     int code = post(url).form(data, null).form(""zip"", ""12345"").code();
-    // removed other assertion
-    // removed other assertion
     assertEquals(""application/x-www-form-urlencoded"", contentType.get());
-  }
-",HttpRequestTest::postFormWithNoCharset_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postFormWithNoCharset_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4622,8 +3856,7 @@ http_188_1,"  @Test
     };
     int code = post(url).form(new HashMap<String, String>()).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postEmptyForm_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postEmptyForm_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4648,10 +3881,8 @@ http_188_2,"  @Test
       }
     };
     int code = post(url).form(new HashMap<String, String>()).code();
-    // removed other assertion
     assertEquals("""", body.get());
-  }
-",HttpRequestTest::postEmptyForm_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postEmptyForm_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4677,8 +3908,7 @@ http_189_1,"  @Test
     String data = ""hello"";
     int code = post(url).chunk(2).send(data).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::chunkPost_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::chunkPost_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4706,10 +3936,8 @@ http_189_2,"  @Test
     };
     String data = ""hello"";
     int code = post(url).chunk(2).send(data).code();
-    // removed other assertion
     assertEquals(data, body.get());
-  }
-",HttpRequestTest::chunkPost_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::chunkPost_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4734,11 +3962,8 @@ http_189_3,"  @Test
     };
     String data = ""hello"";
     int code = post(url).chunk(2).send(data).code();
-    // removed other assertion
-    // removed other assertion
     assertEquals(""chunked"", encoding.get());
-  }
-",HttpRequestTest::chunkPost_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::chunkPost_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -4760,8 +3985,7 @@ http_190_1,"  @Test
     };
     HttpRequest request = get(url);
     assertEquals(HTTP_OK, request.code());
-  }
-",HttpRequestTest::getNonEmptyString_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getNonEmptyString_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4785,10 +4009,8 @@ http_190_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""hello"", request.body());
-  }
-",HttpRequestTest::getNonEmptyString_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getNonEmptyString_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -4817,11 +4039,8 @@ http_190_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertEquals(""hello"".getBytes().length, request.contentLength());
-  }
-",HttpRequestTest::getNonEmptyString_3_oe,com.github.kevinsawicki.http.HttpRequest,contentLength(),"/**
+  }",HttpRequestTest::getNonEmptyString_3_oe,com.github.kevinsawicki.http.HttpRequest,contentLength(),"/**
    * Get the 'Content-Length' header from the response
    *
    * @return response header value
@@ -4839,12 +4058,8 @@ http_190_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertFalse(request.isBodyEmpty());
-  }
-",HttpRequestTest::getNonEmptyString_4_oe,com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
+  }",HttpRequestTest::getNonEmptyString_4_oe,com.github.kevinsawicki.http.HttpRequest,isBodyEmpty(),"/**
    * Is the response body empty?
    *
    * @return true if the Content-Length response header is 0, false otherwise
@@ -4864,8 +4079,7 @@ http_191_1,"  @Test
     };
     HttpRequest request = get(url);
     assertEquals(HTTP_OK, request.code());
-  }
-",HttpRequestTest::getWithResponseCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getWithResponseCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4889,10 +4103,8 @@ http_191_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(CHARSET_UTF8, request.charset());
-  }
-",HttpRequestTest::getWithResponseCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,charset(),"/**
+  }",HttpRequestTest::getWithResponseCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,charset(),"/**
    * Get 'charset' parameter from 'Content-Type' response header
    *
    * @return charset or null if none
@@ -4911,8 +4123,7 @@ http_192_1,"  @Test
     };
     HttpRequest request = get(url);
     assertEquals(HTTP_OK, request.code());
-  }
-",HttpRequestTest::getWithResponseCharsetAsSecondParam_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::getWithResponseCharsetAsSecondParam_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -4936,10 +4147,8 @@ http_192_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(CHARSET_UTF8, request.charset());
-  }
-",HttpRequestTest::getWithResponseCharsetAsSecondParam_2_oe,com.github.kevinsawicki.http.HttpRequest,charset(),"/**
+  }",HttpRequestTest::getWithResponseCharsetAsSecondParam_2_oe,com.github.kevinsawicki.http.HttpRequest,charset(),"/**
    * Get 'charset' parameter from 'Content-Type' response header
    *
    * @return charset or null if none
@@ -4968,8 +4177,7 @@ http_193_1,"  @Test
       }
     };
     assertTrue(get(url).basic(""user"", ""p4ssw0rd"").ok());
-  }
-",HttpRequestTest::basicAuthentication_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::basicAuthentication_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -4989,8 +4197,7 @@ http_194_1,"  @Test
       }
     };
     assertTrue(get(url).useProxy(""localhost"", proxyPort).proxyBasic(""user"", ""p4ssw0rd"").ok());
-  }
-",HttpRequestTest::basicProxyAuthentication_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::basicProxyAuthentication_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5009,10 +4216,8 @@ http_194_2,"  @Test
         response.setStatus(HTTP_OK);
       }
     };
-    // removed other assertion
     assertEquals(""user"", proxyUser.get());
-  }
-",HttpRequestTest::basicProxyAuthentication_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::basicProxyAuthentication_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -5033,11 +4238,8 @@ http_194_3,"  @Test
         response.setStatus(HTTP_OK);
       }
     };
-    // removed other assertion
-    // removed other assertion
     assertEquals(""p4ssw0rd"", proxyPassword.get());
-  }
-",HttpRequestTest::basicProxyAuthentication_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::basicProxyAuthentication_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -5059,8 +4261,7 @@ http_195_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getReader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getReader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5079,11 +4280,9 @@ http_195_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     BufferedReader reader = new BufferedReader(request.reader());
     assertEquals(""hello"", reader.readLine());
-  }
-",HttpRequestTest::getReader_2_oe,com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
+  }",HttpRequestTest::getReader_2_oe,com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
    * Get reader to response body using given character set.
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -5115,8 +4314,7 @@ http_196_1,"  @Test
     HttpRequest request = post(url);
     request.writer().append(""hello"").close();
     assertTrue(request.ok());
-  }
-",HttpRequestTest::sendWithWriter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::sendWithWriter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5136,8 +4334,7 @@ http_197_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getBufferedReader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getBufferedReader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5156,11 +4353,9 @@ http_197_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     BufferedReader reader = request.bufferedReader();
     assertEquals(""hello"", reader.readLine());
-  }
-",HttpRequestTest::getBufferedReader_2_oe,com.github.kevinsawicki.http.HttpRequest,bufferedReader(final String charset),"/**
+  }",HttpRequestTest::getBufferedReader_2_oe,com.github.kevinsawicki.http.HttpRequest,bufferedReader(final String charset),"/**
    * Get buffered reader to response body using the given character set r and
    * the configured buffer size
    *
@@ -5185,8 +4380,7 @@ http_198_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getReaderWithCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getReaderWithCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5205,11 +4399,9 @@ http_198_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     BufferedReader reader = new BufferedReader(request.reader(CHARSET_UTF8));
     assertEquals(""hello"", reader.readLine());
-  }
-",HttpRequestTest::getReaderWithCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
+  }",HttpRequestTest::getReaderWithCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,reader(final String charset),"/**
    * Get reader to response body using given character set.
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -5238,8 +4430,7 @@ http_199_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getBytes_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getBytes_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5258,10 +4449,8 @@ http_199_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertTrue(Arrays.equals(""hello"".getBytes(), request.bytes()));
-  }
-",HttpRequestTest::getBytes_2_oe,com.github.kevinsawicki.http.HttpRequest,bytes(),"/**
+  }",HttpRequestTest::getBytes_2_oe,com.github.kevinsawicki.http.HttpRequest,bytes(),"/**
    * Get response as byte array
    *
    * @return byte array
@@ -5287,8 +4476,7 @@ http_200_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.notFound());
-  }
-",HttpRequestTest::getError_1_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
+  }",HttpRequestTest::getError_1_oe,com.github.kevinsawicki.http.HttpRequest,notFound(),"/**
    * Is the response code a 404 Not Found?
    *
    * @return true if 404, false otherwise
@@ -5307,10 +4495,8 @@ http_200_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""error"", request.body());
-  }
-",HttpRequestTest::getError_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getError_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -5339,8 +4525,7 @@ http_201_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::noError_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::noError_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5358,10 +4543,8 @@ http_201_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals("""", request.body());
-  }
-",HttpRequestTest::noError_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::noError_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -5390,8 +4573,7 @@ http_202_1,"  @Test
       }
     };
     assertEquals(""aserver"", get(url).server());
-  }
-",HttpRequestTest::serverHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,server(),"/**
+  }",HttpRequestTest::serverHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,server(),"/**
    * Get the 'Server' header from the response
    *
    * @return server
@@ -5409,8 +4591,7 @@ http_203_1,"  @Test
       }
     };
     assertEquals(1234000, get(url).expires());
-  }
-",HttpRequestTest::expiresHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,expires(),"/**
+  }",HttpRequestTest::expiresHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,expires(),"/**
    * Get the 'Expires' header from the response
    *
    * @return expires value, -1 on failures
@@ -5428,8 +4609,7 @@ http_204_1,"  @Test
       }
     };
     assertEquals(555000, get(url).lastModified());
-  }
-",HttpRequestTest::lastModifiedHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,lastModified(),"/**
+  }",HttpRequestTest::lastModifiedHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,lastModified(),"/**
    * Get the 'Last-Modified' header from the response
    *
    * @return last modified value, -1 on failures
@@ -5447,8 +4627,7 @@ http_205_1,"  @Test
       }
     };
     assertEquals(66000, get(url).date());
-  }
-",HttpRequestTest::dateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,date(),"/**
+  }",HttpRequestTest::dateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,date(),"/**
    * Get the 'Date' header from the response
    *
    * @return date value, -1 on failures
@@ -5466,8 +4645,7 @@ http_206_1,"  @Test
       }
     };
     assertEquals(""abcd"", get(url).eTag());
-  }
-",HttpRequestTest::eTagHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,eTag(),"/**
+  }",HttpRequestTest::eTagHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,eTag(),"/**
    * Get the 'ETag' header from the response
    *
    * @return entity tag
@@ -5485,8 +4663,7 @@ http_207_1,"  @Test
       }
     };
     assertEquals(""http://nowhere"", get(url).location());
-  }
-",HttpRequestTest::locationHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,location(),"/**
+  }",HttpRequestTest::locationHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,location(),"/**
    * Get the 'Location' header from the response
    *
    * @return location
@@ -5504,8 +4681,7 @@ http_208_1,"  @Test
       }
     };
     assertEquals(""gzip"", get(url).contentEncoding());
-  }
-",HttpRequestTest::contentEncodingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,contentEncoding(),"/**
+  }",HttpRequestTest::contentEncodingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,contentEncoding(),"/**
    * Get the 'Content-Encoding' header from the response
    *
    * @return this request
@@ -5523,8 +4699,7 @@ http_209_1,"  @Test
       }
     };
     assertEquals(""text/html"", get(url).contentType());
-  }
-",HttpRequestTest::contentTypeHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,contentType(final String contentType),"/**
+  }",HttpRequestTest::contentTypeHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,contentType(final String contentType),"/**
    * Set the 'Content-Type' request header to the given value
    *
    * @param contentType
@@ -5544,8 +4719,7 @@ http_210_1,"  @Test
       }
     };
     assertTrue(post(url).contentType(""text/html"", ""UTF-8"").ok());
-  }
-",HttpRequestTest::requestContentType_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::requestContentType_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5565,8 +4739,7 @@ http_211_1,"  @Test
       }
     };
     assertTrue(post(url).contentType(""text/html"", null).ok());
-  }
-",HttpRequestTest::requestContentTypeNullCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::requestContentTypeNullCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5586,8 +4759,7 @@ http_212_1,"  @Test
       }
     };
     assertTrue(post(url).contentType(""text/html"", """").ok());
-  }
-",HttpRequestTest::requestContentTypeEmptyCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::requestContentTypeEmptyCharset_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5606,8 +4778,7 @@ http_213_1,"  @Test
       }
     };
     assertEquals(""no-cache"", get(url).cacheControl());
-  }
-",HttpRequestTest::cacheControlHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,cacheControl(),"/**
+  }",HttpRequestTest::cacheControlHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,cacheControl(),"/**
    * Get the 'Cache-Control' header from the response
    *
    * @return cache control
@@ -5631,8 +4802,7 @@ http_214_1,"  @Test
     headers.put(""h1"", ""v1"");
     headers.put(""h2"", ""v2"");
     assertTrue(get(url).headers(headers).ok());
-  }
-",HttpRequestTest::headers_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headers_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5650,8 +4820,7 @@ http_215_1,"  @Test
       }
     };
     assertTrue(get(url).headers(Collections.<String, String> emptyMap()).ok());
-  }
-",HttpRequestTest::emptyHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::emptyHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5673,8 +4842,7 @@ http_216_1,"  @Test
     };
     Map<String, List<String>> headers = get(url).headers();
     assertEquals(headers.size(), 5);
-  }
-",HttpRequestTest::getAllHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getAllHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -5699,10 +4867,8 @@ http_216_2,"  @Test
       }
     };
     Map<String, List<String>> headers = get(url).headers();
-    // removed other assertion
     assertEquals(headers.get(""a"").size(), 2);
-  }
-",HttpRequestTest::getAllHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getAllHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -5725,11 +4891,8 @@ http_216_3,"  @Test
       }
     };
     Map<String, List<String>> headers = get(url).headers();
-    // removed other assertion
-    // removed other assertion
     assertTrue(headers.get(""b"").get(0).equals(""b""));
-  }
-",HttpRequestTest::getAllHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getAllHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -5753,8 +4916,7 @@ http_217_1,"  @Test
       }
     };
     assertTrue(get(url).header(""h1"", 5).header(""h2"", (Number) null).ok());
-  }
-",HttpRequestTest::numberHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::numberHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5774,8 +4936,7 @@ http_218_1,"  @Test
       }
     };
     assertTrue(get(url).userAgent(""browser 1.0"").ok());
-  }
-",HttpRequestTest::userAgentHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::userAgentHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5795,8 +4956,7 @@ http_219_1,"  @Test
       }
     };
     assertTrue(get(url).accept(""application/json"").ok());
-  }
-",HttpRequestTest::acceptHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::acceptHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5816,8 +4976,7 @@ http_220_1,"  @Test
       }
     };
     assertTrue(get(url).acceptJson().ok());
-  }
-",HttpRequestTest::acceptJson_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::acceptJson_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5837,8 +4996,7 @@ http_221_1,"  @Test
       }
     };
     assertTrue(get(url).ifNoneMatch(""eid"").ok());
-  }
-",HttpRequestTest::ifNoneMatchHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::ifNoneMatchHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5858,8 +5016,7 @@ http_222_1,"  @Test
       }
     };
     assertTrue(get(url).acceptCharset(CHARSET_UTF8).ok());
-  }
-",HttpRequestTest::acceptCharsetHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::acceptCharsetHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5879,8 +5036,7 @@ http_223_1,"  @Test
       }
     };
     assertTrue(get(url).acceptEncoding(""compress"").ok());
-  }
-",HttpRequestTest::acceptEncodingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::acceptEncodingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5900,8 +5056,7 @@ http_224_1,"  @Test
       }
     };
     assertTrue(get(url).ifModifiedSince(5000).ok());
-  }
-",HttpRequestTest::ifModifiedSinceHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::ifModifiedSinceHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5921,8 +5076,7 @@ http_225_1,"  @Test
       }
     };
     assertTrue(post(url).referer(""http://heroku.com"").ok());
-  }
-",HttpRequestTest::refererHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::refererHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5944,7 +5098,6 @@ http_226_2,"  @Test
           while ((read = request.getReader().read(buffer)) != -1)
             body.append(buffer, 0, read);
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
@@ -5959,8 +5112,7 @@ http_226_2,"  @Test
     request.part(""file"", file2);
     request.part(""stream"", new ByteArrayInputStream(""content3"".getBytes()));
     assertTrue(request.ok());
-  }
-",HttpRequestTest::postMultipart_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postMultipart_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -5982,8 +5134,7 @@ http_227_1,"  @Test
     HttpRequest request = post(url);
     request.part(""body"", null, ""application/json"", ""contents"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::postMultipartWithContentType_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postMultipartWithContentType_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6002,13 +5153,11 @@ http_228_2,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     assertTrue(post(url).receive(body).ok());
-  }
-",HttpRequestTest::receiveAppendable_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::receiveAppendable_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6026,14 +5175,12 @@ http_229_2,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     StringWriter writer = new StringWriter();
     assertTrue(post(url).receive(writer).ok());
-  }
-",HttpRequestTest::receiveWriter_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::receiveWriter_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6051,15 +5198,13 @@ http_230_2,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     ByteArrayOutputStream output = new ByteArrayOutputStream();
     PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
     assertTrue(post(url).receive(stream).ok());
-  }
-",HttpRequestTest::receivePrintStream_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::receivePrintStream_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6077,14 +5222,12 @@ http_231_2,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     File output = File.createTempFile(""output"", "".txt"");
     assertTrue(post(url).receive(output).ok());
-  }
-",HttpRequestTest::receiveFile_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::receiveFile_2_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6095,8 +5238,7 @@ http_231_2,"  @Test
 http_232_1,"  @Test
   public void httpsTrust_1_oe() throws Exception {
     assertNotNull(get(""https://localhost"").trustAllCerts().trustAllHosts());
-  }
-",HttpRequestTest::httpsTrust_1_oe,com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
+  }",HttpRequestTest::httpsTrust_1_oe,com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
    * Configure HTTPS connection to trust all hosts using a custom
    * {@link HostnameVerifier} that always returns <code>true</code> for each
    * host verified
@@ -6114,8 +5256,7 @@ http_232_1,"  @Test
 http_233_1,"  @Test
   public void httpTrust_1_oe() throws Exception {
     assertNotNull(get(""http://localhost"").trustAllCerts().trustAllHosts());
-  }
-",HttpRequestTest::httpTrust_1_oe,com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
+  }",HttpRequestTest::httpTrust_1_oe,com.github.kevinsawicki.http.HttpRequest,trustAllHosts(),"/**
    * Configure HTTPS connection to trust all hosts using a custom
    * {@link HostnameVerifier} that always returns <code>true</code> for each
    * host verified
@@ -6135,8 +5276,7 @@ http_234_1,"  @Test
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
     assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
-  }
-",HttpRequestTest::singleVerifier_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleVerifier_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6149,10 +5289,8 @@ http_234_2,"  @Test
   public void singleVerifier_2_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
-    // removed other assertion
     assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
-  }
-",HttpRequestTest::singleVerifier_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleVerifier_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6165,11 +5303,8 @@ http_234_3,"  @Test
   public void singleVerifier_3_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
-    // removed other assertion
-    // removed other assertion
     assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
-  }
-",HttpRequestTest::singleVerifier_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleVerifier_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6183,8 +5318,7 @@ http_235_1,"  @Test
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
     assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
-  }
-",HttpRequestTest::singleSslSocketFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleSslSocketFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6197,10 +5331,8 @@ http_235_2,"  @Test
   public void singleSslSocketFactory_2_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
-    // removed other assertion
     assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
-  }
-",HttpRequestTest::singleSslSocketFactory_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleSslSocketFactory_2_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6213,11 +5345,8 @@ http_235_3,"  @Test
   public void singleSslSocketFactory_3_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
-    // removed other assertion
-    // removed other assertion
     assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
-  }
-",HttpRequestTest::singleSslSocketFactory_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
+  }",HttpRequestTest::singleSslSocketFactory_3_oe,com.github.kevinsawicki.http.HttpRequest,getConnection(),"/**
    * Get underlying connection
    *
    * @return connection
@@ -6236,7 +5365,6 @@ http_237_3,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
@@ -6253,12 +5381,10 @@ http_237_3,"  @Test
     };
     try {
       post(url).ignoreCloseExceptions(false).send(stream);
-      // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(closeCause, e.getCause());
   }
-  }
-",HttpRequestTest::sendErrorCloseStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+  }",HttpRequestTest::sendErrorCloseStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
      * Get {@link IOException} that triggered this request exception
      *
      * @return {@link IOException} cause
@@ -6278,8 +5404,7 @@ http_238_1,"  @Test
     AtomicInteger code = new AtomicInteger(0);
     get(url).code(code);
     assertEquals(HTTP_OK, code.get());
-  }
-",HttpRequestTest::getToOutputCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getToOutputCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -6299,15 +5424,13 @@ http_239_2,"  @Test
         try {
           response.getWriter().print(""hello world"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     AtomicReference<String> body = new AtomicReference<String>(null);
     get(url).body(body);
     assertEquals(""hello world"", body.get());
-  }
-",HttpRequestTest::getToOutputBody_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getToOutputBody_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -6327,15 +5450,13 @@ http_240_2,"  @Test
         try {
           response.getWriter().print(""hello world"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
     AtomicReference<String> body = new AtomicReference<String>(null);
     get(url).body(body, CHARSET_UTF8);
     assertEquals(""hello world"", body.get());
-  }
-",HttpRequestTest::getToOutputBodyWithCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getToOutputBodyWithCharset_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -6370,15 +5491,13 @@ http_241_1,"  @Test
           try {
             output.close();
           } catch (IOException ignored) {
-            // Ignored
           }
         }
       }
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getGzipped_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getGzipped_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6411,16 +5530,13 @@ http_241_2,"  @Test
           try {
             output.close();
           } catch (IOException ignored) {
-            // Ignored
           }
         }
       }
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    // removed other assertion
     assertEquals(""hello compressed"", request.body(CHARSET_UTF8));
-  }
-",HttpRequestTest::getGzipped_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getGzipped_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -6453,8 +5569,7 @@ http_242_1,"  @Test
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getNonGzippedWithUncompressEnabled_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getNonGzippedWithUncompressEnabled_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6476,10 +5591,8 @@ http_242_2,"  @Test
       }
     };
     HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
-    // removed other assertion
     assertEquals(""hello not compressed"", request.body(CHARSET_UTF8));
-  }
-",HttpRequestTest::getNonGzippedWithUncompressEnabled_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::getNonGzippedWithUncompressEnabled_2_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -6510,8 +5623,7 @@ http_243_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6531,11 +5643,9 @@ http_243_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
     assertNotNull(values);
-  }
-",HttpRequestTest::getHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6559,12 +5669,9 @@ http_243_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
-    // removed other assertion
     assertEquals(2, values.length);
-  }
-",HttpRequestTest::getHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6588,13 +5695,9 @@ http_243_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
-    // removed other assertion
-    // removed other assertion
     assertTrue(Arrays.asList(values).contains(""1""));
-  }
-",HttpRequestTest::getHeaders_4_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getHeaders_4_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6618,14 +5721,9 @@ http_243_5,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertTrue(Arrays.asList(values).contains(""2""));
-  }
-",HttpRequestTest::getHeaders_5_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getHeaders_5_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6648,8 +5746,7 @@ http_244_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getEmptyHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getEmptyHeaders_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6667,11 +5764,9 @@ http_244_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
     assertNotNull(values);
-  }
-",HttpRequestTest::getEmptyHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getEmptyHeaders_2_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6693,12 +5788,9 @@ http_244_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     String[] values = request.headers(""a"");
-    // removed other assertion
     assertEquals(0, values.length);
-  }
-",HttpRequestTest::getEmptyHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
+  }",HttpRequestTest::getEmptyHeaders_3_oe,com.github.kevinsawicki.http.HttpRequest,"headers(final Map<String, String> headers)","/**
    * Set all headers found in given map where the keys are the header names and
    * the values are the header values
    *
@@ -6722,8 +5814,7 @@ http_245_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getSingleParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getSingleParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6742,10 +5833,8 @@ http_245_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""d"", request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getSingleParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getSingleParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6766,8 +5855,7 @@ http_246_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getMultipleParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getMultipleParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6786,10 +5874,8 @@ http_246_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""d"", request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getMultipleParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getMultipleParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6809,11 +5895,8 @@ http_246_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertEquals(""f"", request.parameter(""a"", ""e""));
-  }
-",HttpRequestTest::getMultipleParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getMultipleParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6834,8 +5917,7 @@ http_247_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getSingleParameterQuoted_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getSingleParameterQuoted_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6854,10 +5936,8 @@ http_247_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""d"", request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getSingleParameterQuoted_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getSingleParameterQuoted_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6878,8 +5958,7 @@ http_248_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getMultipleParametersQuoted_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getMultipleParametersQuoted_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6898,10 +5977,8 @@ http_248_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertEquals(""d"", request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getMultipleParametersQuoted_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getMultipleParametersQuoted_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6921,11 +5998,8 @@ http_248_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertEquals(""f"", request.parameter(""a"", ""e""));
-  }
-",HttpRequestTest::getMultipleParametersQuoted_3_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getMultipleParametersQuoted_3_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6946,8 +6020,7 @@ http_249_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getMissingParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getMissingParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -6966,10 +6039,8 @@ http_249_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertNull(request.parameter(""a"", ""e""));
-  }
-",HttpRequestTest::getMissingParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getMissingParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -6990,8 +6061,7 @@ http_250_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getParameterFromMissingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getParameterFromMissingHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7010,10 +6080,8 @@ http_250_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertNull(request.parameter(""b"", ""c""));
-  }
-",HttpRequestTest::getParameterFromMissingHeader_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getParameterFromMissingHeader_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -7033,11 +6101,8 @@ http_250_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.parameters(""b"").isEmpty());
-  }
-",HttpRequestTest::getParameterFromMissingHeader_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getParameterFromMissingHeader_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7060,8 +6125,7 @@ http_251_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getEmptyParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getEmptyParameter_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7080,10 +6144,8 @@ http_251_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertNull(request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getEmptyParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getEmptyParameter_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -7103,11 +6165,8 @@ http_251_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.parameters(""a"").isEmpty());
-  }
-",HttpRequestTest::getEmptyParameter_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getEmptyParameter_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7130,8 +6189,7 @@ http_252_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getEmptyParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getEmptyParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7150,10 +6208,8 @@ http_252_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertNull(request.parameter(""a"", ""c""));
-  }
-",HttpRequestTest::getEmptyParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
+  }",HttpRequestTest::getEmptyParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,"parameter(final String headerName, final String paramName)","/**
    * Get parameter with given name from header value in response
    *
    * @param headerName
@@ -7173,11 +6229,8 @@ http_252_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
-    // removed other assertion
     assertTrue(request.parameters(""a"").isEmpty());
-  }
-",HttpRequestTest::getEmptyParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getEmptyParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7200,8 +6253,7 @@ http_253_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7220,11 +6272,9 @@ http_253_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
     assertNotNull(params);
-  }
-",HttpRequestTest::getParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7246,12 +6296,9 @@ http_253_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
     assertEquals(2, params.size());
-  }
-",HttpRequestTest::getParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7273,13 +6320,9 @@ http_253_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
     assertEquals(""c"", params.get(""b""));
-  }
-",HttpRequestTest::getParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7300,14 +6343,9 @@ http_253_5,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""e"", params.get(""d""));
-  }
-",HttpRequestTest::getParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7329,8 +6367,7 @@ http_254_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getQuotedParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getQuotedParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7349,11 +6386,9 @@ http_254_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
     assertNotNull(params);
-  }
-",HttpRequestTest::getQuotedParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getQuotedParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7375,12 +6410,9 @@ http_254_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
     assertEquals(2, params.size());
-  }
-",HttpRequestTest::getQuotedParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getQuotedParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7402,13 +6434,9 @@ http_254_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
     assertEquals(""c"", params.get(""b""));
-  }
-",HttpRequestTest::getQuotedParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getQuotedParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7429,14 +6457,9 @@ http_254_5,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""e"", params.get(""d""));
-  }
-",HttpRequestTest::getQuotedParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getQuotedParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7458,8 +6481,7 @@ http_255_1,"  @Test
     };
     HttpRequest request = get(url);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getMixQuotedParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getMixQuotedParameters_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7478,11 +6500,9 @@ http_255_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
     assertNotNull(params);
-  }
-",HttpRequestTest::getMixQuotedParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getMixQuotedParameters_2_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7504,12 +6524,9 @@ http_255_3,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
     assertEquals(2, params.size());
-  }
-",HttpRequestTest::getMixQuotedParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
+  }",HttpRequestTest::getMixQuotedParameters_3_oe,com.github.kevinsawicki.http.HttpRequest,parameters(final String headerName),"/**
    * Get all parameters from header value in response
    * <p>
    * This will be all key=value pairs after the first ';' that are separated by
@@ -7531,13 +6548,9 @@ http_255_4,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
     assertEquals(""c"", params.get(""b""));
-  }
-",HttpRequestTest::getMixQuotedParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getMixQuotedParameters_4_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7558,14 +6571,9 @@ http_255_5,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     Map<String, String> params = request.parameters(""a"");
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals(""e"", params.get(""d""));
-  }
-",HttpRequestTest::getMixQuotedParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::getMixQuotedParameters_5_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7585,8 +6593,7 @@ http_256_1,"  @Test
       }
     };
     assertEquals(1234L, get(url).dateHeader(""missing"", 1234L));
-  }
-",HttpRequestTest::missingDateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
+  }",HttpRequestTest::missingDateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
    * Get a date header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -7607,8 +6614,7 @@ http_257_1,"  @Test
       }
     };
     assertEquals(1234L, get(url).dateHeader(""malformed"", 1234L));
-  }
-",HttpRequestTest::malformedDateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
+  }",HttpRequestTest::malformedDateHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,dateHeader(final String name),"/**
    * Get a date header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -7628,8 +6634,7 @@ http_258_1,"  @Test
       }
     };
     assertEquals(4321, get(url).intHeader(""missing"", 4321));
-  }
-",HttpRequestTest::missingIntHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
+  }",HttpRequestTest::missingIntHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
    * Get an integer header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -7650,8 +6655,7 @@ http_259_1,"  @Test
       }
     };
     assertEquals(4321, get(url).intHeader(""malformed"", 4321));
-  }
-",HttpRequestTest::malformedIntHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
+  }",HttpRequestTest::malformedIntHeader_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
    * Get an integer header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -7680,8 +6684,7 @@ http_260_1,"  @Test
       request.form(entry);
     int code = request.code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postFormAsEntries_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postFormAsEntries_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -7712,10 +6715,8 @@ http_260_2,"  @Test
     for (Entry<String, String> entry : data.entrySet())
       request.form(entry);
     int code = request.code();
-    // removed other assertion
     assertEquals(""name=user&number=100"", body.get());
-  }
-",HttpRequestTest::postFormAsEntries_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postFormAsEntries_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7743,8 +6744,7 @@ http_261_1,"  @Test
       request.form(entry);
     int code = request.code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::postFormEntryWithNullValue_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::postFormEntryWithNullValue_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -7774,10 +6774,8 @@ http_261_2,"  @Test
     for (Entry<String, String> entry : data.entrySet())
       request.form(entry);
     int code = request.code();
-    // removed other assertion
     assertEquals(""name="", body.get());
-  }
-",HttpRequestTest::postFormEntryWithNullValue_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::postFormEntryWithNullValue_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -7806,8 +6804,7 @@ http_262_1,"  @Test
     };
     HttpRequest request = post(url, inputParams, false);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::postWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7831,8 +6828,7 @@ http_263_1,"  @Test
     };
     HttpRequest request = post(url, false, ""name"", ""user"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::postWithVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postWithVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7859,8 +6855,7 @@ http_264_1,"  @Test
     };
     HttpRequest request = post(url, inputParams, true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::postWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::postWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7887,8 +6882,7 @@ http_265_1,"  @Test
     };
     HttpRequest request = get(url, inputParams, false);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7912,8 +6906,7 @@ http_266_1,"  @Test
     };
     HttpRequest request = get(url, false, ""name"", ""user"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getWithVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getWithVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7940,8 +6933,7 @@ http_267_1,"  @Test
     };
     HttpRequest request = get(url, inputParams, true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7965,8 +6957,7 @@ http_268_1,"  @Test
     };
     HttpRequest request = get(url, true, ""name"", ""us er"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::getWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::getWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -7993,8 +6984,7 @@ http_269_1,"  @Test
     };
     HttpRequest request = delete(url, inputParams, false);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8018,8 +7008,7 @@ http_270_1,"  @Test
     };
     HttpRequest request = delete(url, false, ""name"", ""user"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteWithVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteWithVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8046,8 +7035,7 @@ http_271_1,"  @Test
     };
     HttpRequest request = delete(url, inputParams, true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8071,8 +7059,7 @@ http_272_1,"  @Test
     };
     HttpRequest request = delete(url, true, ""name"", ""us er"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::deleteWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::deleteWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8099,8 +7086,7 @@ http_273_1,"  @Test
     };
     HttpRequest request = put(url, inputParams, false);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::putWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::putWithMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8127,8 +7113,7 @@ http_274_1,"  @Test
     };
     HttpRequest request = put(url, inputParams, true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::putWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::putWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8152,8 +7137,7 @@ http_275_1,"  @Test
     };
     HttpRequest request = put(url, true, ""name"", ""us er"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::putWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::putWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8177,8 +7161,7 @@ http_276_1,"  @Test
     };
     HttpRequest request = head(url, false, ""name"", ""user"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::headWithVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headWithVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8205,8 +7188,7 @@ http_277_1,"  @Test
     };
     HttpRequest request = head(url, inputParams, true);
     assertTrue(request.ok());
-  }
-",HttpRequestTest::headWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headWithEscapedMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8230,8 +7212,7 @@ http_278_1,"  @Test
     };
     HttpRequest request = head(url, true, ""name"", ""us er"", ""number"", ""100"");
     assertTrue(request.ok());
-  }
-",HttpRequestTest::headWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
+  }",HttpRequestTest::headWithEscapedVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,ok(),"/**
    * Is the response code a 200 OK?
    *
    * @return true if 200, false otherwise
@@ -8242,8 +7223,7 @@ http_278_1,"  @Test
 http_279_1,"  @Test
   public void appendMappedQueryParamsWithNoPath_1_oe() throws Exception {
     assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com"",Collections.singletonMap(""a"",""b"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithNoPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithNoPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8278,8 +7258,7 @@ http_279_1,"  @Test
 http_280_1,"  @Test
   public void appendVarargsQueryParmasWithNoPath_1_oe() throws Exception {
     assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com"",""a"",""b""));
-  }
-",HttpRequestTest::appendVarargsQueryParmasWithNoPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendVarargsQueryParmasWithNoPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8314,8 +7293,7 @@ http_280_1,"  @Test
 http_281_1,"  @Test
   public void appendMappedQueryParamsWithPath_1_oe() throws Exception {
     assertEquals(""http://test.com/segment1?a=b"",HttpRequest.append(""http://test.com/segment1"",Collections.singletonMap(""a"",""b"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8349,10 +7327,8 @@ http_281_1,"  @Test
   }"
 http_281_2,"  @Test
   public void appendMappedQueryParamsWithPath_2_oe() throws Exception {
-    // removed other assertion
     assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com/"",Collections.singletonMap(""a"",""b"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithPath_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithPath_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8387,8 +7363,7 @@ http_281_2,"  @Test
 http_282_1,"  @Test
   public void appendVarargsQueryParamsWithPath_1_oe() throws Exception {
     assertEquals(""http://test.com/segment1?a=b"",HttpRequest.append(""http://test.com/segment1"",""a"",""b""));
-  }
-",HttpRequestTest::appendVarargsQueryParamsWithPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendVarargsQueryParamsWithPath_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8422,10 +7397,8 @@ http_282_1,"  @Test
   }"
 http_282_2,"  @Test
   public void appendVarargsQueryParamsWithPath_2_oe() throws Exception {
-    // removed other assertion
     assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com/"",""a"",""b""));
-  }
-",HttpRequestTest::appendVarargsQueryParamsWithPath_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendVarargsQueryParamsWithPath_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8463,8 +7436,7 @@ http_283_1,"  @Test
     params.put(""a"", ""b"");
     params.put(""c"", ""d"");
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1"",params));
-  }
-",HttpRequestTest::appendMultipleMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMultipleMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8499,8 +7471,7 @@ http_283_1,"  @Test
 http_284_1,"  @Test
   public void appendMultipleVarargsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1"",""a"",""b"",""c"",""d""));
-  }
-",HttpRequestTest::appendMultipleVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMultipleVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8535,8 +7506,7 @@ http_284_1,"  @Test
 http_285_1,"  @Test
   public void appendNullMappedQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",(Map<?,?>)null));
-  }
-",HttpRequestTest::appendNullMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendNullMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8571,8 +7541,7 @@ http_285_1,"  @Test
 http_286_1,"  @Test
   public void appendNullVaragsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",(Object[])null));
-  }
-",HttpRequestTest::appendNullVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendNullVaragsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8607,8 +7576,7 @@ http_286_1,"  @Test
 http_287_1,"  @Test
   public void appendEmptyMappedQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",Collections.<String,String> emptyMap()));
-  }
-",HttpRequestTest::appendEmptyMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendEmptyMappedQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8643,8 +7611,7 @@ http_287_1,"  @Test
 http_288_1,"  @Test
   public void appendEmptyVarargsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",new Object[0]));
-  }
-",HttpRequestTest::appendEmptyVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendEmptyVarargsQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8682,8 +7649,7 @@ http_289_1,"  @Test
     params.put(""a"", null);
     params.put(""b"", null);
     assertEquals(""http://test.com/1?a=&b="",HttpRequest.append(""http://test.com/1"",params));
-  }
-",HttpRequestTest::appendWithNullMappedQueryParamValues_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendWithNullMappedQueryParamValues_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8718,8 +7684,7 @@ http_289_1,"  @Test
 http_290_1,"  @Test
   public void appendWithNullVaragsQueryParamValues_1_oe() throws Exception {
     assertEquals(""http://test.com/1?a=&b="",HttpRequest.append(""http://test.com/1"",""a"",null,""b"",null));
-  }
-",HttpRequestTest::appendWithNullVaragsQueryParamValues_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendWithNullVaragsQueryParamValues_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8754,8 +7719,7 @@ http_290_1,"  @Test
 http_291_1,"  @Test
   public void appendMappedQueryParamsWithExistingQueryStart_1_oe() {
     assertEquals(""http://test.com/1?a=b"",HttpRequest.append(""http://test.com/1?"",Collections.singletonMap(""a"",""b"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithExistingQueryStart_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithExistingQueryStart_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8790,8 +7754,7 @@ http_291_1,"  @Test
 http_292_1,"  @Test
   public void appendVarargsQueryParamsWithExistingQueryStart_1_oe() {
     assertEquals(""http://test.com/1?a=b"",HttpRequest.append(""http://test.com/1?"",""a"",""b""));
-  }
-",HttpRequestTest::appendVarargsQueryParamsWithExistingQueryStart_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendVarargsQueryParamsWithExistingQueryStart_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8826,8 +7789,7 @@ http_292_1,"  @Test
 http_293_1,"  @Test
   public void appendMappedQueryParamsWithExistingParams_1_oe() {
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b"",Collections.singletonMap(""c"",""d"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithExistingParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithExistingParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8861,10 +7823,8 @@ http_293_1,"  @Test
   }"
 http_293_2,"  @Test
   public void appendMappedQueryParamsWithExistingParams_2_oe() {
-    // removed other assertion
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b&"",Collections.singletonMap(""c"",""d"")));
-  }
-",HttpRequestTest::appendMappedQueryParamsWithExistingParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendMappedQueryParamsWithExistingParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8899,8 +7859,7 @@ http_293_2,"  @Test
 http_294_1,"  @Test
   public void appendWithVarargsQueryParamsWithExistingParams_1_oe() {
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b"",""c"",""d""));
-  }
-",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8934,10 +7893,8 @@ http_294_1,"  @Test
   }"
 http_294_2,"  @Test
   public void appendWithVarargsQueryParamsWithExistingParams_2_oe() {
-    // removed other assertion
     assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b&"",""c"",""d""));
-  }
-",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -8972,8 +7929,7 @@ http_294_2,"  @Test
 http_295_1,"  @Test
   public void appendArrayQueryParams_1_oe() throws Exception {
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""foo"", new String[] { ""bar"", ""baz"" })));
-  }
-",HttpRequestTest::appendArrayQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendArrayQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9007,10 +7963,8 @@ http_295_1,"  @Test
   }"
 http_295_2,"  @Test
   public void appendArrayQueryParams_2_oe() throws Exception {
-    // removed other assertion
     assertEquals( ""http://test.com/?a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { 1, 2 })));
-  }
-",HttpRequestTest::appendArrayQueryParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendArrayQueryParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9044,11 +7998,8 @@ http_295_2,"  @Test
   }"
 http_295_3,"  @Test
   public void appendArrayQueryParams_3_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?a[]=1"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { 1 })));
-  }
-",HttpRequestTest::appendArrayQueryParams_3_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendArrayQueryParams_3_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9082,12 +8033,8 @@ http_295_3,"  @Test
   }"
 http_295_4,"  @Test
   public void appendArrayQueryParams_4_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { })));
-  }
-",HttpRequestTest::appendArrayQueryParams_4_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendArrayQueryParams_4_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9121,13 +8068,8 @@ http_295_4,"  @Test
   }"
 http_295_5,"  @Test
   public void appendArrayQueryParams_5_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", ""foo"", new String[] { ""bar"", ""baz"" }, ""a"", new int[] { 1, 2 }));
-  }
-",HttpRequestTest::appendArrayQueryParams_5_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendArrayQueryParams_5_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9162,8 +8104,7 @@ http_295_5,"  @Test
 http_296_1,"  @Test
   public void appendListQueryParams_1_oe() throws Exception {
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }))));
-  }
-",HttpRequestTest::appendListQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendListQueryParams_1_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9197,10 +8138,8 @@ http_296_1,"  @Test
   }"
 http_296_2,"  @Test
   public void appendListQueryParams_2_oe() throws Exception {
-    // removed other assertion
     assertEquals( ""http://test.com/?a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1, 2 }))));
-  }
-",HttpRequestTest::appendListQueryParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendListQueryParams_2_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9234,11 +8173,8 @@ http_296_2,"  @Test
   }"
 http_296_3,"  @Test
   public void appendListQueryParams_3_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?a[]=1"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1 }))));
-  }
-",HttpRequestTest::appendListQueryParams_3_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendListQueryParams_3_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9272,12 +8208,8 @@ http_296_3,"  @Test
   }"
 http_296_4,"  @Test
   public void appendListQueryParams_4_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { }))));
-  }
-",HttpRequestTest::appendListQueryParams_4_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendListQueryParams_4_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9311,13 +8243,8 @@ http_296_4,"  @Test
   }"
 http_296_5,"  @Test
   public void appendListQueryParams_5_oe() throws Exception {
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
-    // removed other assertion
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", ""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }), ""a"", Arrays.asList(new Integer[] { 1, 2 })));
-  }
-",HttpRequestTest::appendListQueryParams_5_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
+  }",HttpRequestTest::appendListQueryParams_5_oe,com.github.kevinsawicki.http.HttpRequest,"append(final CharSequence url, final Map<?, ?> params)","/**
    * Append given map as query parameters to the base URL
    * <p>
    * Each map entry's key will be a parameter name and the value's
@@ -9360,8 +8287,7 @@ http_297_1,"  @Test
     };
     HttpRequest request = get(url);
     assertNotNull(request);
-  }
-",HttpRequestTest::serverErrorCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::serverErrorCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9381,10 +8307,8 @@ http_297_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertTrue(request.serverError());
-  }
-",HttpRequestTest::serverErrorCode_2_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
+  }",HttpRequestTest::serverErrorCode_2_oe,com.github.kevinsawicki.http.HttpRequest,serverError(),"/**
    * Is the response code a 500 Internal Server Error?
    *
    * @return true if 500, false otherwise
@@ -9403,8 +8327,7 @@ http_298_1,"  @Test
     };
     HttpRequest request = get(url);
     assertNotNull(request);
-  }
-",HttpRequestTest::badRequestCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::badRequestCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9424,10 +8347,8 @@ http_298_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertTrue(request.badRequest());
-  }
-",HttpRequestTest::badRequestCode_2_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
+  }",HttpRequestTest::badRequestCode_2_oe,com.github.kevinsawicki.http.HttpRequest,badRequest(),"/**
    * Is the response code a 400 Bad Request?
    *
    * @return true if 400, false otherwise
@@ -9446,8 +8367,7 @@ http_299_1,"  @Test
     };
     HttpRequest request = get(url);
     assertNotNull(request);
-  }
-",HttpRequestTest::notModifiedCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::notModifiedCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9467,10 +8387,8 @@ http_299_2,"  @Test
       }
     };
     HttpRequest request = get(url);
-    // removed other assertion
     assertTrue(request.notModified());
-  }
-",HttpRequestTest::notModifiedCode_2_oe,com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
+  }",HttpRequestTest::notModifiedCode_2_oe,com.github.kevinsawicki.http.HttpRequest,notModified(),"/**
    * Is the response code a 304 Not Modified?
    *
    * @return true if 304, false otherwise
@@ -9489,7 +8407,6 @@ http_300_1,"  @Test
         try {
           response.getWriter().write(""world"");
         } catch (IOException ignored) {
-          // Ignored
         }
         response.setStatus(HTTP_OK);
       }
@@ -9497,8 +8414,7 @@ http_300_1,"  @Test
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     assertEquals(""world"", request.send(""hello"").body());
-  }
-",HttpRequestTest::sendReceiveWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::sendReceiveWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -9533,8 +8449,7 @@ http_301_1,"  @Test
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     Map<String, List<String>> headers = request.send(""hello"").headers();
     assertEquals(""v1"", headers.get(""h1"").get(0));
-  }
-",HttpRequestTest::sendHeadersWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::sendHeadersWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9560,10 +8475,8 @@ http_301_2,"  @Test
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     Map<String, List<String>> headers = request.send(""hello"").headers();
-    // removed other assertion
     assertEquals(""v2"", headers.get(""h2"").get(0));
-  }
-",HttpRequestTest::sendHeadersWithoutCode_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::sendHeadersWithoutCode_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9589,11 +8502,8 @@ http_301_3,"  @Test
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     Map<String, List<String>> headers = request.send(""hello"").headers();
-    // removed other assertion
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::sendHeadersWithoutCode_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::sendHeadersWithoutCode_3_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9618,8 +8528,7 @@ http_302_1,"  @Test
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     assertEquals(1000, request.send(""hello"").date());
-  }
-",HttpRequestTest::sendDateHeaderWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,date(),"/**
+  }",HttpRequestTest::sendDateHeaderWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,date(),"/**
    * Get the 'Date' header from the response
    *
    * @return date value, -1 on failures
@@ -9641,8 +8550,7 @@ http_303_1,"  @Test
 
     HttpRequest request = post(url).ignoreCloseExceptions(false);
     assertEquals(9876, request.send(""hello"").intHeader(""Width""));
-  }
-",HttpRequestTest::sendIntHeaderWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
+  }",HttpRequestTest::sendIntHeaderWithoutCode_1_oe,com.github.kevinsawicki.http.HttpRequest,intHeader(final String name),"/**
    * Get an integer header from the response falling back to returning -1 if the
    * header is missing or parsing fails
    *
@@ -9676,8 +8584,7 @@ http_304_1,"  @Test
     HttpRequest.setConnectionFactory(factory);
     int code = get(""http://not/a/real/url"").code();
     assertEquals(200, code);
-  }
-",HttpRequestTest::customConnectionFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::customConnectionFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -9703,8 +8610,7 @@ http_305_1,"  @Test
     HttpRequest.setConnectionFactory(null);
     int code = get(url).code();
     assertEquals(200, code);
-  }
-",HttpRequestTest::nullConnectionFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::nullConnectionFactory_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -9727,8 +8633,7 @@ http_306_1,"  @Test
       }
     };
     assertEquals("""", get(url).body());
-  }
-",HttpRequestTest::streamOfEmptyOkResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::streamOfEmptyOkResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -9756,8 +8661,7 @@ http_307_1,"  @Test
       }
     };
     assertEquals("""", get(url).body());
-  }
-",HttpRequestTest::bodyOfEmptyErrorResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::bodyOfEmptyErrorResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -9785,13 +8689,11 @@ http_308_1,"  @Test
         try {
           response.getWriter().write(""error"");
         } catch (IOException ignored) {
-          // Ignored
         }
       }
     };
     assertEquals(""error"", get(url).body());
-  }
-",HttpRequestTest::bodyOfNonEmptyErrorResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
+  }",HttpRequestTest::bodyOfNonEmptyErrorResponse_1_oe,com.github.kevinsawicki.http.HttpRequest,body(final String charset),"/**
    * Get response as {@link String} in given character set
    * <p>
    * This will fall back to using the UTF-8 character set if the given charset
@@ -9824,8 +8726,7 @@ http_313_1,"  @Test
     new FileWriter(file).append(""hello"").close();
     int code = post(url).progress(null).send(file).code();
     assertEquals(HTTP_OK, code);
-  }
-",HttpRequestTest::nullUploadProgress_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
+  }",HttpRequestTest::nullUploadProgress_1_oe,com.github.kevinsawicki.http.HttpRequest,code(),"/**
    * Get the status code of the response
    *
    * @return the response code
@@ -9852,10 +8753,8 @@ http_313_2,"  @Test
     File file = File.createTempFile(""post"", "".txt"");
     new FileWriter(file).append(""hello"").close();
     int code = post(url).progress(null).send(file).code();
-    // removed other assertion
     assertEquals(""hello"", body.get());
-  }
-",HttpRequestTest::nullUploadProgress_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
+  }",HttpRequestTest::nullUploadProgress_2_oe,com.github.kevinsawicki.http.HttpRequest,get(final CharSequence url),"/**
    * Start a 'GET' request to the given URL
    *
    * @param url
@@ -9875,7 +8774,6 @@ http_236_3,"  @Test
         try {
           response.getWriter().print(""content"");
         } catch (IOException e) {
-          // removed other assertion
         }
       }
     };
@@ -9893,12 +8791,10 @@ http_236_3,"  @Test
     };
     try {
       post(url).send(stream);
-      // removed other assertion
     } catch (HttpRequestException e) {
       assertEquals(readCause, e.getCause());
   }
-  }
-",HttpRequestTest::sendErrorReadStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
+  }",HttpRequestTest::sendErrorReadStream_3_oe,com.github.kevinsawicki.http.HttpRequest.HttpRequestException,getCause(),"/**
      * Get {@link IOException} that triggered this request exception
      *
      * @return {@link IOException} cause

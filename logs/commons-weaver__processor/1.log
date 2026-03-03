@@ -46,13 +46,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-processor ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/processor
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613821803
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/processor
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566661000
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-weaver-processor ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -87,15 +82,15 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.utils.ArgsTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.weaver.utils.ArgsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.weaver.utils.ArgsTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.FinderTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.apache.commons.weaver.FinderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in org.apache.commons.weaver.FinderTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -104,6 +99,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.998 s
-[INFO] Finished at: 2026-02-20T12:57:09-06:00
+[INFO] Total time:  11.530 s
+[INFO] Finished at: 2026-03-03T13:37:49-06:00
 [INFO] ------------------------------------------------------------------------

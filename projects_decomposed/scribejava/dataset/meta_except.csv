@@ -1,0 +1,6 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
+scribejava_80_4,scribejava,OAuthAsyncCompletionHandlerTest,shouldReleaseLatchOnIOException_4_oe,scribejava-httpclient-okhttp/src/test/java/com/github/scribejava/httpclient/okhttp/OAuthAsyncCompletionHandlerTest.java,,,,assert,unknown,standard,assertThrows
+scribejava_81_4,scribejava,OAuthAsyncCompletionHandlerTest,shouldReportOAuthException_4_oe,scribejava-httpclient-okhttp/src/test/java/com/github/scribejava/httpclient/okhttp/OAuthAsyncCompletionHandlerTest.java,,,,assert,unknown,standard,assertThrows
+scribejava_82_4,scribejava,OAuthAsyncCompletionHandlerTest,shouldReleaseLatchOnCancel_4_oe,scribejava-httpclient-okhttp/src/test/java/com/github/scribejava/httpclient/okhttp/OAuthAsyncCompletionHandlerTest.java,,,,assert,unknown,standard,assertThrows
+scribejava_83_4,scribejava,OAuthAsyncCompletionHandlerTest,shouldReleaseLatchOnFailure_4_oe,scribejava-httpclient-okhttp/src/test/java/com/github/scribejava/httpclient/okhttp/OAuthAsyncCompletionHandlerTest.java,,,,assert,unknown,standard,assertThrows
+scribejava_91_1,scribejava,FitBitJsonTokenExtractorTest,testErrorExtraction_1_oe,scribejava-apis/src/test/java/com/github/scribejava/apis/fitbit/FitBitJsonTokenExtractorTest.java,,,,assert,unknown,standard,assertThrows

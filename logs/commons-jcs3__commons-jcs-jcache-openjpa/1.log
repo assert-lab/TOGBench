@@ -33,13 +33,8 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-openjpa ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613780909
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566623182
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-openjpa ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -74,7 +69,7 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.595 s - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.141 s - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -83,6 +78,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.431 s
-[INFO] Finished at: 2026-02-20T12:56:35-06:00
+[INFO] Total time:  18.068 s
+[INFO] Finished at: 2026-03-03T13:37:16-06:00
 [INFO] ------------------------------------------------------------------------

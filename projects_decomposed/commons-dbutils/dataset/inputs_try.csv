@@ -1,0 +1,317 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+dbut_2_2,"    public void testLoadThrowsIllegalArgumentException_2_oe() throws IOException {
+
+        QueryLoader queryLoader = QueryLoader.instance();
+
+        try {
+            queryLoader.load(""e"");
+        } catch(IllegalArgumentException e) {
+            assertEquals(""e not found."",e.getMessage());
+    }
+    }",QueryLoaderTest::testLoadThrowsIllegalArgumentException_2_oe,org.apache.commons.dbutils.QueryLoader,load(String path),"/**
+     * Loads a Map of query names to SQL values.  The Maps are cached so a
+     * subsequent request to load queries from the same path will return
+     * the cached Map.  The properties file to load can be in either
+     * line-oriented or XML format.  XML formatted properties files must use a
+     * <code>.xml</code> file extension.
+     *
+     * @param path The path that the ClassLoader will use to find the file.
+     * This is <strong>not</strong> a file system path.  If you had a jarred
+     * Queries.properties file in the com.yourcorp.app.jdbc package you would
+     * pass ""/com/yourcorp/app/jdbc/Queries.properties"" to this method.
+     * @throws IOException if a file access error occurs
+     * @throws IllegalArgumentException if the ClassLoader can't find a file at
+     * the given path.
+     * @throws java.util.InvalidPropertiesFormatException if the XML properties file is
+     * invalid
+     * @return Map of query names to SQL values
+     * @see java.util.Properties
+     */","public synchronized Map<String, String> load(String path) throws IOException {
+
+        Map<String, String> queryMap = this.queries.get(path);
+
+        if (queryMap == null) {
+            queryMap = this.loadQueries(path);
+            this.queries.put(path, queryMap);
+        }
+
+        return queryMap;
+    }"
+dbut_2_3,"    public void testLoadThrowsIllegalArgumentException_3_oe() throws IOException {
+
+        QueryLoader queryLoader = QueryLoader.instance();
+
+        try {
+            queryLoader.load(""e"");
+        } catch(IllegalArgumentException e) {
+            assertEquals(QueryLoader.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",QueryLoaderTest::testLoadThrowsIllegalArgumentException_3_oe,org.apache.commons.dbutils.QueryLoader,load(String path),"/**
+     * Loads a Map of query names to SQL values.  The Maps are cached so a
+     * subsequent request to load queries from the same path will return
+     * the cached Map.  The properties file to load can be in either
+     * line-oriented or XML format.  XML formatted properties files must use a
+     * <code>.xml</code> file extension.
+     *
+     * @param path The path that the ClassLoader will use to find the file.
+     * This is <strong>not</strong> a file system path.  If you had a jarred
+     * Queries.properties file in the com.yourcorp.app.jdbc package you would
+     * pass ""/com/yourcorp/app/jdbc/Queries.properties"" to this method.
+     * @throws IOException if a file access error occurs
+     * @throws IllegalArgumentException if the ClassLoader can't find a file at
+     * the given path.
+     * @throws java.util.InvalidPropertiesFormatException if the XML properties file is
+     * invalid
+     * @return Map of query names to SQL values
+     * @see java.util.Properties
+     */","public synchronized Map<String, String> load(String path) throws IOException {
+
+        Map<String, String> queryMap = this.queries.get(path);
+
+        if (queryMap == null) {
+            queryMap = this.loadQueries(path);
+            this.queries.put(path, queryMap);
+        }
+
+        return queryMap;
+    }"
+dbut_33_2,"    @Test
+    public void testRethrowThrowsRuntimeException_2_oe() {
+
+        ResultSetIterator resultSetIterator = new ResultSetIterator((ResultSet) null);
+        Throwable throwable = new Throwable();
+        SQLException sQLException = new SQLException(throwable);
+
+        try {
+            resultSetIterator.rethrow(sQLException);
+        } catch(RuntimeException e) {
+            assertEquals(ResultSetIterator.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }",ResultSetIteratorTest::testRethrowThrowsRuntimeException_2_oe,org.apache.commons.dbutils.ResultSetIterator,void rethrow(SQLException e),"/**
+     * Rethrow the SQLException as a RuntimeException.  This implementation
+     * creates a new RuntimeException with the SQLException's error message.
+     * @param e SQLException to rethrow
+     * @since DbUtils 1.1
+     */","protected void rethrow(SQLException e) {
+        throw new RuntimeException(e.getMessage());
+    }"
+dbut_65_1,"    public void testURL_1_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            assertEquals(null, getUrlInt.invoke(rs, new Object[] { Integer.valueOf(1) } ) );
+    }
+    }",SqlNullCheckedResultSetTest::testURL_1_oe,org.apache.commons.dbutils.wrappers.StringTrimmedResultSet,"invoke(Object proxy, Method method, Object[] args)","/**
+     * Intercept calls to the <code>getString()</code> and
+     * <code>getObject()</code> methods and trim any Strings before they're
+     * returned.
+     *
+     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * @param proxy Not used; all method calls go to the internal result set
+     * @param method The method to invoke on the result set
+     * @param args The arguments to pass to the result set
+     * @return string trimmed result
+     * @throws Throwable error
+     */","@Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable {
+
+        Object result = method.invoke(this.rs, args);
+
+        if ((method.getName().equals(""getObject"")
+            || method.getName().equals(""getString""))
+                && result instanceof String) {
+            result = ((String) result).trim();
+        }
+
+        return result;
+    }"
+dbut_65_2,"    public void testURL_2_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            assertTrue(rs.wasNull());
+    }
+    }",SqlNullCheckedResultSetTest::testURL_2_oe,org.apache.commons.dbutils.BaseResultSetHandler,wasNull(),"/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */","protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }"
+dbut_65_3,"    public void testURL_3_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            assertEquals(null, getUrlString.invoke(rs, new Object[] { ""column"" } ) );
+    }
+    }",SqlNullCheckedResultSetTest::testURL_3_oe,org.apache.commons.dbutils.wrappers.StringTrimmedResultSet,"invoke(Object proxy, Method method, Object[] args)","/**
+     * Intercept calls to the <code>getString()</code> and
+     * <code>getObject()</code> methods and trim any Strings before they're
+     * returned.
+     *
+     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * @param proxy Not used; all method calls go to the internal result set
+     * @param method The method to invoke on the result set
+     * @param args The arguments to pass to the result set
+     * @return string trimmed result
+     * @throws Throwable error
+     */","@Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable {
+
+        Object result = method.invoke(this.rs, args);
+
+        if ((method.getName().equals(""getObject"")
+            || method.getName().equals(""getString""))
+                && result instanceof String) {
+            result = ((String) result).trim();
+        }
+
+        return result;
+    }"
+dbut_65_4,"    public void testURL_4_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            assertTrue(rs.wasNull());
+    }
+    }",SqlNullCheckedResultSetTest::testURL_4_oe,org.apache.commons.dbutils.BaseResultSetHandler,wasNull(),"/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */","protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }"
+dbut_65_5,"    public void testURL_5_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            URL u = new URL(""http://www.apache.org"");
+            rs2.setNullURL(u);
+            assertEquals(u, getUrlInt.invoke(rs, new Object[] { Integer.valueOf(1) } ) );
+    }
+    }",SqlNullCheckedResultSetTest::testURL_5_oe,org.apache.commons.dbutils.wrappers.StringTrimmedResultSet,"invoke(Object proxy, Method method, Object[] args)","/**
+     * Intercept calls to the <code>getString()</code> and
+     * <code>getObject()</code> methods and trim any Strings before they're
+     * returned.
+     *
+     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * @param proxy Not used; all method calls go to the internal result set
+     * @param method The method to invoke on the result set
+     * @param args The arguments to pass to the result set
+     * @return string trimmed result
+     * @throws Throwable error
+     */","@Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable {
+
+        Object result = method.invoke(this.rs, args);
+
+        if ((method.getName().equals(""getObject"")
+            || method.getName().equals(""getString""))
+                && result instanceof String) {
+            result = ((String) result).trim();
+        }
+
+        return result;
+    }"
+dbut_65_6,"    public void testURL_6_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            URL u = new URL(""http://www.apache.org"");
+            rs2.setNullURL(u);
+            assertEquals(u, getUrlString.invoke(rs, new Object[] { ""column"" } ) );
+    }
+    }",SqlNullCheckedResultSetTest::testURL_6_oe,org.apache.commons.dbutils.wrappers.StringTrimmedResultSet,"invoke(Object proxy, Method method, Object[] args)","/**
+     * Intercept calls to the <code>getString()</code> and
+     * <code>getObject()</code> methods and trim any Strings before they're
+     * returned.
+     *
+     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * @param proxy Not used; all method calls go to the internal result set
+     * @param method The method to invoke on the result set
+     * @param args The arguments to pass to the result set
+     * @return string trimmed result
+     * @throws Throwable error
+     */","@Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable {
+
+        Object result = method.invoke(this.rs, args);
+
+        if ((method.getName().equals(""getObject"")
+            || method.getName().equals(""getString""))
+                && result instanceof String) {
+            result = ((String) result).trim();
+        }
+
+        return result;
+    }"

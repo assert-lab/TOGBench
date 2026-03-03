@@ -1,0 +1,1042 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+numb_304_22,"    @Test
+    void testFactory_int_int_22_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        assertEquals(-1, f.signum());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_22_oe,org.apache.commons.numbers.fraction.Fraction,signum(),"/**
+     * Retrieves the sign of this fraction.
+     *
+     * @return -1 if the value is strictly negative, 1 if it is strictly
+     * positive, 0 if it is 0.
+     */","public int signum() {
+        return Integer.signum(numerator) * Integer.signum(denominator);
+    }"
+numb_304_23,"    @Test
+    void testFactory_int_int_23_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        // removed other assertion
+        assertEquals(1, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_23_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_304_24,"    @Test
+    void testFactory_int_int_24_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.MIN_VALUE / 4, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_24_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"
+numb_304_25,"    @Test
+    void testFactory_int_int_25_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // numbers can use MIN_VALUE as the denominator
+        f = Fraction.of(1, Integer.MIN_VALUE);
+        assertEquals(-1, f.signum());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_25_oe,org.apache.commons.numbers.fraction.Fraction,signum(),"/**
+     * Retrieves the sign of this fraction.
+     *
+     * @return -1 if the value is strictly negative, 1 if it is strictly
+     * positive, 0 if it is 0.
+     */","public int signum() {
+        return Integer.signum(numerator) * Integer.signum(denominator);
+    }"
+numb_304_26,"    @Test
+    void testFactory_int_int_26_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // numbers can use MIN_VALUE as the denominator
+        f = Fraction.of(1, Integer.MIN_VALUE);
+        // removed other assertion
+        assertEquals(1, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_26_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_304_27,"    @Test
+    void testFactory_int_int_27_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(23, 345);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // lang cannot represent the unsimplified fraction with MIN_VALUE as the denominator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(4, Integer.MIN_VALUE));
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(1, Integer.MIN_VALUE));
+        // numbers will always simplify the fraction
+        f = Fraction.of(4, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // numbers can use MIN_VALUE as the denominator
+        f = Fraction.of(1, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.MIN_VALUE, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testFactory_int_int_27_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"
+numb_305_30,"    @Test
+    void testReducedFactory_int_int_30_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // reduced
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 4);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(15, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(121, 22);
+        // removed other assertion
+        // removed other assertion
+
+        // Extreme values
+        // OK, can reduce before negating
+        f = Fraction.of(-2, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign to be in the numerator so this would throw.
+        // assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(-7, Integer.MIN_VALUE));
+        // numbers allows the sign to be in the denominator so this does not throw.
+        f = Fraction.of(-7, Integer.MIN_VALUE);
+        assertEquals(1, f.signum());
+    }
+",CommonsLangPortedFractionTest::testReducedFactory_int_int_30_oe,org.apache.commons.numbers.fraction.Fraction,signum(),"/**
+     * Retrieves the sign of this fraction.
+     *
+     * @return -1 if the value is strictly negative, 1 if it is strictly
+     * positive, 0 if it is 0.
+     */","public int signum() {
+        return Integer.signum(numerator) * Integer.signum(denominator);
+    }"
+numb_305_31,"    @Test
+    void testReducedFactory_int_int_31_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // reduced
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 4);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(15, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(121, 22);
+        // removed other assertion
+        // removed other assertion
+
+        // Extreme values
+        // OK, can reduce before negating
+        f = Fraction.of(-2, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign to be in the numerator so this would throw.
+        // assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(-7, Integer.MIN_VALUE));
+        // numbers allows the sign to be in the denominator so this does not throw.
+        f = Fraction.of(-7, Integer.MIN_VALUE);
+        // removed other assertion
+        assertEquals(-7, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testReducedFactory_int_int_31_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_305_32,"    @Test
+    void testReducedFactory_int_int_32_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // reduced
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 4);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(15, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(121, 22);
+        // removed other assertion
+        // removed other assertion
+
+        // Extreme values
+        // OK, can reduce before negating
+        f = Fraction.of(-2, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign to be in the numerator so this would throw.
+        // assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(-7, Integer.MIN_VALUE));
+        // numbers allows the sign to be in the denominator so this does not throw.
+        f = Fraction.of(-7, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.MIN_VALUE, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testReducedFactory_int_int_32_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"
+numb_305_33,"    @Test
+    void testReducedFactory_int_int_33_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // reduced
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 4);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(15, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(121, 22);
+        // removed other assertion
+        // removed other assertion
+
+        // Extreme values
+        // OK, can reduce before negating
+        f = Fraction.of(-2, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign to be in the numerator so this would throw.
+        // assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(-7, Integer.MIN_VALUE));
+        // numbers allows the sign to be in the denominator so this does not throw.
+        f = Fraction.of(-7, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // LANG-662
+        f = Fraction.of(Integer.MIN_VALUE, 2);
+        assertEquals(Integer.MIN_VALUE / 2, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testReducedFactory_int_int_33_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_305_34,"    @Test
+    void testReducedFactory_int_int_34_oe() {
+        Fraction f = null;
+
+        // zero
+        f = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // normal
+        f = Fraction.of(1, 1);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 1);
+        // removed other assertion
+        // removed other assertion
+
+        // improper
+        f = Fraction.of(22, 7);
+        // removed other assertion
+        // removed other assertion
+
+        // negatives
+        f = Fraction.of(-6, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-6, -10);
+        // removed other assertion
+        // removed other assertion
+
+        // zero denominator
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // reduced
+        f = Fraction.of(0, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 2);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(2, 4);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(15, 10);
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(121, 22);
+        // removed other assertion
+        // removed other assertion
+
+        // Extreme values
+        // OK, can reduce before negating
+        f = Fraction.of(-2, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign to be in the numerator so this would throw.
+        // assertThrows(ArithmeticException.class, () -> Fraction.getReducedFraction(-7, Integer.MIN_VALUE));
+        // numbers allows the sign to be in the denominator so this does not throw.
+        f = Fraction.of(-7, Integer.MIN_VALUE);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // LANG-662
+        f = Fraction.of(Integer.MIN_VALUE, 2);
+        // removed other assertion
+        assertEquals(1, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testReducedFactory_int_int_34_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"
+numb_307_7,"    @Test
+    void testNegate_7_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // large values
+        f = Fraction.of(Integer.MAX_VALUE - 1, Integer.MAX_VALUE);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot negate MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).negate());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).negate();
+        assertEquals(1, f.signum());
+    }
+",CommonsLangPortedFractionTest::testNegate_7_oe,org.apache.commons.numbers.fraction.Fraction,signum(),"/**
+     * Retrieves the sign of this fraction.
+     *
+     * @return -1 if the value is strictly negative, 1 if it is strictly
+     * positive, 0 if it is 0.
+     */","public int signum() {
+        return Integer.signum(numerator) * Integer.signum(denominator);
+    }"
+numb_307_8,"    @Test
+    void testNegate_8_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // large values
+        f = Fraction.of(Integer.MAX_VALUE - 1, Integer.MAX_VALUE);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot negate MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).negate());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).negate();
+        // removed other assertion
+        assertEquals(Integer.MIN_VALUE, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testNegate_8_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_307_9,"    @Test
+    void testNegate_9_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // large values
+        f = Fraction.of(Integer.MAX_VALUE - 1, Integer.MAX_VALUE);
+        f = f.negate();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot negate MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).negate());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).negate();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(-1, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testNegate_9_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"
+numb_308_9,"    @Test
+    void testAbs_9_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, 1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, -1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot compute the absolute with MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).abs());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).abs();
+        assertEquals(1, f.signum());
+    }
+",CommonsLangPortedFractionTest::testAbs_9_oe,org.apache.commons.numbers.fraction.Fraction,signum(),"/**
+     * Retrieves the sign of this fraction.
+     *
+     * @return -1 if the value is strictly negative, 1 if it is strictly
+     * positive, 0 if it is 0.
+     */","public int signum() {
+        return Integer.signum(numerator) * Integer.signum(denominator);
+    }"
+numb_308_10,"    @Test
+    void testAbs_10_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, 1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, -1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot compute the absolute with MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).abs());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).abs();
+        // removed other assertion
+        assertEquals(Integer.MIN_VALUE, f.getNumerator());
+    }
+",CommonsLangPortedFractionTest::testAbs_10_oe,org.apache.commons.numbers.fraction.Fraction,getNumerator(),"/**
+     * Access the numerator as an {@code int}.
+     *
+     * @return the numerator as an {@code int}.
+     */","public int getNumerator() {
+        return numerator;
+    }"
+numb_308_11,"    @Test
+    void testAbs_11_oe() {
+        Fraction f = null;
+
+        f = Fraction.of(50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(-50, 75);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, 1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        f = Fraction.of(Integer.MAX_VALUE, -1);
+        f = f.abs();
+        // removed other assertion
+        // removed other assertion
+
+        // lang requires the sign in the numerator and so cannot compute the absolute with MIN_VALUE as the numerator
+        // assertThrows(ArithmeticException.class, () -> Fraction.getFraction(Integer.MIN_VALUE, 1).abs());
+        // numbers allows the sign in the numerator or denominator
+        f = Fraction.of(Integer.MIN_VALUE, 1).abs();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(-1, f.getDenominator());
+    }
+",CommonsLangPortedFractionTest::testAbs_11_oe,org.apache.commons.numbers.fraction.Fraction,getDenominator(),"/**
+     * Access the denominator as an {@code int}.
+     *
+     * @return the denominator as an {@code int}.
+     */","public int getDenominator() {
+        return denominator;
+    }"

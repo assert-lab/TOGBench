@@ -213,6 +213,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.0.0-M7</version>
         <configuration>
+        <test>*_OE25Dev#*_oe</test>
           <useModulePath>false</useModulePath>
 
           <useUnlimitedThreads>true</useUnlimitedThreads>

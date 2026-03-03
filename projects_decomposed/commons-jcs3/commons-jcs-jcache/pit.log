@@ -1,24 +1,78 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache:jar:3.1
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 85, column 17
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] 
-[INFO] ---------------< org.apache.commons:commons-jcs3-jcache >---------------
-[INFO] Building Apache Commons JCS :: JCache 3.1
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jcs3-jcache ---
-[INFO] Skipping project because:
-[INFO]   - Project has either no tests or no production code.
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.880 s
-[INFO] Finished at: 2026-01-15T14:28:57-05:00
-[INFO] ------------------------------------------------------------------------
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache:jar:3.1
+[[1;33mWARNING[m] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 85, column 17
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------< [0;36morg.apache.commons:commons-jcs3-jcache[0;1m >---------------[m
+[[1;34mINFO[m] [1mBuilding Apache Commons JCS :: JCache 3.1[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest-maven:1.22.0:mutationCoverage[m [1m(default-cli)[m @ [36mcommons-jcs3-jcache[0;1m ---[m
+[[1;34mINFO[m] Root dir is : /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache
+[[1;34mINFO[m] Found plugin : Default csv report plugin
+[[1;34mINFO[m] Found plugin : Default xml report plugin
+[[1;34mINFO[m] Found plugin : Default html report plugin
+[[1;34mINFO[m] Found plugin : Static initializer code detector plugin
+[[1;34mINFO[m] Found plugin : Excluded annotations plugin
+[[1;34mINFO[m] Found plugin : Try with resources filter
+[[1;34mINFO[m] Found plugin : Inlined finally block filter plugin
+[[1;34mINFO[m] Found plugin : Implicit null check filter
+[[1;34mINFO[m] Found plugin : Method reference null check filter
+[[1;34mINFO[m] Found plugin : For each loop filter
+[[1;34mINFO[m] Found plugin : Enum junk filter
+[[1;34mINFO[m] Found plugin : Record junk mutation filter
+[[1;34mINFO[m] Found plugin : String switch filter
+[[1;34mINFO[m] Found plugin : Assertions filter
+[[1;34mINFO[m] Found plugin : Enum switch filter
+[[1;34mINFO[m] Found plugin : Logging calls filter
+[[1;34mINFO[m] Found plugin : Infinite for loop filter
+[[1;34mINFO[m] Found plugin : Long running iterator loop filter
+[[1;34mINFO[m] Found plugin : For loop counter filter
+[[1;34mINFO[m] Found plugin : Kotlin junk mutations filter
+[[1;34mINFO[m] Found plugin : Groovy junk mutations filter
+[[1;34mINFO[m] Found plugin : Max mutations per class limit
+[[1;34mINFO[m] Found plugin : Equals shortcut equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Trivial return vals equivalence filter
+[[1;34mINFO[m] Found plugin : Filters mutants with line number <= 1
+[[1;34mINFO[m] Found plugin : Division by one equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Lombok junk mutations filter
+[[1;34mINFO[m] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[[1;34mINFO[m] Found plugin : Mutant export plugin
+[[1;34mINFO[m] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[[1;34mINFO[m] Found plugin : Auto set number of threads based on machine
+[[1;34mINFO[m] Found plugin : Automatically add -ea to launch args to enable assertions
+[[1;34mINFO[m] Found plugin : Default build verifier
+[[1;34mINFO[m] Found plugin : Detect missing JUnit5 plugin
+[[1;34mINFO[m] Found plugin : Detect missing TestNG plugin
+[[1;34mINFO[m] Found plugin : Detect missing kotlin plugin
+[[1;34mINFO[m] Found plugin : Detect missing spring plugin
+[[1;34mINFO[m] Found plugin : Default coverage exporter
+[[1;34mINFO[m] Found plugin : Basic test statistics
+[[1;34mINFO[m] Found shared classpath plugin : Default mutation engine
+[[1;34mINFO[m] Found shared classpath plugin : JUnit plugin
+[[1;34mINFO[m] Found shared classpath plugin : Support for mocking frameworks using javassist
+[[1;34mINFO[m] Found shared classpath plugin : Reset environment for javassist
+[[1;34mINFO[m] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[[1;34mINFO[m] Adding org.pitest:pitest to SUT classpath
+[[1;34mINFO[m] Mutating from /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache/target/classes
+[[1;34mINFO[m] Replacing properties in argLine -Xmx256m
+/-\|/-\|/-\|/-\[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.910 s
+[[1;34mINFO[m] Finished at: 2026-02-23T13:39:19-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.pitest:pitest-maven:1.22.0:mutationCoverage[m [1m(default-cli)[m on project [36mcommons-jcs3-jcache[m: [1;31mExecution default-cli of goal org.pitest:pitest-maven:1.22.0:mutationCoverage failed: 1 tests did not pass without mutation when calculating line coverage. Mutation testing requires a green suite.[m
+[[1;31mERROR[m] [1;31mSee https://pitest.org for more details.[m
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException

@@ -1,0 +1,30 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+rng_141_1,"    @Test
+    void testRestoreWithInvalidClass_1_oe() throws IOException  {
+        // Serialize something
+         ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try (ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+            oos.writeObject(new SerializableTestObject());
+        }
+
+        // Compose the size with the state.
+        // This is what is expected by the JDKRandom class.
+         byte[] state = bos.toByteArray();
+         int stateSize = state.length;
+         byte[] sizeAndState = new byte[4 + stateSize];
+        System.arraycopy(NumberFactory.makeByteArray(stateSize), 0, sizeAndState, 0, 4);
+        System.arraycopy(state, 0, sizeAndState, 4, stateSize);
+
+         RandomProviderDefaultState dummyState = new RandomProviderDefaultState(sizeAndState);
+
+         JDKRandom rng = new JDKRandom(13L);
+        Assertions.assertThrows(IllegalStateException.class, () -> rng.restoreState(dummyState));
+    }
+",JDKRandomTest::testRestoreWithInvalidClass_1_oe,org.apache.commons.rng.core.BaseProvider,void restoreState(RandomProviderState state),/** {@inheritDoc} */,"@Override
+    public void restoreState(RandomProviderState state) {
+        if (state instanceof RandomProviderDefaultState) {
+            setStateInternal(((RandomProviderDefaultState) state).getState());
+        } else {
+            throw new IllegalArgumentException(""Foreign instance"");
+        }
+    }"

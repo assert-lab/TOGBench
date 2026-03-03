@@ -28,13 +28,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613855121
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566692311
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -68,13 +63,13 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[INFO] Tests run: 293, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 s - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[INFO] Tests run: 293, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.312 s - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[INFO] Tests run: 290, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.421 s - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[INFO] Tests run: 290, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.571 s - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 258, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] Tests run: 258, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -83,6 +78,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.621 s
-[INFO] Finished at: 2026-02-20T12:57:43-06:00
+[INFO] Total time:  11.820 s
+[INFO] Finished at: 2026-03-03T13:38:21-06:00
 [INFO] ------------------------------------------------------------------------

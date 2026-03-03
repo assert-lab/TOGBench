@@ -1,0 +1,999 @@
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+vali_49_1,"    public void testCustomResources_1_oe() {
+        InputStream in = null;
+        try {
+            in = this.getClass().getResourceAsStream(""TestNumber-config.xml"");
+        } catch(Exception e) {
+            fail(""Error loading resources: "" + e);
+    }
+    }",CustomValidatorResourcesTest::testCustomResources_1_oe,,,,
+vali_53_5,"   public void testManualObject_5_oe() {
+        String property = ""date"";
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         
+         
+      } catch (Exception e) {
+         fail(""An exception was thrown while calling Validator.validate()"");
+   }
+   }",ValidatorTest::testManualObject_5_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_53_10,"   public void testManualObject_10_oe() {
+        String property = ""date"";
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         
+         
+      } catch (Exception e) {
+      }
+
+      bean.setDate(""2/30/1999"");
+      
+      try {
+         ValidatorResults results = validator.validate();
+         
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         
+         
+      } catch (Exception e) {
+         fail(""An exception was thrown while calling Validator.validate()"");
+   }
+   }",ValidatorTest::testManualObject_10_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_56_1,"   public void testManualBoolean_1_oe() {
+      ValidatorResources resources = new ValidatorResources();
+
+      ValidatorAction va = new ValidatorAction();
+      va.setName(""capLetter"");
+      va.setClassname(""org.apache.commons.validator.ValidatorTest"");
+      va.setMethod(""isCapLetter"");
+      va.setMethodParams(""java.lang.Object,org.apache.commons.validator.Field,java.util.List"");
+      
+      FormSet fs = new FormSet();
+      Form form = new Form();
+      form.setName(""testForm"");
+      Field field = new Field();
+      field.setProperty(""letter"");
+      field.setDepends(""capLetter"");
+      form.addField(field);
+      fs.addForm(form);
+      
+      resources.addValidatorAction(va);
+      resources.addFormSet(fs);
+      resources.process();
+
+      List<?> l = new ArrayList<Object>();
+
+      TestBean bean = new TestBean();  
+      bean.setLetter(""A"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+      validator.setParameter(""java.util.List"", l);
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+         fail(""An exception was thrown while calling Validator.validate()"");
+   }
+   }",ValidatorTest::testManualBoolean_1_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_56_2,"   public void testManualBoolean_2_oe() {
+      ValidatorResources resources = new ValidatorResources();
+
+      ValidatorAction va = new ValidatorAction();
+      va.setName(""capLetter"");
+      va.setClassname(""org.apache.commons.validator.ValidatorTest"");
+      va.setMethod(""isCapLetter"");
+      va.setMethodParams(""java.lang.Object,org.apache.commons.validator.Field,java.util.List"");
+      
+      FormSet fs = new FormSet();
+      Form form = new Form();
+      form.setName(""testForm"");
+      Field field = new Field();
+      field.setProperty(""letter"");
+      field.setDepends(""capLetter"");
+      form.addField(field);
+      fs.addForm(form);
+      
+      resources.addValidatorAction(va);
+      resources.addFormSet(fs);
+      resources.process();
+
+      List<?> l = new ArrayList<Object>();
+
+      TestBean bean = new TestBean();  
+      bean.setLetter(""A"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+      validator.setParameter(""java.util.List"", l);
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+      }
+
+      assertEquals(""Validation of the letter 'A'."", 0, l.size());
+   }",ValidatorTest::testManualBoolean_2_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_56_3,"   public void testManualBoolean_3_oe() {
+      ValidatorResources resources = new ValidatorResources();
+
+      ValidatorAction va = new ValidatorAction();
+      va.setName(""capLetter"");
+      va.setClassname(""org.apache.commons.validator.ValidatorTest"");
+      va.setMethod(""isCapLetter"");
+      va.setMethodParams(""java.lang.Object,org.apache.commons.validator.Field,java.util.List"");
+      
+      FormSet fs = new FormSet();
+      Form form = new Form();
+      form.setName(""testForm"");
+      Field field = new Field();
+      field.setProperty(""letter"");
+      field.setDepends(""capLetter"");
+      form.addField(field);
+      fs.addForm(form);
+      
+      resources.addValidatorAction(va);
+      resources.addFormSet(fs);
+      resources.process();
+
+      List<?> l = new ArrayList<Object>();
+
+      TestBean bean = new TestBean();  
+      bean.setLetter(""A"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+      validator.setParameter(""java.util.List"", l);
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+      }
+
+
+      l.clear();       
+      bean.setLetter(""AA"");
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+         fail(""An exception was thrown while calling Validator.validate()"");
+   }
+   }",ValidatorTest::testManualBoolean_3_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_56_4,"   public void testManualBoolean_4_oe() {
+      ValidatorResources resources = new ValidatorResources();
+
+      ValidatorAction va = new ValidatorAction();
+      va.setName(""capLetter"");
+      va.setClassname(""org.apache.commons.validator.ValidatorTest"");
+      va.setMethod(""isCapLetter"");
+      va.setMethodParams(""java.lang.Object,org.apache.commons.validator.Field,java.util.List"");
+      
+      FormSet fs = new FormSet();
+      Form form = new Form();
+      form.setName(""testForm"");
+      Field field = new Field();
+      field.setProperty(""letter"");
+      field.setDepends(""capLetter"");
+      form.addField(field);
+      fs.addForm(form);
+      
+      resources.addValidatorAction(va);
+      resources.addFormSet(fs);
+      resources.process();
+
+      List<?> l = new ArrayList<Object>();
+
+      TestBean bean = new TestBean();  
+      bean.setLetter(""A"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+      validator.setParameter(""java.util.List"", l);
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+      }
+
+
+      l.clear();       
+      bean.setLetter(""AA"");
+
+      try {
+         validator.validate();
+      } catch (Exception e) {
+      }
+      
+      assertEquals(""Validation of the letter 'AA'."", 1, l.size());
+   }",ValidatorTest::testManualBoolean_4_oe,org.apache.commons.validator.Validator,validate(),"/**
+     * Performs validations based on the configured resources.
+     *
+     * @return The <code>Map</code> returned uses the property of the
+     * <code>Field</code> for the key and the value is the number of error the
+     * field had.
+     * @throws ValidatorException If an error occurs during validation
+     */","public ValidatorResults validate() throws ValidatorException {
+        Locale locale = (Locale) this.getParameterValue(LOCALE_PARAM);
+
+        if (locale == null) {
+            locale = Locale.getDefault();
+        }
+
+        this.setParameter(VALIDATOR_PARAM, this);
+
+        Form form = this.resources.getForm(locale, this.formName);
+        if (form != null) {
+            this.setParameter(FORM_PARAM, form);
+            return form.validate(
+                this.parameters,
+                this.resources.getValidatorActions(),
+                this.page,
+                this.fieldName);
+        }
+
+        return new ValidatorResults();
+    }"
+vali_97_37,"    public void testCompare_37_oe() {
+        int sameTime = 124522;
+        int testDate = 20050823;
+        Calendar diffHour    = createCalendar(GMT, testDate, 115922);    // same date, different time
+        Calendar diffMin     = createCalendar(GMT, testDate, 124422);    // same date, different time
+        Calendar diffSec     = createCalendar(GMT, testDate, 124521);    // same date, different time
+
+        Calendar value       = createCalendar(GMT, testDate, sameTime);   // test value
+        Calendar cal20050824 = createCalendar(GMT, 20050824, sameTime);   // +1 day
+        Calendar cal20050822 = createCalendar(GMT, 20050822, sameTime);   // -1 day
+
+        Calendar cal20050830 = createCalendar(GMT, 20050830, sameTime);   // +1 week
+        Calendar cal20050816 = createCalendar(GMT, 20050816, sameTime);   // -1 week
+
+        Calendar cal20050901 = createCalendar(GMT, 20050901, sameTime);   // +1 month
+        Calendar cal20050801 = createCalendar(GMT, 20050801, sameTime);   // same month
+        Calendar cal20050731 = createCalendar(GMT, 20050731, sameTime);   // -1 month
+
+        Calendar cal20051101 = createCalendar(GMT, 20051101, sameTime);   // +1 quarter (Feb Start)
+        Calendar cal20051001 = createCalendar(GMT, 20051001, sameTime);   // +1 quarter
+        Calendar cal20050701 = createCalendar(GMT, 20050701, sameTime);   // same quarter
+        Calendar cal20050630 = createCalendar(GMT, 20050630, sameTime);   // -1 quarter
+
+        Calendar cal20060101 = createCalendar(GMT, 20060101, sameTime);   // +1 year
+        Calendar cal20050101 = createCalendar(GMT, 20050101, sameTime);   // same year
+        Calendar cal20041231 = createCalendar(GMT, 20041231, sameTime);   // -1 year
+
+
+
+
+
+
+
+
+        try {
+            calValidator.compare(value, value,  -1);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""check message"", ""Invalid field: -1"", e.getMessage());
+    }
+    }",CalendarValidatorTest::testCompare_37_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_112_1,"    public void testSerialization_1_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + "" error during serialization: "" + e);
+    }
+    }",AbstractCalendarValidatorTest::testSerialization_1_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_112_2,"    public void testSerialization_2_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + "" error during deserialization: "" + e);
+    }
+    }",AbstractCalendarValidatorTest::testSerialization_2_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_112_3,"    public void testSerialization_3_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+        }
+        assertNotNull(result);
+    }",AbstractCalendarValidatorTest::testSerialization_3_oe,,,,
+vali_124_1,"    public void testSerialization_1_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + "" error during serialization: "" + e);
+    }
+    }",AbstractNumberValidatorTest::testSerialization_1_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_124_2,"    public void testSerialization_2_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + "" error during deserialization: "" + e);
+    }
+    }",AbstractNumberValidatorTest::testSerialization_2_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_124_3,"    public void testSerialization_3_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+        }
+        assertNotNull(result);
+    }",AbstractNumberValidatorTest::testSerialization_3_oe,,,,
+vali_216_2,"    public void testMissingRegex_2_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Single Null"", ""Regular expression[0] is missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_2_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_216_4,"    public void testMissingRegex_4_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator("""");
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Single Zero Length"", ""Regular expression[0] is missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_4_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_216_6,"    public void testMissingRegex_6_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator("""");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator((String[])null);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Null Array"", ""Regular expressions are missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_6_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_216_8,"    public void testMissingRegex_8_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator("""");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator((String[])null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator(new String[0]);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Zero Length Array"", ""Regular expressions are missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_8_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_216_10,"    public void testMissingRegex_10_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator("""");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator((String[])null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator(new String[0]);
+        } catch (IllegalArgumentException e) {
+        }
+
+        String[] expressions = new String[] {""ABC"", null};
+        try {
+            new RegexValidator(expressions);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Array has Null"", ""Regular expression[1] is missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_10_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_216_12,"    public void testMissingRegex_12_oe() {
+
+        try {
+            new RegexValidator((String)null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator("""");
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator((String[])null);
+        } catch (IllegalArgumentException e) {
+        }
+
+        try {
+            new RegexValidator(new String[0]);
+        } catch (IllegalArgumentException e) {
+        }
+
+        String[] expressions = new String[] {""ABC"", null};
+        try {
+            new RegexValidator(expressions);
+        } catch (IllegalArgumentException e) {
+        }
+
+        expressions = new String[] {"""", ""ABC""};
+        try {
+            new RegexValidator(expressions);
+        } catch (IllegalArgumentException e) {
+            assertEquals(""Array has Zero Length"", ""Regular expression[0] is missing"", e.getMessage());
+    }
+    }",RegexValidatorTest::testMissingRegex_12_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_291_6,"    public void testInvalidLength_6_oe() {
+
+        try {
+            routine.calculate(""12345678"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 8"", ""Invalid ISBN Length = 8"", e.getMessage());
+    }
+    }",ISBNCheckDigitTest::testInvalidLength_6_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_291_8,"    public void testInvalidLength_8_oe() {
+
+        try {
+            routine.calculate(""12345678"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 10"", ""Invalid ISBN Length = 10"", e.getMessage());
+    }
+    }",ISBNCheckDigitTest::testInvalidLength_8_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_291_10,"    public void testInvalidLength_10_oe() {
+
+        try {
+            routine.calculate(""12345678"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""12345678901"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 11"", ""Invalid ISBN Length = 11"", e.getMessage());
+    }
+    }",ISBNCheckDigitTest::testInvalidLength_10_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_291_12,"    public void testInvalidLength_12_oe() {
+
+        try {
+            routine.calculate(""12345678"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""12345678901"");
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate(""1234567890123"");
+        } catch (Exception e) {
+            assertEquals(""calculate() Lth 13"", ""Invalid ISBN Length = 13"", e.getMessage());
+    }
+    }",ISBNCheckDigitTest::testInvalidLength_12_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_297_2,"    public void testCalculateValid_2_oe() {
+        if (log.isDebugEnabled()) {
+            log.debug(""testCalculateValid() for "" + routine.getClass().getName());
+        }
+
+        for (int i = 0; i < valid.length; i++) {
+            String code = removeCheckDigit(valid[i]);
+            String expected = checkDigit(valid[i]);
+            try {
+                if (log.isDebugEnabled()) {
+                    log.debug(""   "" + i + "" Testing Valid Check Digit, Code=["" + code + ""] expected=["" + expected + ""]"");
+                }
+            } catch (Exception e) {
+                fail(""valid["" + i +""]="" + valid[i] + "" threw "" + e);
+    }
+    }
+    }",AbstractCheckDigitTest::testCalculateValid_2_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_298_2,"    public void testCalculateInvalid_2_oe() {
+
+        if (log.isDebugEnabled()) {
+            log.debug(""testCalculateInvalid() for "" + routine.getClass().getName());
+        }
+
+        for (int i = 0; i < invalid.length; i++) {
+            try {
+                final String code = invalid[i];
+                if (log.isDebugEnabled()) {
+                    log.debug(""   "" + i + "" Testing Invalid Check Digit, Code=["" + code + ""]"");
+                }
+                String expected = checkDigit(code);
+                String actual = routine.calculate(removeCheckDigit(code));
+                if (expected.equals(actual)) {
+                }
+            } catch (CheckDigitException e) {
+                assertTrue(""Invalid Character["" +i +""]="" +  e.getMessage(), e.getMessage().startsWith(""Invalid ""));
+    }
+    }
+    }",AbstractCheckDigitTest::testCalculateInvalid_2_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_299_5,"    public void testMissingCode_5_oe() {
+
+
+
+
+        try {
+            routine.calculate(null);
+        } catch (Exception e) {
+            assertEquals(""calculate() Null"", missingMessage, e.getMessage());
+    }
+    }",AbstractCheckDigitTest::testMissingCode_5_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_299_7,"    public void testMissingCode_7_oe() {
+
+
+
+
+        try {
+            routine.calculate(null);
+        } catch (Exception e) {
+        }
+
+        try {
+            routine.calculate("""");
+        } catch (Exception e) {
+            assertEquals(""calculate() Zero Length"",  missingMessage, e.getMessage());
+    }
+    }",AbstractCheckDigitTest::testMissingCode_7_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_300_3,"    public void testZeroSum_3_oe() {
+        
+
+        try {
+            routine.calculate(zeroSum);
+        } catch (Exception e) {
+            assertEquals(""isValid() Zero Sum"",  ""Invalid code, sum is zero"", e.getMessage());
+    }
+    }",AbstractCheckDigitTest::testZeroSum_3_oe,org.apache.commons.validator.Field,getMessage(String key),"/**
+     * Retrieve a message object.
+     * @since Validator 1.1.4
+     * @param key Validation key.
+     * @return A validation message for a specified validator.
+     */","public Msg getMessage(String key) {
+        return getMsgMap().get(key);
+    }"
+vali_301_1,"    public void testSerialization_1_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(routine);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            fail(routine.getClass().getName() + "" error during serialization: "" + e);
+    }
+    }",AbstractCheckDigitTest::testSerialization_1_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_301_2,"    public void testSerialization_2_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(routine);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+            fail(routine.getClass().getName() + "" error during deserialization: "" + e);
+    }
+    }",AbstractCheckDigitTest::testSerialization_2_oe,org.apache.commons.validator.Msg,getName(),"/**
+     * Gets the name of the dependency.
+     * @return The dependency name.
+     */","public String getName() {
+        return name;
+    }"
+vali_301_3,"    public void testSerialization_3_oe() {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(routine);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+        }
+
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+        }
+        assertNotNull(result);
+    }",AbstractCheckDigitTest::testSerialization_3_oe,,,,

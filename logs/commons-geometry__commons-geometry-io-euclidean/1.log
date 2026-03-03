@@ -36,13 +36,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613780826
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566623238
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-io-euclidean ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -81,51 +76,51 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.088 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.392 s - in org.apache.commons.geometry.io.euclidean.DocumentationExamplesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriterTest_OE25Dev
-[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriterTest_OE25Dev
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.296 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlWriterTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.261 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlBoundaryWriteHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.StlFacetDefinitionReadersTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlFacetDefinitionReadersTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.geometry.io.euclidean.threed.stl.StlFacetDefinitionReadersTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.geometry.io.euclidean.threed.stl.TextStlFacetDefinitionReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReaderTest_OE25Dev
 [INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlFacetDefinitionReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriterTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriterTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.097 s - in org.apache.commons.geometry.io.euclidean.threed.stl.BinaryStlWriterTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.geometry.io.euclidean.threed.BoundaryIOManager3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.geometry.io.euclidean.threed.FacetDefinitionsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.geometry.io.euclidean.threed.AbstractBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.geometry.io.euclidean.threed.SimpleFacetDefinitionTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjFacetDefinitionReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjTriangleMeshReaderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
-[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.229 s - in org.apache.commons.geometry.io.euclidean.threed.obj.PolygonObjParserTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjBoundaryWriteHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriterTest_OE25Dev
-[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriterTest_OE25Dev
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.geometry.io.euclidean.threed.obj.ObjWriterTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryReadHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextBoundaryWriteHandler3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionWriterTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.io.euclidean.threed.txt.TextFacetDefinitionReaderTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -134,6 +129,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.918 s
-[INFO] Finished at: 2026-02-20T12:56:42-06:00
+[INFO] Total time:  25.275 s
+[INFO] Finished at: 2026-03-03T13:37:24-06:00
 [INFO] ------------------------------------------------------------------------

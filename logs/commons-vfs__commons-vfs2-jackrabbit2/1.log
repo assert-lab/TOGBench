@@ -36,13 +36,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2-jackrabbit2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613808112
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2-jackrabbit2
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566648859
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2-jackrabbit2 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -85,7 +80,7 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.vfs2.provider.webdav4.Webdav4FileObjectTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.954 s - in org.apache.commons.vfs2.provider.webdav4.Webdav4FileObjectTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.682 s - in org.apache.commons.vfs2.provider.webdav4.Webdav4FileObjectTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -94,6 +89,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  22.527 s
-[INFO] Finished at: 2026-02-20T12:57:05-06:00
+[INFO] Total time:  19.453 s
+[INFO] Finished at: 2026-03-03T13:37:43-06:00
 [INFO] ------------------------------------------------------------------------

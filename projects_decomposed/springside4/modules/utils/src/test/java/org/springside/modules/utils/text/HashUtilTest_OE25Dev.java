@@ -1,0 +1,194 @@
+package org.springside.modules.utils.text;
+
+import static org.assertj.core.api.Assertions.*;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.junit.Test;
+import org.springside.modules.utils.io.ResourceUtil;
+
+public class HashUtilTest_OE25Dev {
+
+	@Test
+	public void hashSha1_1_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+		assertThat(result).isEqualTo("sCtJLx2IJNto032AhdkP64t/os4=");
+	}
+
+	@Test
+	public void hashSha1_2_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes()));
+		assertThat(result).isEqualTo("sCtJLx2IJNto032AhdkP64t/os4=");
+	}
+
+	@Test
+	public void hashSha1_3_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes()));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5)));
+		System.out.println("sha1 with salt:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo("U/7wy5R1sVrjEf3dOTAPz383g2k=");
+	}
+
+	@Test
+	public void hashSha1_4_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes()));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5)));
+		System.out.println("sha1 with salt:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }));
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes(), new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo(result2);
+	}
+
+	@Test
+	public void hashSha1_5_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes()));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5)));
+		System.out.println("sha1 with salt:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }));
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes(), new byte[] { 1, 2, 3 }));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5), 2));
+		System.out.println("sha1 with salt with iteration:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo("n9O7laits+ovoK8X8xde+XrsCtM=");
+	}
+
+	@Test
+	public void hashSha1_6_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah"));
+		System.out.println("sha1:" + result);
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes()));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5)));
+		System.out.println("sha1 with salt:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }));
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes(), new byte[] { 1, 2, 3 }));
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", HashUtil.generateSalt(5), 2));
+		System.out.println("sha1 with salt with iteration:" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah", new byte[] { 1, 2, 3 }, 2));
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1("hhahah".getBytes(), new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo(result2);
+	}
+
+	@Test
+	public void hashFile_1_oe() throws IOException {
+		InputStream in = ResourceUtil.asStream("test.txt");
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1File(in));
+		assertThat(result).isEqualTo("DmSnwK/Fl0Jplrwtm9tfi7cb/js=");
+	}
+
+	@Test
+	public void hashFile_2_oe() throws IOException {
+		InputStream in = ResourceUtil.asStream("test.txt");
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1File(in));
+		result = EncodeUtil.encodeBase64(HashUtil.md5File(in));
+		assertThat(result).isEqualTo("1B2M2Y8AsgTpgAmY7PhCfg==");
+	}
+
+	@Test
+	public void crc32_1_oe() {
+		assertThat(HashUtil.crc32AsInt("hahhha1")).isEqualTo(-625925593);
+	}
+
+	@Test
+	public void crc32_2_oe() {
+		assertThat(HashUtil.crc32AsInt("hahhha1".getBytes())).isEqualTo(-625925593);
+	}
+
+	@Test
+	public void crc32_3_oe() {
+		assertThat(HashUtil.crc32AsInt("hahhha2")).isEqualTo(1136161693);
+	}
+
+	@Test
+	public void crc32_4_oe() {
+
+		assertThat(HashUtil.crc32AsLong("hahhha1")).isEqualTo(3669041703L);
+	}
+
+	@Test
+	public void crc32_5_oe() {
+
+		assertThat(HashUtil.crc32AsLong("hahhha1".getBytes())).isEqualTo(3669041703L);
+	}
+
+	@Test
+	public void crc32_6_oe() {
+
+		assertThat(HashUtil.crc32AsLong("hahhha2")).isEqualTo(1136161693L);
+	}
+
+	@Test
+	public void murmurhash_1_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha1")).isEqualTo(-1920794701);
+	}
+
+	@Test
+	public void murmurhash_2_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha1".getBytes())).isEqualTo(-1920794701);
+	}
+
+	@Test
+	public void murmurhash_3_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha2")).isEqualTo(2065789419);
+	}
+
+	@Test
+	public void murmurhash_4_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha3")).isEqualTo(-293065542);
+	}
+
+	@Test
+	public void murmurhash_5_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha4")).isEqualTo(-2003559207);
+	}
+
+	@Test
+	public void murmurhash_6_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha5")).isEqualTo(-3887993);
+	}
+
+	@Test
+	public void murmurhash_7_oe() {
+		assertThat(HashUtil.murmur32AsInt("hahhha6")).isEqualTo(-446760132);
+	}
+
+	@Test
+	public void murmurhash_8_oe() {
+		
+		assertThat(HashUtil.murmur128AsLong("hahhha6")).isEqualTo(-5203515929515563680L);
+	}
+
+	@Test
+	public void murmurhash_9_oe() {
+		
+		assertThat(HashUtil.murmur128AsLong("hahhha6".getBytes(Charsets.UTF_8))).isEqualTo(-5203515929515563680L);
+	}
+
+}

@@ -33,13 +33,8 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-extras ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras
-[INFO] Storing buildNumber: 4d9d360d35cef158270763ad03ba8e5d93c07475 at timestamp: 1771613781542
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
-
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-extras
-[INFO] Storing buildScmBranch: UNKNOWN
+[INFO] Storing buildNumber: 53df724e8c4d67547212d860dfed689b7c447fa6 at timestamp: 1772566622827
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-extras ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -80,15 +75,15 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.27 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.971 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.214 s - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.176 s - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -97,6 +92,6 @@ Detecting the current branch failed: fatal: ref HEAD is not a symbolic ref
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  22.873 s
-[INFO] Finished at: 2026-02-20T12:56:39-06:00
+[INFO] Total time:  20.643 s
+[INFO] Finished at: 2026-03-03T13:37:19-06:00
 [INFO] ------------------------------------------------------------------------

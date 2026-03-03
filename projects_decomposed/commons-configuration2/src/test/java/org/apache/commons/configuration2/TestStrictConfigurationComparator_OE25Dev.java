@@ -1,0 +1,143 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package org.apache.commons.configuration2;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+/**
+ * Tests the StrintConfigurationComparator class
+ *
+ */
+public class TestStrictConfigurationComparator_OE25Dev {
+    /**
+     * The comparator.
+     */
+    protected ConfigurationComparator comparator = new StrictConfigurationComparator();
+
+    /**
+     * The first configuration.
+     */
+    protected Configuration configuration = new BaseConfiguration();
+
+    /**
+     * Tests the comparator.
+     */
+
+    @Test
+    public void testCompare_1_oe() {
+        assertTrue("Compare an empty configuration with itself", comparator.compare(configuration, configuration));
+    }
+
+    @Test
+    public void testCompare_2_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+        assertTrue("Compare a configuration with itself", comparator.compare(configuration, configuration));
+    }
+
+    @Test
+    public void testCompare_3_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
+        assertFalse("Compare a configuration with an empty one", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompare_4_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
+
+        other.setProperty("one", "1");
+        other.setProperty("two", "2");
+        other.setProperty("three", "3");
+
+        assertTrue("Compare a configuration with an identical one", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompare_5_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
+
+        other.setProperty("one", "1");
+        other.setProperty("two", "2");
+        other.setProperty("three", "3");
+
+
+        other.setProperty("four", "4");
+        assertFalse("Compare our configuration with another that has an additional key mapping", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompare_6_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
+
+        other.setProperty("one", "1");
+        other.setProperty("two", "2");
+        other.setProperty("three", "3");
+
+
+        other.setProperty("four", "4");
+
+        configuration.setProperty("four", "4");
+        assertTrue("Compare our configuration with another that is identical", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompareNull_1_oe() {
+        assertTrue(comparator.compare(null, null));
+    }
+
+    @Test
+    public void testCompareNull_2_oe() {
+        assertFalse(comparator.compare(configuration, null));
+    }
+
+    @Test
+    public void testCompareNull_3_oe() {
+        assertFalse(comparator.compare(null, configuration));
+    }
+
+}

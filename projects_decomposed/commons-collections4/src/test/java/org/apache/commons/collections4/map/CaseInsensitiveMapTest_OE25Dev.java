@@ -1,0 +1,213 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.collections4.map;
+
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+import junit.framework.Test;
+
+import org.apache.commons.collections4.BulkTest;
+
+/**
+ * Tests for the {@link CaseInsensitiveMap} implementation.
+ *
+ */
+public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
+
+    public CaseInsensitiveMapTest_OE25Dev(final String testName) {
+        super(testName);
+    }
+
+    public static Test suite() {
+        return new junit.framework.TestSuite(CaseInsensitiveMapTest_OE25Dev.class);
+    }
+
+    @Override
+    public CaseInsensitiveMap<K, V> makeObject() {
+        return new CaseInsensitiveMap<>();
+    }
+
+    @Override
+    public String getCompatibilityVersion() {
+        return "4";
+    }
+
+    //-------------------------------------------------------------------------
+
+//    public void testCreate() throws Exception {
+//        resetEmpty();
+//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CaseInsensitiveMap.emptyCollection.version4.obj");
+//        resetFull();
+//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CaseInsensitiveMap.fullCollection.version4.obj");
+//    }
+
+    // COLLECTIONS-294
+    public void testLocaleIndependence() {
+        final Locale orig = Locale.getDefault();
+
+        final Locale[] locales = { Locale.ENGLISH, new Locale("tr", "", ""), Locale.getDefault() };
+
+        final String[][] data = {
+            { "i", "I" },
+            { "\u03C2", "\u03C3" },
+            { "\u03A3", "\u03C2" },
+            { "\u03A3", "\u03C3" },
+        };
+
+        try {
+            for (final Locale locale : locales) {
+                Locale.setDefault(locale);
+                for (int j = 0; j < data.length; j++) {
+                    assertTrue("Test data corrupt: " + j, data[j][0].equalsIgnoreCase(data[j][1]));
+                    final CaseInsensitiveMap<String, String> map = new CaseInsensitiveMap<>();
+                    map.put(data[j][0], "value");
+                    assertEquals(Locale.getDefault() + ": " + j, "value", map.get(data[j][1]));
+                }
+            }
+        } finally {
+            Locale.setDefault(orig);
+        }
+    }
+
+    /**
+     * Test for <a href="https://issues.apache.org/jira/browse/COLLECTIONS-323">COLLECTIONS-323</a>.
+     */
+
+    public void testCaseInsensitive_1_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        assertEquals("One", map.get("one"));
+    }
+
+    public void testCaseInsensitive_2_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        assertEquals("One", map.get("oNe"));
+    }
+
+    public void testCaseInsensitive_3_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put((K) "two", (V) "Three");
+        assertEquals("Three", map.get("Two"));
+    }
+
+    public void testNullHandling_1_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        assertEquals("Three", map.get(null));
+    }
+
+    public void testNullHandling_2_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        map.put(null, (V) "Four");
+        assertEquals("Four", map.get(null));
+    }
+
+    public void testNullHandling_3_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        map.put(null, (V) "Four");
+        final Set<K> keys = map.keySet();
+        assertTrue(keys.contains("one"));
+    }
+
+    public void testNullHandling_4_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        map.put(null, (V) "Four");
+        final Set<K> keys = map.keySet();
+        assertTrue(keys.contains("two"));
+    }
+
+    public void testNullHandling_5_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        map.put(null, (V) "Four");
+        final Set<K> keys = map.keySet();
+        assertTrue(keys.contains(null));
+    }
+
+    public void testNullHandling_6_oe() {
+        final Map<K, V> map = makeObject();
+        map.put((K) "One", (V) "One");
+        map.put((K) "Two", (V) "Two");
+        map.put(null, (V) "Three");
+        map.put(null, (V) "Four");
+        final Set<K> keys = map.keySet();
+        assertEquals(3, keys.size());
+    }
+
+    public void testPutAll_1_oe() {
+        final Map<Object, String> map = new HashMap<>();
+        map.put("One", "One");
+        map.put("Two", "Two");
+        map.put("one", "Three");
+        map.put(null, "Four");
+        map.put(Integer.valueOf(20), "Five");
+        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
+        assertEquals(4,caseInsensitiveMap.size());
+    }
+
+    public void testPutAll_2_oe() {
+        final Map<Object, String> map = new HashMap<>();
+        map.put("One", "One");
+        map.put("Two", "Two");
+        map.put("one", "Three");
+        map.put(null, "Four");
+        map.put(Integer.valueOf(20), "Five");
+        final Map<Object, String> caseInsensitiveMap = new CaseInsensitiveMap<>(map);
+        assertTrue(!caseInsensitiveMap.containsValue("One")|| !caseInsensitiveMap.containsValue("Three"));// ones collaped assertEquals("Four",caseInsensitiveMap.get(null));
+    }
+
+    public void testClone_1_oe() {
+        final CaseInsensitiveMap<K, V> map = new CaseInsensitiveMap<>(10);
+        map.put((K) "1", (V) "1");
+        final CaseInsensitiveMap<K, V> cloned = map.clone();
+        assertEquals(map.size(), cloned.size());
+    }
+
+    public void testClone_2_oe() {
+        final CaseInsensitiveMap<K, V> map = new CaseInsensitiveMap<>(10);
+        map.put((K) "1", (V) "1");
+        final CaseInsensitiveMap<K, V> cloned = map.clone();
+        assertSame(map.get("1"), cloned.get("1"));
+    }
+
+    public void testInitialCapacityZero_1_oe() {
+        final CaseInsensitiveMap<String,String> map = new CaseInsensitiveMap<>(0);
+        assertEquals(1, map.data.length);
+    }
+
+}
