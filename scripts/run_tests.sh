@@ -3,7 +3,7 @@
 #!/bin/bash
 set -e
 
-folder="projects_decomposed/joda-time"
+folder="projects_decomposed/commons-configuration2"
 
 echo "running $folder"
 cd "$folder"

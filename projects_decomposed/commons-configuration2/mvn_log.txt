@@ -52,7 +52,7 @@ Parser generated successfully.
 [INFO] --- buildnumber-maven-plugin:3.0.0:create (default) @ commons-configuration2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2
-[INFO] Storing buildNumber: null at timestamp: 1772595133178
+[INFO] Storing buildNumber: null at timestamp: 1772951367291
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ commons-configuration2 ---
@@ -66,6 +66,8 @@ Parser generated successfully.
 [INFO] Compiling 268 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractConfiguration.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractConfiguration.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractYAMLBasedConfiguration.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractYAMLBasedConfiguration.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -84,11 +86,19 @@ Parser generated successfully.
 [INFO] Compiling 356 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestXMLListHandling.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestXMLListHandling.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/combined/TestCombinedConfigurationBuilder.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/combined/TestCombinedConfigurationBuilder.java: Recompile with -Xlint:unchecked for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJSONConfiguration_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJSONConfiguration_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.20:check (checkAPIcompatibility) @ commons-configuration2 ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.8:prepare-agent (prepare-agent) @ commons-configuration2 ---
 [INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/jacoco.exec
@@ -104,184 +114,535 @@ SLF4J: Found binding in [jar:file:/home/tasfia/.m2/repository/org/slf4j/slf4j-re
 SLF4J: Found binding in [jar:file:/home/tasfia/.m2/repository/org/slf4j/slf4j-nop/1.7.36/slf4j-nop-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev
+[ERROR] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.032 s <<< FAILURE! - in org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev
+[ERROR] testGetKeys_1_oe(org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev.testGetKeys_1_oe(TestJNDIEnvironmentValues_OE25Dev.java:141)
+
 [INFO] Running org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev
+[ERROR] testResetReloadingState_1_oe(org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev.testResetReloadingState_1_oe(TestReloadingController_OE25Dev.java:188)
+
+[INFO] Running org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev
+[ERROR] Tests run: 11, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev
+[ERROR] testReloadingAndReset_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0.026 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testReloadingAndReset_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:327)
+
+[ERROR] testRefreshDelay_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testRefreshDelay_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:265)
+
+[ERROR] testRefreshDelay_2_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testRefreshDelay_2_oe(TestFileHandlerReloadingDetector_OE25Dev.java:276)
+
+[ERROR] testRefreshReloadingAndReset_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testRefreshReloadingAndReset_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:301)
+
+[ERROR] testIsReloadingRequiredTrue_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredTrue_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:254)
+
+[ERROR] testIsReloadingRequiredNoLocation_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredNoLocation_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:243)
+
+[ERROR] testIsReloadingRequiredFileDoesNotExist_1_oe(org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredFileDoesNotExist_1_oe(TestFileHandlerReloadingDetector_OE25Dev.java:237)
+
 [INFO] Running org.apache.commons.configuration2.reloading.TestPeriodicReloadingTrigger_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.configuration2.reloading.TestPeriodicReloadingTrigger_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.reloading.TestPeriodicReloadingTrigger_OE25Dev
 [INFO] Running org.apache.commons.configuration2.reloading.TestVFSFileHandlerReloadingDetector_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.reloading.TestVFSFileHandlerReloadingDetector_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.configuration2.reloading.TestVFSFileHandlerReloadingDetector_OE25Dev
 [INFO] Running org.apache.commons.configuration2.reloading.TestCombinedReloadingController_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestCombinedReloadingController_OE25Dev
 [INFO] Running org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
-log4j:WARN No appenders could be found for logger (org.apache.commons.configuration2.io.FileLocatorUtils).
+log4j:WARN No appenders could be found for logger (org.apache.commons.configuration2.reloading.ManagedReloadingDetector).
 log4j:WARN Please initialize the log4j system properly.
 log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev
+[ERROR] testReloadingPerformed_1_oe(org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev.testReloadingPerformed_1_oe(TestManagedReloadingDetector_OE25Dev.java:83)
+
+[INFO] Running org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
+[INFO] Running org.apache.commons.configuration2.TestXMLPropertiesConfiguration_OE25Dev
+Warning: validation was turned on but an org.xml.sax.ErrorHandler was not set, which is probably not what is desired.  Parser will use a default ErrorHandler to print the first 0  errors.  Please call the setErrorHandler method to fix this.
+Error: URI=null Line=1: Document root element "properties", must match DOCTYPE root "null".
+Error: URI=null Line=1: Document is invalid: no grammar found.
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.configuration2.TestXMLPropertiesConfiguration_OE25Dev
+[INFO] Running org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev
+[ERROR] testList3_1_oe(org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<3>
+	at org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev.testList3_1_oe(TestThreesomeConfiguration_OE25Dev.java:70)
+
 [INFO] Running org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev
+[ERROR] Tests run: 21, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.052 s <<< FAILURE! - in org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev
+[ERROR] testgetProperty_16_oe(org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev.testgetProperty_16_oe(TestXMLConfiguration_OE25Dev.java:1761)
+
+[ERROR] testgetProperty_21_oe(org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<4>
+	at org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev.testgetProperty_21_oe(TestXMLConfiguration_OE25Dev.java:1785)
+
+[ERROR] testgetProperty_28_oe(org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev.testgetProperty_28_oe(TestXMLConfiguration_OE25Dev.java:1838)
+
+[ERROR] testClone_3_oe(org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev.testClone_3_oe(TestXMLConfiguration_OE25Dev.java:1596)
+
 [INFO] Running org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev
+[ERROR] Tests run: 12, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.286 s <<< FAILURE! - in org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev
+[ERROR] testIsEmptyMultiple_1_oe(org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev)  Time elapsed: 0.013 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev.testIsEmptyMultiple_1_oe(TestDatabaseConfiguration_OE25Dev.java:595)
+
+[ERROR] testClearSubset_2_oe(org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev.testClearSubset_2_oe(TestDatabaseConfiguration_OE25Dev.java:548)
+
+[ERROR] testGetList_1_oe(org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<3>
+	at org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev.testGetList_1_oe(TestDatabaseConfiguration_OE25Dev.java:589)
+
+[ERROR] testGetKeys_1_oe(org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev.testGetKeys_1_oe(TestDatabaseConfiguration_OE25Dev.java:556)
+
+[ERROR] testIsEmptySingle_1_oe(org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev)  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev.testIsEmptySingle_1_oe(TestDatabaseConfiguration_OE25Dev.java:601)
+
 [INFO] Running org.apache.commons.configuration2.io.TestFileHandler_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestFileHandler_OE25Dev
+[ERROR] Tests run: 12, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.configuration2.io.TestFileHandler_OE25Dev
+[ERROR] testSetBasePath_2_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testSetBasePath_2_oe(TestFileHandler_OE25Dev.java:1472)
+
+[ERROR] testSetBasePath_3_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testSetBasePath_3_oe(TestFileHandler_OE25Dev.java:1482)
+
+[ERROR] testSetURLNull_3_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testSetURLNull_3_oe(TestFileHandler_OE25Dev.java:1504)
+
+[ERROR] testClearLocation_1_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0.009 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testClearLocation_1_oe(TestFileHandler_OE25Dev.java:1409)
+
+[ERROR] testClearLocation_2_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testClearLocation_2_oe(TestFileHandler_OE25Dev.java:1417)
+
+[ERROR] testClearLocation_3_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testClearLocation_3_oe(TestFileHandler_OE25Dev.java:1425)
+
+[ERROR] testIsLocationDefinedFileName_1_oe(org.apache.commons.configuration2.io.TestFileHandler_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestFileHandler_OE25Dev.testIsLocationDefinedFileName_1_oe(TestFileHandler_OE25Dev.java:1439)
+
 [INFO] Running org.apache.commons.configuration2.io.TestFileLocator_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestFileLocator_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.io.TestFileLocator_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestBasePathLocationStrategy_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestBasePathLocationStrategy_OE25Dev
+[INFO] Running org.apache.commons.configuration2.io.TestFileSystemLocationStrategy_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestFileSystemLocationStrategy_OE25Dev
+[INFO] Running org.apache.commons.configuration2.io.TestAbsoluteNameLocationStrategy_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestAbsoluteNameLocationStrategy_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestClasspathLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestClasspathLocationStrategy_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.io.TestClasspathLocationStrategy_OE25Dev
+[INFO] Running org.apache.commons.configuration2.io.TestProvidedURLLocationStrategy_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestProvidedURLLocationStrategy_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev
+[ERROR] testIsDebugEnabled_1_oe(org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev.testIsDebugEnabled_1_oe(TestConfigurationLogger_OE25Dev.java:267)
+
+[ERROR] testSubClass_1_oe(org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev.testSubClass_1_oe(TestConfigurationLogger_OE25Dev.java:290)
+
+[INFO] Running org.apache.commons.configuration2.io.TestHomeDirectoryLocationStrategy_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestHomeDirectoryLocationStrategy_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestDefaultFileSystem_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestDefaultFileSystem_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestDefaultFileSystem_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestCombinedLocationStrategy_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestCombinedLocationStrategy_OE25Dev
 [INFO] Running org.apache.commons.configuration2.io.TestFileLocatorUtils_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.io.TestFileLocatorUtils_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestFileLocatorUtils_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestConfigurationUtils_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestConfigurationUtils_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationUtils_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestEqualBehavior_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestEqualBehavior_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.configuration2.TestEqualBehavior_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev
+[ERROR] testInitForNewDocument_3_oe(org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev.testInitForNewDocument_3_oe(TestXMLDocumentHelper_OE25Dev.java:300)
+
+[ERROR] testInitForNewDocument_4_oe(org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev.testInitForNewDocument_4_oe(TestXMLDocumentHelper_OE25Dev.java:309)
+
 [INFO] Running org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.event.TestConfigurationEventTypes_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.event.TestConfigurationEventTypes_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestConfigurationEventTypes_OE25Dev
+[INFO] Running org.apache.commons.configuration2.event.TestEventType_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventType_OE25Dev
 [INFO] Running org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
 [INFO] Running org.apache.commons.configuration2.event.TestEvent_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEvent_OE25Dev
 [INFO] Running org.apache.commons.configuration2.event.TestEventSource_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventSource_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.event.TestEventSource_OE25Dev
+[ERROR] testSetDetailEvents_2_oe(org.apache.commons.configuration2.event.TestEventSource_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.event.TestEventSource_OE25Dev.testSetDetailEvents_2_oe(TestEventSource_OE25Dev.java:332)
+
 [INFO] Running org.apache.commons.configuration2.TestHierarchicalConfiguration_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestHierarchicalConfiguration_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestHierarchicalConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.web.TestServletRequestConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.web.TestServletRequestConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestSystemConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSystemConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.convert.TestDisabledListDelimiterHandler_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.convert.TestDisabledListDelimiterHandler_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDisabledListDelimiterHandler_OE25Dev
 [INFO] Running org.apache.commons.configuration2.convert.TestPropertyConverter_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestPropertyConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestPropertyConverter_OE25Dev
 [INFO] Running org.apache.commons.configuration2.convert.TestDefaultConversionHandler_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDefaultConversionHandler_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDefaultConversionHandler_OE25Dev
 [INFO] Running org.apache.commons.configuration2.convert.TestDefaultListDelimiterHandler_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDefaultListDelimiterHandler_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDefaultListDelimiterHandler_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestCopyObjectDefaultHandler_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestCopyObjectDefaultHandler_OE25Dev
+[INFO] Running org.apache.commons.configuration2.builder.TestHierarchicalBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestHierarchicalBuilderParametersImpl_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestBuilderConfigurationWrapperFactory_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBuilderConfigurationWrapperFactory_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestBasicConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilder_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilder_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestPropertiesBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestPropertiesBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestPropertiesBuilderParametersImpl_OE25Dev
+[INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilder_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilder_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestFileExtensionConfigurationBuilderProvider_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestFileExtensionConfigurationBuilderProvider_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev
+[ERROR] testEnvironmentProperties_1_oe(org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev.testEnvironmentProperties_1_oe(TestCombinedConfigurationBuilder_OE25Dev.java:1217)
+
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestConfigurationDeclaration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestConfigurationDeclaration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiWrapDynaBean_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.configuration2.builder.combined.TestMultiWrapDynaBean_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiWrapDynaBean_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestBaseConfigurationBuilderProvider_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestBaseConfigurationBuilderProvider_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingMultiFileConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingMultiFileConfigurationBuilder_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingMultiFileConfigurationBuilder_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiFileConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileConfigurationBuilder_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileConfigurationBuilder_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev
+[ERROR] Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev
+[ERROR] testSetDefinitionBuilder_1_oe(org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev.testSetDefinitionBuilder_1_oe(TestCombinedBuilderParametersImpl_OE25Dev.java:414)
+
+[ERROR] testFromParametersCreate_2_oe(org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev.testFromParametersCreate_2_oe(TestCombinedBuilderParametersImpl_OE25Dev.java:385)
+
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiFileBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileBuilderParametersImpl_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilderVFS_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilderVFS_OE25Dev
+[INFO] Running org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestBasicBuilderParameters_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicBuilderParameters_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.builder.TestBasicBuilderParameters_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestBasicConfigurationBuilderEvents_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilderEvents_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilderEvents_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestXMLBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestXMLBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestXMLBuilderParametersImpl_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev
+[ERROR] Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev
+[ERROR] testSetLocationNoFileHandler_1_oe(org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev.testSetLocationNoFileHandler_1_oe(TestFileBasedConfigurationBuilder_OE25Dev.java:676)
+
+[ERROR] testAutoSave_2_oe(org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev.testAutoSave_2_oe(TestFileBasedConfigurationBuilder_OE25Dev.java:613)
+
+[INFO] Running org.apache.commons.configuration2.builder.TestDefaultReloadingDetectorFactory_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDefaultReloadingDetectorFactory_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestDatabaseBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDatabaseBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDatabaseBuilderParametersImpl_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestDefaultParametersManager_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDefaultParametersManager_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev
+[ERROR] testReloadingDetectorNoFileHandler_1_oe(org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev.testReloadingDetectorNoFileHandler_1_oe(TestReloadingFileBasedConfigurationBuilder_OE25Dev.java:266)
+
+[INFO] Running org.apache.commons.configuration2.builder.TestJndiBuilderParametersImpl_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestJndiBuilderParametersImpl_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev
+[ERROR] Tests run: 4, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev
+[ERROR] testSetReloadingDetectorFactory_1_oe(org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev.testSetReloadingDetectorFactory_1_oe(TestFileBasedBuilderParameters_OE25Dev.java:369)
+
+[ERROR] testInitDefaults_2_oe(org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev.testInitDefaults_2_oe(TestFileBasedBuilderParameters_OE25Dev.java:361)
+
+[ERROR] testFromMapNull_1_oe(org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev.testFromMapNull_1_oe(TestFileBasedBuilderParameters_OE25Dev.java:347)
+
+[INFO] Running org.apache.commons.configuration2.builder.TestEventListenerParameters_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestEventListenerParameters_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.fluent.TestConfigurations_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestConfigurations_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestConfigurations_OE25Dev
 [INFO] Running org.apache.commons.configuration2.builder.fluent.TestParameters_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestParameters_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestParameters_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestCatalogResolver_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestCatalogResolver_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev
+[ERROR] Tests run: 8, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev
+[ERROR] testGettingSubset_2_oe(org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev.testGettingSubset_2_oe(TestCompositeConfiguration_OE25Dev.java:903)
+
+[ERROR] testList_1_oe(org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<3>
+	at org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev.testList_1_oe(TestCompositeConfiguration_OE25Dev.java:912)
+
+[ERROR] testList_2_oe(org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<2>
+	at org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev.testList_2_oe(TestCompositeConfiguration_OE25Dev.java:927)
+
+[ERROR] testGetKeys2PreservesOrder_1_oe(org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<39>
+	at org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev.testGetKeys2PreservesOrder_1_oe(TestCompositeConfiguration_OE25Dev.java:885)
+
+[ERROR] testCheckingInMemoryConfiguration_2_oe(org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev.testCheckingInMemoryConfiguration_2_oe(TestCompositeConfiguration_OE25Dev.java:871)
+
 [INFO] Running org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev
+[ERROR] testAccessPropertyMulti_4_oe(org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev.testAccessPropertyMulti_4_oe(TestCombinedConfiguration_OE25Dev.java:1104)
+
+[ERROR] testGetConversionExpressionEngineSynchronized_1_oe(org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev.testGetConversionExpressionEngineSynchronized_1_oe(TestCombinedConfiguration_OE25Dev.java:1150)
+
 [INFO] Running org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev
+[ERROR] Tests run: 5, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev
+[ERROR] testClear_2_oe(org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev.testClear_2_oe(TestSubsetConfiguration_OE25Dev.java:344)
+
+[ERROR] testGetList_1_oe(org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<3>
+	at org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev.testGetList_1_oe(TestSubsetConfiguration_OE25Dev.java:356)
+
+[ERROR] testGetProperty_1_oe(org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev.testGetProperty_1_oe(TestSubsetConfiguration_OE25Dev.java:366)
+
 [INFO] Running org.apache.commons.configuration2.TestBaseNullConfiguration_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestBaseNullConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestDataConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.configuration2.TestDataConfiguration_OE25Dev
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.configuration2.TestDataConfiguration_OE25Dev
+[ERROR] testGetKeys_1_oe(org.apache.commons.configuration2.TestDataConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDataConfiguration_OE25Dev.testGetKeys_1_oe(TestDataConfiguration_OE25Dev.java:2362)
+
+[ERROR] testIsEmpty_2_oe(org.apache.commons.configuration2.TestDataConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestDataConfiguration_OE25Dev.testIsEmpty_2_oe(TestDataConfiguration_OE25Dev.java:2381)
+
 [INFO] Running org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev
+[ERROR] testInit_3_oe(org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev.testInit_3_oe(TestPropertiesConfigurationLayout_OE25Dev.java:732)
+
 [INFO] Running org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev
+[ERROR] testGetProperty_integer_2_oe(org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev)  Time elapsed: 0.013 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<37>
+	at org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev.testGetProperty_integer_2_oe(TestYAMLConfiguration_OE25Dev.java:163)
+
+[INFO] Running org.apache.commons.configuration2.TestConfigurationMap_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationMap_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev
+[ERROR] Tests run: 9, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev
+[ERROR] testGettingSubset_2_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testGettingSubset_2_oe(TestNullCompositeConfiguration_OE25Dev.java:504)
+
+[ERROR] testGetKeys2PreservesOrder_1_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<39>
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testGetKeys2PreservesOrder_1_oe(TestNullCompositeConfiguration_OE25Dev.java:495)
+
+[ERROR] testAddRemoveConfigurations_1_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_1_oe(TestNullCompositeConfiguration_OE25Dev.java:428)
+
+[ERROR] testAddRemoveConfigurations_2_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_2_oe(TestNullCompositeConfiguration_OE25Dev.java:435)
+
+[ERROR] testAddRemoveConfigurations_3_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<3>
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_3_oe(TestNullCompositeConfiguration_OE25Dev.java:443)
+
+[ERROR] testAddRemoveConfigurations_4_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_4_oe(TestNullCompositeConfiguration_OE25Dev.java:452)
+
+[ERROR] testCheckingInMemoryConfiguration_2_oe(org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev.testCheckingInMemoryConfiguration_2_oe(TestNullCompositeConfiguration_OE25Dev.java:481)
+
 [INFO] Running org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.049 s <<< FAILURE! - in org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev
+[ERROR] testGetProperty_integer_2_oe(org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev)  Time elapsed: 0.049 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<37>
+	at org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev.testGetProperty_integer_2_oe(TestJSONConfiguration_OE25Dev.java:138)
+
 [INFO] Running org.apache.commons.configuration2.TestDefaultImmutableConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestDefaultImmutableConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestStrictConfigurationComparator_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestStrictConfigurationComparator_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestStrictConfigurationComparator_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestConfigurationSet_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationSet_OE25Dev
+[INFO] Running org.apache.commons.configuration2.TestConfigurationConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationConverter_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev
+[ERROR] testConfigurationValuesInSameOrderWithManualAdd_2_oe(org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<11>
+	at org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev.testConfigurationValuesInSameOrderWithManualAdd_2_oe(TestPropertiesSequence_OE25Dev.java:221)
+
 [INFO] Running org.apache.commons.configuration2.TestMapConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestMapConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.spring.TestConfigurationPropertySource_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertySource_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertySource_OE25Dev
 [INFO] Running org.apache.commons.configuration2.spring.TestConfigurationPropertiesFactoryBean_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertiesFactoryBean_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertiesFactoryBean_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev
+[ERROR] testChildConfigurationsAtSynchronized_1_oe(org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev.testChildConfigurationsAtSynchronized_1_oe(TestBaseHierarchicalConfigurationSynchronization_OE25Dev.java:311)
+
+[ERROR] testConfigurationsAtSynchronized_1_oe(org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev.testConfigurationsAtSynchronized_1_oe(TestBaseHierarchicalConfigurationSynchronization_OE25Dev.java:317)
+
 [INFO] Running org.apache.commons.configuration2.TestBaseConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestBaseConfiguration_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestBaseConfiguration_OE25Dev
+[INFO] Running org.apache.commons.configuration2.TestEqualsProperty_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestEqualsProperty_OE25Dev
+[INFO] Running org.apache.commons.configuration2.TestHierarchicalConfigurationXMLReader_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestHierarchicalConfigurationXMLReader_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev
+[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev
+[ERROR] testUnmodifiableConfigurationAccess_1_oe(org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev.testUnmodifiableConfigurationAccess_1_oe(TestImmutableConfiguration_OE25Dev.java:203)
+
+[ERROR] testImmutableSubset_1_oe(org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev.testImmutableSubset_1_oe(TestImmutableConfiguration_OE25Dev.java:196)
+
 [INFO] Running org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev
+[ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev
+[ERROR] testGetKeys_1_oe(org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev.testGetKeys_1_oe(TestNullJNDIEnvironmentValues_OE25Dev.java:140)
+
 [INFO] Running org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev
+[ERROR] testInit_1_oe(org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev.testInit_1_oe(TestEnvironmentConfiguration_OE25Dev.java:94)
+
 [INFO] Running org.apache.commons.configuration2.TestAbstractConfigurationBasicFeatures_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestAbstractConfigurationBasicFeatures_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestAbstractConfigurationBasicFeatures_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestPatternSubtreeConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestPatternSubtreeConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] Tests run: 13, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] testIterateAttributeEqualsPropertyDelimiter_2_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_2_oe(TestDefaultConfigurationKey_OE25Dev.java:566)
+
+[ERROR] testIterateAttributeEqualsPropertyDelimiter_5_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_5_oe(TestDefaultConfigurationKey_OE25Dev.java:576)
+
+[ERROR] testIterateAttributeEqualsPropertyDelimiter_9_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_9_oe(TestDefaultConfigurationKey_OE25Dev.java:586)
+
+[ERROR] testIterateStrangeKeys_1_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateStrangeKeys_1_oe(TestDefaultConfigurationKey_OE25Dev.java:593)
+
+[ERROR] testIterateWithBrackets_2_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateWithBrackets_2_oe(TestDefaultConfigurationKey_OE25Dev.java:624)
+
+[ERROR] testIterateWithBrackets_4_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterateWithBrackets_4_oe(TestDefaultConfigurationKey_OE25Dev.java:633)
+
+[ERROR] testAttributeKeyWithIndex_2_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testAttributeKeyWithIndex_2_oe(TestDefaultConfigurationKey_OE25Dev.java:539)
+
+[ERROR] testIterate_1_oe(org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev.testIterate_1_oe(TestDefaultConfigurationKey_OE25Dev.java:546)
+
 [INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModelReferences_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModelReferences_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestNodeAddData_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeAddData_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestTrackedNodeHandler_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.tree.TestTrackedNodeHandler_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestTrackedNodeHandler_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestQueryResult_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestQueryResult_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestQueryResult_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestTrackedNodeModel_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestTrackedNodeModel_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestNodeSelector_OE25Dev
@@ -297,75 +658,403 @@ log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more in
 [INFO] Running org.apache.commons.configuration2.tree.TestImmutableNode_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestImmutableNode_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev
+[ERROR] Tests run: 4, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev
+[ERROR] testSetPropertyClearValues_1_oe(org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev.testSetPropertyClearValues_1_oe(TestInMemoryNodeModel_OE25Dev.java:821)
+
+[ERROR] testClearPropertyNode_1_oe(org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev.testClearPropertyNode_1_oe(TestInMemoryNodeModel_OE25Dev.java:792)
+
+[ERROR] testInitDefaultRoot_1_oe(org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev.testInitDefaultRoot_1_oe(TestInMemoryNodeModel_OE25Dev.java:799)
+
+[ERROR] testInitDefaultRoot_2_oe(org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev.testInitDefaultRoot_2_oe(TestInMemoryNodeModel_OE25Dev.java:806)
+
 [INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointer_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointer_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointer_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationAttributePointer_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationAttributePointer_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationAttributePointer_OE25Dev
+[INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathContextFactory_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathContextFactory_OE25Dev
+[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodeIteratorChildren_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodeIteratorChildren_OE25Dev
+[INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngineInConfig_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngineInConfig_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngine_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngine_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngine_OE25Dev
+[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationIteratorAttributes_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationIteratorAttributes_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointerFactory_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointerFactory_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointerFactory_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev
+[ERROR] Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev
+[ERROR] testPrepareAddWithSameAttributeDelimiter_2_oe(org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev.testPrepareAddWithSameAttributeDelimiter_2_oe(TestDefaultExpressionEngine_OE25Dev.java:685)
+
+[ERROR] testPrepareAddDirectly_4_oe(org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev.testPrepareAddDirectly_4_oe(TestDefaultExpressionEngine_OE25Dev.java:675)
+
 [INFO] Running org.apache.commons.configuration2.tree.TestNodeTreeWalker_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeTreeWalker_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestDefaultExpressionEngineSymbols_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngineSymbols_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngineSymbols_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestMergeCombiner_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestMergeCombiner_OE25Dev
 [INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev
+[ERROR] testTrackChildNodeWithCreationNonExisting_3_oe(org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev.testTrackChildNodeWithCreationNonExisting_3_oe(TestInMemoryNodeModelTrackedNodes_OE25Dev.java:853)
+
 [INFO] Running org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev
+[ERROR] Tests run: 13, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.027 s <<< FAILURE! - in org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev
+[ERROR] testArray_3_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testArray_3_oe(TestXMLPropertyListConfiguration_OE25Dev.java:520)
+
+[ERROR] testNestedArray_11_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_11_oe(TestXMLPropertyListConfiguration_OE25Dev.java:612)
+
+[ERROR] testLoadNoDict_1_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testLoadNoDict_1_oe(TestXMLPropertyListConfiguration_OE25Dev.java:566)
+
+[ERROR] testDictionaryArray_3_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_3_oe(TestXMLPropertyListConfiguration_OE25Dev.java:531)
+
+[ERROR] testDictionaryArray_6_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_6_oe(TestXMLPropertyListConfiguration_OE25Dev.java:544)
+
+[ERROR] testDictionaryArray_9_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_9_oe(TestXMLPropertyListConfiguration_OE25Dev.java:559)
+
+[ERROR] testNestedArray_3_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_3_oe(TestXMLPropertyListConfiguration_OE25Dev.java:584)
+
+[ERROR] testNestedArray_6_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_6_oe(TestXMLPropertyListConfiguration_OE25Dev.java:597)
+
+[ERROR] testLoadNoDictConstr_1_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testLoadNoDictConstr_1_oe(TestXMLPropertyListConfiguration_OE25Dev.java:573)
+
+[ERROR] testSubset_7_oe(org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev.testSubset_7_oe(TestXMLPropertyListConfiguration_OE25Dev.java:641)
+
 [INFO] Running org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev
+[ERROR] Tests run: 11, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev
+[ERROR] testArray_2_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testArray_2_oe(TestPropertyListConfiguration_OE25Dev.java:427)
+
+[ERROR] testNestedArrays_3_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testNestedArrays_3_oe(TestPropertyListConfiguration_OE25Dev.java:491)
+
+[ERROR] testNestedArrays_6_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testNestedArrays_6_oe(TestPropertyListConfiguration_OE25Dev.java:504)
+
+[ERROR] testDictionaryArray_3_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testDictionaryArray_3_oe(TestPropertyListConfiguration_OE25Dev.java:438)
+
+[ERROR] testDictionaryArray_6_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testDictionaryArray_6_oe(TestPropertyListConfiguration_OE25Dev.java:451)
+
+[ERROR] testDictionaryArray_9_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testDictionaryArray_9_oe(TestPropertyListConfiguration_OE25Dev.java:466)
+
+[ERROR] testNestedArrays_11_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testNestedArrays_11_oe(TestPropertyListConfiguration_OE25Dev.java:519)
+
+[ERROR] testInitCopy_1_oe(org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev.testInitCopy_1_oe(TestPropertyListConfiguration_OE25Dev.java:480)
+
 [INFO] Running org.apache.commons.configuration2.plist.TestPropertyListParser_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.plist.TestPropertyListParser_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.plist.TestPropertyListParser_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev
+[ERROR] Tests run: 7, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev
+[ERROR] testClearFooterComment_1_oe(org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev.testClearFooterComment_1_oe(TestPropertiesConfiguration_OE25Dev.java:1486)
+
+[ERROR] testClearFooterComment_2_oe(org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev.testClearFooterComment_2_oe(TestPropertiesConfiguration_OE25Dev.java:1492)
+
+[ERROR] testNewLineEscaping_1_oe(org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<0> but was:<3>
+	at org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev.testNewLineEscaping_1_oe(TestPropertiesConfiguration_OE25Dev.java:1526)
+
+[ERROR] testInMemoryCreatedSave_1_oe(org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev.testInMemoryCreatedSave_1_oe(TestPropertiesConfiguration_OE25Dev.java:1520)
+
+[ERROR] testGetHeaderSynchronized_1_oe(org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev.testGetHeaderSynchronized_1_oe(TestPropertiesConfiguration_OE25Dev.java:1506)
+
 [INFO] Running org.apache.commons.configuration2.TestConfigurationLookup_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestDynamicCombinedConfiguration_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestDynamicCombinedConfiguration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev
+[ERROR] Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev
+[ERROR] testGetKeysWithKeyAsPrefix_1_oe(org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev.testGetKeysWithKeyAsPrefix_1_oe(TestAbstractHierarchicalConfiguration_OE25Dev.java:1048)
+
 [INFO] Running org.apache.commons.configuration2.TestINIConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestINIConfiguration_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.configuration2.TestINIConfiguration_OE25Dev
+[ERROR] testSaveClearedSection_1_oe(org.apache.commons.configuration2.TestINIConfiguration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.TestINIConfiguration_OE25Dev.testSaveClearedSection_1_oe(TestINIConfiguration_OE25Dev.java:1076)
+
+[INFO] Running org.apache.commons.configuration2.beanutils.TestCombinedBeanDeclaration_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestCombinedBeanDeclaration_OE25Dev
 [INFO] Running org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev
 [INFO] Running org.apache.commons.configuration2.beanutils.TestDefaultBeanFactory_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestDefaultBeanFactory_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestDefaultBeanFactory_OE25Dev
 [INFO] Running org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev
+[ERROR] testIsNestedBeanDeclarationFalse_1_oe(org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev.testIsNestedBeanDeclarationFalse_1_oe(TestConstructorArg_OE25Dev.java:91)
+
 [INFO] Running org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev
+[ERROR] Tests run: 12, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev
+[ERROR] testGetConstructorArgsNullArg_2_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgsNullArg_2_oe(TestXMLBeanDeclaration_OE25Dev.java:566)
+
+[ERROR] testGetConstructorArgsNullArg_3_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgsNullArg_3_oe(TestXMLBeanDeclaration_OE25Dev.java:577)
+
+[ERROR] testGetConstructorArgs_3_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgs_3_oe(TestXMLBeanDeclaration_OE25Dev.java:543)
+
+[ERROR] testGetConstructorArgs_5_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgs_5_oe(TestXMLBeanDeclaration_OE25Dev.java:555)
+
+[ERROR] testGetBeanFactoryNameUndefinedWithEx_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryNameUndefinedWithEx_1_oe(TestXMLBeanDeclaration_OE25Dev.java:508)
+
+[ERROR] testGetBeanClassNameUndefinedWithEx_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanClassNameUndefinedWithEx_1_oe(TestXMLBeanDeclaration_OE25Dev.java:494)
+
+[ERROR] testGetBeanFactoryNameUndefined_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryNameUndefined_1_oe(TestXMLBeanDeclaration_OE25Dev.java:500)
+
+[ERROR] testGetBeanFactoryParameterUndefined_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryParameterUndefined_1_oe(TestXMLBeanDeclaration_OE25Dev.java:514)
+
+[ERROR] testGetBeanFactoryParameterUndefinedWithEx_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryParameterUndefinedWithEx_1_oe(TestXMLBeanDeclaration_OE25Dev.java:522)
+
+[ERROR] testGetBeanClassNameUndefined_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testGetBeanClassNameUndefined_1_oe(TestXMLBeanDeclaration_OE25Dev.java:486)
+
+[ERROR] testInitFromUndefinedKeyOptional_1_oe(org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev.testInitFromUndefinedKeyOptional_1_oe(TestXMLBeanDeclaration_OE25Dev.java:585)
+
 [INFO] Running org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
 [INFO] Running org.apache.commons.configuration2.sync.TestReadWriteSynchronizer_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.sync.TestReadWriteSynchronizer_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestSystemPropertiesLookup_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestSystemPropertiesLookup_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestSystemPropertiesLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestDummyLookup_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestDummyLookup_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestDummyLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestInterpolatorSpecification_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestInterpolatorSpecification_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestInterpolatorSpecification_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestEnvironmentLookup_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestEnvironmentLookup_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestEnvironmentLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev
+[ERROR] testEnableSubstitutionInVariables_3_oe(org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev.testEnableSubstitutionInVariables_3_oe(TestConfigurationInterpolator_OE25Dev.java:849)
+
+[INFO] Running org.apache.commons.configuration2.interpol.TestExprLookup_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestExprLookup_OE25Dev
 [INFO] Running org.apache.commons.configuration2.TestXMLListHandling_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestXMLListHandling_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 317, Failures: 0, Errors: 0, Skipped: 0
+[ERROR] Failures: 
+[ERROR]   TestAbstractHierarchicalConfiguration_OE25Dev.testGetKeysWithKeyAsPrefix_1_oe:1048
+[ERROR]   TestBaseHierarchicalConfigurationSynchronization_OE25Dev.testChildConfigurationsAtSynchronized_1_oe:311
+[ERROR]   TestBaseHierarchicalConfigurationSynchronization_OE25Dev.testConfigurationsAtSynchronized_1_oe:317
+[ERROR]   TestCombinedConfiguration_OE25Dev.testAccessPropertyMulti_4_oe:1104
+[ERROR]   TestCombinedConfiguration_OE25Dev.testGetConversionExpressionEngineSynchronized_1_oe:1150
+[ERROR]   TestCompositeConfiguration_OE25Dev.testCheckingInMemoryConfiguration_2_oe:871
+[ERROR]   TestCompositeConfiguration_OE25Dev.testGetKeys2PreservesOrder_1_oe:885 expected:<0> but was:<39>
+[ERROR]   TestCompositeConfiguration_OE25Dev.testGettingSubset_2_oe:903
+[ERROR]   TestCompositeConfiguration_OE25Dev.testList_1_oe:912 expected:<1> but was:<3>
+[ERROR]   TestCompositeConfiguration_OE25Dev.testList_2_oe:927 expected:<0> but was:<2>
+[ERROR]   TestDataConfiguration_OE25Dev.testGetKeys_1_oe:2362
+[ERROR]   TestDataConfiguration_OE25Dev.testIsEmpty_2_oe:2381
+[ERROR]   TestDatabaseConfiguration_OE25Dev.testClearSubset_2_oe:548
+[ERROR]   TestDatabaseConfiguration_OE25Dev.testGetKeys_1_oe:556
+[ERROR]   TestDatabaseConfiguration_OE25Dev.testGetList_1_oe:589 expected:<0> but was:<3>
+[ERROR]   TestDatabaseConfiguration_OE25Dev.testIsEmptyMultiple_1_oe:595
+[ERROR]   TestDatabaseConfiguration_OE25Dev.testIsEmptySingle_1_oe:601
+[ERROR]   TestEnvironmentConfiguration_OE25Dev.testInit_1_oe:94
+[ERROR]   TestINIConfiguration_OE25Dev.testSaveClearedSection_1_oe:1076
+[ERROR]   TestImmutableConfiguration_OE25Dev.testImmutableSubset_1_oe:196
+[ERROR]   TestImmutableConfiguration_OE25Dev.testUnmodifiableConfigurationAccess_1_oe:203
+[ERROR]   TestJNDIEnvironmentValues_OE25Dev.testGetKeys_1_oe:141
+[ERROR]   TestJSONConfiguration_OE25Dev.testGetProperty_integer_2_oe:138 expected:<0> but was:<37>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_1_oe:428 expected:<1> but was:<2>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_2_oe:435 expected:<1> but was:<2>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_3_oe:443 expected:<0> but was:<3>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testAddRemoveConfigurations_4_oe:452 expected:<1> but was:<2>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testCheckingInMemoryConfiguration_2_oe:481
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testGetKeys2PreservesOrder_1_oe:495 expected:<0> but was:<39>
+[ERROR]   TestNullCompositeConfiguration_OE25Dev.testGettingSubset_2_oe:504
+[ERROR]   TestNullJNDIEnvironmentValues_OE25Dev.testGetKeys_1_oe:140
+[ERROR]   TestPropertiesConfigurationLayout_OE25Dev.testInit_3_oe:732
+[ERROR]   TestPropertiesConfiguration_OE25Dev.testClearFooterComment_1_oe:1486
+[ERROR]   TestPropertiesConfiguration_OE25Dev.testClearFooterComment_2_oe:1492
+[ERROR]   TestPropertiesConfiguration_OE25Dev.testGetHeaderSynchronized_1_oe:1506
+[ERROR]   TestPropertiesConfiguration_OE25Dev.testInMemoryCreatedSave_1_oe:1520
+[ERROR]   TestPropertiesConfiguration_OE25Dev.testNewLineEscaping_1_oe:1526 expected:<0> but was:<3>
+[ERROR]   TestPropertiesSequence_OE25Dev.testConfigurationValuesInSameOrderWithManualAdd_2_oe:221 expected:<1> but was:<11>
+[ERROR]   TestSubsetConfiguration_OE25Dev.testClear_2_oe:344
+[ERROR]   TestSubsetConfiguration_OE25Dev.testGetList_1_oe:356 expected:<0> but was:<3>
+[ERROR]   TestSubsetConfiguration_OE25Dev.testGetProperty_1_oe:366
+[ERROR]   TestThreesomeConfiguration_OE25Dev.testList3_1_oe:70 expected:<1> but was:<3>
+[ERROR]   TestXMLConfiguration_OE25Dev.testClone_3_oe:1596
+[ERROR]   TestXMLConfiguration_OE25Dev.testgetProperty_16_oe:1761 expected:<1> but was:<2>
+[ERROR]   TestXMLConfiguration_OE25Dev.testgetProperty_21_oe:1785 expected:<0> but was:<4>
+[ERROR]   TestXMLConfiguration_OE25Dev.testgetProperty_28_oe:1838 expected:<1> but was:<2>
+[ERROR]   TestXMLDocumentHelper_OE25Dev.testInitForNewDocument_3_oe:300
+[ERROR]   TestXMLDocumentHelper_OE25Dev.testInitForNewDocument_4_oe:309
+[ERROR]   TestYAMLConfiguration_OE25Dev.testGetProperty_integer_2_oe:163 expected:<1> but was:<37>
+[ERROR]   TestConstructorArg_OE25Dev.testIsNestedBeanDeclarationFalse_1_oe:91
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanClassNameUndefinedWithEx_1_oe:494
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanClassNameUndefined_1_oe:486
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryNameUndefinedWithEx_1_oe:508
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryNameUndefined_1_oe:500
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryParameterUndefinedWithEx_1_oe:522
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetBeanFactoryParameterUndefined_1_oe:514
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgsNullArg_2_oe:566
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgsNullArg_3_oe:577
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgs_3_oe:543
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testGetConstructorArgs_5_oe:555
+[ERROR]   TestXMLBeanDeclaration_OE25Dev.testInitFromUndefinedKeyOptional_1_oe:585
+[ERROR]   TestFileBasedBuilderParameters_OE25Dev.testFromMapNull_1_oe:347
+[ERROR]   TestFileBasedBuilderParameters_OE25Dev.testInitDefaults_2_oe:361
+[ERROR]   TestFileBasedBuilderParameters_OE25Dev.testSetReloadingDetectorFactory_1_oe:369
+[ERROR]   TestFileBasedConfigurationBuilder_OE25Dev.testAutoSave_2_oe:613
+[ERROR]   TestFileBasedConfigurationBuilder_OE25Dev.testSetLocationNoFileHandler_1_oe:676
+[ERROR]   TestReloadingFileBasedConfigurationBuilder_OE25Dev.testReloadingDetectorNoFileHandler_1_oe:266
+[ERROR]   TestCombinedBuilderParametersImpl_OE25Dev.testFromParametersCreate_2_oe:385
+[ERROR]   TestCombinedBuilderParametersImpl_OE25Dev.testSetDefinitionBuilder_1_oe:414
+[ERROR]   TestCombinedConfigurationBuilder_OE25Dev.testEnvironmentProperties_1_oe:1217
+[ERROR]   TestEventSource_OE25Dev.testSetDetailEvents_2_oe:332
+[ERROR]   TestConfigurationInterpolator_OE25Dev.testEnableSubstitutionInVariables_3_oe:849
+[ERROR]   TestConfigurationLogger_OE25Dev.testIsDebugEnabled_1_oe:267
+[ERROR]   TestConfigurationLogger_OE25Dev.testSubClass_1_oe:290
+[ERROR]   TestFileHandler_OE25Dev.testClearLocation_1_oe:1409
+[ERROR]   TestFileHandler_OE25Dev.testClearLocation_2_oe:1417
+[ERROR]   TestFileHandler_OE25Dev.testClearLocation_3_oe:1425
+[ERROR]   TestFileHandler_OE25Dev.testIsLocationDefinedFileName_1_oe:1439
+[ERROR]   TestFileHandler_OE25Dev.testSetBasePath_2_oe:1472
+[ERROR]   TestFileHandler_OE25Dev.testSetBasePath_3_oe:1482
+[ERROR]   TestFileHandler_OE25Dev.testSetURLNull_3_oe:1504
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testArray_2_oe:427
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testDictionaryArray_3_oe:438
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testDictionaryArray_6_oe:451
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testDictionaryArray_9_oe:466
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testInitCopy_1_oe:480
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testNestedArrays_11_oe:519
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testNestedArrays_3_oe:491
+[ERROR]   TestPropertyListConfiguration_OE25Dev.testNestedArrays_6_oe:504
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testArray_3_oe:520
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_3_oe:531
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_6_oe:544
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testDictionaryArray_9_oe:559
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testLoadNoDictConstr_1_oe:573
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testLoadNoDict_1_oe:566
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_11_oe:612
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_3_oe:584
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testNestedArray_6_oe:597
+[ERROR]   TestXMLPropertyListConfiguration_OE25Dev.testSubset_7_oe:641
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredFileDoesNotExist_1_oe:237
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredNoLocation_1_oe:243
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testIsReloadingRequiredTrue_1_oe:254
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testRefreshDelay_1_oe:265
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testRefreshDelay_2_oe:276
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testRefreshReloadingAndReset_1_oe:301
+[ERROR]   TestFileHandlerReloadingDetector_OE25Dev.testReloadingAndReset_1_oe:327
+[ERROR]   TestManagedReloadingDetector_OE25Dev.testReloadingPerformed_1_oe:83
+[ERROR]   TestReloadingController_OE25Dev.testResetReloadingState_1_oe:188
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testAttributeKeyWithIndex_2_oe:539
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_2_oe:566
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_5_oe:576
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateAttributeEqualsPropertyDelimiter_9_oe:586
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateStrangeKeys_1_oe:593
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateWithBrackets_2_oe:624
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterateWithBrackets_4_oe:633
+[ERROR]   TestDefaultConfigurationKey_OE25Dev.testIterate_1_oe:546
+[ERROR]   TestDefaultExpressionEngine_OE25Dev.testPrepareAddDirectly_4_oe:675
+[ERROR]   TestDefaultExpressionEngine_OE25Dev.testPrepareAddWithSameAttributeDelimiter_2_oe:685
+[ERROR]   TestInMemoryNodeModelTrackedNodes_OE25Dev.testTrackChildNodeWithCreationNonExisting_3_oe:853
+[ERROR]   TestInMemoryNodeModel_OE25Dev.testClearPropertyNode_1_oe:792
+[ERROR]   TestInMemoryNodeModel_OE25Dev.testInitDefaultRoot_1_oe:799
+[ERROR]   TestInMemoryNodeModel_OE25Dev.testInitDefaultRoot_2_oe:806
+[ERROR]   TestInMemoryNodeModel_OE25Dev.testSetPropertyClearValues_1_oe:821
+[INFO] 
+[ERROR] Tests run: 310, Failures: 123, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.329 s
-[INFO] Finished at: 2026-03-03T21:32:16-06:00
+[INFO] Total time:  5.447 s
+[INFO] Finished at: 2026-03-08T00:29:32-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-configuration2: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

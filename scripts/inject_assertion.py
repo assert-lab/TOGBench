@@ -1,7 +1,7 @@
 # python3 scripts/inject_assertion.py \
-#   --inputs projects_decomposed/joda-time/dataset/inputs_no_assert.csv \
-#   --preds  /home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/joda-time/oracle_preds.csv \
-#   --out    projects_decomposed/joda-time/dataset/inputs_llm.csv
+#   --inputs projects_decomposed/commons-configuration2/dataset/inputs_no_assert.csv \
+#   --preds  /home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/commons-configuration2/oracle_preds.csv \
+#   --out    projects_decomposed/commons-configuration2/dataset/inputs_llm.csv
 
 import argparse
 from pathlib import Path
